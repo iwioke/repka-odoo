@@ -1,0 +1,178 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repka_fleet_battery
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20251222\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__active
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__active
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_fleet_battery
+#: model:ir.actions.act_window,name:repka_fleet_battery.action_ufs_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle__battery_ids
+#: model:ir.ui.menu,name:repka_fleet_battery.menu_fleet_batteries
+#: model:ir.ui.menu,name:repka_fleet_battery.menu_fleet_battery_configuration
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_fleet_vehicle_form_batteries
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_list
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_search
+msgid "Batteries"
+msgstr "Аккумуляторы"
+
+#. module: repka_fleet_battery
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_form
+msgid "Battery"
+msgstr "Аккумулятор"
+
+#. module: repka_fleet_battery
+#: model:ir.actions.act_window,name:repka_fleet_battery.action_ufs_fleet_battery_capacity
+#: model:ir.ui.menu,name:repka_fleet_battery.menu_fleet_battery_capacity
+msgid "Battery Capacity"
+msgstr "Ёмкость аккумулятора"
+
+#. module: repka_fleet_battery
+#: model:res.groups,name:repka_fleet_battery.group_battery_manager
+msgid "Battery Manager"
+msgstr "Менеджер аккумуляторов"
+
+#. module: repka_fleet_battery
+#: model:ir.model,name:repka_fleet_battery.model_fleet_vehicle_battery_producer
+msgid "Battery Producer"
+msgstr "Производитель аккумуляторов"
+
+#. module: repka_fleet_battery
+#: model:ir.actions.act_window,name:repka_fleet_battery.action_fleet_vehicle_battery_producer
+#: model:ir.ui.menu,name:repka_fleet_battery.menu_fleet_battery_producers
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_fleet_vehicle_battery_producer_list
+msgid "Battery Producers"
+msgstr "Производители аккумуляторов"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__capacity_id
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__name
+msgid "Capacity"
+msgstr "Ёмкость"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__create_uid
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__create_uid
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__create_date
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__create_date
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__create_date
+msgid "Created on"
+msgstr "Создано"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__display_name
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__display_name
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__display_name
+msgid "Display Name"
+msgstr "Отображаемое название"
+
+#. module: repka_fleet_battery
+#: model:ir.model,name:repka_fleet_battery.model_ufs_fleet_battery
+msgid "Fleet Battery"
+msgstr "Аккумулятор"
+
+#. module: repka_fleet_battery
+#: model:ir.model,name:repka_fleet_battery.model_ufs_fleet_battery_capacity
+msgid "Fleet Battery Capacity"
+msgstr "Ёмкость аккумулятора"
+
+#. module: repka_fleet_battery
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_search
+msgid "Group By"
+msgstr "Группировать"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__attachment_file
+msgid "Guarantee"
+msgstr "Гарантия"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__id
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__id
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__installation_date
+msgid "Inst."
+msgstr "Установлен"
+
+#. module: repka_fleet_battery
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_search
+msgid "Installation Month"
+msgstr "Месяц установки"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__write_uid
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__write_uid
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__write_uid
+msgid "Last Updated by"
+msgstr "Последний раз обновил"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__write_date
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__write_date
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery_capacity__write_date
+msgid "Last Updated on"
+msgstr "Последнее обновление"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__manufacturer_id
+msgid "Manufacturer"
+msgstr "Производитель"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__notes
+msgid "Notes"
+msgstr "Примечания"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_fleet_vehicle_battery_producer__partner_id
+msgid "Partner Link"
+msgstr "Связанный контакт"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__name
+msgid "S/N"
+msgstr "Серийный номер"
+
+#. module: repka_fleet_battery
+#: model:ir.module.category,name:repka_fleet_battery.module_category_ufs_tech
+msgid "UFS Tech"
+msgstr "Технические роли UFS"
+
+#. module: repka_fleet_battery
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__utilization_date
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_search
+msgid "Utilized"
+msgstr "Утилизирован"
+
+#. module: repka_fleet_battery
+#: model:ir.model,name:repka_fleet_battery.model_fleet_vehicle
+#: model:ir.model.fields,field_description:repka_fleet_battery.field_ufs_fleet_battery__vehicle_id
+#: model_terms:ir.ui.view,arch_db:repka_fleet_battery.view_ufs_fleet_battery_search
+msgid "Vehicle"
+msgstr "Транспортное средство"

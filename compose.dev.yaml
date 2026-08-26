@@ -1,0 +1,10 @@
+services:
+  odoo:
+    ports:
+      - "127.0.0.1:${ODOO_HTTP_PORT:-8069}:8069"
+    command:
+      - odoo
+      - --database=${ODOO_DB_NAME:-repka}
+      - --db-filter=^${ODOO_DB_NAME:-repka}$$
+      - --workers=0
+      - --dev=reload,qweb,werkzeug,xml

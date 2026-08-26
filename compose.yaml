@@ -1,0 +1,77 @@
+name: ${COMPOSE_PROJECT_NAME:-repka-odoo}
+
+services:
+  db:
+    image: postgres:16.14-bookworm@sha256:64154d0babcb1741988719e703419af0382b19953706149f9872fbd0f438efa8
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgresql_password
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    secrets:
+      - postgresql_password
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    security_opt:
+      - no-new-privileges:true
+
+  odoo:
+    image: odoo:18.0-20251222@sha256:d97b033cc20156af2bbbdf29c8f7a127a4c25e60ed5152758af815164527adfb
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: odoo
+      PASSWORD_FILE: /run/secrets/postgresql_password
+    command:
+      - odoo
+      - --database=${ODOO_DB_NAME:-repka}
+      - --db-filter=^${ODOO_DB_NAME:-repka}$$
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./config:/etc/odoo:ro
+      - ./addons:/mnt/extra-addons:ro
+      - ./scripts/container:/opt/repka/scripts:ro
+    secrets:
+      - postgresql_password
+      - odoo_admin_password
+    expose:
+      - "8069"
+      - "8072"
+    networks:
+      - backend
+      - frontend
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8069/web/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    security_opt:
+      - no-new-privileges:true
+
+secrets:
+  postgresql_password:
+    file: ./secrets/postgresql_password.txt
+  odoo_admin_password:
+    file: ./secrets/odoo_admin_password.txt
+
+volumes:
+  db-data:
+  odoo-data:
+
+networks:
+  backend:
+    internal: true
+  frontend:

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="module_category_ufs_tech" model="ir.module.category">
+        <field name="name">UFS Tech</field>
+        <field name="sequence">2</field>
+        <field name="visible" eval="True"/>
+    </record>
+
+    <record id="group_battery_manager" model="res.groups">
+        <field name="name">Battery Manager</field>
+        <field name="category_id" ref="repka_fleet_battery.module_category_ufs_tech"/>
+        <field name="implied_ids" eval="[(4, ref('fleet.fleet_group_user'))]"/>
+    </record>
+</odoo>

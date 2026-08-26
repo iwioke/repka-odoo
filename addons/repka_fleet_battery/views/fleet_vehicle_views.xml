@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fleet_vehicle_form_batteries" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.batteries</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="batteries" string="Batteries">
+                    <field name="battery_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="manufacturer_id" options="{'no_create': True}"/>
+                            <field name="capacity_id" options="{'no_create': True}"/>
+                            <field name="installation_date"/>
+                            <field name="utilization_date"/>
+                            <field name="notes"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

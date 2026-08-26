@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ufs_fleet_battery_list" model="ir.ui.view">
+        <field name="name">ufs.fleet.battery.list</field>
+        <field name="model">ufs.fleet.battery</field>
+        <field name="arch" type="xml">
+            <list string="Batteries">
+                <field name="name"/>
+                <field name="manufacturer_id"/>
+                <field name="capacity_id"/>
+                <field name="vehicle_id"/>
+                <field name="installation_date"/>
+                <field name="utilization_date"/>
+                <field name="notes"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ufs_fleet_battery_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.battery.form</field>
+        <field name="model">ufs.fleet.battery</field>
+        <field name="arch" type="xml">
+            <form string="Battery">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="vehicle_id" options="{'no_create': True}"/>
+                            <field name="manufacturer_id" options="{'no_create': True}"/>
+                            <field name="capacity_id" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="installation_date"/>
+                            <field name="utilization_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                        <field name="attachment_file"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ufs_fleet_battery_search" model="ir.ui.view">
+        <field name="name">ufs.fleet.battery.search</field>
+        <field name="model">ufs.fleet.battery</field>
+        <field name="arch" type="xml">
+            <search string="Batteries">
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <filter name="utilized" string="Utilized" domain="[('utilization_date', '!=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_vehicle" string="Vehicle" context="{'group_by': 'vehicle_id'}"/>
+                    <filter name="group_by_installation_month" string="Installation Month" context="{'group_by': 'installation_date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_fleet_vehicle_battery_producer_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.battery.producer.list</field>
+        <field name="model">fleet.vehicle.battery.producer</field>
+        <field name="arch" type="xml">
+            <list string="Battery Producers">
+                <field name="name"/>
+                <field name="partner_id"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="action_ufs_fleet_battery" model="ir.actions.act_window">
+        <field name="name">Batteries</field>
+        <field name="res_model">ufs.fleet.battery</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="repka_fleet_battery.view_ufs_fleet_battery_search"/>
+        <field name="limit">80</field>
+    </record>
+
+    <record id="action_fleet_vehicle_battery_producer" model="ir.actions.act_window">
+        <field name="name">Battery Producers</field>
+        <field name="res_model">fleet.vehicle.battery.producer</field>
+        <field name="view_mode">list,form</field>
+        <field name="limit">80</field>
+    </record>
+
+    <record id="action_ufs_fleet_battery_capacity" model="ir.actions.act_window">
+        <field name="name">Battery Capacity</field>
+        <field name="res_model">ufs.fleet.battery.capacity</field>
+        <field name="view_mode">list,form</field>
+        <field name="limit">80</field>
+    </record>
+</odoo>

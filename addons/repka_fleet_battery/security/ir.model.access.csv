@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ufs_fleet_battery_fleet_user,ufs.fleet.battery fleet user,model_ufs_fleet_battery,fleet.fleet_group_user,1,0,0,0
+access_ufs_fleet_battery_manager,ufs.fleet.battery manager,model_ufs_fleet_battery,repka_fleet_battery.group_battery_manager,1,1,1,0
+access_fleet_vehicle_battery_producer_fleet_user,fleet.vehicle.battery.producer fleet user,model_fleet_vehicle_battery_producer,fleet.fleet_group_user,1,0,0,0
+access_fleet_vehicle_battery_producer_manager,fleet.vehicle.battery.producer manager,model_fleet_vehicle_battery_producer,repka_fleet_battery.group_battery_manager,1,1,1,0
+access_ufs_fleet_battery_capacity_fleet_user,ufs.fleet.battery.capacity fleet user,model_ufs_fleet_battery_capacity,fleet.fleet_group_user,1,0,0,0
+access_ufs_fleet_battery_capacity_manager,ufs.fleet.battery.capacity manager,model_ufs_fleet_battery_capacity,repka_fleet_battery.group_battery_manager,1,1,1,0

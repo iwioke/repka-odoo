@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem
+        id="menu_fleet_batteries"
+        name="Batteries"
+        parent="fleet.fleet_vehicles"
+        action="repka_fleet_battery.action_ufs_fleet_battery"
+        sequence="60"
+    />
+
+    <menuitem
+        id="menu_fleet_battery_configuration"
+        name="Batteries"
+        parent="fleet.fleet_config_settings_menu"
+        sequence="60"
+    />
+
+    <menuitem
+        id="menu_fleet_battery_producers"
+        name="Battery Producers"
+        parent="repka_fleet_battery.menu_fleet_battery_configuration"
+        action="repka_fleet_battery.action_fleet_vehicle_battery_producer"
+        sequence="10"
+    />
+
+    <menuitem
+        id="menu_fleet_battery_capacity"
+        name="Battery Capacity"
+        parent="repka_fleet_battery.menu_fleet_battery_configuration"
+        action="repka_fleet_battery.action_ufs_fleet_battery_capacity"
+        sequence="60"
+    />
+</odoo>
