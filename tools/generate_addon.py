@@ -53,7 +53,7 @@ ORM_FIELDS = {"id", "display_name", "create_uid", "create_date", "write_uid", "w
 # This is a conservative set; Odoo will raise if we try to redefine a field with
 # incompatible params, so we only list the most common ones here.
 STANDARD_SKIP_FIELDS = {
-    "lang", "active", "is_company", "child_ids", "name", "company_id",
+    "lang", "active", "is_company", "child_ids",
     "country_id", "state_id", "city", "street", "street2", "zip",
     "phone", "mobile", "email", "website", "vat", "category_id",
     "parent_id", "type", "function", "title", "user_id", "comment",
@@ -61,73 +61,73 @@ STANDARD_SKIP_FIELDS = {
     "commercial_partner_id", "commercial_company_name",
     "bank_ids", "team_id", "message_bounce",
     "login", "password", "company_ids", "groups_id", "share",
-    "partner_id", "currency_id", "sequence", "logo",
     "account_no", "acc_number", "acc_holder_name", "bank_id",
     "acc_type", "allow_out_payment", "qr_code_valid",
     "model_id", "driver_id", "manager_id", "license_plate", "vin_sn",
-    "acquisition_date", "first_contract_date", "state_id",
+    "partner_id", "currency_id", "sequence", "logo",
+    "report_type", "report_name", "binding_type", "binding_model_id",
+    "acquisition_date", "first_contract_date",
     "seats", "doors", "model_year", "horsepower", "horsepower_tax",
     "power", "co2", "fuel_type", "transmission", "odometer", "odometer_unit",
     "sale_price", "cost", "tag_ids", "car_value",
-    "brand_id", "category_id", "vehicle_count",
+    "brand_id", "vehicle_count",
     "bluebook_value", "bluebook_currency_id",
     "date", "value", "unit",
     "work_phone", "mobile_phone", "work_email", "department_id",
     "job_id", "job_title", "address_id", "address_home_id",
-    "manager_id", "coach_id", "gender", "birthday", "marital",
+    "coach_id", "gender", "birthday", "marital",
     "spouse_complete_name", "spouse_birthdate", "children",
-    "emergency_contact", "emergency_phone", "barcode", "pin",
+    "emergency_contact", "emergency_phone", "pin",
     "resource_id", "resource_calendar_id", "work_location_id",
     "departure_reason", "departure_description", "departure_date",
     "employee_type", "km_home_work", "motor_vehicle",
-    "default_code", "barcode", "list_price", "standard_price",
-    "volume", "weight", "price", "price_extra", "uom_id", "uom_po_id",
+    "default_code", "list_price", "standard_price",
+    "price_extra", "uom_po_id",
     "description_sale", "description_purchase", "description",
     "categ_id", "seller_ids", "taxes_id", "supplier_taxes_id",
     "product_tmpl_id", "attribute_value_ids", "is_product_variant",
     "ref", "move_type", "invoice_date", "invoice_date_due",
     "invoice_payment_term_id", "invoice_line_ids", "line_ids",
-    "partner_bank_id", "journal_id", "fiscal_position_id",
+    "partner_bank_id", "fiscal_position_id",
     "invoice_source_email", "invoice_user_id", "invoice_incoterm_id",
     "invoice_cash_rounding_id", "invoice_payment_state", "invoice_sent",
     "to_check", "narration", "payment_reference", "payment_id",
-    "team_id", "commercial_partner_id", "is_move_sent",
+    "is_move_sent",
     "stock_move_id", "auto_post", "reversed_entry_id",
     "posted_before", "payment_state", "quick_edit_mode",
     "quick_encoding_label", "amount_untaxed", "amount_tax",
     "amount_total", "amount_residual", "amount_untaxed_signed",
     "amount_tax_signed", "amount_total_signed", "amount_residual_signed",
     "amount_total_in_currency_signed", "debit", "credit", "balance",
-    "amount_currency", "amount_residual", "amount_residual_currency",
-    "account_id", "move_id", "display_type", "product_id",
+    "amount_currency", "amount_residual_currency",
+    "display_type", "product_id",
     "product_uom_id", "quantity", "price_unit", "discount",
     "price_subtotal", "price_total", "price_subtotal_signed",
     "tax_ids", "tax_tag_ids", "tax_line_id", "tax_repartition_line_id",
-    "tax_group_id", "tag_ids", "analytic_distribution",
-    "analytic_line_ids", "parent_state", "state",
+    "tax_group_id", "analytic_distribution",
+    "analytic_line_ids", "parent_state",
     "is_rounding_line", "exclude_from_invoice_tab",
     "recompute_tax_line", "debit_cash_basis", "credit_cash_basis",
     "balance_cash_basis", "amount_residual_cash_basis",
     "amount_residual_cash_basis_currency", "move_name",
     "full_reconcile_id", "matched_debit_ids", "matched_credit_ids",
     "reconciled", "account_internal_type", "account_internal_group",
-    "account_root_id", "account_type", "journal_id", "user_type_id",
+    "account_root_id", "account_type", "user_type_id",
     "date_maturity", "tax_exigible", "is_anglo_saxon",
     "company_currency_id", "blocked", "partner_name", "partner_vat",
     "product_type", "is_refund", "reconcilable",
-    "bic", "country_id", "phone", "email", "street", "street2",
-    "zip", "city", "state_id", "code", "address_format",
+    "bic", "address_format",
     "address_view_id", "phone_prefix", "state_level", "vat_label",
     "zip_required", "state_required", "code_digits",
-    "parent_id", "company_registry", "sequence",
+    "company_registry",
     "footer_line", "internal_header", "report_header", "report_footer",
-    "paperformat_id", "external_report_layout_id",
+    "external_report_layout_id",
     "internal_report_layout_id", "font", "primary_color",
     "secondary_color", "social_facebook", "social_linkedin",
     "social_twitter", "social_youtube", "social_instagram",
-    "social_github", "sequence_id", "resource_calendar_id",
-    "partner_gid", "qr_code", "currency_ids",
-    "name", "code", "number", "prefix", "suffix", "padding",
+    "social_github", "sequence_id",
+    "partner_gid", "currency_ids",
+    "prefix", "suffix", "padding",
     "implementation", "use_date_range", "date_range_ids",
     "next_actual", "date_range_name",
 }
@@ -201,14 +201,44 @@ def _is_transient(m):
     return m.get("transient")
 
 
-def _field_line(f, model_name, model_m2m_conflicts=None):
+def _field_line(f, model_name, model_m2m_conflicts=None, model_field_names=None):
     """Generate a single field assignment line."""
     if model_m2m_conflicts is None:
         model_m2m_conflicts = {}
+    if model_field_names is None:
+        model_field_names = set()
     fname = f["name"]
     ttype = f.get("ttype", "char")
     constructor = FIELD_MAP.get(ttype, "fields.Char")
     kwargs = []
+
+    # Skip One2many fields without a valid inverse_name
+    # (mail.thread fields, broken audit data, etc.)
+    if ttype == "one2many":
+        rf = f.get("relation_field")
+        if rf == "res_id":
+            return None  # mail.thread / mail.activity mixin field
+        if not rf or rf == "False" or rf is False:
+            # Create a stub One2many with a dummy inverse_name
+            # This allows views to reference the field without crashing
+            rel = f.get("relation")
+            if rel and rel != "False":
+                kwargs.append(f"comodel_name={_py_str(rel)}")
+                kwargs.append(f'inverse_name="id"')  # dummy inverse
+            else:
+                return None
+            # Skip further processing for stub fields
+            desc = f.get("field_description")
+            if desc:
+                kwargs.append(f"string={_py_str(desc)}")
+            ro = f.get("readonly")
+            if ro:
+                kwargs.append("readonly=True")
+            store = f.get("store")
+            if store is False:
+                kwargs.append("store=False")
+            kwargs_str = ", ".join(kwargs)
+            return f"    {fname} = {constructor}({kwargs_str})"
 
     # field_description / string
     desc = f.get("field_description")
@@ -289,6 +319,32 @@ def _field_line(f, model_name, model_m2m_conflicts=None):
     if ga and ttype in ("integer", "float", "monetary"):
         kwargs.append(f"group_operator={_py_str(ga)}")
 
+    # currency_field for monetary fields — default to currency_id
+    # Only add if the model has a currency_id field (or it's inherited)
+    if ttype == "monetary":
+        # For UFS models, prefer base_currency_id or company_currency_id
+        # since they are more commonly available
+        if model_name.startswith("ufs.") or model_name.startswith("fleet."):
+            if "base_currency_id" in model_field_names:
+                kwargs.append('currency_field="base_currency_id"')
+            elif "company_currency_id" in model_field_names:
+                kwargs.append('currency_field="company_currency_id"')
+            elif "currency_id" in model_field_names:
+                kwargs.append('currency_field="currency_id"')
+            else:
+                constructor = "fields.Float"
+        elif "currency_id" in model_field_names or model_name in (
+            "account.move", "account.move.line", "account.bank.statement",
+            "account.bank.statement.line", "account.payment",
+        ):
+            kwargs.append('currency_field="currency_id"')
+        elif "company_currency_id" in model_field_names:
+            kwargs.append('currency_field="company_currency_id"')
+        elif "base_currency_id" in model_field_names:
+            kwargs.append('currency_field="base_currency_id"')
+        else:
+            constructor = "fields.Float"
+
     # digits
     digits = f.get("digits")
     if digits and ttype == "float":
@@ -313,7 +369,7 @@ def _field_line(f, model_name, model_m2m_conflicts=None):
     return f"    {fname} = {constructor}({kwargs_str})"
 
 
-def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
+def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None, spec_module_name=None, spec_dependencies=None):
     """Generate a Python class for a model."""
     model_name = m["model"]
     class_name = _class_name(model_name)
@@ -321,14 +377,72 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
     is_transient = _is_transient(m)
 
     # Determine _name / _inherit / _description
+    # Check if this model is defined in multiple modules
+    # If this is the first module to define it, use _name; otherwise _inherit
+    modules_str = m.get("modules", "")
+    source_module_name = spec_module_name or ""
+    is_multi_module = "," in modules_str
+    is_first_module = False
+    if is_multi_module:
+        all_modules = [x.strip() for x in modules_str.split(",")]
+        # Use the global UFS dependency graph for transitive deps
+        UFS_DEPS = {
+            "ufs_base": [],
+            "ufs_fleet": ["ufs_base"],
+            "ufs_fleet_fuel_import": ["ufs_fleet"],
+            "ufs_fleet_maintenance": ["ufs_fleet"],
+            "ufs_fleet_tires_base": ["ufs_fleet"],
+            "ufs_fleet_wallet": ["ufs_fleet"],
+            "ufs_fleet_waybill": ["ufs_fleet"],
+            "ufs_forwarding": ["ufs_base", "ufs_fleet"],
+            "ufs_invoices": ["ufs_fleet"],
+            "ufs_invoices_base_reports": ["ufs_invoices"],
+            "ufs_invoices_forwarding": ["ufs_forwarding", "ufs_invoices"],
+            "ufs_complex_reporting": ["ufs_forwarding", "ufs_invoices_base_reports"],
+            "ufs_special_lm": ["ufs_complex_reporting", "ufs_forwarding", "ufs_invoices_base_reports"],
+            "ufs_excel_report": ["ufs_base"],
+       }
+        # Compute transitive deps for this module
+        source_deps = spec_dependencies or []
+        transitive_deps = set(source_deps)
+        to_check = list(source_deps)
+        while to_check:
+            dep = to_check.pop(0)
+            if dep in UFS_DEPS:
+                for td in UFS_DEPS[dep]:
+                    if td not in transitive_deps:
+                        transitive_deps.add(td)
+                        to_check.append(td)
+        # Check if this module is in the list
+        if source_module_name in all_modules:
+            # A module is the "first" (defines the model with _name) only if
+            # none of the OTHER modules in the list are its dependencies.
+            # This handles cases where the audit lists modules in wrong order.
+            other_modules = [mod for mod in all_modules if mod != source_module_name]
+            is_first_module = not any(mod in transitive_deps for mod in other_modules)
+        else:
+            is_first_module = all_modules[0] == source_module_name
+    is_extension = is_multi_module and not is_first_module
     is_standard_extension = model_name in {
         "res.partner", "res.partner.bank", "res.bank", "res.company", "res.country",
         "res.users", "fleet.vehicle", "fleet.vehicle.model", "fleet.vehicle.odometer",
+        "fleet.vehicle.log.services",
+        "fleet.service.type",
         "hr.employee",
         "hr.employee.base", "hr.employee.public", "product.product", "product.template",
         "account.move", "account.move.line", "account.move.send", "ir.sequence",
-        "ir.http", "mail.template", "mail.mail", "mail.compose.message",
+        "ir.http", "ir.ui.view", "ir.actions.act_window", "ir.actions.server",
+        "ir.actions.report", "ir.cron", "ir.rule", "ir.model.data",
+        "ir.attachment", "ir.mail_server", "ir.config_parameter",
+        "mail.template", "mail.mail", "mail.compose.message",
         "mail.thread", "res.config.settings", "ir.model", "model.utils",
+        "report.paperformat", "res.currency", "res.currency.rate",
+        "account.journal", "account.account", "account.payment.term",
+        "account.bank.statement", "account.bank.statement.line",
+        "account.payment", "account.move.send",
+        "uom.uom", "uom.category",
+        "res.lang", "res.country", "res.country.state",
+        "res.groups", "res.partner.category",
     }
 
     # Some standard models are AbstractModel — must use AbstractModel to extend them
@@ -338,6 +452,12 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
     }
 
     # Filter fields
+    # Fields that are needed even for standard extensions (related fields may reference them)
+    KEEP_FOR_RELATED = {"company_id", "partner_id", "currency_id", "sequence", "logo", "name",
+                        "vehicle_id", "employee_id", "order_id", "trip_id"}
+    # Related fields that reference fields not in this model's own fields — skip them
+    # to avoid setup errors (the field will be added later when the dependency is available)
+    own_field_names_in_spec = {f["name"] for f in fields_list}
     own_fields = []
     for f in fields_list:
         fname = f["name"]
@@ -345,14 +465,47 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
             continue
         if is_standard_extension and fname in STANDARD_SKIP_FIELDS:
             # Skip fields that standard Odoo already defines to avoid conflicts
-            continue
+            # But keep fields that other related fields may reference
+            if fname not in KEEP_FOR_RELATED:
+                continue
+        # Skip related fields whose first dependency is not in this model's fields
+        # and not a standard field — this avoids KeyError during setup
+        # DISABLED: This was causing valid related fields to be skipped
+        # related = f.get("related")
+        # if related and not is_standard_extension:
+        #     first_dep = related.split(".")[0]
+        #     if first_dep not in own_field_names_in_spec and first_dep not in KEEP_FOR_RELATED:
+        #         continue
         own_fields.append(f)
+
+    # Sort fields so that related fields come after their dependencies
+    # e.g. company_currency_id (related="company_id.currency_id") must come after company_id
+    own_field_names = {f["name"] for f in own_fields}
+    def _field_sort_key(f):
+        related = f.get("related") or ""
+        # Extract the first field name from the related path
+        if related:
+            first_dep = related.split(".")[0]
+            # If the dependency is in this model's fields, it should come first
+            if first_dep in own_field_names and first_dep != f["name"]:
+                return 1  # comes after
+        return 0
+    own_fields.sort(key=_field_sort_key)
+
+    # Set of all field names for this model (for currency_field detection)
+    model_field_names = {f["name"] for f in fields_list}
+    # For extensions (_inherit), add common currency fields that may be
+    # defined in the parent module but not in this spec
+    # Only add currency_id and company_currency_id which are more commonly available
+    # base_currency_id is UFS-specific and may not exist on the parent model
+    if is_standard_extension or is_extension:
+        model_field_names |= {"currency_id", "company_currency_id"}
 
     # Build inheritance list
     inherits = []
-    if _model_has_mail_thread(m) and not is_standard_extension:
+    if _model_has_mail_thread(m) and not is_standard_extension and not is_extension:
         inherits.append("mail.thread")
-    if _model_has_mail_activity(m) and not is_standard_extension:
+    if _model_has_mail_activity(m) and not is_standard_extension and not is_extension:
         inherits.append("mail.activity.mixin")
 
     lines = []
@@ -361,16 +514,18 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
         lines.append(f"class {class_name}(models.AbstractModel):")
         lines.append(f'    _name = "{model_name}"')
         lines.append(f'    _description = "{m.get("name", model_name)}"')
+    elif is_standard_extension or is_extension:
+        if model_name in STANDARD_ABSTRACT:
+            lines.append(f"class {class_name}(models.AbstractModel):")
+        elif is_transient:
+            lines.append(f"class {class_name}(models.TransientModel):")
+        else:
+            lines.append(f"class {class_name}(models.Model):")
+        lines.append(f'    _inherit = "{model_name}"')
     elif is_transient:
         lines.append(f"class {class_name}(models.TransientModel):")
         lines.append(f'    _name = "{model_name}"')
         lines.append(f'    _description = "{m.get("name", model_name)}"')
-    elif is_standard_extension:
-        if model_name in STANDARD_ABSTRACT:
-            lines.append(f"class {class_name}(models.AbstractModel):")
-        else:
-            lines.append(f"class {class_name}(models.Model):")
-        lines.append(f'    _inherit = "{model_name}"')
     else:
         lines.append(f"class {class_name}(models.Model):")
         lines.append(f'    _name = "{model_name}"')
@@ -381,9 +536,18 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
     if order and order != "id" and not is_standard_extension:
         lines.append(f'    _order = "{order}"')
 
-    # Inheritance
+    # Inheritance (mail.thread, mail.activity.mixin)
     if inherits:
-        lines.append(f'    _inherit = {inherits!r}')
+        # If we already have _inherit (from standard_extension or is_extension),
+        # combine them into a list
+        combined = [model_name] + inherits
+        # Replace the existing _inherit line
+        for i, line in enumerate(lines):
+            if line.strip().startswith("_inherit ="):
+                lines[i] = f'    _inherit = {combined!r}'
+                break
+        else:
+            lines.append(f'    _inherit = {inherits!r}')
 
     if not own_fields and is_standard_extension:
         lines.append("    # No ufs_base-owned fields captured for this extension")
@@ -391,7 +555,9 @@ def _generate_model_class(m, fields_list, all_model_names, m2m_conflicts=None):
         lines.append("    # No fields captured")
 
     for f in own_fields:
-        lines.append(_field_line(f, model_name, m2m_conflicts))
+        line = _field_line(f, model_name, m2m_conflicts, model_field_names)
+        if line:
+            lines.append(line)
 
     return "\n".join(lines)
 
@@ -445,7 +611,7 @@ def _group_models(models):
     return groups
 
 
-def generate(spec, addon_dir, addon_name, depends_extra=None):
+def generate(spec, addon_dir, addon_name, depends_extra=None, manifest_name=None, summary=None):
     depends_extra = depends_extra or []
     os.makedirs(addon_dir, exist_ok=True)
     models_dir = os.path.join(addon_dir, "models")
@@ -473,6 +639,10 @@ def generate(spec, addon_dir, addon_name, depends_extra=None):
                 m2m_groups[(model, f["relation"])].append(f["name"])
     m2m_conflicts = {k: v for k, v in m2m_groups.items() if len(v) > 1}
 
+    # Source module name (to determine if this is the first module to define a model)
+    spec_module_name = spec.get("module", {}).get("name", "")
+    spec_dependencies = spec.get("module", {}).get("dependencies", [])
+
     # Group models
     groups = _group_models(spec["models"])
 
@@ -486,7 +656,7 @@ def generate(spec, addon_dir, addon_name, depends_extra=None):
         lines = ["from odoo import fields, models", ""]
         for m in sorted(model_list, key=lambda x: x["model"]):
             flist = fields_by_model.get(m["model"], [])
-            lines.append(_generate_model_class(m, flist, all_model_names, m2m_conflicts))
+            lines.append(_generate_model_class(m, flist, all_model_names, m2m_conflicts, spec_module_name, spec_dependencies))
             lines.append("")
         with open(os.path.join(models_dir, filename), "w", encoding="utf-8") as fh:
             fh.write("\n".join(lines))
@@ -516,6 +686,29 @@ def generate(spec, addon_dir, addon_name, depends_extra=None):
         "account": "account",
         "web_boolean_button": "repka_web_boolean_button",
         "binary_preview_icon": "repka_binary_preview_icon",
+        "chatter_attachment_share": "repka_chatter_attachment_share",
+        "correspondent_bank": "repka_correspondent_bank",
+        "currency_rate_update_nbrb_ab": "repka_currency_rate_nbrb",
+        "currency_numeric_codes": "repka_currency_numeric_codes",
+        "fa_icon_widget": "repka_fa_icon_widget",
+        "leaflet_map_action": "repka_leaflet_map_action",
+        "tree_open_by_ref": "repka_tree_open_by_ref",
+        "tree_view_clipboard_copy": "repka_tree_view_clipboard_copy",
+        "ufs_base": "repka_logistics_core",
+        "ufs_fleet": "repka_fleet",
+        "ufs_fleet_simple_battery": "repka_fleet_battery",
+        "ufs_fleet_fuel_import": "repka_fleet_fuel_import",
+        "ufs_fleet_maintenance": "repka_fleet_maintenance",
+        "ufs_fleet_tires_base": "repka_fleet_tires",
+        "ufs_fleet_wallet": "repka_fleet_wallet",
+        "ufs_fleet_waybill": "repka_fleet_waybill",
+        "ufs_forwarding": "repka_forwarding",
+        "ufs_invoices": "repka_invoices",
+        "ufs_invoices_base_reports": "repka_invoices_base_reports",
+        "ufs_invoices_forwarding": "repka_invoices_forwarding",
+        "ufs_complex_reporting": "repka_complex_reporting",
+        "ufs_special_lm": "repka_special_lm",
+        "ufs_excel_report": "repka_excel_report",
     }
     mapped_deps = []
     for d in source_deps:
@@ -531,11 +724,11 @@ def generate(spec, addon_dir, addon_name, depends_extra=None):
 
     manifest_lines = [
         "{",
-        f'    "name": "РЕПКА: Логистическое ядро",',
+        f'    "name": "{manifest_name or "РЕПКА: " + addon_name}",',
         '    "version": "18.0.1.0.0",',
         '    "category": "Services/Logistics",',
-        '    "summary": "Clean-room reconstruction of the logistics foundation",',
-        '    "description": "РЕПКА logistics core — clean-room reconstruction from audited metadata.",',
+        f'    "summary": "{summary or "Clean-room reconstruction from audited metadata"}",',
+        '    "description": "РЕПКА — clean-room reconstruction from audited metadata.",',
         '    "author": "РЕПКА",',
         '    "website": "https://github.com/iwioke/repka-odoo",',
         '    "license": "LGPL-3",',
@@ -593,6 +786,16 @@ STANDARD_GROUP_MAP = {
     6: "base.group_partner_manager",
     7: "base.group_no_one",
     8: "base.group_erp_manager",
+    9: "base.group_partner_manager",  # Extra Rights / Contact Creation
+    10: "base.group_system",
+    11: "base.group_user",
+    12: "base.group_portal",
+    13: "base.group_public",
+    14: "base.group_no_one",
+    15: "base.group_multi_company",
+    16: "base.group_erp_manager",
+    17: "base.group_partner_manager",
+    18: "base.group_system",
 }
 
 
@@ -624,13 +827,21 @@ def _generate_security(spec, security_dir, addon_name):
         lines.append(f'    </record>')
 
     # Groups
+    cat_ids_in_spec = {c.get("id") for c in spec.get("module_counts", [])}
+    # Also check module_categories
+    cat_ids_in_spec |= {c.get("id") for c in spec.get("module_categories", [])}
     for g in spec.get("groups", []):
         gid = g.get("id")
         name = g.get("name")
         cat = g.get("category_id")
         cat_ref = ""
         if cat and isinstance(cat, list) and cat[0]:
-            cat_ref = f' ref="module_category_{cat[0]}"'
+            # Only reference category if it's defined in this spec
+            if cat[0] in cat_ids_in_spec:
+                cat_ref = f' ref="module_category_{cat[0]}"'
+            else:
+                # Use a generic category name based on the addon
+                cat_ref = ''  # skip category_id if not defined
         lines.append(f'    <record id="group_{gid}" model="res.groups">')
         lines.append(f'        <field name="name">{_xml_escape(name)}</field>')
         if cat_ref:
@@ -700,6 +911,11 @@ def _generate_acl(spec, security_dir, addon_name):
         group_ref = ""
         if gid and isinstance(gid, list) and gid[0]:
             group_ref = _group_ref(gid[0])
+            # Skip ACLs for groups we can't map (not standard, not in this module)
+            if group_ref.startswith("group_") and not any(
+                g.get("id") == gid[0] for g in spec.get("groups", [])
+            ):
+                continue
         pr = 1 if a.get("perm_read") else 0
         pw = 1 if a.get("perm_write") else 0
         pc = 1 if a.get("perm_create") else 0
@@ -718,6 +934,15 @@ def _xml_escape(s):
 def _generate_views(spec, views_dir, addon_name, all_model_names=None):
     if all_model_names is None:
         all_model_names = {m["model"] for m in spec.get("models", [])}
+
+    # Build a map from view ID -> xml_id for inherit_id resolution
+    view_id_to_xmlid = {}
+    for v in spec.get("views", []):
+        vid = v.get("id")
+        xml_id = v.get("xml_id")
+        if vid and xml_id:
+            view_id_to_xmlid[vid] = xml_id
+
     lines = ['<?xml version="1.0" encoding="utf-8"?>', '<odoo>', '<data>']
     for v in spec.get("views", []):
         vid = v.get("id")
@@ -741,16 +966,37 @@ def _generate_views(spec, views_dir, addon_name, all_model_names=None):
             # Standard models we extend
             "res.partner", "res.partner.bank", "res.bank", "res.company", "res.country",
             "res.users", "fleet.vehicle", "fleet.vehicle.model", "fleet.vehicle.odometer",
+            "fleet.vehicle.log.services",
+            "fleet.service.type",
             "hr.employee", "product.product", "account.move", "account.move.line",
             "ir.sequence", "mail.template", "mail.compose.message", "res.config.settings",
         ):
             continue
 
-        # Remove buttons that reference object methods we haven't implemented.
+        # Remove buttons that reference object methods or actions we haven't implemented.
         # In clean-room reconstruction, we only have the schema, not the methods.
-        # All type="object" buttons are stripped to avoid validation errors.
-        arch = re.sub(r'<button\s+[^>]*type="object"[^/]*/>', '', arch)
-        arch = re.sub(r'<button\s+[^>]*type="object"[^>]*>.*?</button>', '', arch, flags=re.DOTALL)
+        # All type="object" and type="action" buttons are stripped to avoid validation errors.
+        # Use a more robust approach: remove all <button> elements including their content
+        # and any orphaned closing tags
+        arch = re.sub(r'<button\b[^>]*>.*?</button>', '', arch, flags=re.DOTALL)
+        arch = re.sub(r'<button\b[^>]*/>', '', arch)
+        arch = re.sub(r'</button>', '', arch)
+
+        # Strip non-standard attributes that Odoo's RNG validator rejects.
+        # These are custom widget attributes from the source system that are not
+        # part of standard Odoo view schema and would cause ParseError.
+        NON_STANDARD_ATTRS = [
+            "ref_field_to_open", "ref_node_to_open", "open_form_view",
+        ]
+        for attr in NON_STANDARD_ATTRS:
+            arch = re.sub(r'\s+' + attr + r'="[^"]*"', '', arch)
+
+        # Validate the arch XML — skip views with broken XML
+        try:
+            import xml.etree.ElementTree as ET
+            ET.fromstring(arch)
+        except ET.ParseError:
+            continue  # Skip views with invalid XML
 
         # Fix XML comments with double hyphens (invalid in XML)
         # Replace <!-- ... --!> and nested -- patterns
@@ -760,14 +1006,39 @@ def _generate_views(spec, views_dir, addon_name, all_model_names=None):
         # Skip inherited views that target standard Odoo views — these often
         # reference fields/positions that differ between Odoo versions and
         # require manual reconstruction. Primary views are always included.
-        if inherit_id and isinstance(inherit_id, list) and inherit_id[1]:
-            inh_xmlid = inherit_id[1]
+        REPKA_MODULE_MAP = {
+            "ufs_base": "repka_logistics_core",
+            "ufs_fleet": "repka_fleet",
+            "ufs_forwarding": "repka_forwarding",
+            "ufs_fleet_wallet": "repka_fleet_wallet",
+            "ufs_fleet_waybill": "repka_fleet_waybill",
+            "ufs_fleet_tires_base": "repka_fleet_tires",
+            "ufs_fleet_maintenance": "repka_fleet_maintenance",
+            "ufs_fleet_fuel_import": "repka_fleet_fuel_import",
+            "ufs_invoices": "repka_invoices",
+            "ufs_invoices_base_reports": "repka_invoices_base_reports",
+            "ufs_invoices_forwarding": "repka_invoices_forwarding",
+            "ufs_complex_reporting": "repka_complex_reporting",
+            "ufs_special_lm": "repka_special_lm",
+            "ufs_excel_report": "repka_excel_report",
+        }
+        UFS_MODULES = set(REPKA_MODULE_MAP.keys()) | set(REPKA_MODULE_MAP.values())
+        if inherit_id and isinstance(inherit_id, list) and inherit_id[0]:
+            # Look up the xml_id of the parent view by its ID
+            inh_id = inherit_id[0]
+            inh_xmlid = view_id_to_xmlid.get(inh_id) or (inherit_id[1] if len(inherit_id) > 1 else None)
             if inh_xmlid and "." in inh_xmlid:
                 inh_module = inh_xmlid.split(".", 1)[0]
-                # Skip inherited views from standard Odoo modules — they need
-                # manual reconstruction to match Odoo 18 view structure
-                if inh_module not in (addon_name, "ufs_base"):
+                # Skip inherited views from standard Odoo modules
+                if inh_module not in UFS_MODULES:
                     continue
+                # Map source module name to repka addon name
+                mapped_module = REPKA_MODULE_MAP.get(inh_module, inh_module)
+                inh_record = inh_xmlid.split(".", 1)[-1]
+                inh_xmlid = f"{mapped_module}.{inh_record}"
+            else:
+                # Can't resolve — skip this view
+                continue
 
         # Use the source xml_id if available, else generate one
         if xml_id:
@@ -782,9 +1053,8 @@ def _generate_views(spec, views_dir, addon_name, all_model_names=None):
             lines.append(f'        <field name="model">{_xml_escape(model)}</field>')
         lines.append(f'        <field name="type">{_xml_escape(vtype)}</field>')
         lines.append(f'        <field name="priority">{priority}</field>')
-        if inherit_id and isinstance(inherit_id, list) and inherit_id[1]:
-            # Inherited view — ref to source xml_id (may need mapping)
-            inh_xmlid = inherit_id[1] if len(inherit_id) > 1 else None
+        if inherit_id and isinstance(inherit_id, list) and inherit_id[0]:
+            # Inherited view — ref to source xml_id (already resolved above)
             if inh_xmlid:
                 # Map known deprecated xml_ids to their Odoo 18 equivalents
                 INHERIT_MAP = {
@@ -863,6 +1133,9 @@ def _generate_actions(spec, actions_dir, addon_name):
         code = s.get("code") or ""
         xml_id = s.get("xml_id")
         record_id = xml_id.split(".", 1)[-1] if xml_id and "." in xml_id else f"server_action_{sid}"
+        # Skip server actions with state=code but no code — they would fail validation
+        if state == "code" and not code:
+            continue
         lines.append(f'    <record id="{record_id}" model="ir.actions.server">')
         lines.append(f'        <field name="name">{_xml_escape(name)}</field>')
         if model_tech:
@@ -885,8 +1158,30 @@ def _generate_menus(spec, menus_dir, addon_name):
         156: "account.menu_finance_receivables",  # Invoicing/Customers
     }
 
+    # Collect all menu IDs defined in this spec
+    own_menu_ids = {m.get("id") for m in spec.get("menus", [])}
+
+    # Sort menus so that parents come before children
+    menus_list = list(spec.get("menus", []))
+    menu_by_id = {m.get("id"): m for m in menus_list}
+    sorted_menus = []
+    added = set()
+
+    def _add_menu(mid):
+        if mid in added or mid not in menu_by_id:
+            return
+        m = menu_by_id[mid]
+        parent = m.get("parent_id")
+        if parent and isinstance(parent, list) and parent[0] and parent[0] in own_menu_ids:
+            _add_menu(parent[0])
+        sorted_menus.append(m)
+        added.add(mid)
+
+    for m in menus_list:
+        _add_menu(m.get("id"))
+
     lines = ['<?xml version="1.0" encoding="utf-8"?>', '<odoo>', '<data>']
-    for m in spec.get("menus", []):
+    for m in sorted_menus:
         mid = m.get("id")
         name = m.get("name")
         parent = m.get("parent_id")
@@ -903,14 +1198,13 @@ def _generate_menus(spec, menus_dir, addon_name):
             # Check if it's a standard Odoo menu
             if parent_id in STANDARD_MENU_PARENTS:
                 lines.append(f'        parent="{STANDARD_MENU_PARENTS[parent_id]}"')
+            elif parent_id in own_menu_ids:
+                # Our own menu — use menu_{id}
+                lines.append(f'        parent="menu_{parent_id}"')
             else:
-                parent_xmlid = parent[1] if len(parent) > 1 else None
-                if parent_xmlid and "." in parent_xmlid:
-                    # Our own menu — use the xml_id suffix
-                    parent_ref = parent_xmlid.split(".", 1)[-1]
-                    lines.append(f'        parent="{parent_ref}"')
-                else:
-                    lines.append(f'        parent="menu_{parent_id}"')
+                # Parent from another module — skip parent reference
+                # This menu will be a top-level menu
+                pass
         if action and isinstance(action, str) and "," in action:
             # action is like "ir.actions.act_window,353"
             parts = action.split(",")
@@ -1088,13 +1382,16 @@ def main():
     parser.add_argument("addon_dir", help="Output directory for the addon")
     parser.add_argument("addon_name", help="Technical name of the addon")
     parser.add_argument("--depends", help="Comma-separated extra dependencies")
+    parser.add_argument("--manifest-name", help="Display name for the manifest")
+    parser.add_argument("--summary", help="Summary for the manifest")
     args = parser.parse_args()
 
     with open(args.spec, "r", encoding="utf-8") as fh:
         spec = json.load(fh)
 
     depends_extra = args.depends.split(",") if args.depends else []
-    n = generate(spec, args.addon_dir, args.addon_name, depends_extra)
+    n = generate(spec, args.addon_dir, args.addon_name, depends_extra,
+                 manifest_name=args.manifest_name, summary=args.summary)
     print(f"Generated {args.addon_name}: {n} models in {args.addon_dir}")
 
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_291"
+        name="Waybills"
+        sequence="10"
+/>
+    <menuitem id="menu_292"
+        name="Waybills"
+        sequence="30"
+        parent="menu_291"
+        action="action_view_ufs_ufs_waybill"
+/>
+</data>
+</odoo>

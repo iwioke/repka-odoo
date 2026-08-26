@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ufs_fleet_refuel_manager,access_ufs_fleet_refuel_manager,model_ufs_fleet_refuel,group_51,1,1,1,0
+access_ufs_fuel_api_provider_operator,access_ufs_fuel_api_provider_operator,model_ufs_fuel_api_provider,group_51,1,0,0,0

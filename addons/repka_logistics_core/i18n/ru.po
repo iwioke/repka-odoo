@@ -14,8 +14,2564 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. module: repka_logistics_core
-msgid "Logistics Core"
-msgstr "Логистическое ядро"
+#: field ufs.base.order.is_adr field ufs.cargo.is_adr field ufs.cargo_line.is_adr
+msgid "ADR"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo.adr_class field ufs.cargo_line.adr_class
+msgid "ADR Class"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.move_ids
+msgid "Account Moves"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.signature_accountant_image
+msgid "Accountant Signature"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.account_move_act_id field account.move.account_move_act_id view arch
+msgid "Act"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.act_date
+msgid "Act Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_needaction field ufs.base.equipment.message_needaction field ufs.base.order.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo.active field ufs.contract.active field ufs.doc.type.active
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_ids field ufs.base.order.activity_ids field ufs.contract.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_exception_decoration field ufs.base.order.activity_exception_decoration field ufs.contract.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_state field ufs.base.order.activity_state field ufs.contract.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_type_icon field ufs.base.order.activity_type_icon field ufs.contract.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.account_move_act_ids field account.bank.statement.line.act_ids field account.move.account_move_act_ids
+msgid "Acts"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Actual"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.setup.bank.manual.config.bank_bic_2 field res.bank.bic_2 field res.partner.bank.bank_bic_2
+msgid "Additional BIC"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Additional Data"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.additional_info
+msgid "Additional Info"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.notes
+msgid "Additional Notes"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.address field ufs.mixins.route_line.address_auto field ufs.tracking.system.refill.address
+msgid "Address"
+msgstr "Адрес"
+
+#. module: repka_logistics_core
+#: field res.company.address_en field res.partner.address_en field res.users.address_en
+msgid "Address Latin"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.advance_invoice_requested
+msgid "Advance Invoice Requested"
+msgstr "Запрошен авансовый счёт"
+
+#. module: repka_logistics_core
+#: field res.partner.credit_limit.amount field ufs.order.service.amount field ufs.tracking.system.refill.amount
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.amount_base
+msgid "Amount In Base Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.amount_total
+msgid "Amount Total"
+msgstr "Итоговая сумма"
+
+#. module: repka_logistics_core
+#: field account.move.act.amount_total_company
+msgid "Amount Total Company"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.amount_total_base field account.move.amount_total_base
+msgid "Amount in Base Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.amount_company_currency
+msgid "Amount in Company Currency"
+msgstr "Сумма в валюте компании"
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.deal_currency_amount field account.move.deal_currency_amount
+msgid "Amount in Deal Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Approve"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.line.vehicle_id field ufs.base.equipment.vehicle_id
+msgid "Asset"
+msgstr "Актив"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.fleet_type field ufs.vehicle.fleet_type
+msgid "Asset Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Attach To"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_attached_document_ids field account.move.line.ufs_attached_document_ids field account.move.ufs_attached_document_ids
+msgid "Attached Documents"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.attached_scan field ufs.partner.doc.line.attached_scan field ufs.transport.document.attached_scan
+msgid "Attached Scan"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_attachment_count field ufs.base.equipment.message_attachment_count field ufs.base.order.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.count_authority_text field res.users.count_authority_text
+msgid "Authority Text"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.our_authority_text
+msgid "Authority Text(our)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.count_authority_text
+msgid "Authority Text(partner)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.invoice_partner_bank_ids field account.move.invoice_partner_bank_ids
+msgid "Bank Accounts for Report"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Bank Payment"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.base_currency_id field account.move.base_currency_id field res.company.base_currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Base Info"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 244
+msgid "Base Orders"
+msgstr ""
+
+#. module: repka_logistics_core
+#: module summary
+msgid "Base UFS module."
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.base_weight_total
+msgid "Base Weight"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Block"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.block_freight_amount
+msgid "Block Freight Amount"
+msgstr "Блокировать фрахт"
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.by_edi field ufs.contract.doc.preference.by_edi
+msgid "By EDI"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.by_email field ufs.contract.doc.preference.by_email
+msgid "By Email"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.by_post field ufs.contract.doc.preference.by_post
+msgid "By Post"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.active
+msgid "Can Be Used"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.log.can_not_edit_start_date
+msgid "Can Not Edit Start Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.cargo_line_ids field ufs.cargo_line.cargo_id field ufs.mixin.cargo.cargo_line_ids
+msgid "Cargo"
+msgstr "Груз"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.verbose_cargoes_no_weight
+msgid "Cargo (No Weight)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo.cargo_code
+msgid "Cargo Code"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.cargo_value
+msgid "Cargo Commercial Value"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.units_count field ufs.mixin.cargo.units_count
+msgid "Cargo Count"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.verbose_cargoes field ufs.cargo_line.details
+msgid "Cargo Details"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.name
+msgid "Cargo Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.cargo_packing
+msgid "Cargo Packing"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.cargo_volume field ufs.mixin.cargo.cargo_volume
+msgid "Cargo Volume"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.cargo_weight field ufs.mixin.cargo.cargo_weight
+msgid "Cargo Weight"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixin.cargo.verbose_cargoes_no_weight
+msgid "Cargo(es)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixin.cargo.verbose_cargoes menu 245
+msgid "Cargoes"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.is_cash_expected field account.move.is_cash_expected field res.partner.is_cash_expected
+msgid "Cash Expected"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Cash Payment"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.citizen_country_id field hr.employee.citizen_country_id field hr.employee.public.citizen_country_id
+msgid "Citizen of"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.city view arch view arch filter
+msgid "City"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.city_en field res.partner.city_en field res.users.city_en
+msgid "City Latin"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.close_datetime
+msgid "Close Datetime"
+msgstr "Дата и время закрытия"
+
+#. module: repka_logistics_core
+#: field ufs.order.state.is_close
+msgid "Closing Kanban Stage"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.code field ufs.order.category.code
+msgid "Code"
+msgstr "Код"
+
+#. module: repka_logistics_core
+#: field ufs.order.state.color
+msgid "Color"
+msgstr "Цвет"
+
+#. module: repka_logistics_core
+#: field ufs.doc.color field ufs.partner.doc.line.color
+msgid "Color Index"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.company_id field res.partner.bank.company_id field res.partner.bank.correspondent.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_logistics_core
+#: field account.move.act.company_currency_id
+msgid "Company Currency"
+msgstr "Валюта компании"
+
+#. module: repka_logistics_core
+#: view 1063
+msgid "Company View"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.complete_name
+msgid "Complete Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 241
+msgid "Configuration"
+msgstr "Настройки"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_order_ids field account.move.act.base_order_ids field account.move.ufs_order_ids
+msgid "Connected Orders"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.consignee_id
+msgid "Consignee"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.consignee_small_address
+msgid "Consignee City"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.consignee_contact_person
+msgid "Consignee Contact"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.consignee_country_id
+msgid "Consignee Country"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.child_ids field res.users.child_ids
+msgid "Contact"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.contact_person_id field ufs.location.contact_person
+msgid "Contact Person"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.contact_subtype field res.users.contact_subtype
+msgid "Contact Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_contract_id field account.move.act.ufs_contract_id field account.move.ufs_contract_id
+msgid "Contract"
+msgstr "Договор"
+
+#. module: repka_logistics_core
+#: field ufs.contract.contract_html
+msgid "Contract Body"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.contract_type
+msgid "Contract Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_contract
+msgid "Contract in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Contract(-s)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.contractor_doc_type_ids
+msgid "Contractor Doc Types"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Contractor Doc Types Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.contractor_status field res.users.contractor_status field ufs.base.order.contractor_status
+msgid "Contractor Status"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.contract_ids field res.users.contract_ids menu 250
+msgid "Contracts"
+msgstr "Договоры"
+
+#. module: repka_logistics_core
+#: field res.partner.contracts_count field res.users.contracts_count
+msgid "Contracts Count"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.trace.coords
+msgid "Coordinates"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.trace.coords_verbose
+msgid "Coordinates Verbose"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.cost
+msgid "Cost"
+msgstr "Стоимость"
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.base_cost
+msgid "Cost in base currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Counterpart"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.country_id field ufs.strict_doc.country_id view arch
+msgid "Country"
+msgstr "Страна"
+
+#. module: repka_logistics_core
+#: server_action 365
+msgid "Create Act"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.create_uid field fleet.vehicle.power_type.create_uid field fleet.vehicle.trailer_type.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_logistics_core
+#: field account.move.act.create_date field fleet.vehicle.power_type.create_date field fleet.vehicle.trailer_type.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.credentials
+msgid "Credentials in JSON"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.credit_sum field res.users.credit_sum
+msgid "Credit"
+msgstr "Кредит"
+
+#. module: repka_logistics_core
+#: field res.partner.credit_balance field res.users.credit_balance
+msgid "Credit Balance"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.ufs_credit_limit field res.users.ufs_credit_limit
+msgid "Credit Limit"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.credit_limit_overdue
+msgid "Credit Limit Overdue"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.credit_limit_line_ids field res.users.credit_limit_line_ids view arch
+msgid "Credit Limits"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.credit_limit_warning
+msgid "Credit limit Warning"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.currency_id field res.partner.credit_limit.currency_id field ufs.base.equipment.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.currency_compute_rule field account.move.act.currency_compute_rule field account.move.currency_compute_rule
+msgid "Currency Compute Rule"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.act_currency_rate
+msgid "Currency Rate"
+msgstr "Курс валюты"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.verbose_location_small
+msgid "Current location"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.partner_id
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.customer_receive_date field account.move.customer_receive_date
+msgid "Customer Receive Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.date
+msgid "Date"
+msgstr "Дата"
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.log.date_end
+msgid "Date End"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.log.date_start
+msgid "Date Start"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.datetime
+msgid "Date and Time"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.days_to_renew field ufs.doc.type.days_to_renew field ufs.partner.doc.line.days_to_renew
+msgid "Days To Renew Reminder"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.deal_currency_id field account.move.deal_currency_id
+msgid "Deal Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.deal_order_id
+msgid "Deal order"
+msgstr "Сделка"
+
+#. module: repka_logistics_core
+#: field res.partner.debit_sum field res.users.debit_sum
+msgid "Debit"
+msgstr "Дебет"
+
+#. module: repka_logistics_core
+#: field ufs.order.service.description
+msgid "Description"
+msgstr "Описание"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.destination_id
+msgid "Destination"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.destination_city
+msgid "Destination City"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.destination_customs
+msgid "Destination Customs"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.display_name field fleet.vehicle.power_type.display_name field fleet.vehicle.trailer_type.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_logistics_core
+#: field ufs.doc.display_prefix field ufs.partner.doc.line.display_prefix
+msgid "Display Prefix"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.no_request_required
+msgid "Do not require order request"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.partner.doc.line.doc_id
+msgid "Doc"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.doc_type field ufs.partner.doc.line.doc_type field ufs.strict_doc.doc_type
+msgid "Doc Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 246 view arch
+msgid "Doc Types"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc_preference_ids field res.users.doc_preference_ids field ufs.contract.doc_preference_ids
+msgid "Document Delivery Preferences"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch page
+msgid "Document Preferences"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.doc_type_id field ufs.contract.doc.preference.doc_type_id
+msgid "Document Type"
+msgstr "Тип документа"
+
+#. module: repka_logistics_core
+#: field res.partner.document_ids field res.users.document_ids view arch
+msgid "Documents"
+msgstr "Документы"
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_attached_document_verbose field account.move.line.ufs_attached_document_verbose field account.move.ufs_attached_document_verbose
+msgid "Documents Attached"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_documents
+msgid "Documents in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.refill.driver_id view arch view arch filter
+msgid "Driver"
+msgstr "Водитель"
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_driver
+msgid "Driver in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.contact_person_email
+msgid "Email"
+msgstr "Email"
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.docs_email field ufs.contract.doc.preference.docs_email
+msgid "Email for Documents"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.name
+msgid "Employee Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.employee_id field ufs.base.equipment.line.employee_id field ufs.base.equipment.log.employee_id
+msgid "Employee/Driver"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.refill.wizard.date_to
+msgid "End Date"
+msgstr "Дата окончания"
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.endpoint_uri
+msgid "Endpoint URI"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.line.equipment_id field ufs.base.equipment.line.product_id field ufs.base.equipment.log.equipment_id
+msgid "Equipment"
+msgstr "Оборудование"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Equipment Log"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.equipment_ids menu 249
+msgid "Equipments"
+msgstr "Оборудование"
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.refill.event_type
+msgid "Event Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.expiration_date field ufs.doc.expiration_date field ufs.partner.doc.line.expiration_date
+msgid "Expiration Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Expired"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.expiry_date
+msgid "Expiry Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.external_nr_editable
+msgid "External Nr Editable"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.config.settings.external_number_editable view arch
+msgid "External Number Editable"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.external_ref field account.move.act.external_ref field account.move.external_ref
+msgid "External System Nr."
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.display_name
+msgid "FIO"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.attached_scan_fname field ufs.partner.doc.line.attached_scan_fname field ufs.transport.document.attached_scan_fname
+msgid "FName"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.fact_arrival_dttm
+msgid "Fact Arrival"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.fact_leave_dttm
+msgid "Fact Leave"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.fathername field hr.employee.fathername field hr.employee.public.fathername
+msgid "Father Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Fetch Refills"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.firstname field hr.employee.firstname field hr.employee.public.firstname
+msgid "First name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.fold
+msgid "Folded in Pipeline"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_follower_ids field ufs.base.equipment.message_follower_ids field ufs.base.order.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_partner_ids field ufs.base.equipment.message_partner_ids field ufs.base.order.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field mail.template.force_stamp
+msgid "Force Stamp"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.force_verify_false
+msgid "Force Verify False"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.free_time
+msgid "Free Time"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.timing
+msgid "Free time"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.freight_amount
+msgid "Freight Amount"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.amount
+msgid "Freight Amount in Company Base Currency"
+msgstr "Фрахт в базовой валюте компании"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.freight_currency_id
+msgid "Freight Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.is_locked
+msgid "Freight Locked"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.locations.wizard.date_from
+msgid "From"
+msgstr "От"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.fuel_consumption_can
+msgid "Fuel Consumption Can"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.fuel_level_dut
+msgid "Fuel Level Dut"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.fuel_level_perc
+msgid "Fuel Level Percentage"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.fuel_level_v
+msgid "Fuel Level Vehicle"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Full Limit"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.full_name field res.users.full_name field ufs.doc.full_name
+msgid "Full Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.func_name
+msgid "Function name for coords fetch"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.setup.bank.manual.config.u_guid field hr.employee.base.u_guid field hr.employee.public.u_guid
+msgid "GUID"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Get And Create Vehicles"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Get Locations"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Get Locations History"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Get Refuels"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Get Vehicles List"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Go To Object"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Grant"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Grant Access to a company"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.legend_done
+msgid "Green Kanban Label"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.legend_normal
+msgid "Grey Kanban Label"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.has_act field account.move.has_act field ufs.base.order.has_act
+msgid "Has Act"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.fleet_type_has_cargo_bay field fleet.vehicle.power_type.has_cargo_bay
+msgid "Has Cargo Bay"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.has_message field ufs.base.equipment.has_message field ufs.base.order.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.has_multiple_orders field account.move.has_multiple_orders
+msgid "Has Multiple Orders"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.has_posted_invoice
+msgid "Has Posted Invoice"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.has_stamp_image field account.move.act.has_stamp_image field account.move.has_stamp_image
+msgid "Has Stamp Image"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.head_accountant_id
+msgid "Head of the Accounting"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.head_employee_id
+msgid "Head of the Company"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.home_location_id
+msgid "Home Location"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.id field fleet.vehicle.power_type.id field fleet.vehicle.trailer_type.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_exception_icon field ufs.base.order.activity_exception_icon field ufs.contract.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.order_incoming_ref field account.move.order_incoming_ref
+msgid "Incoming Ref"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.incoming_ref
+msgid "Incoming Ref."
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_incoming_ref
+msgid "Incoming Ref. in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.internal_name field ufs.vehicle.internal_name
+msgid "Internal Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.internal_ref field res.users.internal_ref
+msgid "Internal RefNr."
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_state_localized field account.move.ufs_state_localized
+msgid "Inv.state"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.invoice_base_date field account.move.invoice_base_date
+msgid "Invoice Base Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.base_invoice_count
+msgid "Invoice Count"
+msgstr "Количество счетов"
+
+#. module: repka_logistics_core
+#: field ufs.contract.invoicing_currency_id
+msgid "Invoice Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.invoice_date
+msgid "Invoice Date"
+msgstr "Дата счёта"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_date_due view arch
+msgid "Invoice Due Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.invoice_line_ids
+msgid "Invoice Line"
+msgstr "Строка счёта"
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Invoice Line Name Parameters"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch page
+msgid "Invoice Lines"
+msgstr "Строки счёта"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_notes
+msgid "Invoice Notes"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_numbers_char
+msgid "Invoice Numbers"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_ext_numbers_char
+msgid "Invoice Numbers (Ext.)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.inv_payment_term_verbose
+msgid "Invoice Payment Terms"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_customer_receive_date
+msgid "Invoice Receive Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.invoice_states_char
+msgid "Invoice States Char"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.base_invoice_ids
+msgid "Invoices"
+msgstr "Счета"
+
+#. module: repka_logistics_core
+#: field res.config.settings.invoicing_dept_email
+msgid "Invoicing Department Email"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.is_business_day_term field res.users.is_business_day_term field ufs.base.order.is_business_day_term
+msgid "Is Business Day Term"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.is_business_day_term field account.move.act.is_business_day_term field account.move.is_business_day_term
+msgid "Is Business day N term"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.is_first
+msgid "Is First"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_is_follower field ufs.base.equipment.message_is_follower field ufs.base.order.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.is_invoiced
+msgid "Is Invoiced"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.is_last
+msgid "Is Last"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.is_n_term field account.move.act.is_n_term field account.move.is_n_term
+msgid "Is N term"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.is_paid
+msgid "Is Paid"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.is_used
+msgid "Is Used"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.is_valid
+msgid "Is Valid"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.is_company field res.users.is_company
+msgid "Is a Company"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.is_a_refuel_entry
+msgid "Is a Refuel Entry"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.is_driver field hr.employee.is_driver field hr.employee.public.is_driver
+msgid "Is a driver"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.is_trainee field hr.employee.is_trainee field hr.employee.public.is_trainee
+msgid "Is a trainee"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.is_order_agreement
+msgid "Is an order agreement"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.at_home_location
+msgid "Is at home location"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.is_given field ufs.partner.doc.line.is_given
+msgid "Is given"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.issue_date
+msgid "Issue Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.ru_kpp field res.users.ru_kpp
+msgid "KPP"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.load_cust_small_address
+msgid "L.Customs"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.lang field res.users.lang
+msgid "Language"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.last_loc_datetime
+msgid "Last Loc Datetime"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Last Month Used"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.paid_at_date
+msgid "Last Paid At"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.last_payment_date field account.move.last_payment_date
+msgid "Last Payment Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.last_trace
+msgid "Last Trace"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.write_uid field fleet.vehicle.power_type.write_uid field fleet.vehicle.trailer_type.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.write_date field fleet.vehicle.power_type.write_date field fleet.vehicle.trailer_type.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.lastname field hr.employee.lastname field hr.employee.public.lastname
+msgid "Last name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.latitude field ufs.tracking.system.refill.latitude
+msgid "Latitude"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.vehicle.name
+msgid "License Plate"
+msgstr "Гос. номер"
+
+#. module: repka_logistics_core
+#: field res.partner.limit_overdue field res.users.limit_overdue
+msgid "Limit Overdue"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.loading_type
+msgid "Load"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_loading_date
+msgid "Load Date in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.load_fail_penalty_terms
+msgid "Load Fail Penalty"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.load_fail_penalty
+msgid "Load Fail Penalty, %"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.loading_units_count field ufs.mixin.cargo.loading_units_count
+msgid "Loading Units"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.location_ids field res.users.location_ids field ufs.mixins.route_line.location_id
+msgid "Location"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.name
+msgid "Location Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.locations_count field res.users.locations_count view arch
+msgid "Locations"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.config.settings.lock_freight_on_act view arch
+msgid "Lock Freight Amount When Act Issued"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.longitude field ufs.tracking.system.refill.longitude
+msgid "Longitude"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.main_odometer_source
+msgid "Main Odometer Source"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.max_load_weight
+msgid "Max load weight"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_has_error field ufs.base.equipment.message_has_error field ufs.base.order.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_ids field ufs.base.equipment.message_ids field ufs.base.order.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.u_guid.model_name
+msgid "Model Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.type.models_selection
+msgid "Models Selection"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.main_move_id
+msgid "Move"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.base_move_line_ids field ufs.transport.document.move_line_ids
+msgid "Move Lines"
+msgstr "Проводки"
+
+#. module: repka_logistics_core
+#: field ufs.order.service.move_line_ids
+msgid "Move Lines Connected"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.move_ids
+msgid "Moves"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.my_activity_date_deadline field ufs.base.order.my_activity_date_deadline field ufs.contract.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.n_days_count field account.move.act.n_days_count field account.move.n_days_count
+msgid "N"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.name field hr.employee.base.name field hr.employee.public.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_logistics_core
+#: field account.move.line.name_partner
+msgid "Name (Partner Language)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.bank.name_transliterated
+msgid "Name (Transliterated)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.name_en field res.partner.name_en field res.partner.translit_name
+msgid "Name Latin"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.narration
+msgid "Narration"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.needs_currency_recalc field account.move.act.needs_currency_recalc field account.move.needs_currency_recalc
+msgid "Needs Currency Recalc"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_calendar_event_id field ufs.base.order.activity_calendar_event_id field ufs.contract.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_date_deadline field ufs.base.order.activity_date_deadline field ufs.contract.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_summary field ufs.base.order.activity_summary field ufs.contract.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_type_id field ufs.base.order.activity_type_id field ufs.contract.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Not Active"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Not Received"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Not Returned to Vendor"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Not Used"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.subtype.note
+msgid "Note"
+msgstr "Заметка"
+
+#. module: repka_logistics_core
+#: field ufs.doc.notes field ufs.mixins.route_line.notes field ufs.partner.doc.line.notes
+msgid "Notes"
+msgstr "Заметки"
+
+#. module: repka_logistics_core
+#: field ufs.contract.number field ufs.transport.document.name
+msgid "Number"
+msgstr "Номер"
+
+#. module: repka_logistics_core
+#: field account.move.act.message_needaction_counter field ufs.base.equipment.message_needaction_counter field ufs.base.order.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_has_error_counter field ufs.base.equipment.message_has_error_counter field ufs.base.order.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.ru_ogrn field res.users.ru_ogrn
+msgid "OGRN"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.object_id field ufs.driver.ufs_object_id field ufs.partner.doc.line.object_id
+msgid "Object"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.vehicle.ufs_object_res_id
+msgid "Object ID"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.object_name field ufs.partner.doc.line.object_name
+msgid "Object Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.odometer_can
+msgid "Odometer CAN"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.odometer_gps
+msgid "Odometer GPS"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.operation_dttm field ufs.tracking.system.refill.operation_dttm
+msgid "Operation Datetime"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.service.order_id
+msgid "Order"
+msgstr "Заказ"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Order Based Credit Limit"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 243 view arch
+msgid "Order Categories"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Order Category"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_order_count field account.move.ufs_order_count
+msgid "Order Count"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_date
+msgid "Order Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_memo
+msgid "Order Details"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_finish_date
+msgid "Order Finish"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.name
+msgid "Order Number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_reference
+msgid "Order Reference"
+msgstr "Реквизит заказа"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_start_date
+msgid "Order Start"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_type
+msgid "Order Type"
+msgstr "Тип заказа"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.order_category_id
+msgid "Order Type by Manager"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Orders"
+msgstr "Заказы"
+
+#. module: repka_logistics_core
+#: field res.config.settings.use_orders_based_credit_limit
+msgid "Orders Based Credit Limit"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.origin_id
+msgid "Origin"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.origin_city
+msgid "Origin City"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.original_receive_date
+msgid "Original Receive Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.other_subtype field res.users.other_subtype
+msgid "Other Subtype"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.ref_company_id view arch view arch group
+msgid "Our Company"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.load_customs
+msgid "Outgoing Customs"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.use_doc_params
+msgid "Override Invoice Line Name Params"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.oversized_penalty
+msgid "Oversized Penalty"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.own_trailer_id
+msgid "Own Trailer"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.mixins.route_line.owner_partner_id
+msgid "Owner Partner"
+msgstr "Партнёр-владелец"
+
+#. module: repka_logistics_core
+#: field ufs.location.owner_partner_id
+msgid "Owner of the Location"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.amount_paid_base field account.move.amount_paid_base
+msgid "Paid Amount in Base Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.pallet_count
+msgid "Pallets"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.parent_partner_id
+msgid "Parent"
+msgstr "Родитель"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.tracking_system field ufs.tracking.system.parse_schema
+msgid "Parse Schema"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.parse_schema_comment
+msgid "Parse Schema Comment"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.partner_id field res.partner.credit_limit.partner_id field res.partner.doc.preference.partner_id
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_logistics_core
+#: field account.move.act.partner_bank_id
+msgid "Partner Bank"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Partner Document"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 247
+msgid "Partner Documents"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.passport_date field hr.employee.passport_date field hr.employee.public.passport_date
+msgid "Passport Issue Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.passport_place field hr.employee.passport_place field hr.employee.public.passport_place
+msgid "Passport Issue Place"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.passport_name field hr.employee.passport_name field hr.employee.public.passport_name
+msgid "Passport Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.passport_number field hr.employee.passport_number field hr.employee.public.passport_number
+msgid "Passport Number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.passport_series field hr.employee.passport_series field hr.employee.public.passport_series
+msgid "Passport Series"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.payment_currency_id
+msgid "Payment Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.payment_currency_compute_rule
+msgid "Payment Currency Compute Rule"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.payment_term_id field account.bank.statement.line.ufs_payment_term_id field account.move.act.payment_term_id
+msgid "Payment Terms"
+msgstr "Условия оплаты"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.contact_person_phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: repka_logistics_core
+#: field ufs.order.service.planned_datetime
+msgid "Plan"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.planned_mileage
+msgid "Planned Mileage"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.postal_contact_name field ufs.contract.doc.preference.postal_contact_name
+msgid "Postal Contact (FIO)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.doc.preference.postal_contact_phone field ufs.contract.doc.preference.postal_contact_phone
+msgid "Postal Contact Phone"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.postcode field ufs.mixins.route_line.location_postcode
+msgid "Postcode"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.power_type.name
+msgid "Power Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.power_type field ufs.vehicle.power_type
+msgid "Power Unit Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.prefix_letter
+msgid "Prefix for sequences"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.service.price
+msgid "Price"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.print_stamp field mail.compose.message.print_stamp field ufs.base.order.print_stamp
+msgid "Print Stamp"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.print_stamp field account.move.print_stamp
+msgid "Print Stamp In Report"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.private_number field hr.employee.private_number field hr.employee.public.private_number
+msgid "Private Number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.service.product_id field ufs.strict_doc.product_id view arch
+msgid "Product"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.line.product_qty field ufs.base.equipment.log.product_qty field ufs.base.equipment.product_qty
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: repka_logistics_core
+#: field account.move.act.rating_ids field ufs.base.equipment.rating_ids field ufs.base.order.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.raw_data field ufs.tracking.system.refill.raw_data
+msgid "Raw Data"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.receive_date
+msgid "Receive Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.legend_blocked
+msgid "Red Kanban Label"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.ref_penalty
+msgid "Ref Penalty"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.power_type.is_refrigerator field fleet.vehicle.trailer_type.is_refrigerator
+msgid "Refrigerator"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.refuel_amount
+msgid "Refuel Amount"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.report_name
+msgid "Report Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 242
+msgid "Reports"
+msgstr "Отчёты"
+
+#. module: repka_logistics_core
+#: field res.company.required_doc_type_ids field res.partner.required_doc_type_ids field res.users.required_doc_type_ids
+msgid "Required Docs for Order"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.req_field_ids
+msgid "Required fields to change to this state"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.requirements
+msgid "Requirements"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.u_guid.res_id
+msgid "Res"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.amount_residual_base field account.move.amount_residual_base
+msgid "Residual Amount in Base Currency"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.responsible_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.responsible_emp_id
+msgid "Responsible Employee"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.activity_user_id field ufs.base.order.activity_user_id field ufs.contract.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.doc.responsible_ids field ufs.doc.type.responsible_ids field ufs.partner.doc.line.responsible_ids
+msgid "Responsible Users"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.returned_to_vendor_date
+msgid "Returned to Vendor"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Roundtrip"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.route_image
+msgid "Route Image"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.message_has_sms_error field ufs.base.equipment.message_has_sms_error field ufs.base.order.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Send"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Send &amp; Print"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Send Act"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.country.sequence field ufs.base.order.state_id_sequence field ufs.order.state.sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.sequence_name
+msgid "Sequence Number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.line.serial_number field ufs.base.equipment.serial_number
+msgid "Serial Number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.services_included_line_ids
+msgid "Services Included"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.session
+msgid "Session"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.shipper_id
+msgid "Shipper"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.shipper_small_address
+msgid "Shipper City"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.shipper_contact_person
+msgid "Shipper Contact"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.shipper_country_id
+msgid "Shipper Country"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.short_name field res.users.short_name
+msgid "Short Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.code
+msgid "Short code"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.mixin.show_fact_arrival
+msgid "Show Fact Arrival"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.config.settings.group_show_guid view arch
+msgid "Show GUID fields"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field mail.compose.message.show_print_stamp
+msgid "Show Print Stamp"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.type.show_in_partner_form
+msgid "Show in Partner Form"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.sign_date
+msgid "Sign Date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.signature_image
+msgid "Signature"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.count_signed_by_partner_id field res.users.count_signed_by_partner_id
+msgid "Signed by"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.our_signed_by_partner_id
+msgid "Signed by(our)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.count_signed_by_partner_id
+msgid "Signed by(partner)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.special_data
+msgid "Special Data (JSON)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.spec_report_lang_id
+msgid "Special Report Lang"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Special Terms"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.state field ufs.base.order.state_id field ufs.doc.state
+msgid "Stage"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.stamp_image
+msgid "Stamp"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.order.state.legend_priority
+msgid "Starred Explanation"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.start_date
+msgid "Start"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.refill.wizard.date_from
+msgid "Start Date"
+msgstr "Дата начала"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.r_start_datetime field ufs.base.order.start_datetime
+msgid "Start Datetime"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.state_id view arch view arch filter
+msgid "State"
+msgstr "Статус"
+
+#. module: repka_logistics_core
+#: field account.move.act.state
+msgid "Status"
+msgstr "Статус"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.stop_date
+msgid "Stop"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.r_stop_datetime field ufs.base.order.stop_datetime
+msgid "Stop Datetime"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.street
+msgid "Street"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.street2
+msgid "Street2"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Strict Docs"
+msgstr "Строгие документы"
+
+#. module: repka_logistics_core
+#: menu 248
+msgid "Strict Docs Types"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.subsidiary_ids field res.users.subsidiary_ids
+msgid "Subsidiaries"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.subtype_id
+msgid "Subtype"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.partner_tags_ids
+msgid "Tags"
+msgstr "Теги"
+
+#. module: repka_logistics_core
+#: field account.move.act.amount_tax
+msgid "Tax"
+msgstr "Налог"
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "Technical"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.temp_mode
+msgid "Temperature Mode"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.temp_requirements
+msgid "Temperature Requirements (legacy)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.temp_value
+msgid "Temperature, °C"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.text_address field res.users.text_address field ufs.location.text_address
+msgid "Text Address"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.there_was_a_problem
+msgid "There Was A Problem"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.tilt_penalty
+msgid "Tilt Penalty"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.locations.wizard.date_to
+msgid "To"
+msgstr "До"
+
+#. module: repka_logistics_core
+#: field ufs.transport.document.type.to_move
+msgid "To Move"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "To Renew"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "To Renew(2 weeks)"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch
+msgid "To Warehouse"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch group
+msgid "To be attached"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.token
+msgid "Token"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.amount
+msgid "Total Cost"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.longitude_latitude field fleet.vehicle.odometer.longitude_latitude
+msgid "Tracking Coordinates"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.tracking_provider_id
+msgid "Tracking Provider"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 255
+msgid "Tracking Refuels"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.system.locations.wizard.tracking_system_id field ufs.tracking.system.refill.tracking_system_id field ufs.tracking.system.refill.wizard.tracking_system_id
+msgid "Tracking System"
+msgstr "Система отслеживания"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Tracking System Refill"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.tracking_system_uid
+msgid "Tracking UID"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.trailer_type field fleet.vehicle.trailer_type.name field ufs.cargo_line.trailer_type
+msgid "Trailer Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 309
+msgid "Transport Document Types"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.verbose_tracking_location
+msgid "Truck location by Tracking System"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.trace.trace_type field ufs.mixins.route_line.line_type field ufs.order.state.type
+msgid "Type"
+msgstr "Тип"
+
+#. module: repka_logistics_core
+#: field ufs.base.order.unload_cust_small_address
+msgid "U.Customs"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 240
+msgid "UFS"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.ufs_driver_id
+msgid "UFS Driver"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.line.ufs_order_id
+msgid "UFS Order"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch label
+msgid "UFS Payment Terms"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.line.service_line_id
+msgid "UFS Service"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.ufs_vehicle_id
+msgid "UFS Vehicle"
+msgstr "Транспортное средство UFS"
+
+#. module: repka_logistics_core
+#: menu 252
+msgid "UFS Vehicles"
+msgstr ""
+
+#. module: repka_logistics_core
+#: menu 253
+msgid "UFS drivers"
+msgstr ""
+
+#. module: repka_logistics_core
+#: cron 24 server_action 352
+msgid "UFS. Check and Update Partner Status"
+msgstr ""
+
+#. module: repka_logistics_core
+#: cron 23 server_action 351
+msgid "UFS. Compute Docs Expirations"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.bank.statement.line.ufs_state field account.move.ufs_state
+msgid "Ufs State"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.name
+msgid "Unique number"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.price_unit
+msgid "Unit Price"
+msgstr "Цена за единицу"
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.product_uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.units_count
+msgid "Units Count"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.units_uom_id
+msgid "Units UOM"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_unloading_date
+msgid "Unload Date in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.amount_untaxed
+msgid "Untaxed"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.company.default_uom_weight_id
+msgid "UoM"
+msgstr "Единица измерения"
+
+#. module: repka_logistics_core
+#: view arch
+msgid "Use Contract Check"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.config.settings.use_contract_checks field ufs.base.order.use_contract_checks field ufs.contract.use_contract_checks
+msgid "Use Contract Checks"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.config.settings.use_extended_naming field res.partner.use_extended_naming field res.users.use_extended_naming
+msgid "Use Extended Naming"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.use_log_ids
+msgid "Use History"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.use_orders_based_credit_limit field res.users.use_orders_based_credit_limit
+msgid "Use Orders Based Credit Limit"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.subtype.use_type field ufs.strict_doc.use_type
+msgid "Use Type"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.use_date
+msgid "Use date"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.use_start
+msgid "Use start"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field hr.employee.base.user_id field hr.employee.public.user_id field hr.employee.user_id
+msgid "User"
+msgstr "Пользователь"
+
+#. module: repka_logistics_core
+#: field ufs.grant.company.access.user_ids
+msgid "Users"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view arch view arch filter
+msgid "Valid Until"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.expiration_date field ufs.strict_doc.valid_date
+msgid "Valid until"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.equipment.log.vehicle_id field ufs.tracking.system.refill.vehicle_id
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.model.vehicle_type
+msgid "Vehicle Type"
+msgstr "Тип ТС"
+
+#. module: repka_logistics_core
+#: field ufs.contract.service_name_vehicle
+msgid "Vehicle in Name"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.tracking.vlist.vehicles_list
+msgid "Vehicles list"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.strict_doc.partner_id view arch view arch filter
+msgid "Vendor"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field fleet.vehicle.odometer.verbose_address
+msgid "Verbose Address"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field res.partner.payment_term_verbose field res.users.payment_term_verbose field ufs.base.order.payment_term_verbose
+msgid "Verbose Term"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.cargo_volume
+msgid "Volume in m3"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.address_found
+msgid "We found such an address"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field account.move.act.website_message_ids field ufs.base.equipment.website_message_ids field ufs.base.order.website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.cargo_line.weight
+msgid "Weight"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.base.order.cargo_weight_uom_id field ufs.cargo_line.weight_uom_id field ufs.mixin.cargo.cargo_weight_uom_id
+msgid "Weight UOM"
+msgstr ""
+
+#. module: repka_logistics_core
+#: field ufs.location.state
+msgid "Writable state"
+msgstr ""
+
+#. module: repka_logistics_core
+#: view 1098
+msgid "move.fleet.search.inherit"
+msgstr ""

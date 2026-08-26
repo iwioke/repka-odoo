@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="group_46" model="res.groups">
+        <field name="name">Trip Access</field>
+    </record>
+    <record id="group_47" model="res.groups">
+        <field name="name">Order Access</field>
+    </record>
+    <record id="group_48" model="res.groups">
+        <field name="name">Can Delete Attachments in Order and Trips</field>
+    </record>
+    <record id="group_49" model="res.groups">
+        <field name="name">Economics</field>
+    </record>
+    <record id="group_50" model="res.groups">
+        <field name="name">Cashier</field>
+    </record>
+    <record id="rule_159" model="ir.rule">
+        <field name="name">Fleet Trip: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_fleet_trip"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_160" model="ir.rule">
+        <field name="name">Fleet Lorry: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_fleet_lorry"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_161" model="ir.rule">
+        <field name="name">Fleet Order: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_fleet_order"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_162" model="ir.rule">
+        <field name="name">HR: multi-company rule</field>
+        <field name="model_id" ref="model_res_company"/>
+        <field name="domain_force">
+        ['|',
+                ('id', '=', False),
+                ('id', 'in', user.company_ids.ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_163" model="ir.rule">
+        <field name="name">UFS Fleet Order: create/write own only</field>
+        <field name="model_id" ref="model_ufs_fleet_order"/>
+        <field name="domain_force">['|', ('create_uid', '=', user.id), ('message_partner_ids', '=', user.partner_id.id)]</field>
+    </record>
+    <record id="rule_164" model="ir.rule">
+        <field name="name">UFS Fleet Order: create/write all</field>
+        <field name="model_id" ref="model_ufs_fleet_order"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="rule_286" model="ir.rule">
+        <field name="name">Dispatchers Board: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_fleet_disp_board"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+</data>
+</odoo>

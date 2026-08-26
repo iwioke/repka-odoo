@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_282"
+        name="Maintenances Plan"
+        sequence="40"
+        parent="fleet.fleet_vehicle_menu"
+        action="action_view_ufs_fleet_maintenances"
+/>
+</data>
+</odoo>

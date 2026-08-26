@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_forw_create_parent_wizard" model="ir.actions.act_window">
+        <field name="name">Create Parent Order</field>
+        <field name="res_model">ufs.forwarder.create_parent.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_forwarder_order_id': active_id}</field>
+    </record>
+    <record id="action_chain_create_wizard" model="ir.actions.act_window">
+        <field name="name">Create Chain Order</field>
+        <field name="res_model">ufs.forwarder.chain_create.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_forwarder_order" model="ir.actions.act_window">
+        <field name="name">Forwarder Orders</field>
+        <field name="res_model">ufs.forwarder.order</field>
+        <field name="view_mode">list,kanban,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_create_suborder" model="ir.actions.act_window">
+        <field name="name">Create Sub Order</field>
+        <field name="res_model">ufs.forwarder.suborder</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_forwarder_suborder" model="ir.actions.act_window">
+        <field name="name">Forwarder Sub Orders</field>
+        <field name="res_model">ufs.forwarder.suborder</field>
+        <field name="view_mode">kanban,list,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_forwarder_suborder_type" model="ir.actions.act_window">
+        <field name="name">Forwarder Sub Order Types</field>
+        <field name="res_model">ufs.forwarder.suborder.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_forwarder_order_report" model="ir.actions.act_window">
+        <field name="name">Forwarder Order Report</field>
+        <field name="res_model">ufs.forwarder.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_switch_sub_wizard" model="ir.actions.act_window">
+        <field name="name">Create Switch</field>
+        <field name="res_model">ufs.forwarder.sub.switch_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,482 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet_fuel_import
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.api_provider_id field ufs.fuel.card.api_provider_id
+msgid "API Provider"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.access_token field ufs.fuel.api.parser.bl.access_token field ufs.fuel.api.parser.bn.access_token
+msgid "Access Token"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.active
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.additional_data field ufs.fuel.api.provider.additional_data
+msgid "Additional Data"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.trip_cost_ids
+msgid "Attached to Trip Cost"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser._auth field ufs.fuel.api.parser.bl._auth field ufs.fuel.api.parser.bn._auth
+msgid "Auth"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field product.product.bn_code field product.template.bn_code
+msgid "BN Product Code"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field product.product.bp_polska_code field product.template.bp_polska_code
+msgid "BP Polska Product Code"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.bokeh_chart
+msgid "Bokeh Chart"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.api_brand
+msgid "Brand"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser._card_mapping field ufs.fuel.api.parser.bl._card_mapping field ufs.fuel.api.parser.bn._card_mapping
+msgid "Card Mapping"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.cards.cards_list
+msgid "Cards List"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.trip.cost.control_qty
+msgid "Control Qty"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.country_id
+msgid "Country"
+msgstr "Страна"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.api_country
+msgid "Country Code"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.create_uid field ufs.fleet.refuel.update.wizard.create_uid field ufs.fleet.refuel.v_update_wizard.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.create_date field ufs.fleet.refuel.update.wizard.create_date field ufs.fleet.refuel.v_update_wizard.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "Creator"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser._currency_mapping field ufs.fuel.api.parser.bl._currency_mapping field ufs.fuel.api.parser.bn._currency_mapping
+msgid "Currency Mapping"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.dkv.customerID
+msgid "Customerid"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.dut_qty
+msgid "DUT Quantity"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.bl.date_from field ufs.fuel.api.parser.bn.date_from field ufs.fuel.api.parser.bp_pl.date_from
+msgid "Date From"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.bl.date_to field ufs.fuel.api.parser.bn.date_to field ufs.fuel.api.parser.bp_pl.date_to
+msgid "Date To"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.discount
+msgid "Discount"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.display_name field ufs.fleet.refuel.update.wizard.display_name field ufs.fleet.refuel.v_update_wizard.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet_fuel_import
+#: field product.product.e100_code field product.template.e100_code
+msgid "E100 Product Code"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.date_to
+msgid "End Date"
+msgstr "Дата окончания"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.bl.endpoint field ufs.fuel.api.parser.bn.endpoint field ufs.fuel.api.parser.bp_pl.endpoint
+msgid "Endpoint"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: menu 281
+msgid "Expense API Providers"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.external_uid
+msgid "External Uid"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.external_uri
+msgid "External Uri"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.gpncard.file_import_format
+msgid "File Import Format"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.gpncard.date_from
+msgid "From"
+msgstr "От"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.card_id view arch view arch filter
+msgid "Fuel Card"
+msgstr "Топливная карта"
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "Fuels"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Get Cards"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Get Cards List"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Get Refuels"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Go to graph"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.id field ufs.fleet.refuel.update.wizard.id field ufs.fleet.refuel.v_update_wizard.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser._json_response field ufs.fuel.api.parser.bl._json_response field ufs.fuel.api.parser.bn._json_response
+msgid "Json Response"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.write_uid field ufs.fleet.refuel.v_update_wizard.write_uid field ufs.fleet.refuel.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.write_date field ufs.fleet.refuel.v_update_wizard.write_date field ufs.fleet.refuel.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.location_id
+msgid "Location"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.location_data
+msgid "Location Data"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.name field ufs.fuel.api.provider.name view arch
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.bl.newest_only field ufs.fuel.api.parser.bn.newest_only field ufs.fuel.api.parser.bp_pl.newest_only
+msgid "Newest Only"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.operation_dttm
+msgid "Operation DTTM"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.parser_type
+msgid "Parser Type"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.parser_type_comments
+msgid "Parser Type Comments"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.partner_id
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.secret
+msgid "Password or Secret(will not be hashed!!!!"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.product_id
+msgid "Product"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.product_categ_id
+msgid "Product Category"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.provider_id field ufs.fuel.api.parser.bl.provider_id field ufs.fuel.api.parser.bn.provider_id
+msgid "Provider"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.qty
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.qty_by_stats
+msgid "Quantity by Stats"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.record_hash
+msgid "Record Hash"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.refill_diff
+msgid "Refill Diff"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.refill_ratio
+msgid "Refill Ratio"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.trip.cost.refuel_id view arch
+msgid "Refuel"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.v_update_wizard.refuel_ids menu 280 view arch
+msgid "Refuels"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.card.refuels_count
+msgid "Refuels Count"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser._result_vals field ufs.fuel.api.parser.bl._result_vals field ufs.fuel.api.parser.bn._result_vals
+msgid "Result Vals"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.date_from
+msgid "Start Date"
+msgstr "Дата начала"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.api_site_id
+msgid "Station ID"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.api_station_name
+msgid "Station Name"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.tax_value
+msgid "Tax Value"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.tax_ids
+msgid "Taxes"
+msgstr "Налоги"
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "This Week"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.gpncard.date_to
+msgid "To"
+msgstr "До"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.parser.bl.token_type field ufs.fuel.api.parser.bn.token_type field ufs.fuel.api.parser.bp_pl.token_type
+msgid "Token Type"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.total_amount
+msgid "Total Amount"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "Trips"
+msgstr "Рейсы"
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_fleet_fuel_import
+#: module summary
+msgid "UFS Fleet Fuel Import Module."
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: server_action 412
+msgid "UFS: Collect Refuels"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: cron 42 server_action 720
+msgid "UFS: Collect Refuels (Find Lost)"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.unit_price
+msgid "Unit Price"
+msgstr "Цена за единицу"
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.product_uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Update"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Update Refuels"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.update.wizard.update_existing
+msgid "Update exising"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: view arch
+msgid "Updater"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fuel.api.provider.username
+msgid "Username"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.v_update_wizard.vehicle_id field ufs.fleet.refuel.vehicle_id view arch
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_fleet_fuel_import
+#: view arch view arch filter
+msgid "Vendor"
+msgstr ""
+
+#. module: repka_fleet_fuel_import
+#: field ufs.fleet.refuel.vendor_id field ufs.fuel.card.vendor_id
+msgid "Vendor ID"
+msgstr ""

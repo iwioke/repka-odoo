@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_view_ufs_fleet_refuel" model="ir.actions.act_window">
+        <field name="name">Fuel Refuel</field>
+        <field name="res_model">ufs.fleet.refuel</field>
+        <field name="view_mode">list,pivot,graph,form</field>
+        <field name="context">{'search_default_filter_this_week': 1}</field>
+    </record>
+    <record id="action_view_ufs_fuel_api_provider" model="ir.actions.act_window">
+        <field name="name">Fuel Refuel</field>
+        <field name="res_model">ufs.fuel.api.provider</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_update_vehicle" model="ir.actions.act_window">
+        <field name="name">Update Vehicle In Fuelcards</field>
+        <field name="res_model">ufs.fleet.refuel.v_update_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_vehicle_ids': active_ids}</field>
+    </record>
+</data>
+</odoo>

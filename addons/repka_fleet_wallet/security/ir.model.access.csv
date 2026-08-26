@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ufs_driver_payroll,access_ufs_driver_payroll,model_ufs_driver_payroll,base.group_user,1,1,1,1
+access_ufs_driver_payroll_advance_line,access_ufs_driver_payroll_advance_line,model_ufs_driver_payroll_advance_line,base.group_user,1,1,1,1

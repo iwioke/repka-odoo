@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_481"
+        name="Complex Orders Report (f)"
+        sequence="10"
+        action="action_ufs_base_order_report_f"
+/>
+</data>
+</odoo>

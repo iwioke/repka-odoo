@@ -1,0 +1,212 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_complex_reporting
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.verbose_cargoes_no_weight
+msgid "Cargo (No Weight)"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.verbose_cargoes
+msgid "Cargo Details"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_complex_reporting
+#: menu 481
+msgid "Complex Orders Report (f)"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: module summary
+msgid "Complex reporting views for UFS orders with extended fields"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Deal"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.deal_order_order_date field ufs.fleet.order.deal_order_order_date field ufs.forwarder.order.deal_order_order_date
+msgid "Deal Order Date"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.deal_order_order_start_date field ufs.fleet.order.deal_order_order_start_date field ufs.forwarder.order.deal_order_order_start_date
+msgid "Deal Order Start"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_edi_amount field ufs.fleet.order.sl_edi_amount field ufs.forwarder.order.sl_edi_amount
+msgid "EDI SL"
+msgstr "EDI SL"
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Fact Loading"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Fact Unloading"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_freight_margin
+msgid "Freight Margin SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_freight_responsible_id
+msgid "Freight Responsible"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_freight_amount field ufs.fleet.order.sl_freight_amount field ufs.forwarder.order.sl_freight_amount
+msgid "Freight SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_idle_amount field ufs.fleet.order.sl_idle_amount field ufs.forwarder.order.sl_idle_amount
+msgid "Idle SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Last Month Used"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_mark_margin
+msgid "Marking Margin SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_mark_responsible_id
+msgid "Marking Responsible"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_mark_amount field ufs.fleet.order.sl_mark_amount field ufs.forwarder.order.sl_mark_amount
+msgid "Marking SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Not Returned to Vendor"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Not Used"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Orders"
+msgstr "Заказы"
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_other_amount field ufs.fleet.order.sl_other_amount field ufs.forwarder.order.sl_other_amount
+msgid "Other SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Overall amount"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Overall amount (B.C)"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Overall amount (C.C)"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Parent Partner"
+msgstr "Родительский партнёр"
+
+#. module: repka_complex_reporting
+#: view arch view arch filter
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Plan Loading"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_reload_amount field ufs.fleet.order.sl_reload_amount field ufs.forwarder.order.sl_reload_amount
+msgid "Reload SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.verbose_route
+msgid "Route"
+msgstr "Маршрут"
+
+#. module: repka_complex_reporting
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.trailer_types_needed_ids field ufs.fleet.order.trailer_types_needed_ids field ufs.forwarder.order.trailer_types_needed_ids
+msgid "Trailer Type Needed"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.trailer_types field ufs.fleet.order.trailer_types field ufs.forwarder.order.trailer_types
+msgid "Trailer Types"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_ved_margin
+msgid "VED Margin SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.forwarder.order.sl_ved_responsible_id
+msgid "VED Responsible"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.sl_ved_amount field ufs.fleet.order.sl_ved_amount field ufs.forwarder.order.sl_ved_amount
+msgid "VED SL"
+msgstr ""
+
+#. module: repka_complex_reporting
+#: field ufs.base.order.vehicles_string field ufs.fleet.order.vehicles_string field ufs.forwarder.suborder.vehicles_string
+msgid "Vehicles"
+msgstr "Транспортные средства"

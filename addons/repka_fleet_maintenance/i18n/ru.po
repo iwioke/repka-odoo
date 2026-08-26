@@ -1,0 +1,547 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet_maintenance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.active view arch view arch filter
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.alert_range
+msgid "Alert Range"
+msgstr "Диапазон предупреждения"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.amount field fleet.vehicle.log.services.line.amount view arch
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Approve"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.vehicle_id view arch view arch filter
+msgid "Asset"
+msgstr "Актив"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.base_amount
+msgid "Base Amount"
+msgstr "Базовая сумма"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.base_currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.account_move_ids
+msgid "Bills"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.trip.block_write_by_maint
+msgid "Block Write By Maint"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.company_id field fleet.vehicle.log.services.line.company_id field ufs_fleet.maintenance_request.wizard.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet_maintenance
+#: field account.move.line.cost_line_id
+msgid "Cost Line"
+msgstr "Строка стоимости"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.cost_line_ids
+msgid "Cost Lines"
+msgstr "Строки стоимости"
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Create Bill"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Create Service Entry"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Create Service Log"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.create_uid field ufs.fleet.maintenance.create_uid field ufs.fleet.maintenance.type.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.create_date field ufs.fleet.maintenance.create_date field ufs.fleet.maintenance.type.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.currency_id field fleet.vehicle.log.services.line.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.current_activity_id
+msgid "Current Activity"
+msgstr "Текущая активность"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.date
+msgid "Date"
+msgstr "Дата"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.units_to_check_to_days
+msgid "Days to Check rem."
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.type.default_alert_range
+msgid "Default Alert"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.type.default_period
+msgid "Default Period Length"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Deny"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.display_name field ufs.fleet.maintenance.display_name field ufs.fleet.maintenance.type.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Enter Your Resolution"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.fact_date_from
+msgid "Fact From"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.fact_date_to
+msgid "Fact To"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.id field ufs.fleet.maintenance.id field ufs.fleet.maintenance.type.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.res_id
+msgid "Id"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.service.type.is_a_category
+msgid "Is a Category"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.last_check
+msgid "Last Check"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.last_log_message
+msgid "Last Log Message"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.write_uid field ufs.fleet.maintenance.type.write_uid field ufs.fleet.maintenance.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.write_date field ufs.fleet.maintenance.type.write_date field ufs.fleet.maintenance.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.last_value
+msgid "Last Value"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Maintenance"
+msgstr "Обслуживание"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.maintenance_plan_id
+msgid "Maintenance Generator"
+msgstr "Генератор обслуживания"
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Maintenance Plan"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.maintenance_request_id
+msgid "Maintenance Request"
+msgstr "Заявка на обслуживание"
+
+#. module: repka_fleet_maintenance
+#: view arch view arch page
+msgid "Maintenances"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: menu 282
+msgid "Maintenances Plan"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.res_model
+msgid "Model"
+msgstr "Модель"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.move_line_ids
+msgid "Move Lines"
+msgstr "Проводки"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.name field ufs.fleet.maintenance.type.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch view arch filter
+msgid "Not Active"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.odometer
+msgid "Odometer"
+msgstr "Одометр"
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Open Bill(s)"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.operation_type_id
+msgid "Operation Type"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.overdue_maintenance_ids
+msgid "Overdue Maint"
+msgstr "Просроченное обслуживание"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.period
+msgid "Period"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.period_type field ufs.fleet.maintenance.type.period_type
+msgid "Period Type"
+msgstr "Тип периода"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.plan_date_from
+msgid "Plan From"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.plan_date_to
+msgid "Plan To"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.maintenance_ids
+msgid "Planned Maintenances"
+msgstr "Плановое обслуживание"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.price_unit
+msgid "Price"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.product_id
+msgid "Product"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.qty
+msgid "Qty"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.repair_place
+msgid "Repair Place"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs_fleet.maintenance_request.wizard.request_id
+msgid "Request"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch
+msgid "Resolution"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch view arch filter
+msgid "Responsible"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.employee_id
+msgid "Responsive"
+msgstr "Ответственный"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: server_action 416
+msgid "Schedule Maintenances"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.service_id
+msgid "Service"
+msgstr "Обслуживание"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.bounded_maintenance_log_id field ufs.fleet.maintenance_request.bounded_maintenance_log_id
+msgid "Service Log"
+msgstr "Журнал обслуживания"
+
+#. module: repka_fleet_maintenance
+#: field account.move.line.vehicle_service_id
+msgid "Service Order"
+msgstr "Заказ на обслуживание"
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.line.tax_ids
+msgid "Tax"
+msgstr "Налог"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.units_to_check_tr
+msgid "To Check"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view arch view arch filter
+msgid "Trailer"
+msgstr "Прицеп"
+
+#. module: repka_fleet_maintenance
+#: view arch view arch filter
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.type.service_type_id view arch view arch filter
+msgid "Type"
+msgstr "Тип"
+
+#. module: repka_fleet_maintenance
+#: module summary
+msgid "UFS Maintenance Based on odometers and Scheduled actions"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs.fleet.maintenance.units_to_check
+msgid "Units to Check rem."
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field ufs_fleet.maintenance_request.wizard.vehicle_id
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_fleet_maintenance
+#: field ufs_fleet.maintenance_request.wizard.maintenance_resolution
+msgid "Vehicle Maintenance Resolution"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: field fleet.vehicle.log.services.website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view 1226
+msgid "ufs_fleet.maintenance_request.wizard.view"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view 1225
+msgid "ufs_fleet.ufs_fleet_trip"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view 1219
+msgid "ufs_fleet_maintenance.search"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view 1221
+msgid "ufs_fleet_maintenance_form_view"
+msgstr ""
+
+#. module: repka_fleet_maintenance
+#: view 1220
+msgid "ufs_fleet_maintenance_list_view"
+msgstr ""

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_ufs_fleet_refuel_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.refuel.filter</field>
+        <field name="model">ufs.fleet.refuel</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="vehicle_id"/>
+        <field name="card_id"/>
+        <field name="vendor_id"/>
+        <field name="operation_dttm"/>
+        <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+        <separator/>
+        <filter name="filter_fuels" string="Fuels" domain="[('product_categ_id', '=', 4)]"/>
+        <!--                <filter name="filter_this_week" string="This Week" date="operation_dttm" default_period="this_week"/>-->
+        <group string="Group by...">
+          <filter string="Fuel Card" name="group_fuelcard" context="{'group_by': 'card_id'}"/>
+          <filter string="Truck" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+          <filter string="Vendor" name="group_vendor_id" context="{'group_by': 'vendor_id'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_refuel_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.refuel.form</field>
+        <field name="model">ufs.fleet.refuel</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Refuel">
+        <header>
+          <!--<field name="state_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>-->
+          
+          <field name="product_categ_id" invisible="True"/>
+          
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="card_id"/>
+              <field name="operation_dttm"/>
+              <field name="product_id"/>
+              <field name="qty"/>
+              <field name="dut_qty"/>
+              <label for="unit_price"/>
+              <div class="o_row">
+                <field name="unit_price" class="oe_inline"/>
+                <field name="currency_id" class="oe_inline" groups="base.group_multi_currency"/>
+              </div>
+              <field name="discount"/>
+              <field name="total_amount"/>
+            </group>
+            <group>
+              <field name="vendor_id"/>
+              <field name="vehicle_id" required="1"/>
+              <field name="location_id"/>
+              <field name="record_hash" readonly="True"/>
+              <field name="qty_by_stats" readonly="True"/>
+              <field name="refill_ratio" readonly="True"/>
+            </group>
+          </group>
+          <group>
+            <field name="location_data"/>
+            <field name="external_uri" widget="url"/>
+            <field name="additional_data"/>
+          </group>
+        <group>
+
+
+
+
+
+<!--                        />-->
+
+        </group>
+        </sheet>
+
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_refuel_tree" model="ir.ui.view">
+        <field name="name">ufs.fleet.refuel.tree</field>
+        <field name="model">ufs.fleet.refuel</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        
+        <!--<field name="active" invisible="True"/>-->
+        <field name="operation_dttm"/>
+        <field name="card_id"/>
+        <field name="vehicle_id"/>
+        <field name="vendor_id"/>
+        <field name="qty"/>
+        <!--                <field name="qty_by_stats" />-->
+        <!--                <field name="refill_ratio" widget="percentage" />-->
+        <!--                <field name="refill_diff" widget="percentage" />-->
+        <field name="unit_price"/>
+        <field name="currency_id" invisible="True"/>
+        <field name="total_amount"/>
+      </list>]]></field>
+    </record>
+    <record id="refuel_update_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.refuel.update.wizard.form</field>
+        <field name="model">ufs.fleet.refuel.update.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+                <group name="filter">
+                    <group name="date_range" colspan="2">
+                        <group>
+                            <field name="date_from"/>
+                        </group>
+                        <group>
+                            <field name="date_to"/>
+                        </group>
+                        <group>
+                            <field name="update_existing"/>
+                        </group>
+                    </group>
+                </group>
+                <footer>
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_refuel_v_update_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.refuel.v_update_wizard.form</field>
+        <field name="model">ufs.fleet.refuel.v_update_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Updater">
+        <group>
+          <field name="refuel_ids" widget="many2many_tags" required="1"/>
+          <field name="vehicle_id" required="1"/>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fuel_api_provider_form" model="ir.ui.view">
+        <field name="name">ufs.fuel.api.provider.form</field>
+        <field name="model">ufs.fuel.api.provider</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Refuel">
+        <header>
+          <!--<field name="state_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>-->
+          
+          
+          
+          
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="company_id"/>
+              <field name="active"/>
+              <field name="partner_id"/>
+              <field name="endpoint"/>
+              <field name="username"/>
+              <field name="secret" password="True"/>
+              <field name="parser_type"/>
+              <field name="parser_type_comments" invisible="not parser_type_comments"/>
+              <field name="additional_data"/>
+            </group>
+
+            <group/>
+          </group>
+          <group/>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fuel_api_provider_tree" model="ir.ui.view">
+        <field name="name">ufs.fuel.api.provider.tree</field>
+        <field name="model">ufs.fuel.api.provider</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        <!--<field name="active" invisible="True"/>-->
+        <field name="partner_id"/>
+        <field name="parser_type"/>
+        <field name="company_id" groups="base.group_multi_company"/>
+      </list>]]></field>
+    </record>
+    <record id="view_ufs_fuel_card_filter" model="ir.ui.view">
+        <field name="name">ufs.fuel.card.filter</field>
+        <field name="model">ufs.fuel.card</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                    <field name="create_uid" invisible="True"/>
+                    <field name="write_uid" invisible="True"/>
+                    <field name="create_uid" invisible="True"/>
+                    <field name="name"/>
+                    <field name="vehicle_id"/>
+                    <field name="api_provider_id"/>
+                    <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+                    <separator/>
+                    <filter string="This Week" name="creation_date_filter" domain="[                 ('last_operation_dttm', '&gt;=', (datetime.datetime.combine(context_today() + relativedelta(weeks=-1,days=1,weekday=0), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-%d %H:%M:%S')),                 ('last_operation_dttm', '&lt;', (datetime.datetime.combine(context_today() + relativedelta(days=1,weekday=0), datetime.time(0,0,0)).to_utc()).strftime('%Y-%m-%d %H:%M:%S'))]"/>
+                    <group string="Group by...">
+                        <filter string="Creator" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+                        <filter string="Vehicle" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+                        <filter string="Provider" name="group_vehicle_id" context="{'group_by': 'api_provider_id'}"/>
+                        <!--<filter string="Trips" name="dispatcher_id" context="{'group_by': 'trip_ids'}" />-->
+                    </group>
+                </search>]]></field>
+    </record>
+    <record id="ufs_fuel_card_tree" model="ir.ui.view">
+        <field name="name">ufs.fuel.card.tree</field>
+        <field name="model">ufs.fuel.card</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="active" invisible="True"/>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="vendor_id"/>
+                <field name="validity_date" optional="show"/>
+                <field name="day_limit" optional="show"/>
+                <field name="location" optional="show"/>
+                <field name="notes" optional="hide"/>
+            </list>]]></field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,4952 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_adr
+msgid "ADR"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Accept"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.is_accepted
+msgid "Accepted"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.accepted_amount
+msgid "Accepted Amount"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.accepted_days
+msgid "Accepted, days"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.access_warning field ufs.fleet.trip.point.access_warning
+msgid "Access warning"
+msgstr ""
+
+#. module: repka_fleet
+#: report 398
+msgid "Act"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cargo_line.fleet_close_datetime view arch
+msgid "Act Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_needaction field hr.employee.rate.message_needaction field ufs.employee.doc.line.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.active field ufs.fleet.disp.board.active field ufs.fleet.downtime.reason.active
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_ids field ufs.fleet.order.activity_ids field ufs.fleet.trip.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_exception_decoration field ufs.fleet.order.activity_exception_decoration field ufs.fleet.trip.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_state field ufs.fleet.order.activity_state field ufs.fleet.trip.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_type_icon field ufs.fleet.order.activity_type_icon field ufs.fleet.trip.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.adblue_cost view arch
+msgid "AdBlue"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.adblue_cost_by_product
+msgid "AdBlue Cost"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.adblue_accepted_consumption
+msgid "Adblue Accepted Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.adblue_coef field ufs.fleet.vehicle.fuel_norm.adblue_coef
+msgid "Adblue Coefficient"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.adblue_product_price
+msgid "Adblue Cost for Report"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.adblue_consumption
+msgid "Adblue consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_economy_to_drivers_salary
+msgid "Add Economy to Drivers Salary"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Add Fuel Economy To Salary"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Add Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Add Order to Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.add_stop_point_for_all_trips view arch
+msgid "Add Stop Point for All Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_payment_sum
+msgid "Addition Payment Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_payment_sum_2
+msgid "Addition Payment Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.long_trips_amount
+msgid "Additional Long Trips Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.line.notes
+msgid "Additional Notes"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_point_amount
+msgid "Additional Points Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.pro_extra_trip_amount
+msgid "Additional Trips Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.additional_tag_ids field ufs.fleet.disp.board.trailer_additional_tag_ids field ufs.fleet.lorry.trailer_additional_tag_ids
+msgid "Additional properties"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.address_auto field ufs.fleet.order.line.address_auto field ufs.fleet.trip.point.address_auto
+msgid "Address"
+msgstr "Адрес"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.advance_invoice_requested
+msgid "Advance Invoice Requested"
+msgstr "Запрошен авансовый счёт"
+
+#. module: repka_fleet
+#: field account.bank.statement.line.ufs_fleet_order_ids field account.move.ufs_fleet_order_ids
+msgid "All Fleet Orders"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.all_permits_in_trip field ufs.fleet.trip.all_tolls_in_trip
+msgid "All tolls are in"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.amount field ufs.trip.cadv.amount field ufs.trip.cost.amount
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: repka_fleet
+#: field account.bank.statement.line.amount_total_base field account.move.amount_total_base
+msgid "Amount in Base Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.amount_company_currency
+msgid "Amount in Company Currency"
+msgstr "Сумма в валюте компании"
+
+#. module: repka_fleet
+#: view arch
+msgid "Apply New Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.use_winter_norm
+msgid "Apply winter norms"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.is_approval_needed
+msgid "Approval Needed"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Approve"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Approved"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Archived"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.vehicle_ids field hr.employee.public.vehicle_ids field hr.employee.vehicle_ids
+msgid "Assigned Vehicles"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "At Home"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "At home location"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Att."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.attached_documents field ufs.fleet.order.ufs_attached_document_ids
+msgid "Attached Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.attached_receipt field ufs.trip.cost.attached_receipt
+msgid "Attached Receipt"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.attached_scan field ufs.employee.doc.line.attached_scan
+msgid "Attached Scan"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_attachment_count field hr.employee.rate.message_attachment_count field ufs.employee.doc.line.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.attachments_count
+msgid "Attachments Count"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cadv.request.approval.wizard.available_user_ids
+msgid "Available Users"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.average_fuel_cons_fact
+msgid "Average Fuel Consumption by Fact"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.average_fuel_cons_norm
+msgid "Average Fuel Consumption by Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.average_truck_cons_norm
+msgid "Average Truck Consumption by Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.axes_distances
+msgid "Axes Distances"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.axes_formula
+msgid "Axes Formula"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Bank"
+msgstr "Банк"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Bank Accounts"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Bank Payment"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_bank_sum
+msgid "Bank Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_nodiesel_sum_cc
+msgid "Bank Sum (CC)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_bank_sum_2
+msgid "Bank Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_bank_sum_3
+msgid "Bank Sum 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.person_bank_account_ids field hr.employee.person_bank_account_ids field hr.employee.public.person_bank_account_ids
+msgid "Banks"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.base_amount field ufs.trip.cadv.base_amount field ufs.trip.cost.base_amount
+msgid "Base Amount"
+msgstr "Базовая сумма"
+
+#. module: repka_fleet
+#: field account.bank.statement.line.base_currency_id field account.move.base_currency_id field hr.employee.rate.currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Base Information"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.current_order_base_partner_id
+msgid "Base Order Customer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.base_paid_amount
+msgid "Base Paid Amount"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trace.trace_id
+msgid "Base Trace"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.base_unit_price
+msgid "Base Unit Price"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.base_order_id
+msgid "Base order"
+msgstr "Базовый заказ"
+
+#. module: repka_fleet
+#: field ufs.cargo_line.fleet_based_on_order_id
+msgid "Based on"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Bills"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.bills_count
+msgid "Bills Count"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Birth"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.block_freight_amount
+msgid "Block Freight Amount"
+msgstr "Блокировать фрахт"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.block_write_by_docs
+msgid "Block Write By Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.strict_docs_block
+msgid "Blocked By Strict Doc"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.add_payment_currency_id field hr.employee.base.add_payment_currency_id field hr.employee.public.add_payment_currency_id
+msgid "Bonus Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Burnout Deduction From Salary"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_list
+msgid "CADV List"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_list_2
+msgid "CADV List 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_list_3
+msgid "CADV List 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.cemt_numbers field ufs.fleet.lorry.cemt_numbers field ufs.fleet.lorry.is_current_order_cemt
+msgid "CEMT"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cemt_number
+msgid "CEMT Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.cvc_code
+msgid "CVC Code"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Cadv"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_approval_needed field ufs.trip.cadv.trip_cadv_approval_needed
+msgid "Cadv Approval Needed"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.cadv_type
+msgid "Cadv Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.unblocked_by_docs
+msgid "Can be Confirmed"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_fleet
+#: view arch
+msgid "Cancel Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.history.card_id
+msgid "Card"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cargo_line_ids view arch view arch group
+msgid "Cargo"
+msgstr "Груз"
+
+#. module: repka_fleet
+#: view arch view arch label
+msgid "Cargo Bay Dimensions"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.cargo_bay_height
+msgid "Cargo Bay Height"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.cargo_bay_length
+msgid "Cargo Bay Lenght"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.cargo_bay_volume
+msgid "Cargo Bay Volume"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.cargo_bay_width
+msgid "Cargo Bay Width"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.units_count
+msgid "Cargo Count"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.cargo_description
+msgid "Cargo Description"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.line.cargo_line_ids field ufs.fleet.trip.point.cargo_line_ids
+msgid "Cargo Lines"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.manual_cargo_name
+msgid "Cargo Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.move.line.verbose_cargoes_no_weight
+msgid "Cargo Verbose"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cargo_volume field ufs.fleet.trip.segment.cargo_volume
+msgid "Cargo Volume"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cargo_weight field ufs.fleet.order.line.cargo_weight field ufs.fleet.trip.segment.cargo_weight
+msgid "Cargo Weight"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Cargo Weight, kg"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.cargo_weight
+msgid "Cargo weight"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.cargo_weight_uom_id
+msgid "Cargo weight uom"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.line.verbose_cargoes_no_weight field ufs.fleet.order.verbose_cargoes_no_weight field ufs.fleet.trip.point.verbose_cargoes_no_weight
+msgid "Cargo(es)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.line.verbose_cargoes field ufs.fleet.order.verbose_cargoes field ufs.fleet.trip.point.verbose_cargoes
+msgid "Cargoes"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cadv.request.approval.wizard.cadv_id
+msgid "Cash Advance"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.company.cadv_responsible_user_ids field res.config.settings.cadv_responsible_user_ids
+msgid "Cash Advance Responsible Users"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_base_amount_sum
+msgid "Cash Advance sum in base currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_base_amount_sum_2
+msgid "Cash Advance sum in base currency Driver 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_base_amount_sum_3
+msgid "Cash Advance sum in base currency Driver 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_base_amount_sum_cc
+msgid "Cash Advance sum in company currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cash_advance_ids menu 269 view arch
+msgid "Cash Advances"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.company.cadv_trip_limit field res.config.settings.cadv_trip_limit
+msgid "Cash Advances Limit for a Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.is_cash_expected field account.move.is_cash_expected field ufs.fleet.order.is_cash_expected
+msgid "Cash Expected"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_no_receipt_sum
+msgid "Cash NR Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_no_receipt_sum_2
+msgid "Cash NR Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_no_receipt_sum_3
+msgid "Cash NR Sum 3"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Cash Payment"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_sum
+msgid "Cash Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_sum_cc
+msgid "Cash Sum (CC)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_sum_2
+msgid "Cash Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_cash_sum_3
+msgid "Cash Sum 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.start_city field ufs.fleet.trip.segment.stop_city
+msgid "City"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Close"
+msgstr "Закрыть"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.close_datetime
+msgid "Close Datetime"
+msgstr "Дата и время закрытия"
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.state.is_close
+msgid "Closing Kanban Stage"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.state.code
+msgid "Code"
+msgstr "Код"
+
+#. module: repka_fleet
+#: field fleet.vehicle.fuel_ratio_coef
+msgid "Coefficient"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Collect Exp."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.state.color
+msgid "Color"
+msgstr "Цвет"
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.color field fleet.vehicle.tag.color field ufs.employee.doc.line.color
+msgid "Color Index"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.copy_wizard.company_id field hr.employee.rate.company_id field hr.employee.update_rates_wizard.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.company_prefix
+msgid "Company Prefix"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1177
+msgid "Company View UFS Fleet"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Computed"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 258
+msgid "Configuration"
+msgstr "Настройки"
+
+#. module: repka_fleet
+#: view arch
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.line.doc_ids
+msgid "Connected Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.doc_line_ids
+msgid "Connected Lines"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.connected_trip_ids
+msgid "Connected Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.consignee_id
+msgid "Consignee"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.consignee_small_address
+msgid "Consignee City"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.consignee_contact_person
+msgid "Consignee Contact"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.consignee_country_id
+msgid "Consignee Country"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Consumptions"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Contact Information"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.contact_person_id
+msgid "Contact Person"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.service_name_contract field ufs.fleet.order.cost.ufs_contract_id field ufs.fleet.order.ufs_contract_id
+msgid "Contract"
+msgstr "Договор"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.contractor_status
+msgid "Contractor Status"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.order_costs_text field ufs.fleet.lorry.order_costs_text
+msgid "Contractors"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.control_qty
+msgid "Control Qty"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Cooler"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.cooler_consumption
+msgid "Cooler Consumption per Hour"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cooler_hours field ufs.fleet.trip.segment.cooler_hours
+msgid "Cooler Hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cooler_consumption field ufs.fleet.trip.segment.cooler_consumption
+msgid "Cooler consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trace.coords
+msgid "Coordinates"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trace.coords_verbose
+msgid "Coordinates Verbose"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle_copy_wizard.copy_crew
+msgid "Copy Crew"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.copy_wizard.copy_documents field ufs.fleet.vehicle_copy_wizard.copy_documents
+msgid "Copy Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Copy Employee(s) to Another Company"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle_copy_wizard.copy_tires
+msgid "Copy Tires"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Copy Vehicle(s) to Another Company"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.cost view arch
+msgid "Cost"
+msgstr "Стоимость"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost_info_message
+msgid "Cost Info"
+msgstr ""
+
+#. module: repka_fleet
+#: field product.product.trip_costs_price field product.template.trip_costs_price
+msgid "Cost for Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.generated_from_fleet_order_id
+msgid "Cost is a reflection of internal order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.fleet_cost_ids field ufs.fleet.trip.cost_ids view arch
+msgid "Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_coefficient
+msgid "Costs Coefficient"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.could_approve
+msgid "Could Approve"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_country_id field hr.employee.base.reg_country_id field hr.employee.pers_country_id
+msgid "Country"
+msgstr "Страна"
+
+#. module: repka_fleet
+#: field product.product.trip_check_country_id field product.template.trip_check_country_id
+msgid "Country for Check"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Create Chain Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Create New Employee(s)"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Create New Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Create New Trip and Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Create New Vehicle(s)"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.create_uid field fleet.vehicle.tag.create_uid field hr.employee.copy_wizard.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.create_date field fleet.vehicle.tag.create_date field hr.employee.copy_wizard.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Creator"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.credit_limit_overdue
+msgid "Credit Limit Overdue"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.credit_limit_warning
+msgid "Credit limit Warning"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Crew"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.default_trip_exp_line.currency_id field ufs.fleet.order.company_currency_id field ufs.fleet.order.cost.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Current"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.lorry_id field hr.employee.base.lorry_id field hr.employee.lorry_id
+msgid "Current Lorry"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.current_order_id field ufs.fleet.lorry.current_order_id view arch
+msgid "Current Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.current_order_state_id
+msgid "Current Order State"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Current Orders"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.verbose_location_small view arch view arch filter
+msgid "Current Point"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Current State"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.current_trip_ids
+msgid "Current Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.current_user_name
+msgid "Current User Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.verbose_location_small
+msgid "Current location"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cargo_line.fleet_partner_id field ufs.fleet.disp.board.current_order_partner_id field ufs.fleet.lorry.current_order_base_partner_id
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.customs_addition_sum
+msgid "Customs Pass Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.rate.date field ufs.fleet.order.cost.date field ufs.trip.cadv.date
+msgid "Date"
+msgstr "Дата"
+
+#. module: repka_fleet
+#: field hr.employee.update_rates_wizard.date_from
+msgid "Date From"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.datetime field ufs.fleet.order.line.datetime field ufs.fleet.trip.point.datetime
+msgid "Date and Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.day_limit
+msgid "Day Limit"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.days_to_renew field ufs.employee.doc.line.days_to_renew
+msgid "Days To Renew Reminder"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.deal_order_id
+msgid "Deal order"
+msgstr "Сделка"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.driver_odometer
+msgid "Declared Odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.currency_id
+msgid "Default Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.payment_schema field hr.employee.payment_schema field hr.employee.public.payment_schema
+msgid "Default Payment Schema"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 272
+msgid "Default Trip Expenses"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Default Trip Lines"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Delayed"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Delete"
+msgstr "Удалить"
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.destination_datetime field ufs.fleet.lorry.destination_datetime
+msgid "Delivery"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Delivery Date"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Deny"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Description"
+msgstr "Описание"
+
+#. module: repka_fleet
+#: view arch
+msgid "Dest.Cust"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Dest.Point"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Dest.Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.unload_cust_small_address field ufs.fleet.lorry.unload_cust_small_address
+msgid "Dest.sm."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.destination_place field ufs.fleet.lorry.destination_place field ufs.fleet.order.destination_id
+msgid "Destination"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.destination_city
+msgid "Destination City"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.destination_customs
+msgid "Destination Customs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_diesel_sum
+msgid "Diesel Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_diesel_sum_2
+msgid "Diesel Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_diesel_sum_3
+msgid "Diesel Sum 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_difference field ufs.fleet.trip.fuel_difference_cost
+msgid "Difference"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.direct_costs_sum
+msgid "Direct Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Disable Segments and Norms"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 265 view arch
+msgid "Dispatchers Board"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 489
+msgid "Dispatchers Board 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.display_name field fleet.vehicle.tag.display_name field hr.employee.copy_wizard.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.display_prefix field ufs.employee.doc.line.display_prefix
+msgid "Display Prefix"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.distance view arch
+msgid "Distance"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.point_distance
+msgid "Distance (Declared)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.point_distance_fact
+msgid "Distance (Fact)"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Distance and Duration"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.doc_id field ufs.employee.doc.line.doc_id field ufs.trip.strict_doc.line.doc_id
+msgid "Doc"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.ufs_attached_document_stats
+msgid "Doc Stats"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.doc_type field ufs.employee.doc.line.doc_type field ufs.fleet.trip.docs_inout.line.doc_type_char
+msgid "Doc Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.child_ids view arch
+msgid "Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout_ids
+msgid "Docs InOut"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.line.document_ref
+msgid "Document"
+msgstr "Документ"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.editor_ids
+msgid "Document Editors"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.editors_verbose
+msgid "Document was edited by"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.attachment_ids field fleet.vehicle.document_ids field hr.employee.all_the_document_ids
+msgid "Documents"
+msgstr "Документы"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Documents and Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.all_the_document_by_trip_ids field ufs.fleet.lorry.all_the_document_by_trip_ids field ufs.fleet.lorry.all_the_document_ids
+msgid "Documents with problems"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Downtime"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 277
+msgid "Downtime Reasons"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.downtime_days_fuel
+msgid "Downtime consumption, l"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.downtime_days
+msgid "Downtime, days"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.downtime_line_ids menu 278 view arch
+msgid "Downtimes"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Draft"
+msgstr "Черновик"
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Draft Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.service_name_driver field ufs.fleet.disp.board.driver_id field ufs.fleet.downtime.driver_id
+msgid "Driver"
+msgstr "Водитель"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.driver2_id field ufs.fleet.trip.driver2_id field ufs.fleet.trip.driver_switch_wizard.source_driver2_id
+msgid "Driver 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver3_id
+msgid "Driver 3"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Driver CA"
+msgstr ""
+
+#. module: repka_fleet
+#: report 394
+msgid "Driver Letter"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.driver_license_nr field hr.employee.driver_license_nr field hr.employee.public.driver_license_nr
+msgid "Driver License Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.driver_notes
+msgid "Driver Notes"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_payment_sum
+msgid "Driver Payment Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_payment_sum_base
+msgid "Driver Payment Sum (Base)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_payment_sum_rate
+msgid "Driver Payment Sum (Rate Cur.)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_phone
+msgid "Driver Phone"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.driver_rate_currency_id field hr.employee.driver_rate_currency_id field hr.employee.public.driver_rate_currency_id
+msgid "Driver Rate Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Driver Salary By Trip Segments"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.driver_salary_currency_mode field ufs.fleet.trip.driver_salary_currency_mode view arch
+msgid "Driver Salary Currency Mode"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.driver_state field hr.employee.driver_state field hr.employee.public.driver_state
+msgid "Driver State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.switch_location_id
+msgid "Driver Switch Place"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.work_end_date field hr.employee.public.work_end_date field hr.employee.work_end_date
+msgid "Driver Work End"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.work_start_date field hr.employee.public.work_start_date field hr.employee.work_start_date
+msgid "Driver Work Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.drivers_by_trip_ids field ufs.fleet.lorry.drivers_by_trip_ids
+msgid "Driver(s)"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.current_driver_ids
+msgid "Drivers by Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip_time.line.duration_trips_days
+msgid "Duration by Trips in days."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip_time.line.duration_trips
+msgid "Duration by Trips in hrs."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.duration_days
+msgid "Duration, d"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.duration
+msgid "Duration, h"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.eco_driving_score
+msgid "Eco Score"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.eco_score_correction
+msgid "Eco Score Correction"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.contact_person_email
+msgid "Email"
+msgstr "Email"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Emergency Contact Information"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.emergency_contact_mobile field hr.employee.emergency_contact_mobile field hr.employee.public.emergency_contact_mobile
+msgid "Emergency Contact Mobile"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.emergency_contact_name field hr.employee.emergency_contact_name field hr.employee.public.emergency_contact_name
+msgid "Emergency Contact Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.emergency_contact_phone field hr.employee.emergency_contact_phone field hr.employee.public.emergency_contact_phone
+msgid "Emergency Contact Phone"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.emergency_contact_type field hr.employee.emergency_contact_type field hr.employee.public.emergency_contact_type
+msgid "Emergency Contact Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.emission_standard
+msgid "Emission Standard"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.copy_wizard.new_employee_id field hr.employee.rate.employee_id field ufs.employee.doc.line.employee_id
+msgid "Employee"
+msgstr "Сотрудник"
+
+#. module: repka_fleet
+#: menu 267 view arch view arch group
+msgid "Employee Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.copy_wizard.employee_ids field hr.employee.update_rates_wizard.employee_ids menu 262
+msgid "Employees"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "EnRoute"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.enabled_driver_ids field ufs.trip.cost.enabled_driver_ids
+msgid "Enabled Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.enabled_order_state_ids
+msgid "Enabled Order State"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Engine"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.engine_hours field ufs.fleet.lorry.trailer_engine_hours
+msgid "Engine Hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.engine_nr
+msgid "Engine Nr"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Enter Data"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Enter Needed Data"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Equipment"
+msgstr "Оборудование"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.estimated_distance
+msgid "Estimated Distance"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.expiration_date field ufs.employee.doc.line.expiration_date
+msgid "Expiration Date"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Expired"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Export"
+msgstr "Экспорт"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ext_odometer_start
+msgid "Ext Odometer Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ext_odometer_stop
+msgid "Ext Odometer Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Extended Data"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.external_nr_editable
+msgid "External Nr Editable"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.external_nr
+msgid "External System Nr."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_consumption_trailer_dut field ufs.fleet.trip.fuel_consumption_trailer_fls
+msgid "FLS Trailer Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_consumption_truck_dut
+msgid "FLS Truck Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.attached_scan_fname field ufs.employee.doc.line.attached_scan_fname field ufs.trip.cost.attached_receipt_fname
+msgid "FName"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.fact_arrival_dttm field ufs.fleet.order.line.fact_arrival_dttm field ufs.fleet.trip.point.fact_arrival_dttm
+msgid "Fact Arrival"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.fact_leave_dttm field ufs.fleet.order.line.fact_leave_dttm field ufs.fleet.trip.point.fact_leave_dttm
+msgid "Fact Leave"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.fact_leave_odometer
+msgid "Fact Leave Odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Fact Weight"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Fact Weight UOM"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_diff_used_can
+msgid "Fact-CAN Difference"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_cost_start
+msgid "Fifo Fuel Costs Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_cost_stop
+msgid "Fifo Fuel Costs Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fifo_fuel_costs
+msgid "Fifo Fuel Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.finish_date
+msgid "Finish Date"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Finished"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.fire_reason field hr.employee.fire_reason field hr.employee.public.fire_reason
+msgid "Fire Reason"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Fired"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Fiscality"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.ufs_fleet_order_id field account.move.line.ufs_fleet_order_id field account.move.ufs_fleet_order_id
+msgid "Fleet Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.order_cost_id field account.move.order_cost_id
+msgid "Fleet Order Cost"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.transport.document.fleet_order_ids view arch
+msgid "Fleet Orders"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Fleet Type"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 260
+msgid "Fleet orders"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.state.fold
+msgid "Folded in Pipeline"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Followed Orders"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Followed Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_follower_ids field hr.employee.rate.message_follower_ids field ufs.employee.doc.line.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_partner_ids field hr.employee.rate.message_partner_ids field ufs.employee.doc.line.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.free_time field ufs.fleet.order.line.free_time field ufs.fleet.trip.point.free_time
+msgid "Free Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.timing
+msgid "Free time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.freight_amount
+msgid "Freight Amount"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.amount field ufs.fleet.trip.m_amount
+msgid "Freight Amount in Company Base Currency"
+msgstr "Фрахт в базовой валюте компании"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.freight_currency_id
+msgid "Freight Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_locked
+msgid "Freight Locked"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.reorder_wizard.freight_amount field ufs.fleet.trip.add_order_wizard.freight_amount
+msgid "Freight Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.from_dttm field ufs.fleet.employee.letter_wizard.letter_from
+msgid "From"
+msgstr "От"
+
+#. module: repka_fleet
+#: field ufs.trip.cost.is_from_default_created
+msgid "From Def.Created"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.is_generated
+msgid "From Exp.Generated"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.from_order_id
+msgid "From Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Fuel"
+msgstr "Топливо"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_average_consumption_can
+msgid "Fuel Average Consumption CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_average_consumption_dut
+msgid "Fuel Average Consumption FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Fuel Card"
+msgstr "Топливная карта"
+
+#. module: repka_fleet
+#: field fleet.vehicle.fuel_card_ids menu 274 view arch
+msgid "Fuel Cards"
+msgstr "Топливные карты"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_consumption_can
+msgid "Fuel Consumption CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.fuel_consumption_can
+msgid "Fuel Consumption Can"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_consumption_dut
+msgid "Fuel Consumption FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.fuel_cost_by_product
+msgid "Fuel Cost"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_by_product_cost
+msgid "Fuel Cost Computed"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_product_price
+msgid "Fuel Cost for Report"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_diff_used_fls
+msgid "Fuel Diff Used FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_difference_gt
+msgid "Fuel Difference Gt"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.fuel_level_dut
+msgid "Fuel Level Dut"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.fuel_level_v
+msgid "Fuel Level Vehicle"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.fuel_level_ref
+msgid "Fuel Level in Trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.fuel_norm_ids
+msgid "Fuel Norms"
+msgstr "Нормы расхода"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_product_price_currency_id
+msgid "Fuel Price Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_start_can
+msgid "Fuel Start CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_start_dut
+msgid "Fuel Start FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_stop_can
+msgid "Fuel Stop CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_stop_dut
+msgid "Fuel Stop FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_diesel_sum_cc
+msgid "Fuel Sum (CC)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_used
+msgid "Fuel Used"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.full_accepted_consumption
+msgid "Fuel accepted, l"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.qty_fuel_sum
+msgid "Fuel by Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.qty_fuel_sum_trailer
+msgid "Fuel by Costs Trailer Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.qty_fuel_sum_truck
+msgid "Fuel by Costs Truck Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ext_qty_fuel_sum
+msgid "Fuel by External Qty"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Fuel by Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_difference_accepted
+msgid "Fuel difference accepted, l"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.tank_volume_now
+msgid "Fuel in tank for now"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.fuel_ratio_norm field ufs.fleet.vehicle.fuel_norm.fuel_ratio_norm
+msgid "Fuel rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.fuel_ratio_norm_winter
+msgid "Fuel rate Winter"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fueled_to_trailer
+msgid "Fueled to Trailer (FLS)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fueled_to_truck
+msgid "Fueled to Truck (FLS)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.full_costs_sum field ufs.fleet.trip.trip_costs_sum
+msgid "Full Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.full_costs_base_sum field ufs.fleet.trip.m_full_costs_base_sum
+msgid "Full Costs Sum in Base Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.full_name field ufs.employee.doc.line.full_name
+msgid "Full Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.full_personal_address field hr.employee.full_personal_address field hr.employee.public.full_personal_address
+msgid "Full Personal Address"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_route field ufs.fleet.trip.trip_route_report
+msgid "Full Route"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.fuel_consumption_computed
+msgid "Full consumption by norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.fuel_consumption
+msgid "Full fuel consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "GPS"
+msgstr "GPS"
+
+#. module: repka_fleet
+#: field fleet.vehicle.u_guid field hr.employee.u_guid field ufs.fleet.order.u_guid
+msgid "GUID"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Generate Segments"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Get EcoScore"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Get Report"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Given"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Goes out"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "H"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.has_act
+msgid "Has Act"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.has_cemt_on_board
+msgid "Has CEMT on board"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.fleet_type_has_cargo_bay
+msgid "Has Cargo Bay"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.has_digital_tacho
+msgid "Has Digital Tacho"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.has_hose
+msgid "Has Hose"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.has_message field hr.employee.rate.has_message field ufs.employee.doc.line.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.has_no_receipt
+msgid "Has No Receipt"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.has_posted_invoice
+msgid "Has Posted Invoice"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.has_stamp_image
+msgid "Has Stamp Image"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Heater"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.heater_consumption
+msgid "Heater Consumption per Hour"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.heater_hours field ufs.fleet.trip.segment.heater_hours
+msgid "Heater Hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.heater_consumption field ufs.fleet.trip.segment.heater_consumption
+msgid "Heater consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.hide_advances_in_trip view arch
+msgid "Hide Advances in Trips"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.hide_fact_arrival_dttm view arch
+msgid "Hide Fact Arrival Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.history_line_ids
+msgid "History Line"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.address_home_id view arch view arch label
+msgid "Home Address"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.home_location_id
+msgid "Home Location"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.id field fleet.vehicle.tag.id field hr.employee.copy_wizard.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_exception_icon field ufs.fleet.order.activity_exception_icon field ufs.fleet.trip.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.rate_idle_day field hr.employee.public.rate_idle_day field hr.employee.rate_idle_day
+msgid "Idle Day Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_idle_day_2
+msgid "Idle Day Rate 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.rate_idle_day_currency_id field hr.employee.public.rate_idle_day_currency_id field hr.employee.rate_idle_day_currency_id
+msgid "Idle Day Rate Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.idle_days
+msgid "Idle Days"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.second_driver_salary_coef
+msgid "If we have 2 drivers, this coefficient will be used for recalc"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Import"
+msgstr "Импорт"
+
+#. module: repka_fleet
+#: field res.config.settings.service_name_incoming_ref field ufs.fleet.order.incoming_ref
+msgid "Incoming Ref."
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Info For Partner"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Info for Partner"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 273
+msgid "Inout Lines"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_internal_margin
+msgid "Internal Margin"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_internal_margin_base field ufs.fleet.trip.m_order_internal_margin_base
+msgid "Internal Margin Base"
+msgstr ""
+
+#. module: repka_fleet
+#: report 400
+msgid "Internal Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.internal_truck_name field ufs.fleet.lorry.internal_truck_name
+msgid "Internal Truck Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.internal_order_number
+msgid "Internal order"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.ufs_state_localized field account.move.ufs_state_localized
+msgid "Inv.state"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_color
+msgid "Invoice Color"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.base_invoice_count field ufs.fleet.order.invoice_count
+msgid "Invoice Count"
+msgstr "Количество счетов"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_date_due
+msgid "Invoice Due Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_external_refs
+msgid "Invoice External Refs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_notes
+msgid "Invoice Notes"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_numbers_char
+msgid "Invoice Numbers"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_ext_numbers_char
+msgid "Invoice Numbers (Ext.)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.inv_payment_term_verbose
+msgid "Invoice Payment Terms"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_customer_receive_date
+msgid "Invoice Receive Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.invoice_states_char view arch view arch filter
+msgid "Invoice State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.base_invoice_ids field ufs.fleet.order.cost.bill_ids field ufs.fleet.order.invoice_ids
+msgid "Invoices"
+msgstr "Счета"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_business_day_term
+msgid "Is Business Day Term"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.is_business_day_term field account.move.is_business_day_term
+msgid "Is Business day N term"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.is_delayed field ufs.fleet.lorry.is_delayed
+msgid "Is Delayed"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.is_fired field hr.employee.is_fired field hr.employee.public.is_fired
+msgid "Is Fired"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.is_first field ufs.fleet.order.line.is_first field ufs.fleet.trip.point.is_first
+msgid "Is First"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_is_follower field hr.employee.rate.message_is_follower field ufs.employee.doc.line.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.is_fuel_start
+msgid "Is Fuel Start Cost Line"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.is_fuel_stop
+msgid "Is Fuel Stop Cost Line"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.is_given view arch view arch filter
+msgid "Is Given"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_invoiced
+msgid "Is Invoiced"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.is_last field ufs.fleet.order.line.is_last field ufs.fleet.trip.point.is_last
+msgid "Is Last"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.is_n_term field account.move.is_n_term field ufs.fleet.order.is_n_term
+msgid "Is N term"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_not_full
+msgid "Is Not Full"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.is_on_holiday field hr.employee.is_on_holiday field hr.employee.public.is_on_holiday
+msgid "Is On Holiday"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.is_on_sick_day field hr.employee.is_on_sick_day field hr.employee.public.is_on_sick_day
+msgid "Is On Sick Day"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.is_paid
+msgid "Is Paid"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle_copy_wizard.is_single
+msgid "Is Single"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.is_ufs_move field account.move.is_ufs_move
+msgid "Is UFS Move"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.is_used field ufs.trip.strict_doc.line.is_used_in_trip
+msgid "Is Used"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.at_home_location field ufs.fleet.disp.board.at_home_location field ufs.fleet.lorry.at_home_location
+msgid "Is at home location"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.is_given field ufs.employee.doc.line.is_given field ufs.fleet.trip.docs_inout.line.is_given
+msgid "Is given"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.is_refrigerator
+msgid "Is ref"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.docs_inout.line.is_returned
+msgid "Is returned"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.issue_date
+msgid "Issue Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.kz_id_card field hr.employee.kz_id_card field hr.employee.public.kz_id_card
+msgid "KZ ID Card"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.rate_pro_km field hr.employee.public.rate_pro_km field hr.employee.rate_pro_km
+msgid "Km Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_km_2
+msgid "Km Rate 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.load_cust_small_address
+msgid "L.Customs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.last_history_state
+msgid "Last History State"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.last_loc_datetime
+msgid "Last Loc Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Last Mod."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.paid_at_date
+msgid "Last Paid At"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.last_state_update_user_id
+msgid "Last State Updated By.."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.last_trace
+msgid "Last Trace"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.last_trip_id
+msgid "Last Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.write_uid field fleet.vehicle.tag.write_uid field hr.employee.copy_wizard.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.write_date field fleet.vehicle.tag.write_date field hr.employee.copy_wizard.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.emp_driver_lastname
+msgid "Last name"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver2_docs_ids
+msgid "Late Driver 2 Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver3_docs_ids
+msgid "Late Driver 3 Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_docs_ids
+msgid "Late Driver Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trailer_docs_ids
+msgid "Late Trailer Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.vehicle_docs_ids
+msgid "Late Vehicle Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.latitude
+msgid "Latitude"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.trailer_number field ufs.fleet.lorry.truck_number field ufs.fleet.vehicle_copy_wizard.license_plate
+msgid "License Plate"
+msgstr "Гос. номер"
+
+#. module: repka_fleet
+#: field account.bank.statement.line.line_refs field account.move.line_refs
+msgid "Line Refs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.line_type
+msgid "Line Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.load_datetime field ufs.fleet.lorry.load_datetime
+msgid "Load"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.service_name_loading_date view arch view arch filter
+msgid "Load Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.loaded_coef
+msgid "Loaded Coef"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle.fuel_norm.fuel_norm_if_loaded
+msgid "Loaded Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.loading_units_count
+msgid "Loading Units"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.location_id field ufs.fleet.downtime.location_id field ufs.fleet.order.line.location_id
+msgid "Location"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.location
+msgid "Location Description"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.longitude
+msgid "Longitude"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 263 menu 264 view arch
+msgid "Lorries"
+msgstr "Грузовики"
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.lorry_id field ufs.fleet.order.cost.lorry_char
+msgid "Lorry"
+msgstr "Грузовик"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.lorry_char
+msgid "Lorry Char"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Lorry State"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 488 view arch
+msgid "Lorry States"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Lost or duplicate data"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.m_t_margin_base field ufs.fleet.trip.orders_t_margin_base
+msgid "Main Margin"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Main Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Maintenance Request"
+msgstr "Заявка на обслуживание"
+
+#. module: repka_fleet
+#: menu 266 view arch
+msgid "Maintenance Requests"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.has_special_start_fuel
+msgid "Manual Start Fuel"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.has_special_start_ref_hours
+msgid "Manual Start Hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.manufacture_year
+msgid "Manufacture Year"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.orders_t_margin_pro_day
+msgid "Margin pro day"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.orders_t_margin_pro_km
+msgid "Margin pro km"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Mark As Done"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Mark as Paid"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.max_load_weight
+msgid "Max load weight"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.max_load_base_weight
+msgid "Max load weight in base UoM"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cadv.request.approval.wizard.message field ufs.fleet.order.partner_info_wizard.message field ufs.fleet.trip.partner_info_wizard.message
+msgid "Message"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_has_error field hr.employee.rate.message_has_error field ufs.employee.doc.line.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_ids field hr.employee.rate.message_ids field ufs.employee.doc.line.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Mobile"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group view arch page
+msgid "Model"
+msgstr "Модель"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.month_index
+msgid "Month Index"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.base_move_line_ids
+msgid "Move Lines"
+msgstr "Проводки"
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.my_activity_date_deadline field ufs.fleet.order.my_activity_date_deadline field ufs.fleet.trip.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.n_days_count field account.move.n_days_count field ufs.fleet.order.n_days_count
+msgid "N"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.name field fleet.vehicle.name field ufs.employee.doc.line.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "New"
+msgstr "Новый"
+
+#. module: repka_fleet
+#: field hr.employee.update_rates_wizard.new_value
+msgid "New Value"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_calendar_event_id field ufs.fleet.order.activity_calendar_event_id field ufs.fleet.trip.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_date_deadline field ufs.fleet.order.activity_date_deadline field ufs.fleet.trip.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_summary field ufs.fleet.order.activity_summary field ufs.fleet.trip.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_type_id field ufs.fleet.order.activity_type_id field ufs.fleet.trip.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.next_order_stop_place field ufs.fleet.lorry.next_order_stop_place
+msgid "Next Delivery"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.next_order_stop_datetime field ufs.fleet.lorry.next_order_stop_datetime
+msgid "Next Delivery Dttm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.next_order_place field ufs.fleet.lorry.next_order_place
+msgid "Next Load"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Next Load Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.next_order_id field ufs.fleet.lorry.next_order_id view arch
+msgid "Next Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.next_order_datetime field ufs.fleet.lorry.next_order_datetime
+msgid "Next Order Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.next_by_start_date field ufs.fleet.trip.next_by_start_date
+msgid "Next by Start Date"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Next.Load"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Next.Load Time"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Next.UnLoad"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Next.UnLoad Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_nodiesel_sum
+msgid "No Diesel Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_nodiesel_sum_2
+msgid "No Diesel Sum 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.costs_nodiesel_sum_3
+msgid "No Diesel Sum 3"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "No GPS Data"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "No K."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.no_kozlovichi_allowed
+msgid "No Kozlovichi Allowed"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.no_permits_country_ids field ufs.fleet.trip.no_tolls_country_ids
+msgid "No Tolls Countries"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_norm_id
+msgid "Norm to be used"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.is_a_normalized_cost
+msgid "Norm.Cost"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.norm_costs_sum
+msgid "Normalized Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Norms"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.is_not_full field ufs.fleet.lorry.is_not_full
+msgid "Not Full"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Not Invoiced"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Not Paid"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Not Received"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.not_use_segments_and_norms
+msgid "Not Use Segments and Norms"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Note"
+msgstr "Заметка"
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.notes field fleet.vehicle.notes field ufs.employee.doc.line.notes
+msgid "Notes"
+msgstr "Заметки"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_order_name
+msgid "Nr."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.name
+msgid "Number"
+msgstr "Номер"
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_needaction_counter field hr.employee.rate.message_needaction_counter field ufs.employee.doc.line.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.drivers_count
+msgid "Number of drivers"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_has_error_counter field hr.employee.rate.message_has_error_counter field ufs.employee.doc.line.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.object_id field ufs.employee.doc.line.object_id
+msgid "Object"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.object_name field ufs.employee.doc.line.object_name
+msgid "Object Name"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Odometer"
+msgstr "Одометр"
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.odometer_can
+msgid "Odometer CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.odometer_gps
+msgid "Odometer GPS"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "On A Holiday"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "On A Sick Day"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.on_hand_employee_id
+msgid "On Hand Employee"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.strict_doc.on_hand_truck_id
+msgid "On Hand Truck"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "On Holiday"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.on_holiday_till_date field hr.employee.on_holiday_till_date field hr.employee.public.on_holiday_till_date
+msgid "On Holiday Till"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Open To Work"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.odometer.operation_dttm
+msgid "Operation Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.operation_type
+msgid "Operation Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.qty_payable_fuel_down_sum
+msgid "Opl. Sliv, l"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.order_id field ufs.fleet.order.cost.fleet_order_id field ufs.fleet.order.line.order_id
+msgid "Order"
+msgstr "Заказ"
+
+#. module: repka_fleet
+#: field ufs.fleet.reorder_wizard.source_company_id field ufs.fleet.reorder_wizard.target_company_id field ufs.fleet.trip.add_order_wizard.target_company_id
+msgid "Order Company"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_date
+msgid "Order Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_memo
+msgid "Order Details"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_finish_date field ufs.fleet.trip.m_order_finish_date
+msgid "Order Finish"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Order Finish Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.order_line_id
+msgid "Order Line"
+msgstr "Строка заказа"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.order_route_ids field ufs.fleet.trip.add_order_wizard.target_order_line_ids
+msgid "Order Lines"
+msgstr "Строки заказа"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.name
+msgid "Order Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.base.order.order_reference field ufs.fleet.order.order_reference
+msgid "Order Reference"
+msgstr "Реквизит заказа"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_start_date
+msgid "Order Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.current_order_state_id view arch view arch filter
+msgid "Order State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_type
+msgid "Order Type"
+msgstr "Тип заказа"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.order_category_id
+msgid "Order Type by Manager"
+msgstr ""
+
+#. module: repka_fleet
+#: report 396
+msgid "Order for Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.based_on_order_id
+msgid "Order is based on"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.order_notes
+msgid "Order's Notes"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.fleet_order_ids view arch
+msgid "Orders"
+msgstr "Заказы"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.orders_amount_sum
+msgid "Orders Freight Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.orders_full_costs_base_sum
+msgid "Orders Full Costs Base Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.orders_internal_margin_base
+msgid "Orders Internal Margin Base"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_orders
+msgid "Orders Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_orders_2
+msgid "Orders Rate 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.order_ids field ufs.fleet.trip.switch_wizard.source_trip_order_ids
+msgid "Orders in trip"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Orig.Point"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Orig.Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.origin_id view arch view arch group
+msgid "Origin"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.origin_city
+msgid "Origin City"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.original_plate_nr
+msgid "Original Plate Nr."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.ref_company_id
+msgid "Our Company"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.load_customs
+msgid "Outgoing Customs"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.own_trailer_id
+msgid "Own Trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.owner_partner_id field ufs.fleet.order.line.owner_partner_id field ufs.fleet.trip.point.owner_partner_id
+msgid "Owner Partner"
+msgstr "Партнёр-владелец"
+
+#. module: repka_fleet
+#: field ufs.fuel.card.pin_code
+msgid "PIN Code"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.paid_amount
+msgid "Paid Amount"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.is_completed
+msgid "Paid Out"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.parent_partner_id field ufs.fleet.trip.docs_inout.line.parent_id
+msgid "Parent"
+msgstr "Родитель"
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.partner_id field ufs.fleet.order.line.partner_id field ufs.fleet.trip.point.partner_id
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Passport"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.payable_km
+msgid "Payable, km"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.payment_comments
+msgid "Payment Comments"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_payment_comment
+msgid "Payment Details"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cost.payment_method
+msgid "Payment Method"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_payment_schema
+msgid "Payment Schema"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.payment_term_id field account.bank.statement.line.ufs_payment_term_id field account.move.payment_term_id
+msgid "Payment Terms"
+msgstr "Условия оплаты"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Payslips"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_city field hr.employee.pers_city field hr.employee.public.pers_city
+msgid "Pers City"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_street field hr.employee.pers_street field hr.employee.public.pers_street
+msgid "Pers Street"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_street2 field hr.employee.pers_street2 field hr.employee.public.pers_street2
+msgid "Pers Street2"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_zip field hr.employee.pers_zip field hr.employee.public.pers_zip
+msgid "Pers Zip"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.contact_person_phone view arch
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: repka_fleet
+#: field hr.employee.base.physical_person_id field hr.employee.physical_person_id field hr.employee.public.physical_person_id
+msgid "Physical Person"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.physical_person_document_ids field hr.employee.physical_person_document_ids field hr.employee.public.physical_person_document_ids
+msgid "Physical Person Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.physical_person_tax_id field hr.employee.physical_person_tax_id field hr.employee.public.physical_person_tax_id
+msgid "Physical Person Tax ID"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.employee.letter_wizard.letter_place_name
+msgid "Place"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.employee.letter_wizard.letter_driver_place_name
+msgid "Place(p 22)"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Plan"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Planned"
+msgstr "Запланировано"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.planned_mileage
+msgid "Planned Mileage"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Point"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.points_block
+msgid "Points Block"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.access_url field ufs.fleet.trip.point.access_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Position"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.location_postcode field ufs.fleet.order.line.location_postcode field ufs.fleet.trip.point.location_postcode
+msgid "Postcode"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.power_type field ufs.fleet.order.power_type
+msgid "Power Unit Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.company_prefix
+msgid "Prefix for sequences"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.prev_trip_stop_dttm
+msgid "Prev Trip Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.prev_trip_id
+msgid "Previous Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.prev_trailer_trip_id
+msgid "Previous Trip (Trailer)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_to_trip_delay
+msgid "Previous Trip Delay"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_to_trip_delay_trailer
+msgid "Previous Trip Delay Trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.rate.value view arch
+msgid "Price"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Print"
+msgstr "Печать"
+
+#. module: repka_fleet
+#: view arch
+msgid "Print Letter"
+msgstr ""
+
+#. module: repka_fleet
+#: report 399
+msgid "Print Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.print_order_number
+msgid "Print Order Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.print_stamp
+msgid "Print Stamp"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_orders_percentage
+msgid "Pro Orders Percentage"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "ProKM"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.default_trip_exp_line.product_id field ufs.fleet.order.cost.product_id field ufs.trip.cost.product_id
+msgid "Product"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.product_categ_id field ufs.trip.cost.product_categ_id view arch
+msgid "Product Category"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1119
+msgid "Product Template Trip Cost View"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Properties"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Qty"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.default_trip_exp_line.product_qty field ufs.fleet.order.cost.product_qty field ufs.trip.cost.product_qty
+msgid "Quantity"
+msgstr "Количество"
+
+#. module: repka_fleet
+#: field hr.employee.base.ru_snils field hr.employee.public.ru_snils field hr.employee.ru_snils
+msgid "RU SNILS"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.rate.rate_type field hr.employee.update_rates_wizard.rate_type
+msgid "Rate Type"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Rates"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.rate_line_ids field hr.employee.public.rate_line_ids field hr.employee.rate_line_ids
+msgid "Rates History"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.rating_ids field hr.employee.rate.rating_ids field ufs.employee.doc.line.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.real_partner_id view arch view arch filter
+msgid "Real Customer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.real_fuel_costs_sum
+msgid "Real Fuel Costs by Costs Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Real Start Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.downtime_reason_id view arch
+msgid "Reason"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Reasons"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.ref_engine_consumption
+msgid "Ref Engine Consumption per hour"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.ref_engine_model
+msgid "Ref Engine Model"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.ref_hours
+msgid "Ref Hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ref_hours_start
+msgid "Ref Hours Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ref_hours_stop
+msgid "Ref Hours Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "RefCons"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.is_refrigerator field ufs.fleet.trip.is_refrigerator
+msgid "Refrigerator"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.ref_consumption field ufs.fleet.trip.segment.ref_consumption
+msgid "Refrigerator consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.reg_city field hr.employee.public.reg_city field hr.employee.reg_city
+msgid "Reg City"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.reg_street field hr.employee.public.reg_street field hr.employee.reg_street
+msgid "Reg Street"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.reg_street2 field hr.employee.public.reg_street2 field hr.employee.reg_street2
+msgid "Reg Street2"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.reg_zip field hr.employee.public.reg_zip field hr.employee.reg_zip
+msgid "Reg Zip"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Registered"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch label
+msgid "Registration Address"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.registration_doc_nr
+msgid "Registration Document Nr"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Reorder"
+msgstr "Заказать повторно"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip_time.wizard.end_date
+msgid "Report End"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.report_month
+msgid "Report Period"
+msgstr "Период отчёта"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip_time.wizard.start_date
+msgid "Report Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.employee_id
+msgid "Reporter"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 257
+msgid "Reports"
+msgstr "Отчёты"
+
+#. module: repka_fleet
+#: view arch
+msgid "Request Advance Invoice"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Request Approval"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Request CADV Approval"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.amount_residual_base field account.move.amount_residual_base
+msgid "Residual Amount in Base Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.responsible_user_id field ufs.fleet.trip.point.responsible_user_id view arch
+msgid "Responsible"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.responsible_employee_id
+msgid "Responsible Employee"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.activity_user_id field ufs.fleet.order.activity_user_id field ufs.fleet.trip.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.responsible_ids field ufs.cadv.request.approval.wizard.user_ids field ufs.employee.doc.line.responsible_ids
+msgid "Responsible Users"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Returned"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_returned_list
+msgid "Returned List"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_returned_list_2
+msgid "Returned List 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.cadv_verbose_returned_list_3
+msgid "Returned List 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.verbose_route
+msgid "Route"
+msgstr "Маршрут"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.route_image field ufs.fleet.trip.route_image
+msgid "Route Image"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.route_ids field ufs.fleet.trip.route_point_ids
+msgid "Route Points"
+msgstr "Точки маршрута"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.route_synced
+msgid "Route Synced"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Routes"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.message_has_sms_error field hr.employee.rate.message_has_sms_error field ufs.employee.doc.line.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.salary_in_segment
+msgid "Salary by this segment"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_fleet
+#: view arch
+msgid "Second Driver Trip Coefficient"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.access_token field ufs.fleet.trip.point.access_token
+msgid "Security Token"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Segment"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment_ids view arch view arch group
+msgid "Segments"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Send"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Send Request"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.send_switch_letter field ufs.fleet.trip.switch_wizard.send_switch_letter
+msgid "Send Switch Letter"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.state.sequence field ufs.fleet.order.state_id_sequence field ufs.fleet.trip.segment.sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.sequence_name
+msgid "Sequence Number"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Service"
+msgstr "Обслуживание"
+
+#. module: repka_fleet
+#: view arch
+msgid "Service Naming"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Services"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.services_included_line_ids
+msgid "Services Included"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Set Done"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.origin_place field ufs.fleet.lorry.origin_place field ufs.fleet.order.shipper_id
+msgid "Shipper"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.shipper_small_address view arch view arch filter
+msgid "Shipper City"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.shipper_contact_person
+msgid "Shipper Contact"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.shipper_country_id
+msgid "Shipper Country"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.fuel_should_be_in_tanks
+msgid "Should be"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.show_cadv_paid_button view arch
+msgid "Show 'Paid' Button on Cash Advances"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.show_advances_in_trip
+msgid "Show Advances In Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.show_can_consumption view arch
+msgid "Show CAN Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.show_can_distance view arch
+msgid "Show CAN Distance"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.show_can_data
+msgid "Show Can Data"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.show_can_distance
+msgid "Show Can Distance"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.show_costs
+msgid "Show Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.show_driver_multi_currency
+msgid "Show Driver Multi Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.show_fact_arrival field ufs.fleet.trip.show_fact_arrival
+msgid "Show Fact Arrival"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.show_fls_data
+msgid "Show Fls Data"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.show_fls_data view arch
+msgid "Show Fuel Level Sensor (FLS) Data"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Show History"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.cadv.show_paid_button
+msgid "Show Paid Button"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Show Turnover"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Sick Day"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.employee.letter_wizard.letter_sign_date
+msgid "Sign Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.employee.letter_wizard.letter_driver_sign_date
+msgid "Sign Date(p 22)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.qty_fuel_down_sum
+msgid "Sliv, l"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.slot_date field ufs.fleet.lorry.slot_date view arch
+msgid "Slot"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle.fuel_norm.is_solo_norm
+msgid "Solo Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Source"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Source Company"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Source Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.source_trip_id field ufs.fleet.trip.switch.source_trip_id field ufs.fleet.trip.switch_wizard.source_trip_id
+msgid "Source Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Source Truck"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.ufs_trip_driver_rate_by_segments
+msgid "Specify driver rates pro trip segment"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.state field ufs.employee.doc.line.state field ufs.fleet.order.state
+msgid "Stage"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.start_date field ufs.fleet.trip.segment.start_location_id field ufs.fuel.card.history.start_dttm
+msgid "Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.ret_start_city
+msgid "Start City"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.ret_start_country_id
+msgid "Start Country"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle.fuel_norm.date_start view arch view arch filter
+msgid "Start Date"
+msgstr "Дата начала"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.start_dttm
+msgid "Start Date Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.r_start_datetime field ufs.fleet.order.start_datetime field ufs.fleet.trip.driver_switch_wizard.target_start_datetime
+msgid "Start Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.start_location_json
+msgid "Start Location Json"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.start_odometer
+msgid "Start Odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.pers_state_id field hr.employee.base.reg_state_id field hr.employee.pers_state_id
+msgid "State"
+msgstr "Статус"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.state field ufs.trip.cadv.state view arch
+msgid "Status"
+msgstr "Статус"
+
+#. module: repka_fleet
+#: view arch
+msgid "Step Back"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.stop_date field ufs.fleet.trip.segment.stop_location_id field ufs.fuel.card.history.stop_dttm
+msgid "Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.ret_stop_city
+msgid "Stop City"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.ret_stop_country_id
+msgid "Stop Country"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.stop_dttm
+msgid "Stop Date Time"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.r_stop_datetime field ufs.fleet.order.stop_datetime field ufs.fleet.trip.stop_datetime
+msgid "Stop Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.stop_location_json
+msgid "Stop Location Json"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.stop_odometer
+msgid "Stop Odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.strict_doc_ids field ufs.fleet.trip.strict_doc_line_ids
+msgid "Strict Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.subtype_id
+msgid "Subtype"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch_ids view arch
+msgid "Switch"
+msgstr "Переключение"
+
+#. module: repka_fleet
+#: view arch
+msgid "Switch Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch_ident
+msgid "Switch ID"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_order_wizard.target_end_point_id
+msgid "Switch Location"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.switch_location_id field ufs.fleet.trip.switch_wizard.switch_location_id
+msgid "Switch Place"
+msgstr ""
+
+#. module: repka_fleet
+#: report 397
+msgid "Switch Report Letter"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.state
+msgid "Switch State"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Switch Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch_truck view arch
+msgid "Switch Truck"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.switch_type
+msgid "Switch Type"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 271 view arch
+msgid "Switches"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Sync Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.tir_numbers field ufs.fleet.lorry.tir_numbers field ufs.fleet.trip.is_tir
+msgid "TIR"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.tir_number
+msgid "TIR Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.tag.name
+msgid "Tag Name"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.partner_tags_ids
+msgid "Tags"
+msgstr "Теги"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.take_burnout_from_drivers_salary
+msgid "Take Burnout From Drivers Salary"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.add_economy_to_drivers_salary field res.config.settings.take_burnout_from_drivers_salary
+msgid "Take Burnout from Drivers salary"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Taken"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.tank_volume
+msgid "Tank volume, l"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Target"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.target_company_id field ufs.fleet.trip.switch_wizard.target_company_id view arch
+msgid "Target Company"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Target Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.reorder_wizard.target_trailer_id
+msgid "Target Trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.target_trip_id field ufs.fleet.trip.switch.target_trip_id field ufs.fleet.trip.switch_wizard.target_trip_id
+msgid "Target Trip"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.target_driver_id field ufs.fleet.trip.switch.target_driver_id field ufs.fleet.trip.switch_wizard.target_driver_id
+msgid "Target Trip Driver 1"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.target_driver2_id field ufs.fleet.trip.switch.target_driver2_id field ufs.fleet.trip.switch_wizard.target_driver2_id
+msgid "Target Trip Driver 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.switch.target_order_ids field ufs.fleet.trip.switch_wizard.target_order_ids
+msgid "Target Trip Orders"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.target_trailer_id field ufs.fleet.trip.switch.target_trailer_id field ufs.fleet.trip.switch_wizard.target_trailer_id
+msgid "Target Trip Trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.driver_switch_wizard.target_vehicle_id field ufs.fleet.trip.switch.target_vehicle_id field ufs.fleet.trip.switch_wizard.target_vehicle_id
+msgid "Target Trip Truck"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.reorder_wizard.target_vehicle_id view arch view arch filter
+msgid "Target Truck"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch page
+msgid "Tax Info"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.technical_km
+msgid "Technical, km"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.there_was_a_problem
+msgid "There Was A Problem"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.m_o_alert
+msgid "There is more than one Order for trip!"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "This Month"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "This Year Delivered"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.timesheet_amount
+msgid "Timesheet Sum"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.downtime.to_dttm field ufs.fleet.employee.letter_wizard.letter_to
+msgid "To"
+msgstr "До"
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "To Approve"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "To Draft"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "To Pay"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "To Renew"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "To Renew(2 weeks)"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.to_return_sum
+msgid "To Return"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.to_return_sum_2
+msgid "To Return 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.to_return_sum_3
+msgid "To Return 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.is_to_be_switched view arch view arch filter
+msgid "To be switched"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.tolls_perm_checked
+msgid "Tolls and Permits are Validated"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Total"
+msgstr "Итого"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_accepted_adblue_consumption
+msgid "Total Accepted Adblue Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_adblue_consumption
+msgid "Total Adblue Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_add_costs_sum
+msgid "Total Add.Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_empty_km
+msgid "Total Empty, km"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_engine
+msgid "Total Engine, hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_fuel_consumption
+msgid "Total Fuel Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_fuel_consumption_computed
+msgid "Total Fuel Consumption by norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_loaded_km
+msgid "Total Loaded, km"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_ref_consumption
+msgid "Total Ref Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_ref_hours
+msgid "Total Ref hours"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_truck_fuel_consumption
+msgid "Total Truck Fuel Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_km
+msgid "Total, km"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Totals"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Totals Driver 2"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Totals Driver 3"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.longitude_latitude field fleet.vehicle.odometer.longitude_latitude field ufs.fleet.disp.board.longitude_latitude
+msgid "Tracking Coordinates"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.tracking_system_uid field hr.employee.public.tracking_system_uid field hr.employee.tracking_system_uid
+msgid "Tracking ID"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.tracking_provider_id field hr.employee.public.tracking_provider_id field hr.employee.tracking_provider_id
+msgid "Tracking Provider"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 259
+msgid "Tracking Systems"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.trailer_id field ufs.fleet.disp.board.trailer_number field ufs.fleet.downtime.trailer_id
+msgid "Trailer"
+msgstr "Прицеп"
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "Trailer Consumption"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.trailer_consumption_schema field ufs.fleet.trip.trailer_consumption_schema
+msgid "Trailer Consumption Schema"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trailer_fuel_start_fls
+msgid "Trailer Fuel Start FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trailer_fuel_stop_fls
+msgid "Trailer Fuel Stop FLS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trailer_fuel_start
+msgid "Trailer Fuel, Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trailer_fuel_stop
+msgid "Trailer Fuel, Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.trailer_type field ufs.fleet.disp.board.trailer_type field ufs.fleet.lorry.trailer_type
+msgid "Trailer Type"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.trailer_odometer
+msgid "Trailer odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Trailers"
+msgstr "Прицепы"
+
+#. module: repka_fleet
+#: field ufs.fuel.card.last_operation_dttm
+msgid "Transfer Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 256
+msgid "Transport"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 310
+msgid "Transport Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.cadv.request.approval.wizard.trip_id field ufs.fleet.downtime.trip_id field ufs.fleet.trip.add_order_wizard.source_trip_id
+msgid "Trip"
+msgstr "Рейс"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.add_order_wizard.source_company_id
+msgid "Trip Company"
+msgstr ""
+
+#. module: repka_fleet
+#: field product.product.trip_costs_currency_id field product.template.trip_costs_currency_id
+msgid "Trip Cost Currency"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 270 view arch
+msgid "Trip Costs"
+msgstr "Стоимости рейса"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.trip_driver_ids
+msgid "Trip Driver"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_duration_days
+msgid "Trip Duration"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_duration_hours
+msgid "Trip Duration, Hrs."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.name
+msgid "Trip Nr."
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_point_ids view arch view arch group
+msgid "Trip Points"
+msgstr "Точки рейса"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_trip
+msgid "Trip Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_trip_2
+msgid "Trip Rate 2"
+msgstr ""
+
+#. module: repka_fleet
+#: report 395
+msgid "Trip Report"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 276 view arch
+msgid "Trip Segments"
+msgstr "Сегменты рейса"
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Trip Start Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.trip_start_dttm
+msgid "Trip Start Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Trip Stop Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.trip_stop_dttm
+msgid "Trip Stop Datetime"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 279
+msgid "Trip Time Utility Report"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.trip_km_ext
+msgid "Trip by CAN"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.based_on_trip_id
+msgid "Trip is based on"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.trip_ids menu 261 view arch
+msgid "Trips"
+msgstr "Рейсы"
+
+#. module: repka_fleet
+#: field fleet.vehicle.trips_count field ufs.fleet.order.trips_count
+msgid "Trips Count"
+msgstr ""
+
+#. module: repka_fleet
+#: menu 275 view arch
+msgid "Trips Report"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.trip_ids
+msgid "Trips in order"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.truck_number_em field ufs.fleet.disp.board.truck_id field ufs.fleet.disp.board.truck_number_em
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.total_truck_fuel_consumption_km
+msgid "Truck Consumption pro 100 km"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.driver_ids field ufs.fleet.lorry.driver_ids
+msgid "Truck Crew"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_consumption_computed
+msgid "Truck Fuel Consumption by norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_start
+msgid "Truck Fuel, Start"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.truck_fuel_stop
+msgid "Truck Fuel, Stop"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.disp.board.truck_number
+msgid "Truck Number"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.truck_phone field ufs.fleet.trip.vehicle_phone
+msgid "Truck Phone EU"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.truck_phone_rus field ufs.fleet.trip.vehicle_phone_rus
+msgid "Truck Phone RUS"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.truck_consumption_computed
+msgid "Truck consumption by norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.verbose_tracking_location field ufs.fleet.lorry.verbose_location
+msgid "Truck location by Tracking System"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.truck_odometer
+msgid "Truck odometer"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.was_switched
+msgid "Truck was switched"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Trucks"
+msgstr "Грузовики"
+
+#. module: repka_fleet
+#: view arch
+msgid "Turnover"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.line_type field ufs.fleet.order.line.line_type field ufs.fleet.trace.trace_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: repka_fleet
+#: field ufs.fleet.order.unload_cust_small_address
+msgid "U.Customs"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1132 view 1133
+msgid "UFS Employee"
+msgstr "Сотрудник UFS"
+
+#. module: repka_fleet
+#: module summary
+msgid "UFS Fleet Module."
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch group
+msgid "UFS Imports"
+msgstr ""
+
+#. module: repka_fleet
+#: cron 25 server_action 371
+msgid "UFS. Locations"
+msgstr ""
+
+#. module: repka_fleet
+#: server_action 374
+msgid "UFS. Notify Employee Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: server_action 373
+msgid "UFS. Notify Vehicle Docs"
+msgstr ""
+
+#. module: repka_fleet
+#: cron 26 server_action 372
+msgid "UFS. Vacations"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.driver_weight_uom_id field ufs.fleet.trip.segment.cargo_weight_uom_id
+msgid "UOM"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.tracking_uri field ufs.fleet.disp.board.tracking_uri field ufs.fleet.lorry.tracking_uri
+msgid "URL"
+msgstr ""
+
+#. module: repka_fleet
+#: field account.bank.statement.line.ufs_state field account.move.ufs_state
+msgid "Ufs State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.default_trip_exp_line.price_unit field ufs.fleet.order.cost.price_unit field ufs.trip.cost.price_unit
+msgid "Unit Price"
+msgstr "Цена за единицу"
+
+#. module: repka_fleet
+#: field res.config.settings.service_name_unloading_date
+msgid "Unload Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.unloaded_coef
+msgid "Unloaded Coef"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.uom_id field ufs.fleet.order.cost.product_uom_id field ufs.trip.cost.product_uom_id
+msgid "UoM"
+msgstr "Единица измерения"
+
+#. module: repka_fleet
+#: view arch
+msgid "Update Rates"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.use_contract_checks
+msgid "Use Contract Checks"
+msgstr ""
+
+#. module: repka_fleet
+#: field res.config.settings.use_costs_in_fleet_order view arch
+msgid "Use Costs in Transport Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.use_eco_score field hr.employee.public.use_eco_score field hr.employee.use_eco_score
+msgid "Use ECO Score"
+msgstr ""
+
+#. module: repka_fleet
+#: field product.product.use_in_trip_costs field product.template.use_in_trip_costs
+msgid "Use In Trip Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.use_salary_per_segment field ufs.fleet.trip.use_salary_per_segment
+msgid "Use Salary Per Segment"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.use_segments
+msgid "Use Segments"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.use_date
+msgid "Use date"
+msgstr ""
+
+#. module: repka_fleet
+#: field product.product.use_in_driver_reports field product.template.use_in_driver_reports
+msgid "Use in Driver Reports"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.segment.fuel_norm_id
+msgid "Used Fuel Norm"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.trip.strict_doc.line.valid_date
+msgid "Valid until"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.validity_date
+msgid "Validity Date"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.vehicle_id field res.config.settings.service_name_vehicle field ufs.fleet.maintenance_request.vehicle_id
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_fleet
+#: menu 268
+msgid "Vehicle Documents"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.tracking_uri_obj_id
+msgid "Vehicle Id for Link"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Vehicle Log"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.maintenance_request
+msgid "Vehicle Maintenance Note"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.maintenance_request.maintenance_resolution
+msgid "Vehicle Maintenance Resolution"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.vehicle_responsible_id field ufs.fleet.trip.vehicle_responsible_id
+msgid "Vehicle Responsible"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.state_id
+msgid "Vehicle State"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.vehicle_copy_wizard.vehicle_ids
+msgid "Vehicles"
+msgstr "Транспортные средства"
+
+#. module: repka_fleet
+#: field ufs.location.home_location_vehicle_ids
+msgid "Vehicles at home here"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.partner_id
+msgid "Vendor"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fuel.card.vendor_id
+msgid "Vendor ID"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.verbose_cargoes
+msgid "Verbose Cargoes"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cost.verbose_cargoes_no_weight
+msgid "Verbose Cargoes No Weight"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.lorry.verbose_location_small
+msgid "Verbose Location Small"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.payment_term_verbose
+msgid "Verbose Term"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.was_switched
+msgid "Was switched"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.doc.line.website_message_ids field hr.employee.rate.website_message_ids field ufs.employee.doc.line.website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.order.cargo_weight_uom_id field ufs.fleet.order.line.cargo_weight_uom_id
+msgid "Weight UOM"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.unit_weight
+msgid "Weight, kg"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.point.driver_weight
+msgid "Weight, t"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "With Costs"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "With Current Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Without Current Order"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch view arch filter
+msgid "Without Next Order"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.add_order.line.wizard_id
+msgid "Wizard"
+msgstr ""
+
+#. module: repka_fleet
+#: field hr.employee.base.rate_pro_day field hr.employee.public.rate_pro_day field hr.employee.rate_pro_day
+msgid "Working Day Rate"
+msgstr ""
+
+#. module: repka_fleet
+#: field ufs.fleet.trip.rate_pro_day_2
+msgid "Working Day Rate 2"
+msgstr ""
+
+#. module: repka_fleet
+#: field fleet.vehicle.is_solo_truck field ufs.fleet.order.is_solo_truck field ufs.fleet.trip.is_solo_truck
+msgid "Works without trailer"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1167
+msgid "move.fleet.search.inherit"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1182
+msgid "template_ufs_driver_letter_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1188
+msgid "template_ufs_fleet_inout_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1193
+msgid "template_ufs_fleet_internal_order_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1186
+msgid "template_ufs_fleet_order_for_driver_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1183
+msgid "template_ufs_fleet_trip_driver_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1187
+msgid "template_ufs_switch_letter_report"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1185
+msgid "ufs_fleet.template_for_driver_report_cargo"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1184
+msgid "ufs_fleet.template_for_driver_report_routepoint"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1192
+msgid "ufs_fleet.template_order_report_cargo"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1191
+msgid "ufs_fleet.template_order_report_routepoint"
+msgstr ""
+
+#. module: repka_fleet
+#: view 1161
+msgid "uufs.fleet.trip.docs_inout.view"
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Посл.изм."
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "Созд."
+msgstr ""
+
+#. module: repka_fleet
+#: view arch
+msgid "€"
+msgstr ""

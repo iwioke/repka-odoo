@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_multi_order_invoice_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.multi.order.invoice.wizard.form</field>
+        <field name="model">ufs.multi.order.invoice.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Create Multi-Order Invoice">
+                <group>
+                    <group>
+                        <field name="partner_id" readonly="1"/>
+                        <field name="move_type"/>
+                        <field name="invoice_date"/>
+                    </group>
+                    <group>
+                        <field name="currency_id"/>
+                        <field name="company_id" readonly="1"/>
+                        <field name="order_ids" invisible="1"/>
+                    </group>
+                </group>
+
+                <group string="Statistics">
+                    <group>
+                        <label for="order_count" string="Orders Selected"/>
+                        <div>
+                            <field name="order_count" class="oe_inline"/> orders
+                        </div>
+                        <label for="service_line_count" string="Service Lines"/>
+                        <div>
+                            <field name="service_line_count" class="oe_inline"/> lines
+                        </div>
+                    </group>
+                    <group>
+                        <field name="total_amount" widget="monetary"/>
+                    </group>
+                </group>
+
+                <notebook>
+                    <page string="Validation">
+                        <field name="can_create_invoice" invisible="1"/>
+                        <field name="validation_message" widget="html" nolabel="1"/>
+                    </page>
+                    <page string="Selected Orders">
+                        <field name="order_ids" mode="list" nolabel="1">
+                            <list create="false" delete="false">
+                                <field name="name"/>
+                                <field name="partner_id"/>
+                                <field name="order_date"/>
+                                <field name="order_type"/>
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+
+                <footer>
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+</data>
+</odoo>

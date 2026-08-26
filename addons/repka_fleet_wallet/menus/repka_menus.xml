@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_311"
+        name="Driver Wallet"
+        sequence="10"
+/>
+    <menuitem id="menu_290"
+        name="Wallet Entries"
+        sequence="10"
+        parent="menu_311"
+        action="action_view_ufs_driver_wallet_entry"
+/>
+    <menuitem id="menu_312"
+        name="Vaults / Cash Registers"
+        sequence="70"
+        parent="menu_311"
+        action="action_ufs_wallet_vault"
+/>
+</data>
+</odoo>

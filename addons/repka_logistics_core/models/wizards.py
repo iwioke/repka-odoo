@@ -1,14 +1,12 @@
 from odoo import fields, models
 
 class MailComposeMessage(models.TransientModel):
-    _name = "mail.compose.message"
-    _description = "Email composition wizard"
+    _inherit = "mail.compose.message"
     print_stamp = fields.Boolean(string="Print Stamp", help="Render generated report attachments with the company stamp.")
     show_print_stamp = fields.Boolean(string="Show Print Stamp", readonly=True, store=False)
 
 class ResConfigSettings(models.TransientModel):
-    _name = "res.config.settings"
-    _description = "Config Settings"
+    _inherit = "res.config.settings"
     external_number_editable = fields.Boolean(string="External Number Editable")
     group_show_guid = fields.Boolean(string="Show GUID fields", help="If enabled, GUID fields will be visible in forms for users in the group.")
     invoicing_dept_email = fields.Char(string="Invoicing Department Email", help="Email address of the invoicing department for advance invoice requests.")

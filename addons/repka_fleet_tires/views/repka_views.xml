@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="template_ufs_tire_card_report" model="ir.ui.view">
+        <field name="name">template_ufs_tire_card_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet_tires_base.template_ufs_tire_card_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="ru_RU">
+                    <div class="page">
+                        <center>
+                            <h3>КАРТОЧКА УЧЕТА</h3>
+                            <h5>работы автомобильной шины</h5>
+                            <h5>новая, восстановленная, б/у - нужное подчеркнуть</h5>
+                        </center>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Обозначение шины</td>
+                                    <td><strong><span t-field="o.type_"/></strong></td>
+                                    <td>Модель шины</td>
+                                    <td><strong><span t-field="o.tire_model_id"/></strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Заводской номер</td>
+                                    <td><strong><span t-field="o.name"/></strong></td>
+                                    <td/>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>Эксплуатационная норма пробега</td>
+                                    <td><span t-field="o.tire_model_id.mileage_rate"/></td>
+                                    <td>тыс.км.</td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">Изготовитель новой шины или организация, восстановившая шину</td>
+                                    <td><strong><span t-field="o.vendor_id"/></strong></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <table border="1" align="center" cellpadding="2">
+                            <thead>
+                                <tr>
+                                <th>Г/Н</th>
+                                <th colspan="2">Пробег шины</th>
+                                <th colspan="2">Дата</th>
+                                <th rowspan="2">Тех. состояние при установке</th>
+                                <th rowspan="2">Ось</th>
+                                <th rowspan="2">Дата балансировки/перекидки</th>
+                                <th rowspan="2">Причина снятия шины с эксплуатации, пробег</th>
+                                </tr>
+                                <tr>
+                                <th/>
+                                <th>Установка</th>
+                                <th>Снятие</th>
+                                <th>Установка</th>
+                                <th>Снятие</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.tire_history_log_ids.sorted(reverse=True)" t-as="line">
+                                    <tr>
+                                        <td><span t-field="line.vehicle_id.license_plate"/></td>
+                                        <td><span t-field="line.odometer_start"/></td>
+                                        <td><span t-field="line.odometer_start"/></td>
+                                        <td><span t-field="line.operation_dt"/></td>
+                                        <td><span t-field="line.line_close_dt"/></td>
+                                        <td/>
+                                        <td><span t-field="line.axis"/></td>
+                                        <td/>
+                                        <td/>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="view_ufs_fleet_vehicle_tire_filter" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tire.filter</field>
+        <field name="model">fleet.vehicle.tire</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <!--                <field name="create_uid" invisible="True"/>-->
+        <!--                <field name="write_uid" invisible="True"/>-->
+        <!--                <field name="create_uid" invisible="True"/>-->
+        <field name="name"/>
+        <field name="vehicle_id"/>
+        <!--                <field name="operation_datetime" />-->
+        <!--                &lt;!&ndash;<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]}"/>&ndash;&gt;-->
+        <separator/>
+        <filter name="is_utilized" string="Is Utilized" domain="[('active', '=', False)]"/>
+        <filter name="in_warehouse" string="In Warehouse" domain="[('vehicle_id', '=', False)]"/>
+        <filter name="is_trailer" string="On Truck" domain="[('fleet_type', '=', 'power_unit')]"/>
+        <filter name="is_truck" string="On Trailer" domain="[('fleet_type', '=', 'trailer')]"/>
+        <!--                <filter name="filter_this_week" string="This Week" date="operation_datetime" default_period="this_week"/>-->
+        <group string="Group by...">
+          <filter string="Model" name="group_tire_model_id" context="{'group_by': 'tire_model_id'}"/>
+          <filter string="Vehicle" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_vehicle_tire_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tire.tree</field>
+        <field name="model">fleet.vehicle.tire</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Tires">
+        <field name="fleet_type" column_invisible="True"/>
+        <field name="tire_model_id"/>
+        <field name="type_"/>
+        <field name="notes"/>
+        <field name="name"/>
+        <field name="vehicle_id"/>
+        <field name="axis"/>
+        <field name="side" optional="show"/>
+        <field name="position" optional="show"/>
+        
+        
+        <field name="mileage" column_invisible="True"/>
+        <field name="mileage_v"/>
+        <field name="usage_percentage" optional="show" widget="percentage" column_invisible="True"/>
+        <field name="usage_percentage_v" optional="show" widget="percentage"/>
+      </list>]]></field>
+    </record>
+    <record id="view_fleet_vehicle_tire_model_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tire.model.list</field>
+        <field name="model">fleet.vehicle.tire.model</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="name"/>
+                <field name="mileage_rate"/>
+                <field name="producer_id"/>
+            </list>]]></field>
+    </record>
+    <record id="view_fleet_vehicle_tire_producer_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tire.producer.list</field>
+        <field name="model">fleet.vehicle.tire.producer</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="name"/>
+                <field name="partner_id"/>
+            </list>]]></field>
+    </record>
+    <record id="view_fleet_vehicle_tire_size_list" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tire.size.list</field>
+        <field name="model">fleet.vehicle.tire.size</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="name"/>
+                <field name="width"/>
+                <field name="profile"/>
+                <field name="radius"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_tire_swap_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.tire.swap_wizard.view</field>
+        <field name="model">tire.swap_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+                    <group colspan="2">
+                        <field name="vehicle_id"/>
+                        <group name="source" string="Source">
+
+                            <field name="left_axis" widget="float_toggle" options="{'factor': 1, 'range': [1, 2, 3]}" digits="[1,0]"/>
+                            <field name="left_tire"/>
+                        </group>
+                        <group name="target" string="Target">
+                            <field name="right_axis" widget="float_toggle" options="{'factor': 1, 'range': [1, 2, 3]}" digits="[1,0]"/>
+                            <field name="right_tire"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        
+                    
+                </footer>
+                </form>]]></field>
+    </record>
+</data>
+</odoo>

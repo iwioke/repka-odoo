@@ -1,0 +1,1602 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_forwarding
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_adr field ufs.forwarder.order.line.is_adr field ufs.forwarder.suborder.is_adr
+msgid "ADR"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.act_count
+msgid "Act Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.move.line.ufs_act_date view arch
+msgid "Act Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Act(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_needaction field ufs.forwarder.order.message_needaction field ufs.forwarder.suborder.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.type.active
+msgid "Active"
+msgstr "Активно"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_ids field ufs.forwarder.suborder.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_exception_decoration field ufs.forwarder.suborder.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_state field ufs.forwarder.suborder.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_type_icon field ufs.forwarder.suborder.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.ufs_trailer_char
+msgid "Actual Trailer"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.ufs_truck_char
+msgid "Actual Truck"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.address_auto
+msgid "Address"
+msgstr "Адрес"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.advance_invoice_requested field ufs.forwarder.suborder.advance_invoice_requested
+msgid "Advance Invoice Requested"
+msgstr "Запрошен авансовый счёт"
+
+#. module: repka_forwarding
+#: field account.bank.statement.line.ufs_forwarder_order_ids field account.move.ufs_forwarder_order_ids
+msgid "All Forwarder Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.bank.statement.line.ufs_forwarder_sub_order_ids field account.move.ufs_forwarder_sub_order_ids
+msgid "All Forwarder SubOrders"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Amount (B.C)"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Amount (C.C)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.amount_company_currency field ufs.forwarder.suborder.amount_company_currency
+msgid "Amount in Company Currency"
+msgstr "Сумма в валюте компании"
+
+#. module: repka_forwarding
+#: field account.move.line.attached_documents field ufs.forwarder.order.attached_documents field ufs.forwarder.order.ufs_attached_document_ids
+msgid "Attached Documents"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_attachment_count field ufs.forwarder.order.message_attachment_count field ufs.forwarder.suborder.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Bank Payment"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.currency_id field ufs.forwarder.suborder.currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.base_order_id field ufs.forwarder.suborder.base_order_id
+msgid "Base order"
+msgstr "Базовый заказ"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.forwarder_s_order_id
+msgid "Based on Suborder"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.bill_states_char
+msgid "Bill State"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.bill_ids menu 301
+msgid "Bills"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.bill_count
+msgid "Bills Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.block_freight_amount field ufs.forwarder.suborder.block_freight_amount
+msgid "Block Freight Amount"
+msgstr "Блокировать фрахт"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.cargo_line_ids field ufs.forwarder.suborder.cargo_line_ids view arch
+msgid "Cargo"
+msgstr "Груз"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.units_count field ufs.forwarder.suborder.units_count
+msgid "Cargo Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.cargo_line_ids
+msgid "Cargo Lines"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.bank.statement.line.verbose_cargoes_no_weight field account.move.verbose_cargoes_no_weight
+msgid "Cargo Verbose"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.cargo_volume field ufs.forwarder.suborder.cargo_volume
+msgid "Cargo Volume"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.cargo_weight field ufs.forwarder.suborder.cargo_weight
+msgid "Cargo Weight"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.verbose_cargoes_no_weight field ufs.forwarder.suborder.verbose_cargoes_no_weight
+msgid "Cargo(es)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.verbose_cargoes field ufs.forwarder.suborder.verbose_cargoes view arch
+msgid "Cargoes"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Carrier"
+msgstr "Перевозчик"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.carrier_partner_ids
+msgid "Carriers"
+msgstr "Перевозчики"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_cash_expected field ufs.forwarder.suborder.is_cash_expected view arch
+msgid "Cash Expected"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Cash Payment"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.consignee_small_address field ufs.forwarder.suborder.shipper_small_address
+msgid "City"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.close_datetime field ufs.forwarder.suborder.close_datetime
+msgid "Close Datetime"
+msgstr "Дата и время закрытия"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.create_parent.wizard.forwarder_company_id field ufs.forwarder.order.company_id field ufs.forwarder.suborder.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_forwarding
+#: menu 297
+msgid "Configuration"
+msgstr "Настройки"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.consignee_id field ufs.forwarder.suborder.consignee_id
+msgid "Consignee"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.consignee_small_address
+msgid "Consignee City"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.consignee_contact_person field ufs.forwarder.suborder.consignee_contact_person
+msgid "Consignee Contact"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.consignee_country_id field ufs.forwarder.suborder.consignee_country_id
+msgid "Consignee Country"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.contact_person_id field ufs.forwarder.suborder.contact_person_id
+msgid "Contact Person"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.move.line.ufs_container
+msgid "Container"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Container #"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.ufs_contract_id field ufs.forwarder.order.ufs_contract_id field ufs.forwarder.suborder.ufs_contract_id
+msgid "Contract"
+msgstr "Договор"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.contract_warning field ufs.forwarder.suborder.contract_warning
+msgid "Contract Warning"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_contract
+msgid "Contract(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch label
+msgid "Contractor"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.contractor_status field ufs.forwarder.suborder.contractor_status
+msgid "Contractor Status"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 302
+msgid "Contracts"
+msgstr "Договоры"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Counterpart"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 296
+msgid "Counterparts"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create A Sub"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Bill"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Chain"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Chain Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Fleet Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Internal Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Invoice"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create New Sub Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Parent Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create SubOrder"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create Switch Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.create_trip_after_order view arch
+msgid "Create Trip After Fleet Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Create/View Act"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.create_uid field ufs.forwarder.create_parent.wizard.create_uid field ufs.forwarder.order.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.create_date field ufs.forwarder.create_parent.wizard.create_date field ufs.forwarder.order.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.credit_limit_overdue field ufs.forwarder.suborder.credit_limit_overdue
+msgid "Credit Limit Overdue"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.credit_limit_warning field ufs.forwarder.suborder.credit_limit_warning
+msgid "Credit limit Warning"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.currency_id field ufs.forwarder.chain_create.wizard.freight_currency_id field ufs.forwarder.create_parent.wizard.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.source_partner_id
+msgid "Current Contractor"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.partner_id field ufs.forwarder.suborder.partner_id view arch
+msgid "Customer"
+msgstr "Заказчик"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.customer_invoice_line_ids
+msgid "Customer Invoice Line"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 298
+msgid "Customers"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.datetime field ufs.forwarder.sub.switch_wizard.switch_datetime
+msgid "Date and Time"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.deal_order_id field ufs.forwarder.suborder.deal_order_id
+msgid "Deal order"
+msgstr "Сделка"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Description"
+msgstr "Описание"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.destination_id field ufs.forwarder.suborder.destination_id view arch
+msgid "Destination"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.destination_city field ufs.forwarder.suborder.destination_city
+msgid "Destination City"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.destination_customs field ufs.forwarder.suborder.destination_customs
+msgid "Destination Customs"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.display_name field ufs.forwarder.create_parent.wizard.display_name field ufs.forwarder.order.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Docs"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_documents
+msgid "Document(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.attachment_ids field ufs.forwarder.suborder.attachment_ids view arch
+msgid "Documents"
+msgstr "Документы"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_driver_id field ufs.forwarder.sub.switch_wizard.ufs_driver_id field ufs.forwarder.suborder.ufs_driver_id
+msgid "Driver"
+msgstr "Водитель"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_driver2_id field ufs.forwarder.sub.switch_wizard.ufs_driver2_id field ufs.forwarder.suborder.ufs_driver2_id
+msgid "Driver 2"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_driver
+msgid "Driver(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.ufs_driver_ids field ufs.forwarder.suborder.fleet_driver_ids field ufs.forwarder.suborder.verbose_drivers
+msgid "Drivers"
+msgstr "Водители"
+
+#. module: repka_forwarding
+#: menu 303
+msgid "Drivers and Vehicles"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.contact_person_email field ufs.forwarder.suborder.contact_person_email
+msgid "Email"
+msgstr "Email"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.enable_chain_actions field ufs.forwarder.suborder.enable_chain_actions
+msgid "Enable Chain Actions"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.enable_chain_actions view arch
+msgid "Enable Chain Actions in Forwarding"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Enter Data"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.export_import_type_manager
+msgid "Export/Import Type by Manager"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.external_nr_editable field ufs.forwarder.suborder.external_nr_editable
+msgid "External Nr Editable"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.external_nr field ufs.forwarder.suborder.external_nr
+msgid "External System Nr."
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "F.Order(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "F.SubOrder(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.sub_order_type_icon field ufs.forwarder.suborder.type.fa_icon
+msgid "FA Icon"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch group
+msgid "Fact"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.fact_arrival_dttm
+msgid "Fact Arrival"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.fact_leave_dttm
+msgid "Fact Leave"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Finish Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.fleet_orders_count
+msgid "Fleet Orders Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_follower_ids field ufs.forwarder.order.message_follower_ids field ufs.forwarder.suborder.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_partner_ids field ufs.forwarder.order.message_partner_ids field ufs.forwarder.suborder.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Forw Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Forw Sub Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.fleet.order.forwarder_order_id
+msgid "Forwarder Order"
+msgstr "Экспедиторский заказ"
+
+#. module: repka_forwarding
+#: field ufs.fleet.trip.forw_order_ids field ufs.transport.document.forwarder_order_ids view arch
+msgid "Forwarder Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.fleet.trip.forw_orders_count
+msgid "Forwarder Orders Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.fleet.order.forwarder_s_order_id
+msgid "Forwarder Sub Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 307
+msgid "Forwarder Sub Order Types"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 295 view arch
+msgid "Forwarder Sub Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.fleet.trip.forw_suborders_count
+msgid "Forwarder Sub Orders Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Forwarder Sub Orders Types"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.transport.document.forwarder_suborder_ids
+msgid "Forwarder SubOrders"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 293
+msgid "Forwarding"
+msgstr "Экспедирование"
+
+#. module: repka_forwarding
+#: field account.bank.statement.line.ufs_forwarder_order_id field account.move.line.ufs_forwarder_sub_order_id field account.move.ufs_forwarder_order_id
+msgid "Forwarding Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.partner.forw_order_count field res.users.forw_order_count
+msgid "Forwarding Order Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.partner.forw_order_ids field res.users.forw_order_ids menu 294
+msgid "Forwarding Orders"
+msgstr "Экспедиторские заказы"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Forwarding Report"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.bank.statement.line.ufs_forwarder_sub_order_id field account.move.ufs_forwarder_sub_order_id
+msgid "Forwarding SubOrder"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.partner.forw_sub_order_count field res.users.forw_sub_order_count
+msgid "Forwarding SubOrder Count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.partner.forw_sub_order_ids field res.users.forw_sub_order_ids
+msgid "Forwarding SubOrders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.free_time
+msgid "Free Time"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.timing field ufs.forwarder.suborder.timing
+msgid "Free time"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.freight_amount field ufs.forwarder.create_parent.wizard.freight_amount field ufs.forwarder.order.freight_amount
+msgid "Freight Amount"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.amount field ufs.forwarder.suborder.amount
+msgid "Freight Amount in Company Base Currency"
+msgstr "Фрахт в базовой валюте компании"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.freight_currency_id field ufs.forwarder.suborder.freight_currency_id
+msgid "Freight Currency"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_locked field ufs.forwarder.suborder.is_locked
+msgid "Freight Locked"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.full_profitability
+msgid "Full Profitability"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.u_guid field ufs.forwarder.suborder.u_guid
+msgid "GUID"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.has_act field ufs.forwarder.suborder.has_act
+msgid "Has Act"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.has_message field ufs.forwarder.order.line.has_message field ufs.forwarder.suborder.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.has_posted_invoice field ufs.forwarder.suborder.has_posted_invoice
+msgid "Has Posted Invoice"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.has_stamp_image field ufs.forwarder.suborder.has_stamp_image
+msgid "Has Stamp Image"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.forwarder_order_id
+msgid "Head order"
+msgstr "Головной заказ"
+
+#. module: repka_forwarding
+#: field res.config.settings.forwarding_invoicing_rule
+msgid "How we create Forwarding Invoice"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.id field ufs.forwarder.create_parent.wizard.id field ufs.forwarder.order.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_exception_icon field ufs.forwarder.suborder.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_incoming_ref field ufs.forwarder.order.incoming_ref field ufs.forwarder.suborder.incoming_ref
+msgid "Incoming Ref."
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.internal_company_id
+msgid "Internal Company"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.internal_company_partner_id
+msgid "Internal Company Partner"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.company_ufs_contract_id
+msgid "Internal Contract"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.internal_freight_amount
+msgid "Internal Freight Amount"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.internal_freight_currency_id
+msgid "Internal Freight Currency"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.base_invoice_count field ufs.forwarder.order.invoice_count field ufs.forwarder.suborder.base_invoice_count
+msgid "Invoice Count"
+msgstr "Количество счетов"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Invoice Creation Rule"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_date_due field ufs.forwarder.suborder.invoice_date_due
+msgid "Invoice Due Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_notes field ufs.forwarder.suborder.invoice_notes
+msgid "Invoice Notes"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_numbers_char field ufs.forwarder.suborder.invoice_numbers_char
+msgid "Invoice Numbers"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_ext_numbers_char field ufs.forwarder.suborder.invoice_ext_numbers_char
+msgid "Invoice Numbers (Ext.)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.inv_payment_term_verbose field ufs.forwarder.suborder.inv_payment_term_verbose
+msgid "Invoice Payment Terms"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_customer_receive_date field ufs.forwarder.suborder.invoice_customer_receive_date
+msgid "Invoice Receive Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.invoice_states_char
+msgid "Invoice State"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.invoice_states_char
+msgid "Invoice States Char"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Invoice(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.base_invoice_ids field ufs.forwarder.order.invoice_ids field ufs.forwarder.suborder.base_invoice_ids
+msgid "Invoices"
+msgstr "Счета"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_business_day_term field ufs.forwarder.suborder.is_business_day_term
+msgid "Is Business Day Term"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.is_first
+msgid "Is First"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_is_follower field ufs.forwarder.order.message_is_follower field ufs.forwarder.suborder.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_invoiced field ufs.forwarder.suborder.is_invoiced
+msgid "Is Invoiced"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.is_last
+msgid "Is Last"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_n_term field ufs.forwarder.suborder.is_n_term
+msgid "Is N term"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.is_paid field ufs.forwarder.suborder.is_paid
+msgid "Is Paid"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.load_cust_small_address field ufs.forwarder.suborder.load_cust_small_address
+msgid "L.Customs"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.paid_at_date field ufs.forwarder.suborder.paid_at_date
+msgid "Last Paid At"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.last_trace field ufs.forwarder.suborder.last_trace
+msgid "Last Trace"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.write_uid field ufs.forwarder.create_parent.wizard.write_uid field ufs.forwarder.order.line.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.write_date field ufs.forwarder.create_parent.wizard.write_date field ufs.forwarder.order.line.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_loading_date
+msgid "Load Date(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.loading_units_count field ufs.forwarder.suborder.loading_units_count
+msgid "Loading Units"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.location_id
+msgid "Location"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.log_transport_documents view arch
+msgid "Log Transport Documents in Chatter"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_has_error field ufs.forwarder.order.message_has_error field ufs.forwarder.suborder.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_ids field ufs.forwarder.order.message_ids field ufs.forwarder.suborder.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.base_move_line_ids field ufs.forwarder.suborder.base_move_line_ids
+msgid "Move Lines"
+msgstr "Проводки"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.my_activity_date_deadline field ufs.forwarder.suborder.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch filter
+msgid "My Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.n_days_count field ufs.forwarder.suborder.n_days_count
+msgid "N"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.name field ufs.forwarder.suborder.type.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.create_parent.wizard.new_company_id
+msgid "New Company"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_calendar_event_id field ufs.forwarder.suborder.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_date_deadline field ufs.forwarder.suborder.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_summary field ufs.forwarder.suborder.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_type_id field ufs.forwarder.suborder.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch filter
+msgid "Not Invoiced"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch filter
+msgid "Not Paid"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.notes
+msgid "Notes"
+msgstr "Заметки"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_needaction_counter field ufs.forwarder.order.message_needaction_counter field ufs.forwarder.suborder.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_has_error_counter field ufs.forwarder.order.message_has_error_counter field ufs.forwarder.suborder.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.cargo_line.forwarder_order_id field ufs.cargo_line.forwarder_suborder_id field ufs.forwarder.order.line.order_id
+msgid "Order"
+msgstr "Заказ"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_date field ufs.forwarder.suborder.order_date
+msgid "Order Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_memo field ufs.forwarder.suborder.order_memo
+msgid "Order Details"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_finish_date field ufs.forwarder.suborder.order_finish_date
+msgid "Order Finish"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.name field ufs.forwarder.suborder.name
+msgid "Order Number"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 308
+msgid "Order Profitability"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.base.order.order_reference field ufs.fleet.order.order_reference field ufs.forwarder.order.order_reference
+msgid "Order Reference"
+msgstr "Реквизит заказа"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_start_date field ufs.forwarder.suborder.order_start_date
+msgid "Order Start"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_type field ufs.forwarder.suborder.order_type view arch
+msgid "Order Type"
+msgstr "Тип заказа"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.order_category_id field ufs.forwarder.suborder.order_category_id
+msgid "Order Type by Manager"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.fleet_order_ids field ufs.forwarder.suborder.forwarder_order_ids view arch
+msgid "Orders"
+msgstr "Заказы"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.forwarder_orders_count
+msgid "Orders count"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.origin_id field ufs.forwarder.suborder.origin_id view arch
+msgid "Origin"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.origin_city field ufs.forwarder.suborder.origin_city
+msgid "Origin City"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.ref_company_id field ufs.forwarder.suborder.ref_company_id
+msgid "Our Company"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.load_customs field ufs.forwarder.suborder.load_customs
+msgid "Outgoing Customs"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.owner_partner_id
+msgid "Owner Partner"
+msgstr "Партнёр-владелец"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.parent_partner_id field ufs.forwarder.suborder.parent_partner_id
+msgid "Parent"
+msgstr "Родитель"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.parent_forw_order_line_id
+msgid "Parent F. Order Line"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.parent_sub_line_id
+msgid "Parent F. Sub Line"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.fleet.order.line.parent_sub_line_id field ufs.fleet.trip.point.parent_sub_line_id
+msgid "Parent Sub Line"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.partner_id
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_forwarding
+#: field res.config.settings.pass_data_to_fleet_order view arch
+msgid "Pass Data Changes to Fleet Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.pass_data_to_forwarder_order view arch
+msgid "Pass Data Changes to Forwarder Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.payment_term_id field ufs.forwarder.order.ufs_payment_term_id field ufs.forwarder.suborder.payment_term_id
+msgid "Payment Terms"
+msgstr "Условия оплаты"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.contact_person_phone field ufs.forwarder.suborder.contact_person_phone
+msgid "Phone"
+msgstr "Телефон"
+
+#. module: repka_forwarding
+#: view arch view arch group
+msgid "Plan"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.planned_mileage field ufs.forwarder.suborder.planned_mileage
+msgid "Planned Mileage"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.location_postcode
+msgid "Postcode"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Price"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Print"
+msgstr "Печать"
+
+#. module: repka_forwarding
+#: report 437 report 438
+msgid "Print Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.print_stamp field ufs.forwarder.suborder.print_stamp
+msgid "Print Stamp"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.fleet_trip_profitability
+msgid "Profitability by Trips"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.profitability_by_sub
+msgid "Profitability by subs"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Qty"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.rating_ids field ufs.forwarder.order.rating_ids field ufs.forwarder.suborder.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Real Start Date"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 304
+msgid "Reports"
+msgstr "Отчёты"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Request Advance Invoice"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.type.req_field_ids
+msgid "Required fields for this type"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.responsible_user_id field ufs.forwarder.suborder.responsible_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.activity_user_id field ufs.forwarder.suborder.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.responsible_op_user_id field ufs.forwarder.suborder.responsible_op_user_id
+msgid "Responsible for Operations"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.move.line.ufs_route field ufs.forwarder.order.verbose_route field ufs.forwarder.suborder.verbose_route
+msgid "Route"
+msgstr "Маршрут"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.route_image field ufs.forwarder.suborder.route_image
+msgid "Route Image"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.route_ids field ufs.forwarder.suborder.route_ids
+msgid "Route Points"
+msgstr "Точки маршрута"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.route_synced
+msgid "Route Synced"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.route_warning
+msgid "Route Warning"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch group
+msgid "Routes"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.message_has_sms_error field ufs.forwarder.order.message_has_sms_error field ufs.forwarder.suborder.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.state_id_sequence field ufs.forwarder.suborder.state_id_sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.sequence_name field ufs.forwarder.suborder.sequence_name
+msgid "Sequence Number"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.type.service_type view arch
+msgid "Service"
+msgstr "Обслуживание"
+
+#. module: repka_forwarding
+#: view arch
+msgid "Service Name"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.service_type
+msgid "Service Type"
+msgstr "Тип услуги"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.services_included_line_ids field ufs.forwarder.suborder.services_included_line_ids
+msgid "Services Included"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.shipper_id field ufs.forwarder.suborder.shipper_id
+msgid "Shipper"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.shipper_small_address
+msgid "Shipper City"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.shipper_contact_person field ufs.forwarder.suborder.shipper_contact_person
+msgid "Shipper Contact"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.shipper_country_id field ufs.forwarder.suborder.shipper_country_id
+msgid "Shipper Country"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.show_fact_arrival field ufs.forwarder.suborder.show_fact_arrival
+msgid "Show Fact Arrival"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.source_company_id
+msgid "Source Company"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.source_company_partner_id
+msgid "Source Company Partner"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.create_parent.wizard.forwarder_order_id
+msgid "Source Oder"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.chain_create.wizard.s_order_id field ufs.forwarder.sub.switch_wizard.s_order_id
+msgid "Source Sub Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.state field ufs.forwarder.order.state_id field ufs.forwarder.suborder.state
+msgid "Stage"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.start_date field ufs.forwarder.suborder.start_date
+msgid "Start"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_order_start field ufs.forwarder.order.r_start_datetime field ufs.forwarder.order.start_datetime
+msgid "Start Datetime"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.stop_date field ufs.forwarder.suborder.stop_date
+msgid "Stop"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.r_stop_datetime field ufs.forwarder.order.stop_datetime field ufs.forwarder.suborder.r_stop_datetime
+msgid "Stop Datetime"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Sub Order"
+msgstr "Подзаказ"
+
+#. module: repka_forwarding
+#: field ufs.fleet.trip.sub_order_ids view arch
+msgid "Sub Orders"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.suborder_amount_sum
+msgid "Sub Orders Amount"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.transport.document.sub_orders_partner_id
+msgid "Sub Orders Partner"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_verbose_cargoes
+msgid "Sub Verbose Cargoes"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_verbose_cargoes_no_weight
+msgid "Sub Verbose Cargoes No Weight"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.sub_order_type_id
+msgid "SubOrder Type"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.sub.switch_wizard.partner_id
+msgid "Subcontractor"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch view arch group
+msgid "Suborders"
+msgstr "Подзаказы"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.sub_order_ids
+msgid "Suborders in order"
+msgstr ""
+
+#. module: repka_forwarding
+#: menu 300
+msgid "Suppliers"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.switch_line_id
+msgid "Switch Line"
+msgstr "Строка переключения"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.sub.switch_wizard.switch_location_id
+msgid "Switch Place"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.switch_s_order_ids
+msgid "Switch S Order"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.switch_type field ufs.forwarder.sub.switch_wizard.switch_type
+msgid "Switch Type"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.switch_s_order_id field ufs.forwarder.suborder.switch_s_order_id field ufs.forwarder.suborder.switch_s_order_ids
+msgid "Switched Pair"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "TC"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.partner_tags_ids field ufs.forwarder.suborder.partner_tags_ids
+msgid "Tags"
+msgstr "Теги"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.there_was_a_problem field ufs.forwarder.suborder.there_was_a_problem
+msgid "There Was A Problem"
+msgstr ""
+
+#. module: repka_forwarding
+#: view arch
+msgid "Total"
+msgstr "Итого"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_trailer_id field ufs.forwarder.sub.switch_wizard.ufs_trailer_id field ufs.forwarder.suborder.ufs_trailer_id
+msgid "Trailer"
+msgstr "Прицеп"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.ufs_trailer_ids field ufs.forwarder.suborder.fleet_trailer_ids
+msgid "Trailers"
+msgstr "Прицепы"
+
+#. module: repka_forwarding
+#: menu 313
+msgid "Transport Documents"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.fleet_trip_cost_ids
+msgid "Trip Costs"
+msgstr "Стоимости рейса"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.fleet_trip_cost_amount
+msgid "Trip Costs Amount"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.fleet_trip_ids field ufs.forwarder.suborder.fleet_trip_ids view arch
+msgid "Trips"
+msgstr "Рейсы"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.sub_truck_id field ufs.forwarder.sub.switch_wizard.ufs_truck_id field ufs.forwarder.suborder.ufs_truck_id
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.ufs_truck_ids field ufs.forwarder.suborder.fleet_truck_ids
+msgid "Trucks"
+msgstr "Грузовики"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.line_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.unload_cust_small_address field ufs.forwarder.suborder.unload_cust_small_address
+msgid "U.Customs"
+msgstr ""
+
+#. module: repka_forwarding
+#: module summary
+msgid "UFS Forwarding Module."
+msgstr ""
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_unloading_date
+msgid "Unload Date(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.use_contract_checks field ufs.forwarder.suborder.use_contract_checks
+msgid "Use Contract Checks"
+msgstr ""
+
+#. module: repka_forwarding
+#: field account.move.line.ufs_vehicle
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_forwarding
+#: field res.config.settings.f_service_name_vehicle view arch view arch label
+msgid "Vehicle(s)"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.vehicles_string field ufs.forwarder.suborder.ufs_vehicles_ids menu 306
+msgid "Vehicles"
+msgstr "Транспортные средства"
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.payment_term_verbose field ufs.forwarder.suborder.payment_term_verbose
+msgid "Verbose Term"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.suborder.was_switched
+msgid "Was Switched"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.line.website_message_ids field ufs.forwarder.order.website_message_ids field ufs.forwarder.suborder.website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: repka_forwarding
+#: field ufs.forwarder.order.cargo_weight_uom_id field ufs.forwarder.suborder.cargo_weight_uom_id
+msgid "Weight UOM"
+msgstr ""
+
+#. module: repka_forwarding
+#: view 1254
+msgid "forw.create.parent.wizard.form"
+msgstr ""
+
+#. module: repka_forwarding
+#: view 1278
+msgid "report_suborder_carrier_order_document"
+msgstr ""

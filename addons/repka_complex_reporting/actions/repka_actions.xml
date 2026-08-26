@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_ufs_base_order_report" model="ir.actions.act_window">
+        <field name="name">Complex Orders Report</field>
+        <field name="res_model">ufs.base.order</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_base_order_report_f" model="ir.actions.act_window">
+        <field name="name">Complex Orders Report (f)</field>
+        <field name="res_model">ufs.base.order</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="context">{'search_default_filter_three_months': 1, 'search_default_group_deal_order_id': 1, 'expand': 1}</field>
+    </record>
+</data>
+</odoo>

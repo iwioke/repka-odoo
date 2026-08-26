@@ -1,0 +1,427 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet_waybill
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.trip.cadv.is_approval_needed
+msgid "Approval Needed"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.base_currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_fleet_waybill
+#: view arch view arch filter
+msgid "By Waybill"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.fleet.trip.cadv_waybill_base_amount_sum
+msgid "Cash Advance Sum In Waybill"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.cadv_base_amount_sum
+msgid "Cash Advance sum in base currency"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.cadv_ids
+msgid "Cash Advances"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field res.company.cadv_waybill_limit field res.config.settings.cadv_waybill_limit
+msgid "Cash Advances Limit for a Waybill"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet_waybill
+#: view 1249
+msgid "Company View UFS Fleet"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.departure_dttm
+msgid "Departure Date and Time"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Done"
+msgstr "Выполнено"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.driver_id view arch view arch filter
+msgid "Driver"
+msgstr "Водитель"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.driver2_id
+msgid "Driver 2"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Duplicate as /X"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "End"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Issue"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.issue_date view arch view arch filter
+msgid "Issue Date"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.kanban_state
+msgid "Kanban State"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.driver2_docs_ids
+msgid "Late Driver 2 Docs"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.driver_docs_ids
+msgid "Late Driver Docs"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.trailer_docs_ids
+msgid "Late Trailer Docs"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.truck_docs_ids
+msgid "Late Truck Docs"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.medic_control_dep_dttm
+msgid "Medic Control Departure Date and Time"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.medic_control_ret_dttm
+msgid "Medic Control Return Date and Time"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.mileage
+msgid "Mileage"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch view arch filter
+msgid "My Waybills"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.notes
+msgid "Notes"
+msgstr "Заметки"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.name
+msgid "Number"
+msgstr "Номер"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.odometer_dep
+msgid "Odometer Departure"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.odometer_ret
+msgid "Odometer Return"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Request"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.responsible_user_id
+msgid "Responsible"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.return_dttm
+msgid "Return Date and Time"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Return to Draft"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Returned"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Route"
+msgstr "Маршрут"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.same_name_int_count
+msgid "Same Number Counter"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_fleet_waybill
+#: view arch
+msgid "Start"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.issue_date_verbose
+msgid "Start Date Localized"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.state view arch view arch filter
+msgid "Status"
+msgstr "Статус"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.strict_doc_id
+msgid "Strict Doc"
+msgstr "Строгий документ"
+
+#. module: repka_fleet_waybill
+#: view arch view arch filter
+msgid "This Month"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.trailer_id field ufs.waybill.ufs_trailer_id view arch
+msgid "Trailer"
+msgstr "Прицеп"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.reverse_trip_ids
+msgid "Trips"
+msgstr "Рейсы"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.truck_id view arch view arch filter
+msgid "Truck"
+msgstr "Грузовик"
+
+#. module: repka_fleet_waybill
+#: module summary
+msgid "UFS Waybills Functionality. Report forms can be individual."
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.valid_until_date_verbose
+msgid "Valid Date Localized"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.valid_until_date
+msgid "Valid Until Date and Time"
+msgstr ""
+
+#. module: repka_fleet_waybill
+#: field ufs.fleet.trip.waybill_id field ufs.trip.cadv.waybill_id view arch
+msgid "Waybill"
+msgstr "Путевой лист"
+
+#. module: repka_fleet_waybill
+#: menu 291 menu 292 view arch
+msgid "Waybills"
+msgstr "Путевые листы"
+
+#. module: repka_fleet_waybill
+#: field ufs.waybill.website_message_ids
+msgid "Website Messages"
+msgstr ""

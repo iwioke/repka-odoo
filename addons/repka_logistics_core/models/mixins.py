@@ -56,11 +56,11 @@ class UfsMixinsRouteLine(models.AbstractModel):
     is_last = fields.Boolean(string="Is Last", readonly=True, store=False)
     line_type = fields.Selection(string="Type", selection=[("placeholder", "Placeholder")])
     location_id = fields.Many2one(string="Location", comodel_name="ufs.location")
-    location_postcode = fields.Char(string="Postcode", readonly=True, store=False, related="location_id.postcode")
     name = fields.Char(string="Name", readonly=True, store=False)
     notes = fields.Text(string="Notes")
     owner_partner_id = fields.Many2one(string="Owner Partner", comodel_name="res.partner")
     partner_id = fields.Many2one(string="Partner", comodel_name="res.partner")
+    location_postcode = fields.Char(string="Postcode", readonly=True, store=False, related="location_id.postcode")
 
 class UfsMixinsServices(models.AbstractModel):
     _name = "ufs.mixins.services"
@@ -75,10 +75,10 @@ class UfsOrderMixin(models.AbstractModel):
 class UfsPaymentTermMixin(models.AbstractModel):
     _name = "ufs.payment.term.mixin"
     _description = "Payment Term Mixin"
-    is_business_day_term = fields.Boolean(string="Is Business Day Term", readonly=True, store=False, related="ufs_payment_term_id.is_business_day_term")
     is_cash_expected = fields.Boolean(string="Cash Expected", help="If you expect Cash for order Payment, mark order as Cash, so we will create Invoices with Cash attributes")
-    is_n_term = fields.Boolean(string="Is N term", readonly=True, store=False, related="ufs_payment_term_id.is_n_term")
     n_days_count = fields.Integer(string="N")
     payment_term_id = fields.Many2one(string="Payment Terms", comodel_name="account.payment.term")
     payment_term_verbose = fields.Char(string="Verbose Term", readonly=True, store=False)
     ufs_payment_term_id = fields.Many2one(string="Payment Terms", comodel_name="ufs.payment.term")
+    is_business_day_term = fields.Boolean(string="Is Business Day Term", readonly=True, store=False, related="ufs_payment_term_id.is_business_day_term")
+    is_n_term = fields.Boolean(string="Is N term", readonly=True, store=False, related="ufs_payment_term_id.is_n_term")

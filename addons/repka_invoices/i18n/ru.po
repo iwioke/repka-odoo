@@ -1,0 +1,97 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_invoices
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_invoices
+#: field account.bank.statement.line.amount_tax_company field account.move.act.amount_tax_company field account.move.amount_tax_company
+msgid "Amount Tax Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.bank.statement.line.amount_total_company field account.move.act.amount_total_company field account.move.amount_total_company
+msgid "Amount Total Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.bank.statement.line.amount_untaxed_company field account.move.act.amount_untaxed_company field account.move.amount_untaxed_company
+msgid "Amount UntaxedTotal Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.act.invoice_partner_bank_ids
+msgid "Bank Accounts for Report"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.act.company_currency_id
+msgid "Company Currency"
+msgstr "Валюта компании"
+
+#. module: repka_invoices
+#: view arch
+msgid "Create Act"
+msgstr ""
+
+#. module: repka_invoices
+#: field res.partner.invoice_address_id field res.users.invoice_address_id
+msgid "Invoice Address"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.bank.statement.line.invoice_type field account.move.invoice_type
+msgid "Invoice Type"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.bank.statement.line.proforma_invoice_nr field account.move.proforma_invoice_nr
+msgid "Number"
+msgstr "Номер"
+
+#. module: repka_invoices
+#: field account.bank.statement.line.pl_currency_text field account.move.pl_currency_text
+msgid "Pl Currency Text"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.line.price_subtotal_company
+msgid "Price Subtotal Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.line.price_tax_company
+msgid "Price Tax Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.line.price_total_company
+msgid "Price Total Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.line.price_unit_company
+msgid "Price Unit Company"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.bank.statement.line.is_a_proforma_invoice field account.move.is_a_proforma_invoice
+msgid "Proforma Invoice"
+msgstr ""
+
+#. module: repka_invoices
+#: field account.move.line.tax_sum
+msgid "Tax Sum"
+msgstr ""

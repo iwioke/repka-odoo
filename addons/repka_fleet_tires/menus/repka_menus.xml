@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_287"
+        name="Tire Sizes"
+        sequence="10"
+        action="action_fleet_vehicle_tire_size"
+/>
+    <menuitem id="menu_288"
+        name="Tire Models"
+        sequence="10"
+        action="action_fleet_vehicle_tire_model"
+/>
+    <menuitem id="menu_289"
+        name="Tire Producers"
+        sequence="10"
+        action="action_fleet_vehicle_tire_producer"
+/>
+</data>
+</odoo>

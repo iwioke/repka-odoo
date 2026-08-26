@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_280"
+        name="Refuels"
+        sequence="30"
+        parent="fleet.fleet_vehicle_menu"
+        action="action_view_ufs_fleet_refuel"
+/>
+    <menuitem id="menu_281"
+        name="Expense API Providers"
+        sequence="32"
+        action="action_view_ufs_fuel_api_provider"
+/>
+</data>
+</odoo>

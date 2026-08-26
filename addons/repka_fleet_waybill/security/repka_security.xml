@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="group_55" model="res.groups">
+        <field name="name">Waybills Manager</field>
+    </record>
+    <record id="rule_165" model="ir.rule">
+        <field name="name">Waybill: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_waybill"/>
+        <field name="domain_force">
+      ['|',
+            ('company_id', '=', False),
+            ('company_id', 'child_of', company_ids),
+        ]
+    </field>
+    </record>
+</data>
+</odoo>

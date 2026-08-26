@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_view_partner_bank_correspondent_form" model="ir.ui.view">
+        <field name="name">res.partner.bank.correspondent.form</field>
+        <field name="model">res.partner.bank.correspondent</field>
+        <field name="type">form</field>
+        <field name="priority">60</field>
+        <field name="arch"><![CDATA[<form string="Bank Correspondent">
+        <sheet>
+          <group>
+            <group>
+              <field name="sequence" invisible="True"/>
+              <field name="account_name"/>
+              <field name="acc_number"/>
+              <field name="acc_type"/>
+              <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+              <field name="partner_id"/>
+            </group>
+            <group>
+              <field name="bank_id"/>
+              <field name="currency_id" groups="base.group_multi_currency" options="{'no_create': True}"/>
+              <field name="bank_tin"/>
+              <field name="acc_holder_name"/>
+            </group>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+</data>
+</odoo>

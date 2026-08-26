@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_view_ufs_vehicles" model="ir.actions.act_window">
+        <field name="name">Trucks</field>
+        <field name="res_model">fleet.vehicle</field>
+        <field name="view_mode">list,kanban,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_fleet_order" model="ir.actions.act_window">
+        <field name="name">Fleet Orders</field>
+        <field name="res_model">ufs.fleet.order</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fleet_trip" model="ir.actions.act_window">
+        <field name="name">Trips</field>
+        <field name="res_model">ufs.fleet.trip</field>
+        <field name="view_mode">kanban,list,pivot,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_lorries" model="ir.actions.act_window">
+        <field name="name">Lorries</field>
+        <field name="res_model">ufs.fleet.lorry</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_disp_board" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">ufs.fleet.lorry</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fleet_maintenance_request" model="ir.actions.act_window">
+        <field name="name">Maintenance Requests</field>
+        <field name="res_model">ufs.fleet.maintenance_request</field>
+        <field name="view_mode">list,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_employee_docs" model="ir.actions.act_window">
+        <field name="name">Employee Documents</field>
+        <field name="res_model">ufs.employee.doc.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fleet_vehicle_docs" model="ir.actions.act_window">
+        <field name="name">Vehicle Documents</field>
+        <field name="res_model">fleet.vehicle.doc.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_trip_cadv" model="ir.actions.act_window">
+        <field name="name">Cash Advances</field>
+        <field name="res_model">ufs.trip.cadv</field>
+        <field name="view_mode">list,pivot,form,activity</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_trip_cost" model="ir.actions.act_window">
+        <field name="name">Trip Costs</field>
+        <field name="res_model">ufs.trip.cost</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="context">{'search_default_filter_approved': 1}</field>
+    </record>
+    <record id="action_view_ufs_fleet_trip_switch" model="ir.actions.act_window">
+        <field name="name">Switches</field>
+        <field name="res_model">ufs.fleet.trip.switch</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fleet_default_trip_exp_line" model="ir.actions.act_window">
+        <field name="name">Default Trip Expenses</field>
+        <field name="res_model">ufs.fleet.default_trip_exp_line</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_trip_docs_inout_wizard" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">ufs.fleet.trip.docs_inout</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_trip_docs_inout" model="ir.actions.act_window">
+        <field name="name">Documents</field>
+        <field name="res_model">ufs.fleet.trip.docs_inout</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fuel_card" model="ir.actions.act_window">
+        <field name="name">Fuel Card</field>
+        <field name="res_model">ufs.fuel.card</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_trips_report" model="ir.actions.act_window">
+        <field name="name">Trips Report</field>
+        <field name="res_model">ufs.fleet.trip</field>
+        <field name="view_mode">list,pivot,graph</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_fleet_trip_segment" model="ir.actions.act_window">
+        <field name="name">Trip Segments</field>
+        <field name="res_model">ufs.fleet.trip.segment</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="context">{'search_default_filter_approved': 1}</field>
+    </record>
+    <record id="action_view_ufs_downtime_reason" model="ir.actions.act_window">
+        <field name="name">Reasons</field>
+        <field name="res_model">ufs.fleet.downtime.reason</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_downtime" model="ir.actions.act_window">
+        <field name="name">Downtimes</field>
+        <field name="res_model">ufs.fleet.downtime</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_driver_letter_wizard" model="ir.actions.act_window">
+        <field name="name">Letter</field>
+        <field name="res_model">ufs.fleet.employee.letter_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_switch_wizard" model="ir.actions.act_window">
+        <field name="name">Switch Trip</field>
+        <field name="res_model">ufs.fleet.trip.switch_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_driver_switch_wizard" model="ir.actions.act_window">
+        <field name="name">Switch Driver</field>
+        <field name="res_model">ufs.fleet.trip.driver_switch_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="view_partner_info_wizard" model="ir.actions.act_window">
+        <field name="name">Order Info</field>
+        <field name="res_model">ufs.fleet.order.partner_info_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="view_trip_partner_info_wizard" model="ir.actions.act_window">
+        <field name="name">Trip Info</field>
+        <field name="res_model">ufs.fleet.trip.partner_info_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_vehicle_copy_wizard" model="ir.actions.act_window">
+        <field name="name">Copy To Company</field>
+        <field name="res_model">ufs.fleet.vehicle_copy_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_add_order_wizard" model="ir.actions.act_window">
+        <field name="name">Add Order to Trip</field>
+        <field name="res_model">ufs.fleet.trip.add_order_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_fleet_trip_time_wizard" model="ir.actions.act_window">
+        <field name="name">Generate Report</field>
+        <field name="res_model">ufs.fleet.trip_time.wizard</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_employee_copy_wizard" model="ir.actions.act_window">
+        <field name="name">Copy To Company</field>
+        <field name="res_model">hr.employee.copy_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_reorder_wizard" model="ir.actions.act_window">
+        <field name="name">Reorder</field>
+        <field name="res_model">ufs.fleet.reorder_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_employee_update_rates_wizard" model="ir.actions.act_window">
+        <field name="name">Update Rates</field>
+        <field name="res_model">hr.employee.update_rates_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_fleet_lorry_state" model="ir.actions.act_window">
+        <field name="name">Lorry States</field>
+        <field name="res_model">ufs.fleet.lorry.state</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_disp_board_sql" model="ir.actions.act_window">
+        <field name="name">Dispatchers Board 2</field>
+        <field name="res_model">ufs.fleet.disp.board</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+</data>
+</odoo>

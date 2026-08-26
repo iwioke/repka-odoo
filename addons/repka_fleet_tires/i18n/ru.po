@@ -1,0 +1,477 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet_tires
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.fleet_type field fleet.vehicle.tire.log.fleet_type
+msgid "Asset Type"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.axis field fleet.vehicle.tire.log.axis field tire.swap_wizard.left_axis
+msgid "Axis"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "Cancel"
+msgstr "Отменить"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.mileage_v
+msgid "Common Mileage"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.mileage
+msgid "Common Mileage(T)"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.create_uid field fleet.vehicle.tire.log.create_uid field fleet.vehicle.tire.model.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.create_date field fleet.vehicle.tire.log.create_date field fleet.vehicle.tire.model.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.vehicle_id
+msgid "Current Vehicle"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.display_name field fleet.vehicle.tire.log.display_name field fleet.vehicle.tire.model.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "Enter Data"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.id field fleet.vehicle.tire.log.id field fleet.vehicle.tire.model.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "In Warehouse"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.is_editable
+msgid "Is Editable"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "Is Utilized"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.write_uid field fleet.vehicle.tire.model.write_uid field fleet.vehicle.tire.producer.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.write_date field fleet.vehicle.tire.model.write_date field fleet.vehicle.tire.producer.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field tire.swap_wizard.left_tire
+msgid "Left Tire"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.mileage_rate field fleet.vehicle.tire.model.mileage_rate
+msgid "Mileage Rate"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.mileage_v
+msgid "Mileage by Od."
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.mileage_by_odometers
+msgid "Mileage by Od.(F)"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.installation_mileage
+msgid "Mileage by Start"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.mileage_by_trips
+msgid "Mileage by trips"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "Model"
+msgstr "Модель"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.model.name field fleet.vehicle.tire.producer.name field fleet.vehicle.tire.size.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.line_close_dt
+msgid "Next"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.active
+msgid "Not Utilized"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.notes
+msgid "Notes"
+msgstr "Заметки"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.odometer_start
+msgid "Odometer On"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.odometer_v_start
+msgid "Odometer Start By Od."
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "On Trailer"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "On Truck"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.producer.partner_id
+msgid "Partner Link"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.attachment_ids
+msgid "Photos"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.model.producer_id
+msgid "Producer"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.size.profile
+msgid "Profile"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.size.radius
+msgid "Radius"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field tire.swap_wizard.right_tire
+msgid "Right Tire"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.name
+msgid "Serial Number"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.side field fleet.vehicle.tire.side
+msgid "Side"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch group
+msgid "Source"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.tire_suffix
+msgid "Suffix"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "Swap Tires"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch group
+msgid "Target"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch view arch filter
+msgid "This Week"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.tire_id view arch
+msgid "Tire"
+msgstr "Шина"
+
+#. module: repka_fleet_tires
+#: report 425
+msgid "Tire Card"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.tire_model_id
+msgid "Tire Model"
+msgstr "Модель шины"
+
+#. module: repka_fleet_tires
+#: menu 288
+msgid "Tire Models"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.position field fleet.vehicle.tire.position
+msgid "Tire Position"
+msgstr "Позиция шины"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.producer_id
+msgid "Tire Producer"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: menu 289
+msgid "Tire Producers"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.tire_size_id
+msgid "Tire Size"
+msgstr "Размер шины"
+
+#. module: repka_fleet_tires
+#: menu 287
+msgid "Tire Sizes"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "Tires"
+msgstr "Шины"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.tire_history_log_ids field fleet.vehicle.tire_history_log_ids
+msgid "Tires History"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire_ids
+msgid "Tires on Vehicle"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: view arch
+msgid "To Warehouse"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.type_ view arch view arch label
+msgid "Typo"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: module summary
+msgid "UFS Fleet Tire Management Base Module."
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.usage_percentage_v
+msgid "Usage %"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.usage_percentage
+msgid "Usage %(T)"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.vehicle_id field tire.swap_wizard.vehicle_id view arch
+msgid "Vehicle"
+msgstr "Транспортное средство"
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.vendor_id
+msgid "Vendor"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.log.operation_dt
+msgid "When"
+msgstr ""
+
+#. module: repka_fleet_tires
+#: field fleet.vehicle.tire.size.width
+msgid "Width"
+msgstr ""

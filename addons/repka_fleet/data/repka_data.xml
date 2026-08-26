@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    <record id="sequence_3" model="ir.sequence">
+        <field name="name">Fleet Trip Sequence</field>
+        <field name="code">ufs.fleet.trip</field>
+        <field name="prefix"></field>
+        <field name="suffix"></field>
+        <field name="padding">4</field>
+    </record>
+    <record id="sequence_4" model="ir.sequence">
+        <field name="name">Fleet Order Sequence</field>
+        <field name="code">ufs.fleet.order</field>
+        <field name="prefix">F%(range_year)s%(range_month)s</field>
+        <field name="suffix"></field>
+        <field name="padding">3</field>
+    </record>
+    <record id="sequence_5" model="ir.sequence">
+        <field name="name">Trip Cash Advance Sequence</field>
+        <field name="code">ufs.trip.cadv</field>
+        <field name="prefix">CADV%(range_year)s%(range_month)s-</field>
+        <field name="suffix"></field>
+        <field name="padding">4</field>
+    </record>
+    <record id="locations_job_ir_actions_server" model="ir.cron">
+        <field name="name">UFS. Locations</field>
+        <field name="model_id" ref="model_fleet_vehicle"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">hours</field>
+    </record>
+    <record id="vacations_job_ir_actions_server" model="ir.cron">
+        <field name="name">UFS. Vacations</field>
+        <field name="model_id" ref="model_hr_employee"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</data>
+</odoo>

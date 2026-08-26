@@ -20,7 +20,7 @@ class ResCompany(models.Model):
 
 class ResCountry(models.Model):
     _inherit = "res.country"
-    # No ufs_base-owned fields captured for this extension
+    sequence = fields.Integer(string="Sequence")
 
 class ResUsers(models.Model):
     _inherit = "res.users"
@@ -28,24 +28,24 @@ class ResUsers(models.Model):
     base_currency_id = fields.Many2one(string="Base Currency", readonly=True, store=False, comodel_name="res.currency", related="partner_id.base_currency_id")
     city_en = fields.Char(string="City Latin", store=False, related="partner_id.city_en")
     contact_subtype = fields.Selection(string="Contact Type", store=False, selection=[("placeholder", "Placeholder")], related="partner_id.contact_subtype")
-    contract_ids = fields.One2many(string="Contracts", readonly=True, comodel_name="ufs.contract", related="partner_id.contract_ids")
+    contract_ids = fields.One2many(comodel_name="ufs.contract", inverse_name="id", string="Contracts", readonly=True, store=False)
     contractor_status = fields.Selection(string="Contractor Status", store=False, selection=[("placeholder", "Placeholder")], related="partner_id.contractor_status")
     contracts_count = fields.Integer(string="Contracts Count", readonly=True, store=False, related="partner_id.contracts_count")
     count_authority_text = fields.Char(string="Authority Text", store=False, translate=True, related="partner_id.count_authority_text")
     count_signed_by_partner_id = fields.Many2one(string="Signed by", store=False, comodel_name="res.partner", related="partner_id.count_signed_by_partner_id")
-    credit_balance = fields.Monetary(string="Credit Balance", readonly=True, store=False, help="Open Order Freight Sum - Already Paid Amount", related="partner_id.credit_balance")
-    credit_limit_line_ids = fields.One2many(string="Credit Limits", comodel_name="res.partner.credit_limit", related="partner_id.credit_limit_line_ids")
-    credit_sum = fields.Monetary(string="Credit", readonly=True, store=False, related="partner_id.credit_sum")
-    debit_sum = fields.Monetary(string="Debit", readonly=True, store=False, related="partner_id.debit_sum")
-    doc_preference_ids = fields.One2many(string="Document Delivery Preferences", comodel_name="res.partner.doc.preference", related="partner_id.doc_preference_ids")
-    document_ids = fields.One2many(string="Documents", comodel_name="ufs.partner.doc.line", related="partner_id.document_ids")
+    credit_balance = fields.Monetary(string="Credit Balance", readonly=True, store=False, help="Open Order Freight Sum - Already Paid Amount", related="partner_id.credit_balance", currency_field="currency_id")
+    credit_limit_line_ids = fields.One2many(comodel_name="res.partner.credit_limit", inverse_name="id", string="Credit Limits", store=False)
+    credit_sum = fields.Monetary(string="Credit", readonly=True, store=False, related="partner_id.credit_sum", currency_field="currency_id")
+    debit_sum = fields.Monetary(string="Debit", readonly=True, store=False, related="partner_id.debit_sum", currency_field="currency_id")
+    doc_preference_ids = fields.One2many(comodel_name="res.partner.doc.preference", inverse_name="id", string="Document Delivery Preferences", store=False)
+    document_ids = fields.One2many(comodel_name="ufs.partner.doc.line", inverse_name="id", string="Documents", store=False)
     full_name = fields.Char(string="Full Name", store=False, related="partner_id.full_name")
     internal_ref = fields.Char(string="Internal RefNr.", store=False, related="partner_id.internal_ref")
     is_business_day_term = fields.Boolean(string="Is Business Day Term", readonly=True, store=False, related="partner_id.is_business_day_term")
     is_cash_expected = fields.Boolean(string="Cash Expected", store=False, help="If you expect Cash for order Payment, mark order as Cash, so we will create Invoices with Cash attributes", related="partner_id.is_cash_expected")
     is_n_term = fields.Boolean(string="Is N term", readonly=True, store=False, related="partner_id.is_n_term")
-    limit_overdue = fields.Monetary(string="Limit Overdue", readonly=True, store=False, related="partner_id.limit_overdue")
-    location_ids = fields.One2many(string="Location", comodel_name="ufs.location", related="partner_id.location_ids")
+    limit_overdue = fields.Monetary(string="Limit Overdue", readonly=True, store=False, related="partner_id.limit_overdue", currency_field="currency_id")
+    location_ids = fields.One2many(comodel_name="ufs.location", inverse_name="id", string="Location", store=False)
     locations_count = fields.Integer(string="Locations", readonly=True, store=False, related="partner_id.locations_count")
     n_days_count = fields.Integer(string="N", store=False, related="partner_id.n_days_count")
     name_en = fields.Char(string="Name Latin", store=False, related="partner_id.name_en")
@@ -56,7 +56,7 @@ class ResUsers(models.Model):
     ru_kpp = fields.Char(string="KPP", store=False, related="partner_id.ru_kpp")
     ru_ogrn = fields.Char(string="OGRN", store=False, related="partner_id.ru_ogrn")
     short_name = fields.Char(string="Short Name", store=False, related="partner_id.short_name")
-    subsidiary_ids = fields.One2many(string="Subsidiaries", comodel_name="res.partner", related="partner_id.subsidiary_ids")
+    subsidiary_ids = fields.One2many(comodel_name="res.partner", inverse_name="id", string="Subsidiaries", store=False)
     text_address = fields.Text(string="Text Address", readonly=True, store=False, related="partner_id.text_address")
     translit_name = fields.Char(string="Name Latin", store=False, related="partner_id.translit_name")
     u_guid = fields.Char(string="GUID", store=False, related="partner_id.u_guid")

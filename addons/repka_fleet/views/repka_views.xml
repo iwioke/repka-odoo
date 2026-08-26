@@ -1,0 +1,3343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="report_suborder_base" model="ir.ui.view">
+        <field name="name">report_suborder_base</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.report_suborder_base">
+      <t t-call="web.html_container">
+        <t t-set="lang" t-value="docs[0].partner_id.lang"/>
+        <t t-set="o" t-value="docs[0]"/>
+        <t t-call="ufs_fleet.report_suborder_document" t-lang="lang"/>
+      </t>
+    </t>]]></field>
+    </record>
+    <record id="report_suborder_document" model="ir.ui.view">
+        <field name="name">report_suborder_document</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.report_suborder_document">
+      <t t-call="web.basic_layout" t-lang="'ru_RU'">
+        <t t-set="o" t-value="docs[0].with_context(lang=lang)"/>
+        <div class="page">
+          <style type="text/css">
+.page {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.maintable td {
+    border: 1px solid black;
+    padding: 1px 5px;
+}
+
+.maintable p:last-child {
+    margin-bottom: 0;
+}
+
+.instr {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.headtable {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.headtable img {
+    max-height: 85px;
+    max-width: 250px;
+    margin-right: 30px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+                </style>
+          <table class="headtable">
+            <tr>
+              <td width="15%">
+                <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+              </td>
+              <td style="vertical-align: top;">
+                <t t-call="ufs_forwarding.company_address">
+                  <t t-set="partner" t-value="o.company_id.partner_id"/>
+                  <t t-set="translit" t-value="translit"/>
+                </t>
+                <t t-if="o.company_id.phone">
+                  Phone:
+                  <span t-field="o.fleet_order_id.company_id.phone"/>
+                </t>
+                <t t-if="o.company_id.email">
+                  <br/>
+                  E-mail:
+                  <span t-field="o.fleet_order_id.company_id.email"/>
+                  <t t-if="o.company_id.email">
+
+                  </t>
+                  <br/>
+                  Website:
+                  <span t-field="o.fleet_order_id.company_id.website"/>
+                </t>
+              </td>
+            </tr>
+          </table>
+          <h2 style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+            Заявка
+            <t t-if="o.print_order_number">
+              <span t-field="o.print_order_number"/>
+            </t>
+            <t t-else="">
+              <span t-field="o.fleet_order_id.name"/>
+            </t>
+            от
+            <span t-field="o.date" t-options="{'format':'dd.MM.yyyy'}"/>
+            на организацию перевозки груза в международном сообщении
+            <t t-if="o.ufs_contract_id">
+              По договору
+              <span t-field="o.ufs_contract_id.report_name"/>
+            </t>
+            <br/>
+          </h2>
+          <table class="maintable" style="width: 100%;">
+            <tbody>
+              <tr>
+                <td style="width: 50%;">
+                  <b>Заказчик</b>
+                </td>
+                <td>
+                  <span t-field="o.fleet_order_id.company_id"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Перевозчик (Исполнитель)</b>
+                </td>
+                <td>
+                  <span t-field="o.partner_id"/>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Маршрут</b>
+                </td>
+                <td>
+                  <span t-esc="o.fleet_order_id.route_ids.get_route_points(no_customs=False)"/>
+                  ,
+                </td>
+                <!--<td>-->
+                <!--  <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['border_cross'])" t-as="point">-->
+                <!--    <span t-field="point.location_id.name"/>-->
+                <!--    <t t-if="point.notes">-->
+                <!--      <br/>-->
+                <!--      <span t-field="point.notes"/>-->
+                <!--    </t>-->
+                <!--  </t>-->
+                <!--</td>-->
+              </tr>
+              <tr>
+                <tr>
+                  <td>
+                    <t t-if="o.fleet_order_id.consignee_country_id.code in ('BY', 'RU', 'KZ')">
+                      <b>Место погрузки/перецепки</b>
+                    </t>
+                    <t t-else="">
+                      <b>Место погрузки</b>
+                    </t>
+                  </td>
+                  <td>
+                    <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.location_id"/>
+                        ,
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>
+                        <span t-field="point.location_id.city"/>
+                        <t t-if="point.location_id.address">
+                          <span t-field="point.location_id.address"/>
+                        </t>
+                        -
+                        <span t-if="o.truck_char" t-field="o.truck_char"/>
+                        <t t-if="o.trailer_char">
+                          /
+                          <span t-field="o.trailer_char"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.order_route_ids.filtered(lambda x: x.line_type in ['load']) and o.order_route_ids">
+                      <t t-set="point" t-value="o.order_route_ids[0]"/>
+                      <p>
+                        <span t-field="point.location_id"/>
+                        ,
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>
+                        <span t-field="point.location_id.city"/>
+                        <t t-if="point.location_id.address">
+                          <span t-field="point.location_id.address"/>
+                        </t>
+                        -
+                        <span t-if="o.truck_char" t-field="o.truck_char"/>
+                        <t t-if="o.trailer_char">
+                          /
+                          <span t-field="o.trailer_char"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <t t-if="o.fleet_order_id.shipper_country_id.code in ('BY', 'RU', 'KZ')">
+                      <b>Место затамаживания</b>
+                    </t>
+                    <t t-else="">
+                      <b>Место затамаживания/перецепки</b>
+                    </t>
+                  </td>
+                  <td>
+                    <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                      <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['o_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.location_id"/>
+                          ,
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+<!--                          <t t-if="point.partner_id">-->
+<!--                            <br />-->
+<!--                            <span t-field="point.partner_id" />-->
+<!--                          </t>-->
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>
+                          ,
+                          <span t-field="point.location_id.city"/>
+                          <t t-if="point.location_id.address">
+                            ,
+                            <span t-field="point.location_id.address"/>
+                          </t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-elif="not o.order_route_ids.filtered(lambda x: x.line_type in ['load'])">-</t>
+                    <t t-else="">свободно</t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Место растамаживания</b>
+                  </td>
+                  <td>
+                    <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                      <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['d_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.location_id"/>
+<!--                          <t t-if="point.partner_id">-->
+<!--                            <br />-->
+<!--                            <span t-field="point.partner_id" />-->
+<!--                          </t>-->
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>
+                          ,
+                          <span t-field="point.location_id.city"/>
+                          <t t-if="point.location_id.address">
+                            ,
+                            <span t-field="point.location_id.address"/>
+                          </t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else="">по CMR</t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <t t-if="o.fleet_order_id.shipper_country_id.code in ('BY', 'RU', 'KZ')">
+                      <b>Место разгрузки/перецепки</b>
+                    </t>
+                    <t t-else="">
+                      <b>Место разгрузки</b>
+                    </t>
+                  </td>
+                  <td>
+                    <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.location_id"/>
+                        ,
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>
+                        ,
+                        <span t-field="point.location_id.city"/>
+                        <t t-if="point.location_id.address">
+                          ,
+                          <span t-field="point.location_id.address"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.order_route_ids.filtered(lambda x: x.line_type in ['unload']) and o.order_route_ids">
+                      <t t-set="point" t-value="o.order_route_ids[-1]"/>
+                      <p>
+                        <span t-field="point.location_id"/>
+                        ,
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>
+                        <span t-field="point.location_id.city"/>
+                        <t t-if="point.location_id.address">
+                          <span t-field="point.location_id.address"/>
+                        </t>
+                        -
+                        <span t-if="o.truck_char" t-field="o.truck_char"/>
+                        <t t-if="o.trailer_char">
+                          /
+                          <span t-field="o.trailer_char"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <td>
+                  <b>Наименование груза</b>
+                </td>
+                <td>
+                  <t t-foreach="o.fleet_order_id.cargo_line_ids" t-as="cargo">
+                    <p>
+                      <span t-field="cargo.name"/>
+                    </p>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Характер груза</b>
+                </td>
+                <td>
+                  <t t-foreach="o.fleet_order_id.cargo_line_ids" t-as="cargo">
+                    <p>
+                      <t t-if="cargo.details">
+                        <br/>
+                        <span t-field="cargo.details"/>
+                      </t>
+                    </p>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Вес груза</b>
+                </td>
+                <td>
+                  <t t-foreach="o.fleet_order_id.cargo_line_ids" t-as="cargo">
+                    <p>
+                      <span t-field="cargo.weight"/>
+                      <span t-field="cargo.weight_uom_id"/>
+                    </p>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Упаковка, габариты</b>
+                </td>
+                <td>
+                  <t t-foreach="o.fleet_order_id.cargo_line_ids" t-as="cargo">
+                    <p>
+                      <span t-field="cargo.cargo_packing"/>
+
+                    </p>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Страховка</b>
+                </td>
+                <td>СМР страхование</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Обязательное наличие</b>
+                </td>
+                <td>
+                  <t t-foreach="o.fleet_order_id.cargo_line_ids" t-as="cargo">
+                    <p>
+                      <t t-if="cargo.trailer_type">
+                        <span t-field="cargo.trailer_type"/>
+                      </t>
+                    </p>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Тип, кол-во а/м</b>
+                </td>
+                <td>
+                  <span t-if="o.truck_char" t-field="o.truck_char"/>
+                  <t t-if="o.trailer_char">
+                    /
+                    <span t-field="o.trailer_char"/>
+                  </t>
+                  <t t-if="o.driver_char">
+                    <br/>
+                    <span t-field="o.driver_char"/>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Дата загрузки</b>
+                </td>
+                <td>
+                  <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['load'])">
+                    <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                      </p>
+                    </t>
+                  </t>
+                  <t t-else="">
+                    <t t-foreach="o.order_route_ids[-1:]" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                      </p>
+                    </t>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Норматив на погрузку/выгрузку</b>
+                </td>
+                <td>
+                  <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['load'])">24 ч и ТО</t>
+                  <t t-else="">48 ч на перецепку и ТО</t>
+                  <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['unload'])">48 ч на ТО и выгрузку</t>
+                  <t t-else="">24 ч на выгрузку и перецепку</t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Срок доставки</b>
+                </td>
+                <td>
+                  <t t-if="o.order_route_ids.filtered(lambda x: x.line_type in ['unload'])">
+                    <t t-foreach="o.order_route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                      </p>
+                    </t>
+                  </t>
+                  <t t-else="">
+                    <t t-foreach="o.order_route_ids[-1:]" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                      </p>
+                    </t>
+                  </t>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Штрафные санкции</b>
+                </td>
+                <td>Согласно договору</td>
+              </tr>
+              <tr>
+                <td>
+                  <b>Размер и форма оплаты</b>
+                </td>
+                <td>
+                  <span t-esc="'{:,.0f}'.format(o.amount).replace(',', ' ')"/>
+                  <span t-field="o.currency_id"/>
+                  (Банковский перевод, после оригиналов документов в  течение 30 дней)
+                </td>
+              </tr>
+              <!--<tr>-->
+              <!--  <td>-->
+              <!--    <b>Условия оплаты</b>-->
+              
+              <!--  </td>-->
+              <!--  <td>-->
+              <!--    <span t-field="o.fleet_order_id.ufs_payment_term_id"/>-->
+              <!--  </td>-->
+              <!--</tr>-->
+            </tbody>
+          </table>
+          <p class="instr">
+            <center>
+              <b>Дополнительные условия заказчика:</b>
+            </center>
+            MAN MUSS DAS VORHANDENSEIN VON EX UND RECHNUNG KONTROLLIREN!  ВНИМАНИЕ! ОЗНАКОМЬТЕСЬ С ИНСТРУКЦИЕЙ ПЕРЕД РЕЙСОМ И ОЗНАКОМТЕ
+            СВОЕГО ВОДИТЕЛЯ .
+          ПО СОГЛАСОВАНИЮ С ВАМИ , ОТ ВАС TРЕБУЕТСЯ: ПО ВСЕМ  ВОЗНИКШИМ В ПУТИ ВОПРОСАМ В ЛЮБОЕ ВРЕМЯ СУТОК  ПРОИНФОРМИРОВАТЬ ЗАКАЗЧИКА
+            <br/>
+            1. Данный заказ может быть принят Вами только в том случае, если Вы имеете действительный полис CMR страхования с лимитом полной
+            ответственности за груз.
+            <br/>
+            2. Ответственность сторон (Заказчика и Исполнителя) определяется условиями Конвенции КДПГ.
+          Однако стороны данного транспортного заказа в дополнение к конвенции КДПГ в добровольном порядке принимают на себя обязательства,
+            предусмотренные договором и условиями данного заказа.
+            <br/>
+            3. Исполнитель обязан контролировать количество груза и качество упаковки. Контролировать вес и распределение по осям автопоезда
+            загружаемого груза.
+          Обязательно присутствие водителя при погрузке и разгрузке груза.
+          Парковка транспортных средств во время транспортировки должна осуществляться только на охраняемых стоянках.
+            <br/>
+            4. За неподачу транспортного средства под загрузку ,исполнитель уплачивает штраф в размере 20 % от фрахта.
+          Подача неисправного транспортного средства,не согласованная замена типа подвижного состава и отсутствие документов или технических
+            средств, необходимых для выполнения данного транспортного заказа, приравнивается к неподаче транспортного средства.
+          При опоздании на загрузку Исполнитель уплачивает штраф в размере100 EUR  за каждые начатые сутки опоздания.
+            <br/>
+            5. За просрочку в доставке груза Исполнитель несет ответственность согласно условиям Конвенции КДПГ. Однако в случае
+            согласованного срока доставки груза получателю Заказчик имеет право предъявить штрафные санкции Исполнителю в размере 100 EUR за
+            каждый день просрочки.
+          При прибытии транспортного средства после 10 часов утра в предпраздничный или предвыходной день – датой доставки стороны считают
+            следующий за выходными или праздничными днями , рабочий день страны прибытия.
+            <br/>
+            6. За сверхнормативный простой, определяемый на основании договора, при условии своевременного (до начала простоя)
+          информирования Исполнителем и при наличии отмеченных соответствующим образом CMR накладной и карты простоя, за каждые полные 24
+            часа Заказчик уплачивает штраф в размере 100 EUR.
+            <br/>
+            7. Во избежание выдачи груза неправомочному получателю Исполнитель обязан доставить груз в таможню назначения в соответствии с
+            указаниями Заказчика;
+          получить от лица, принимающего груз, оригинал  доверенности на получение груза, заверенную печатью фирмы-получателя; сверить
+            паспортные данные, указанные Заказчиком, с паспортом лица, принимающего груз.
+            <br/>
+            8. Счета принимаются только с оригинальной CMR накладной, подтверждающей доставку груза. Оплата счетов производится в течении 20
+            рабочих дней, валютой, указанной в транспортном заказе,
+          за исключением случаев, когда изменение валюты платежа дополнительно согласовано сторонами в письменном виде.
+            <br/>
+            9. Если в течении 3-х часов после получения Исполнителем данного транспортного заказа по факсимильной связи
+          Исполнитель не передает подтверждения и не пересылает отказа от его принятия, все вышеназванные условия считаются согласованными.
+            <br/>
+            10. Перегрузка груза на другое транспортное средство
+          и переоформление товаросопроводительных документов на груз во время осуществления перевозки без письменного согласования с
+            Экспедитором запрещается!!!
+            <br/>
+            11. Загрузка и оформление – 24 часа, разгрузка и таможенное оформление – 48 часов,. В случае прибытия транспортного средства под
+            загрузку в пятницу после 10:00 по местному времени, выходные дни не считаются простоями, и последующим рабочим днем считается
+            понедельник.
+          Простой оплачивается при наличии оформленного простойного листа в оригинале. На выходных и по праздникам простой не учитывается.
+            <br/>
+            Водитель должен следить за погрузкой и  распределением груза, защитой бортов, принимать и  пересчитывать груз;   проверять
+            правильность оформления сопроводительной документации;
+            <br/>
+            12.Факсимильная или переданная по средствам электронной связи заявка – действительна.
+            <br/>
+            <br/>
+            <span style="text-align: center; margin: 20px">
+              Wir arbeiten ausschließlich auf Grundlage der Allgemeinen Deutschen Spediteurbedingungen (ADSp), jeweils neueste Fassung.
+              Diese beschränken in Ziffer 23 ADSp die gesetzliche Haftung für Güterschäden nach § 431 HGB für Schäden in speditionellem
+              Gewahrsam auf 5 EUR /kg; bei multimodalen Transporten unter Einschluss einer Seebeförderung auf 2 SZR/kg, sowie darüber hinaus
+              je Schadenfall bzw. -ereignis auf 1 Mio. EUR bzw. 2 Mio. EUR oder 2 SZR/kg, je nachdem welcher Betrag höher ist.
+            </span>
+          </p>
+          <br/>
+          <br/>
+          <br/>
+          <table style="width: 100%;">
+            <tbody>
+              <tr>
+                <td style="width: 50%;">
+                  <b>Фирма "Заказчик"</b>
+                  <br/>
+                  <span t-field="o.fleet_order_id.company_id"/>
+                  <br/>
+                  <br/>
+                  <span t-field="o.fleet_order_id.company_id.partner_id.sign_auth_text"/>
+                  <img t-if="o.company_id.stamp_image" t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 200px;"/>
+                  <br/>
+                  _______________________________________
+                </td>
+                <td style="width: 50%;">
+                  <b>Фирма "Исполнитель"</b>
+                  <br/>
+                  <span t-field="o.partner_id"/>
+                  <br/>
+                  <br/>
+                  <br/>
+                  <t t-if="o.partner_id">
+                    <span t-field="o.partner_id.sign_auth_text"/>
+                  </t>
+                  <t t-else="">
+                    <br/>
+                  </t>
+                  _______________________________________
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_driver_letter_report" model="ir.ui.view">
+        <field name="name">template_ufs_driver_letter_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_driver_letter_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="en_US">
+                    <div class="page">
+                        <center>
+                            <p style="text-decoration: underline; font-size:medium; margin-bottom: -5px;">
+                                <medium>ДОБАВЛЕНИЕ 3 ПРИЛОЖЕНИЯ К ЕСТР</medium>
+                            </p>
+                            <p style="font-size:medium;margin-bottom:-5px;">
+                                <strong>ATTESTATION OF ACTIVITIES* / FORMULAIRE D'ATTESTATION D'ACTIVITES* БЛАНК
+                                    ПОДТВЕРЖДЕНИЯ
+                                    ДЕЯТЕЛЬНОСТИ*
+                                    <br/>
+                                </strong>
+                                <em>(Регламент 561/2006 (ЕС) или ЕСТР**)/ (REGULATION (EC) 561/2006 OR THE AETR**)</em>
+                            </p>
+                            <p style="font-size:medium;margin-bottom:-5px;">
+                                Заполнить печатными <span style="text-decoration:underline;">латинскими буквами</span> и
+                                подписать <span style="text-decoration:underline;">до рейса</span>/
+                                <em>To be filled in by <span style="text-decoration:underline;">typing in
+                                    Latin characters
+                                </span> and signed
+                                    <span style="text-decoration:underline;">before a journey</span>
+                                </em>
+                            </p>
+                            <p style="font-size:medium;">
+                                Приложить к записям контрольного устройства, которые должны сохраняться/
+                                <em>To be kept with the
+                                    original control device records wherever they are required to be kept
+                                </em>
+                                <br/>
+                                Подделка бланка подтверждения является правонарушением/
+                                <em>False attestations constitute an
+                                    infringement
+                                </em>
+                            </p>
+                        </center>
+                        <table border="1" width="80%" style="margin:auto; font-size:small;" cellpadding="3">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <p>
+                                            <strong>Часть, подлежащая заполнению предприятием (Part to be filled in by
+                                                the
+                                                undertaking)
+                                            </strong>
+                                        </p>
+                                        <ol>
+                                            <li>Название предприятия/
+                                                <em>Name of the undertaking</em>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.name_en"/>
+                                            </li>
+                                            <li>Улица, почтовый индекс, город/
+                                                <em>Street address, postal code, city</em>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.address_en"/>
+                                                <br/>
+                                                <span style="border: 1px solid black; padding: 5px;">Страна/Country:
+                                                    <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.country_id.code"/>
+                                                </span>
+                                            </li>
+                                            <li>Номер телефона (включая международный код)/
+                                                <em>Telephone number (including international prefix)</em>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.phone"/>
+                                            </li>
+                                            <li>Номер факса (включая международный код)/
+                                                <em>Fax number (including international prefix)</em>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.phone"/>
+                                            </li>
+                                            <li><em>Адрес электронной почты/e-mail address</em>:
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.email"/>
+                                                <br/>
+                                                <strong>Я, нижеподписавшийся</strong>
+                                                <em>
+                                                    <strong>(I, the undersigned)</strong>
+                                                </em>
+                                                <strong>:</strong>
+                                            </li>
+                                            <li>Фамилия и имя/<em>Name and first name</em>:
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.company_id.head_employee_id.passport_name"/>
+                                            </li>
+                                            <li>Должность на предприятии/<em>Position in the undertaking</em>:
+                                                <strong>Director</strong>
+                                                <br/>
+                                                <strong>заявляю, что водитель/<em>declare that the driver</em>:
+                                                </strong>
+                                            </li>
+                                            <li>Фамилия и имя<em>/Name and first name</em>:
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.passport_name"/>
+                                            </li>
+                                            <li>Дата рождения: (день/месяц/год)/ <em>Date of birth (day/month/year)</em>:
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.birthday"/>
+                                            </li>
+                                            <li>Номер водительского удостоверения или удостоверения личности или
+                                                паспорта/
+                                                <em>Driving licence or identity card or passport number</em>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.passport_series"/>
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.passport_number"/>
+                                            </li>
+                                            <li>Начал работать на предприятии с (день/месяц/год)/<em>who has started to
+                                                work
+                                                at the undertaking on (day/month/year)</em>Начал работать на предприятии
+                                                с
+                                                (день/месяц/год)/ who has started to work at the undertaking on
+                                                (day/month/year) в течение периода/<em>for the period</em>:
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.employee_id.work_start_date"/>
+                                            </li>
+                                            <li>с (час/день/месяц/год)/<em>from (day/month/year)</em>:
+                                                <span style="font-size:18px;font-weight:bold;text-decoration:underline;">
+                                                    <span style="font-size:18px;font-weight:bold;" t-field="o.letter_from" t-options="{'format':'HH:mm, dd/MM/yyyy'}"/>
+                                                </span>
+                                            </li>
+                                            <li>по (час/день/месяц/год)/<em>to (day/month/year)</em>:
+                                                <span style="font-size:18px;font-weight:bold;text-decoration:underline;">
+                                                    <span style="font-size:18px;font-weight:bold;" t-field="o.letter_to" t-options="{'format':'HH:mm, dd/MM/yyyy'}"/>
+                                                </span>
+                                            </li>
+                                            <li><input type="checkbox"/>находился в отпуске по болезни***
+                                                <em>/was on sick leave</em>
+                                            </li>
+                                            <li><input type="checkbox"/>находился в ежегодном отпуске ***
+                                                <em>/was on annual leave</em>
+                                            </li>
+                                            <li><input type="checkbox" checked="checked"/>находился в отпуске или на отдыхе***/
+                                                <em>was on leave or rest</em>
+                                            </li>
+                                            <li><input type="checkbox"/>управлял транспортным средством, не подпадающим
+                                                под действие положений
+                                                Регламента (ЕС)561/2006 или ЕСТР***/
+                                                <em>drove a vehicle exempted from the scope of the Regulation(EC)
+                                                    561/2006
+                                                    or the AETR
+                                                </em>
+                                            </li>
+                                            <li><input type="checkbox"/>выполнял другую работу, отличную от управления
+                                                транспортным средством,***/
+                                                <em>was performing any work other than driving of a vehicle</em>
+                                            </li>
+                                            <li><input type="checkbox"/>был в ожидании***/was available
+                                            </li>
+                                            <li>Место/<em>Place</em>: <span style="font-size:18px;font-weight:bold;">
+                                                <span style="font-size:18px;font-weight:bold;" t-field="o.letter_place_name"/>
+                                            </span> <span style=" padding-left: 200px;">Дата/<em>date</em></span>:
+                                                 <span style="font-size:18px;font-weight:bold;text-decoration:underline;" t-field="o.letter_sign_date" t-options="{'format':'dd/MM/yyyy'}"/>
+                                            </li>
+                                        </ol>
+                                        <p>Подпись/
+                                            <em>signature</em>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table border="1" width="80%" style="margin:auto; font-size:small;" cellpadding="3">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <ol start="21">
+                                            <li>Я, нижеподписавшийся, <u>водитель</u>, подтверждаю, что в течение
+                                                указанного выше периода не
+                                                управлял транспортным средством, подпадающим под действие положений
+                                                Регламента 561/2006 (ЕС)
+                                                или ЕСТР.
+                                                <br/>
+                                                <em>(I,</em>
+                                                <em>
+                                                    <u>the driver</u>
+                                                </em>
+                                                <em>, confirm that I have not been driving a vehicle falling under the
+                                                    scope of the
+                                                </em>
+                                                <em>(EC) Regulation 561/2006 or</em>
+                                                <em>AETR during the period mentioned above).</em>
+                                            </li>
+                                            <li>
+                                                <em>Место/Place: <strong><span t-field="o.letter_driver_place_name"/></strong> <span style="padding-left: 200px;">Дата/date: </span>
+                                                    <u>
+                                                        <span style="font-size:18px;font-weight:bold;text-decoration:underline;" t-field="o.letter_driver_sign_date" t-options="{'format':'dd/MM/yyyy'}"/>
+                                                    </u>
+                                                </em>
+                                            </li>
+                                        </ol>
+                                        <p/>
+                                        Подпись водителя/signature of the driver
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="line-height: 1.0em; font-size: smaller;">
+                            <br/>
+                            <br/>
+                            <medium>* Настоящий формуляр можно получить в электронном и печатном варианте по следующему
+                                адресу/ <em>This
+                                    form is available in electronic and printable versions at the following address</em>:
+                                <a href="http://www.unece.org/trans/main/sc1/aetr.html">
+                                    http://www.unece.org/trans/main/sc1/aetr.html
+                                </a>
+                                <br/>**Европейское Cоглашение, касающееся работы экипажей Транспортных средств,
+                                производящих
+                                международные Автомобильные перевозки/<em>European Agreement concerning the Work of
+                                    Crews of
+                                    Vehicles engaged in International Road Transport</em>.<br/>*** Выбрать только одну
+                                позицию/<em>Choose
+                                    only one box</em>.
+                            </medium>
+                        </p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_fleet_inout_report" model="ir.ui.view">
+        <field name="name">template_ufs_fleet_inout_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_fleet_inout_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="ru_RU">
+                    <div class="page">
+                        <table border="0" width="60%" style="margin:auto; font-size:medium;" cellpadding="3">
+                            <tr style="text-align:center;">
+                                <td colspan="4">
+                                    <medium>Акт приема-передачи документов</medium>
+                                </td>
+                            </tr>
+                            <tr style="text-align:center;">
+                                <td colspan="4">
+                                    Я,
+                                    <t t-if="o.state == 'draft'">
+                                        <strong><span t-field="o.driver_id.name"/></strong></t>
+                                    <t t-else="">
+                                        <strong><span t-field="o.current_user_name"/></strong>
+                                    </t>
+                                    <br/>
+
+                                </td>
+                            </tr>
+                            <tr style="text-align:center;">
+                                <td colspan="4">
+                                    принял документы на транспортное средство у:
+                                </td>
+                            </tr>
+                            <tr style="text-align:center;">
+                                <td colspan="4">
+                                    <t t-if="o.state == 'draft'">
+                                        <strong><span t-field="o.current_user_name"/></strong></t>
+                                    <t t-else="">
+                                        <strong><span t-field="o.driver_id.name"/></strong>
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr style="text-align:center;">
+                                <td colspan="4">
+                                    документы на ТС
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Тягач
+                                </td>
+                                <td>
+                                     <span t-field="o.trip_id.vehicle_id"/>
+                                </td>
+                                <td>
+                                    Полуприцеп
+                                </td>
+                                <td>
+                                    <span t-field="o.trip_id.trailer_id"/>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                        <br/>
+                        <table border="1" width="80%" style="margin:auto; font-size:small;" cellpadding="3">
+                            <thead>
+                                <th width="40%">Наименование</th>
+                                <th width="10%">Срок действия</th>
+                                <th width="20%">Принял</th>
+                                <th width="20%">Сдал</th>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.child_ids.filtered(lambda x: x.is_given)" t-as="doc">
+                                    <tr>
+                                        <td>
+                                            <span t-field="doc.display_name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="doc.document_ref.expiration_date"/>
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <center>
+                            <br/>
+                            <br/>
+                            <p>
+                                Выдал: Дата______________________ ФИО ______________________ Подпись______________________
+                            </p>
+                            <br/>
+                            <br/>
+                            <p>
+                                Принял: Дата______________________ ФИО ______________________ Подпись______________________
+                            </p>
+                        </center>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_fleet_internal_order_report" model="ir.ui.view">
+        <field name="name">template_ufs_fleet_internal_order_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_fleet_internal_order_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="o" t-value="o.with_context({'lang':'ru_RU'})"/>
+                <t t-call="web.internal_layout" t-lang="'ru_RU'">
+                    <div class="page">
+                        <center>
+                            <h2>ООО «АльСивир-РУС»</h2>
+                            <p>
+                                236023 ул.Курганская, д.3, литер 15, г.Калининград, РФ<br/>
+                                Тел. +7 4012 201 250<br/>
+                                ОГРН 1133926015123, ИНН/КПП 3906292982/390601001<br/>
+                                р/с 40702810103700080345 (российский рубль)<br/>
+                                р/с 40702840403700000011 (доллар США)<br/>
+                                р/с 40702978003700080345 (евро)<br/>
+                                транзитный 40702840703701080345 (доллар США)<br/>
+                                транзитный 40702978903701000084 (евро)<br/>
+                                Ф-л Северо-Западный ПАО Банка «ФК Открытие», БИК 044030795<br/>
+                            </p>
+
+
+                            <p>
+                                <h4>Заявка на перевозку <span t-field="o.incoming_ref"/></h4>
+                                <!--                                <span>по договору</span>>--></p>
+
+                            <table>
+                                <tr>
+                                    <td>Наименование перевозчика</td>
+                                    <td><span t-field="o.company_id.name"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Маршрут перевозки</td>
+                                    <td>
+                                        <t t-foreach="o.route_ids" t-as="point">
+                                        <t t-call="ufs_fleet.template_order_report_routepoint" t-lang="'ru_RU'">
+                                            <t t-set="point" t-value="point"/>
+                                        </t>
+                                </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Сведения о транспортном средстве</td>
+                                    <td/>
+                                </tr>
+                                <tr>
+                                    <td>Адрес загрузки</td>
+                                    <td>
+
+                                        <span t-field="o.origin_id.city"/>.
+                                        <span t-field="o.origin_id.country_id.name"/>
+                                    </td>
+                                </tr><tr>
+                                <td>Дата загрузки</td>
+                                <td><span t-field="o.start_datetime" t-options="{'widget': 'date'}"/></td>
+                            </tr>
+                                <tr>
+                                    <td>Адрес таможенного оформления</td>
+                                    <td><span t-field="o.load_cust_small_address"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Наименование и вес груза</td>
+                                    <td>
+                                         <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                                                <t t-call="ufs_fleet.template_order_report_cargo" t-lang="'ru_RU'">
+                                                    <t t-set="cargo" t-value="cargo"/>
+                                                </t>
+                                        </t>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Таможня назначения</td>
+                                    <td>
+                                         <span t-field="o.unload_cust_small_address"/>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Адрес разгрузки</td>
+                                    <td>
+                                        <span t-field="o.destination_id.city"/>.
+                                        <span t-field="o.destination_id.country_id.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Дата разгрузки</td>
+                                    <td><span t-field="o.end_datetime" t-options="{'widget': 'date'}"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Стоимость перевозки</td>
+                                    <td><span t-field="o.freight_amount" t-options="{'widget': 'monetary', 'display_currency': o.freight_currency_id}"/></td>
+                                </tr>
+
+                            </table>
+
+                            <p>
+                                Обязанности и санкции
+                            </p>
+                            <div style="border: 1px solid">
+                                <ol style="font-size: small">
+                                    <li>Водитель обязан принимать к перевозке только тот груз, который указан в данном
+                                        транспортном заказе, проверять правильность оформления согласно транспортного
+                                        заказа всех сопроводительных документов на груз. Если возникают отклонения от
+                                        условий перевозки указанных в транспортном заказе всегда сообщать и без нашего
+                                        разрешения не начинать/продолжать/ выполнение данной перевозки.
+                                    </li><li> 48 часов для погрузки/разгрузки и таможенного оформления в странах СНГ и
+                                    Прибалтики (простой 50$/сутки)
+                                </li><li>24 часа для погрузки/разгрузки и таможенного оформления в станах Европы
+                                    (простой 100$/сутки)
+                                </li><li> Простои оплачиваются только при наличии отметок в оригинале CMR и карте
+                                    простоя, в размерах, оговоренных в договоре между нашими компаниями. Выходные и
+                                    праздничные дни не оплачиваются
+                                </li><li> Штраф за опоздание и/или неподачу автопоезда под загрузку на территории
+                                    государств СНГ и Прибалтики - 50 $ , на территории европейских государств- 100 $, за
+                                    несоблюдение сроков доставки - 100 $ за каждые сутки опоздания
+                                </li><li> Срыв загрузки оплачивается согласно договора, только при наличии оригинальных
+                                    документов с отметками, подтверждающими факт прибытия автопоезда на место загрузки
+                                    не позднее срока указанного в транспортном заказе
+                                </li><li> Водитель обязан проконтролировать размещение нагрузки по осям, перегруз по
+                                    осям не оплачивается
+                                </li><li> Оплата производится после получения оригиналов: 2- CMR с отметкой о сдаче
+                                    груза грузополучателю; счет-фактуры, счета, акта выполненных работ.
+
+
+                                </li>
+                                </ol>
+
+                            </div>
+
+                        </center>
+
+                        <center>
+                            <table style="width: 90%">
+                                <tr>
+                                    <td width="50%">
+                                        Заказчик<br/>
+                                        ООО "АльСивир-РУС"<br/><br/><br/>
+                                        Бухгалтер______________Яковлева Е.Л.
+
+
+                                    </td>
+                                    <td width="50%">
+                                        Перевозчик<br/>
+                                        ООО "Джавда Консалт"<br/><br/><br/>
+
+                                        Гл.бухгалтер______________Бергель Н.В.
+
+
+                                    </td>
+
+                                </tr>
+
+                            </table>
+
+                        </center>
+
+
+                        <p style="font-size:medium;">
+                            <center><h3>Груз</h3></center>
+                            <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                                <t t-call="ufs_fleet.template_for_driver_report_cargo" t-lang="'ru_RU'">
+                                    <t t-set="cargo" t-value="cargo"/>
+                                </t>
+                            </t>
+
+                        </p>
+
+                        <p style="font-size:medium;">
+                            <center><h3>Маршрут</h3></center>
+                            <t t-foreach="o.route_ids" t-as="point">
+                                <t t-call="ufs_fleet.template_for_driver_report_routepoint" t-lang="'ru_RU'">
+                                    <t t-set="point" t-value="point"/>
+                                </t>
+                            </t>
+                        </p>
+
+
+                        <p>
+                            <span t-field="o.order_memo"/>
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_fleet_order_for_driver_report" model="ir.ui.view">
+        <field name="name">template_ufs_fleet_order_for_driver_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_fleet_order_for_driver_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="o" t-value="o.with_context({'lang':'ru_RU'})"/>
+                <t t-call="web.basic_layout" t-lang="'ru_RU'">
+                    <div class="page">
+                        <center>
+                            <p style="text-decoration: underline; font-size:medium; margin-bottom: -5px;">
+                                <h2>Заказ <span t-field="o.name"/></h2>
+                            </p>
+                        </center>
+                        <p style="font-size:medium;">
+                            <center><h3>Груз</h3></center>
+                            <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                                        <t t-call="ufs_fleet.template_for_driver_report_cargo" t-lang="'ru_RU'">
+                                            <t t-set="cargo" t-value="cargo"/>
+                                        </t>
+                                </t>
+
+                        </p>
+
+                            <p style="font-size:medium;">
+                                <center><h3>Маршрут</h3></center>
+                                <t t-foreach="o.route_ids" t-as="point">
+                                        <t t-call="ufs_fleet.template_for_driver_report_routepoint" t-lang="'ru_RU'">
+                                            <t t-set="point" t-value="point"/>
+                                        </t>
+                                </t>
+                             </p>
+
+
+
+                        <p>
+                            <span t-field="o.order_memo"/>
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_fleet_trip_driver_report" model="ir.ui.view">
+        <field name="name">template_ufs_fleet_trip_driver_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_fleet_trip_driver_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout" t-lang="ru_RU">
+                    <div class="page">
+                        <center>
+                            <p style="text-decoration: underline; font-size:medium; margin-bottom: -5px;">
+                                <h1>Отчет по рейсу
+                                    <span t-field="o.name"/>
+                                </h1>
+                            </p>
+                        </center>
+                        <t t-if="o.is_to_be_switched">
+                            <p style="font-size:medium;">
+                                Перецепка:
+                                <span style="font-size:18px;font-weight:bold;" t-field="o.switch_truck"/>
+                            </p>
+
+                            </t>
+                            <p style="font-size:medium;">
+                                Водитель: <span style="font-size:18px;font-weight:bold;" t-field="o.driver_id"/>
+                                <t t-if="o.driver2_id">
+                                    Второй водитель: <span style="font-size:18px;font-weight:bold;" t-field="o.driver2_id"/>
+                                </t>
+                                <t t-if="o.driver3_id">
+                                    Третий водитель: <span style="font-size:18px;font-weight:bold;" t-field="o.driver3_id"/>
+                                </t>
+                            </p>
+                            <p style="font-size:medium;">
+                                Автопоезд: <span t-field="o.vehicle_id"/>
+                                <span t-if="o.trailer_id">/</span>
+                                <span t-if="o.trailer_id" t-field="o.trailer_id"/>
+                                <span t-if="o.trailer_type" t-field="o.trailer_type"/>
+
+                            <br/>Нормы расхода:
+                            Тягач
+                            <span t-field="o.vehicle_id.fuel_ratio_norm"/>
+                            л/100 км
+                            AdBlue
+                            <span t-field="o.vehicle_id.adblue_coef"/>
+                            %
+                            Отопитель
+                            <span t-field="o.vehicle_id.heater_consumption"/>
+                            л/ч
+                            <!--Кондиционер <span t-field="o.vehicle_id.cooler_consumption" /> л/ч-->
+                            <br/>
+                            Коэф. по полуприцепу
+                            <span t-field="o.trailer_id.fuel_ratio_coef"/>
+                            л/т
+                            <t t-if="o.is_refrigerator">
+                                Реф
+                                <span t-field="o.trailer_id.ref_engine_consumption"/>
+                                л/ч
+                            </t>
+                        </p>
+                        <p style="font-size:medium;">
+                            Дата начала:
+                            <span style="font-size:18px;font-weight:bold;" t-field="o.start_datetime" t-options="{'format':'dd.MM.yyyy'}"/>
+                            <br/>
+                            Дата окончания:
+                            <span style="font-size:18px;font-weight:bold;" t-field="o.stop_datetime" t-options="{'format':'dd.MM.yyyy'}"/>
+                            <br/>
+                            Длительность: <span style="font-size:18px;font-weight:bold;" t-field="o.trip_duration_days"/> дней
+                            <br/>
+                            Заметки:
+                            <span t-field="o.notes"/>
+                        </p>
+                        <p>
+                            <center>
+                                <h2>Маршруты</h2>
+                            </center>
+
+                            <p t-field="o.trip_route_report" style="font-size:18px;font-weight:bold;"/>
+                            <!--<t t-foreach="o.order_ids" t-as="order">-->
+                            <!--</t>-->
+                        </p>
+
+                        <p>Груз: <span t-field="o.verbose_cargoes"/></p>
+
+                        <p>
+                            Порожний пробег
+                            <strong>
+                                <span t-field="o.total_empty_km"/>
+                            </strong>
+                            км (Коэф <span t-field="o.unloaded_coef"/>)
+                            <br/>
+                            Груженый пробег
+                            <strong>
+                                <span t-field="o.total_loaded_km"/>
+                            </strong>
+                            км (Коэф <span t-field="o.loaded_coef"/>)
+                            <br/>
+                            <t t-if="o.add_payment_sum">
+                                 Надбавка
+                                <span t-field="o.add_payment_sum"/> €
+                                <br/>
+                            </t>
+
+                            <t t-if="o.add_payment_sum_2">
+                                 Надбавка 2
+                                <span t-field="o.add_payment_sum_2"/> €
+                                <br/>
+                            </t>
+                            Итого
+                            <span t-field="o.total_km"/>
+                            км
+                            <br/>
+                            <!--<t t-foreach="o.order_ids" t-as="order">-->
+                            <!--</t>-->
+
+                             <t t-if="o.driver_payment_sum">
+                                 Расчет КР
+                            <span t-field="o.driver_payment_sum" style="font-size:18px;font-weight:bold;"/>
+
+                             <br/>
+
+                            </t>
+
+                        </p>
+                        <p>
+                            <center>
+                                <h2>Затраты</h2>
+                            </center>
+                            Прямые затраты
+                            <strong>
+                                <span t-field="o.direct_costs_sum"/>
+                            </strong>
+                            <br/>
+                            НР
+                            <span t-field="o.norm_costs_sum"/>
+                            <br/>
+                            Доп.затраты
+                            <span t-field="o.total_add_costs_sum"/>
+                            <br/>
+                            Коэффициент
+                            <span t-field="o.costs_coefficient"/>
+                            <br/>
+
+                            <!--Наличными <span t-field="o.costs_cash_sum" /> <br />-->
+                            <!--По банку <span t-field="o.costs_bank_sum" />-->
+                            
+                            <center>
+                                <h2>Авансы</h2>
+                            </center>
+                             <t t-if="o.driver2_id">
+                                <br/>
+                                <span style="font-size:18px;font-weight:bold;" t-field="o.driver_id"/>:
+                                <br/>
+                            </t>
+                            Выдано на руки
+                            <span t-field="o.cadv_verbose_list"/>
+                            <br/>
+                            <t t-if="o.cadv_verbose_returned_list">
+                                Возвращено
+                                <span t-field="o.cadv_verbose_returned_list"/>
+                                <br/>
+                            </t>
+                            <span>Остаток на руках</span>
+                            <strong>
+                                <span t-field="o.to_return_sum"/>
+                            </strong>
+
+                            <t t-if="o.driver2_id">
+                                <br/>
+                                <span style="font-size:18px;font-weight:bold;" t-field="o.driver2_id"/>:
+                                <br/>
+                                Выдано на руки
+                                <span t-field="o.cadv_verbose_list_2"/>
+                                <br/>
+                                <t t-if="o.cadv_verbose_returned_list_2">
+                                    Возвращено
+                                    <span t-field="o.cadv_verbose_returned_list_2"/>
+                                    <br/>
+                                </t>
+                                Остаток на руках
+                                <span t-field="o.to_return_sum_2"/>
+                            </t>
+                            <t t-if="o.driver3_id">
+                                <br/>
+                                <span style="font-size:18px;font-weight:bold;" t-field="o.driver3_id"/>:
+                                <br/>
+                                Выдано на руки
+                                <span t-field="o.cadv_verbose_list_3"/>
+                                <br/>
+                                <t t-if="o.cadv_verbose_returned_list_3">
+                                    Возвращено
+                                    <span t-field="o.cadv_verbose_returned_list_3"/>
+                                    <br/>
+                                </t>
+                                Остаток на руках
+                                <span t-field="o.to_return_sum_3"/>
+                            </t>
+
+                        </p>
+
+                        <p>
+                            <center>
+                                <h2>Топливо</h2>
+                            </center>
+<!--                            <t t-if="o.use_winter_norm">-->
+<!--                                <h4>Зимние нормы!</h4>-->
+<!--                            </t>-->
+
+
+                            Потрачено факт
+                            <span t-esc="'{0:.2f}'.format(o.full_accepted_consumption-o.fuel_difference)"/>
+                            л
+                            <br/>
+
+                            Норма
+                            <span t-esc="'{0:.2f}'.format(o.full_accepted_consumption)"/>
+                            л
+                            <br/>
+
+                            
+                            <!--<span t-esc="'{0:.2f}'.format(o.total_fuel_consumption_computed)"/>-->
+                            
+                            <!--<br/>-->
+                            <t t-if="o.fuel_difference_accepted">
+                                Принятый пережег
+                                <span t-esc="'{0:.2f}'.format(o.fuel_difference_accepted)"/>
+                                л
+                                <br/>
+                            </t>
+                            <t t-if="o.downtime_days_fuel">
+                                Расход по простоям
+                                <span t-esc="'{0:.2f}'.format(o.downtime_days_fuel)"/>
+                                л
+                                <br/>
+                            </t>
+
+
+                            <t t-if="o.fuel_difference &lt; 0">
+                                Пережег
+                                <strong>
+                                    <span t-esc="'{0:.2f}'.format(-o.fuel_difference)"/>
+                                    л =
+                                    <span t-field="o.fuel_difference_cost"/>
+                                </strong>
+                                <br/>
+                            </t>
+                            <!--Начальный остаток <span t-esc="'{0:.2f}'.format(o.truck_fuel_start)" /> л <br />-->
+                            <!--Начальный остаток пп <span t-esc="'{0:.2f}'.format(o.trailer_fuel_start)" /> л <br />-->
+
+                            <!--Всего потрачено с рефрижератором <span t-esc="'{0:.2f}'.format(o.total_fuel_consumption-o.fuel_difference)" /> л <br />-->
+                            <!--Расход кондиционер <span t-esc="'{0:.2f}'.format(o.total_cooler_consumption)" /> л <br />-->
+
+                            <t t-if="o.is_refrigerator">
+                                Расход реф
+                                <span t-esc="'{0:.2f}'.format(o.total_ref_consumption)"/>
+                                л (
+                                <span t-field="o.total_ref_hours"/>
+                                моточасов /
+                                <span t-esc="'{0:.2f}'.format(o.total_ref_hours/24)"/>
+                                сут)
+                                <br/>
+                            </t>
+                            Расход AdBlue
+                            <span t-esc="'{0:.2f}'.format(o.total_accepted_adblue_consumption)"/>
+                            л
+                            <br/>
+                            Расход отопитель
+                            <span t-esc="'{0:.2f}'.format(o.total_heater_consumption)"/>
+                            л
+                            <br/>
+                            <t t-if="o.qty_fuel_down_sum">
+                                Слив
+                                <strong>
+                                <span t-esc="'{0:.2f}'.format(o.qty_payable_fuel_down_sum)"/>
+                                л = <span t-esc="'{0:.2f}'.format(-o.qty_payable_fuel_down_sum*0.15)"/> $
+                                </strong>
+                                <br/>
+                            </t>
+
+
+                            <!--Заправлено <span t-esc="'{0:.2f}'.format(o.qty_fuel_sum)" /> л <br />-->
+                        </p>
+                        <p>
+                          <br/>
+                          <br/>
+                          Исполнители: <span t-field="o.editors_verbose"/>
+                        </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_ufs_switch_letter_report" model="ir.ui.view">
+        <field name="name">template_ufs_switch_letter_report</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_ufs_switch_letter_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div>
+                            ИСХ. № 05/06-7 от
+                            <span t-esc="o._context.get('target_start_datetime')" t-options="{'widget': 'date', 'format':'dd.MM.yyyy'}"/>
+                            г.
+                        </div>
+                        <p/>
+                        <p class="text-right">
+                            <strong>
+                                <span t-field="o.partner_id.name"/>
+                            </strong>
+                        </p>
+                        <p/>
+                        <p/>
+
+                        <p class="text-left">
+                            При осуществлении перевозки по маршруту
+                            <span t-field="o.origin_id.country_id.name"/>
+                            -
+                            <span t-field="o.destination_id.country_id.name"/>
+                            по заявке
+                            <span t-field="o.incoming_ref"/>
+                            <t t-if="o._context.get('from_v')">
+                                автопоездом<span t-esc="o._context.get('from_v').license_plate"/>/
+                                <span t-esc="o._context.get('from_t').license_plate"/>
+
+                                была произведена замена седельного тягача гос. номер
+                                <span t-esc="o._context.get('from_v').license_plate"/>
+                                принадлежащего<span t-esc="o._context.get('from_v').company_id.name"/>,
+                                на седельный тягач гос. номер<span t-esc="o._context.get('to_v').license_plate"/>,
+                                принадлежащий
+                                <span t-esc="o._context.get('to_v').company_id.name"/>.
+                                <br/>
+                                Место перецепки:
+                                <span t-esc="o._context.get('place')"/>
+                            </t>
+
+                        </p>
+                        <p/>
+                        <p/>
+                        <p>
+                                 <div style="text-align-last:justify;">
+                                
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+
+                                Директор
+<t t-if="o.company_id.stamp_image">
+  <div style="position:absolute; margin-left:300px;">
+                                <img t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 6rem; max-width: 300px; "/>
+                                </div>
+                                </t>
+                                
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+<span t-field="o.company_id.head_employee_id"/>
+                                </div>
+
+
+                                <!--<div style="text-align:right;">-->
+
+                                <!--</div>-->
+
+
+                            </p>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="template_for_driver_report_cargo" model="ir.ui.view">
+        <field name="name">ufs_fleet.template_for_driver_report_cargo</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_for_driver_report_cargo">
+        <p>
+            <strong><span t-field="cargo.name"/></strong> <br/>
+            Вес: <span t-field="cargo.weight"/>
+                    <span t-field="cargo.weight_uom_id"/>
+            Кол-во: <span t-field="cargo.units_count"/> ед. <br/>
+
+            Загрузка:
+                    <span t-field="cargo.loading_type"/>
+            <br/>
+            Примечания:
+                    <span t-field="cargo.details"/>
+        </p>
+    </t>]]></field>
+    </record>
+    <record id="template_for_driver_report_routepoint" model="ir.ui.view">
+        <field name="name">ufs_fleet.template_for_driver_report_routepoint</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_for_driver_report_routepoint">
+        <p>
+            <span t-field="point.line_type"/> <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+            <t t-if="point.location_id">
+                <br/>Название:  <span t-field="point.location_id.complete_name"/><br/>
+                Адрес:
+                <span t-field="point.location_id.address"/>
+                <span t-field="point.location_id.city"/>
+                <span t-field="point.location_id.country_id.name"/>
+                <t t-if="point.location_id.latitude and point.location_id.longitude">
+                    <br/>
+                    Широта <span t-field="point.location_id.latitude"/>
+                    Долгота <span t-field="point.location_id.longitude"/>
+                </t>
+                <t t-if="point.notes">
+                    <br/>
+                    <span t-field="point.notes"/>
+                </t>
+            </t>
+        </p>
+    </t>]]></field>
+    </record>
+    <record id="template_order_report_cargo" model="ir.ui.view">
+        <field name="name">ufs_fleet.template_order_report_cargo</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_order_report_cargo">
+        <p>
+            <strong><span t-field="cargo.name"/></strong> <br/>
+            Вес: <span t-field="cargo.weight"/>
+            <span t-field="cargo.weight_uom_id"/>
+            Кол-во: <span t-field="cargo.units_count"/> ед. <br/>
+        </p>
+    </t>]]></field>
+    </record>
+    <record id="template_order_report_routepoint" model="ir.ui.view">
+        <field name="name">ufs_fleet.template_order_report_routepoint</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_fleet.template_order_report_routepoint">
+        <p>
+            <span t-field="point.line_type"/> <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+            <t t-if="point.location_id">
+                <span t-field="point.location_id.city"/>
+                <span t-field="point.location_id.country_id.name"/>
+            </t>
+        </p>
+    </t>]]></field>
+    </record>
+    <record id="fleet_vehicle_list_inherit_ufs_base" model="ir.ui.view">
+        <field name="name">fleet.vehicle.ufs.list</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="type">list</field>
+        <field name="priority">101</field>
+        <field name="arch"><![CDATA[<list string="Vehicle" decoration-warning="contract_renewal_due_soon and not contract_renewal_overdue" decoration-danger="contract_renewal_overdue" default_order="internal_name">
+        <field name="active" column_invisible="True"/>
+        <!--<field name="name"/>-->
+        <field name="license_plate"/>
+        <field name="internal_name" optional="hide"/>
+        <!--<field name="model_id"/>-->
+        <!--<field name="trailer_id"/>-->
+        <field name="emp_driver_lastname" string="Driver"/>
+        <field name="log_drivers" column_invisible="True"/>
+        <!--<field name="vin_sn"/>-->
+        <field name="fleet_type" column_invisible="True"/>
+        <field name="at_home_location" string="H"/>
+        <field name="odometer" string="Odometer" optional="hide"/>
+        <field name="verbose_tracking_location" optional="show"/>
+        <!--<field name="acquisition_date"/>-->
+        <field name="document_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        <field name="state_id"/>
+        <field name="contract_renewal_due_soon" column_invisible="True"/>
+        <field name="contract_renewal_overdue" column_invisible="True"/>
+<!--        <field name="contract_renewal_total" invisible="True"/>-->
+        <field name="current_trip_ids" widget="many2many_tags" groups="ufs_base.group_ufs_user" optional="hide"/>
+        <field name="current_driver_ids" widget="many2many_tags" groups="ufs_base.group_ufs_user" optional="hide"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_view_fleet_vehicle_doc_tree" model="ir.ui.view">
+        <field name="name">fleet.vehicle.doc.line.tree.ufs</field>
+        <field name="model">fleet.vehicle.doc.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Documents">
+                    <field name="vehicle_id"/>
+                    <field name="doc_type"/>
+                    <field name="expiration_date"/>
+                    <field name="responsible_ids" widget="many2many_tags_avatar"/>
+                    <!--<field name="work_email"/>-->
+                    <field name="color" invisible="True"/>
+                    <field name="state"/>
+                    <field name="notes"/>
+                </list>]]></field>
+    </record>
+    <record id="view_ufs_v_doc_filter" model="ir.ui.view">
+        <field name="name">hr.fleet_vehicle.doc.filter</field>
+        <field name="model">fleet.vehicle.doc.line</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <field name="create_uid" invisible="True"/>
+                <field name="write_uid" invisible="True"/>
+                <field name="create_date" invisible="True"/>
+                <field name="vehicle_id"/>
+                <field name="doc_type"/>
+                <field name="notes"/>
+                <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+                <separator/>
+                <filter name="current" string="Current" domain="[('state', '=', 'current')]"/>
+                <filter name="to_renew" string="To Renew" domain="[('state', '=', 'to_renew')]"/>
+                <filter name="to_renew_urgent" string="To Renew(2 weeks)" domain="[('state', '=', 'to_renew_urgent')]"/>
+                <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]"/>
+                <group string="Group by...">
+                    <filter string="Vehicle" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Doc Type" name="group_doc_type" context="{'group_by': 'doc_type'}"/>
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="hr_employee_copy_wizard_form" model="ir.ui.view">
+        <field name="name">hr.employee_copy_wizard.form</field>
+        <field name="model">hr.employee.copy_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Copy Employee(s) to Another Company">
+                <h2>
+                    <field name="employee_ids" widget="many2many_tags" readonly="1"/>
+                </h2>
+                <group>
+                    <field name="company_id"/>
+                    <field name="copy_documents"/>
+                </group>
+                <footer>
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="hr_employee_update_rates_wizard_form" model="ir.ui.view">
+        <field name="name">hr.employee.update_rates_wizard.form</field>
+        <field name="model">hr.employee.update_rates_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Needed Data">
+        <h2>
+          <field name="employee_ids" widget="many2many_tags" readonly="True" force_save="1"/>
+        </h2>
+        <group>
+          <field name="company_id" groups="base.group_multi_company"/>
+          <field name="rate_type"/>
+          <field name="date_from" invisible="0"/>
+          <field name="new_value" invisible="0"/>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="view_cadv_request_approval_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.cadv.request.approval.wizard.form</field>
+        <field name="model">ufs.cadv.request.approval.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Request CADV Approval">
+                <group>
+                    <field name="cadv_id" invisible="1"/>
+                    <field name="trip_id" readonly="1"/>
+                    <field name="company_id" invisible="1"/>
+                    <field name="available_user_ids" invisible="1"/>
+                    <field name="user_ids" widget="many2many_tags"/>
+                    <field name="message" placeholder="Enter a message for the approval request..."/>
+                </group>
+                <footer>
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_view_employee_doc_tree" model="ir.ui.view">
+        <field name="name">hr.employee.doc.tree.ufs</field>
+        <field name="model">ufs.employee.doc.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Employees">
+                    <field name="name"/>
+                    <field name="doc_type"/>
+                    <field name="employee_id"/>
+                    <field name="expiration_date"/>
+                    <field name="responsible_ids" widget="many2many_tags_avatar"/>
+                    <!--<field name="work_email"/>-->
+                    <field name="color" invisible="True"/>
+                    <field name="state"/>
+                </list>]]></field>
+    </record>
+    <record id="ufs_employee_doc_line_filter" model="ir.ui.view">
+        <field name="name">ufs.employee.doc.line.filter</field>
+        <field name="model">ufs.employee.doc.line</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <field name="create_uid" invisible="True"/>
+                <field name="write_uid" invisible="True"/>
+                <field name="create_date" invisible="True"/>
+                <field name="name"/>
+                <field name="employee_id"/>
+                <field name="doc_type"/>
+                <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+                <separator/>
+                <filter name="current" string="Current" domain="[('state', '=', 'current')]"/>
+                <filter name="to_renew" string="To Renew" domain="[('state', '=', 'to_renew')]"/>
+                <filter name="to_renew_urgent" string="To Renew(2 weeks)" domain="[('state', '=', 'to_renew_urgent')]"/>
+                <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]"/>
+                <group string="Group by...">
+                    <filter string="Employee" name="group_employee_id" context="{'group_by': 'employee_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Doc Type" name="group_doc_type" context="{'group_by': 'doc_type'}"/>
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="ufs_fleet_default_trip_exp_line_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.default_trip_exp_line.form</field>
+        <field name="model">ufs.fleet.default_trip_exp_line</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Vehicle Log">
+                <header>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="product_qty" invisible="True"/>
+                            <field name="price_unit"/>
+                            <field name="currency_id" class="oe_edit_only"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+
+                        </group>
+
+                        <group>
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_default_trip_exp_line_tree" model="ir.ui.view">
+        <field name="name">ufs.fleet.default_trip_exp_line.tree</field>
+        <field name="model">ufs.fleet.default_trip_exp_line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Default Trip Lines">
+                <field name="product_id"/>
+                <field name="product_qty" invisible="True"/>
+                <field name="price_unit"/>
+                <field name="currency_id" invisible="True"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_disp_board_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.disp.board.form</field>
+        <field name="model">ufs.fleet.disp.board</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Dispatchers Board" create="0" delete="0">
+        <sheet>
+          <group>
+            <group string="Vehicle">
+              <field name="truck_number_em" readonly="1"/>
+              <field name="internal_truck_name" readonly="1"/>
+              <field name="trailer_number" readonly="1"/>
+              <field name="trailer_type" readonly="1"/>
+              <field name="drivers_by_trip_ids" readonly="1" widget="many2many_tags"/>
+              <field name="state_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+              <field name="company_id" readonly="1"/>
+              <field name="verbose_location_small" readonly="1"/>
+              <field name="at_home_location" readonly="1"/>
+            </group>
+            <group string="Current Order">
+              <field name="current_order_id" readonly="1"/>
+              <field name="current_order_state_id" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+              <field name="current_order_partner_id" readonly="1"/>
+              <field name="real_partner_id" readonly="1"/>
+              <field name="origin_place" readonly="1"/>
+              <field name="load_datetime" readonly="1"/>
+              <field name="destination_place" readonly="1"/>
+              <field name="destination_datetime" readonly="1"/>
+              <field name="unload_cust_small_address" readonly="1"/>
+              <field name="is_delayed" readonly="1"/>
+              <field name="is_not_full" readonly="1"/>
+            </group>
+            <group string="Next Order">
+              <field name="next_order_id" readonly="1"/>
+              <field name="next_order_place" readonly="1"/>
+              <field name="next_order_datetime" readonly="1"/>
+              <field name="next_order_stop_place" readonly="1"/>
+              <field name="next_order_stop_datetime" readonly="1"/>
+            </group>
+            <group string="Documents and Costs">
+              <field name="all_the_document_by_trip_ids" readonly="1" widget="many2many_tags"/>
+              <field name="cemt_numbers" readonly="1"/>
+              <field name="tir_numbers" readonly="1"/>
+              <field name="order_costs_text" readonly="1"/>
+            </group>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_disp_board_list" model="ir.ui.view">
+        <field name="name">ufs.fleet.disp.board.list</field>
+        <field name="model">ufs.fleet.disp.board</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Lorries" editable="top" decoration-danger="is_delayed" create="0" delete="0">
+        <field name="internal_truck_name" readonly="1" optional="hide"/>
+        <field name="current_order_id" column_invisible="True"/>
+        <field name="next_order_id" column_invisible="True"/>
+        <field name="is_delayed" column_invisible="True"/>
+        <field name="company_prefix" readonly="1" string=" " optional="show" width="28px"/>
+        <field name="truck_number_em" readonly="1" string="Truck"/>
+        
+        <field name="trailer_number" readonly="1" string="Trailer" optional="show"/>
+        <field name="trailer_type" readonly="1" string=" " optional="hide"/>
+        <field name="trailer_additional_tag_ids" widget="many2many_tags" string=" " optional="hide"/>
+        <field name="drivers_by_trip_ids" readonly="1" widget="many2many_tags" optional="show"/>
+        <field name="state_id" string="Current State" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+        <field name="current_order_state_id" string="Order State" optional="hide" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+        <field name="slot_date" string="Slot" optional="show" width="110px"/>
+        <field name="at_home_location" readonly="1" string="H" optional="hide"/>
+        <field name="verbose_location_small" readonly="1" string="Current Point" optional="show"/>
+        
+        <field name="tracking_uri" readonly="1" widget="url" text=" " string=" " class="fa fa-location-arrow" optional="hide"/>
+        <field name="current_order_partner_id" readonly="1" optional="show"/>
+        <field name="real_partner_id" readonly="1" optional="hide"/>
+        
+        <field name="origin_place" readonly="1" string="Orig.Point"/>
+        <field name="load_datetime" readonly="1" string="Orig.Time" optional="hide"/>
+        <field name="unload_cust_small_address" readonly="1" string="Dest.Cust" optional="show"/>
+        <field name="destination_place" readonly="1" string="Dest.Point"/>
+        <field name="destination_datetime" readonly="1" string="Dest.Time" width="150px"/>
+        <field name="next_order_place" readonly="1" string="Next.Load"/>
+        <field name="next_order_datetime" readonly="1" string="Next.Load Time" width="170px"/>
+        <field name="next_order_stop_place" readonly="1" string="Next.UnLoad" optional="show"/>
+        <field name="next_order_stop_datetime" readonly="1" string="Next.UnLoad Time" optional="show" width="170px"/>
+        
+        <field name="order_costs_text" readonly="1" optional="hide"/>
+        <field name="all_the_document_by_trip_ids" readonly="1" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        <field name="cemt_numbers" readonly="1" optional="hide"/>
+        <field name="tir_numbers" readonly="1" optional="hide"/>
+        <field name="is_not_full" string="Draft" column_invisible="True" optional="hide"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_fleet_disp_board_search" model="ir.ui.view">
+        <field name="name">ufs.fleet.disp.board.search</field>
+        <field name="model">ufs.fleet.disp.board</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Dispatchers Board">
+        <field name="truck_number_em" string="Truck" filter_domain="['|', ('truck_number_em', 'ilike', self), ('internal_truck_name', 'ilike', self)]"/>
+        <field name="trailer_number"/>
+        <field name="driver_id"/>
+        <field name="state_id"/>
+        <field name="current_order_state_id"/>
+        <field name="current_order_id"/>
+        <field name="next_order_id"/>
+        <field name="real_partner_id"/>
+        <field name="current_order_partner_id"/>
+        <field name="verbose_location_small" string="Point" filter_domain="['|', '|', ('verbose_location_small', 'ilike', self), ('origin_place', 'ilike', self), ('destination_place', 'ilike', self)]"/>
+        <field name="company_id"/>
+        <separator/>
+        <filter name="filter_delayed" string="Delayed" domain="[('is_delayed', '=', True)]"/>
+        <filter name="filter_at_home" string="At Home" domain="[('at_home_location', '=', True)]"/>
+        <filter name="filter_not_full" string="Draft Order" domain="[('is_not_full', '=', True)]"/>
+        <separator/>
+        <filter name="filter_on_order" string="With Current Order" domain="[('current_order_id', '!=', False)]"/>
+        <filter name="filter_free" string="Without Current Order" domain="[('current_order_id', '=', False)]"/>
+        <filter name="filter_no_next" string="Without Next Order" domain="[('next_order_id', '=', False)]"/>
+        <separator/>
+        <filter name="filter_load_datetime" string="Load Date" date="load_datetime"/>
+        <filter name="filter_destination_datetime" string="Delivery Date" date="destination_datetime"/>
+        <filter name="filter_next_order_datetime" string="Next Load Date" date="next_order_datetime"/>
+        <separator/>
+        <filter name="filter_inactive" string="Archived" domain="[('active', '=', False)]"/>
+        <group string="Group by...">
+          <filter string="State" name="group_state_id" context="{'group_by': 'state_id'}"/>
+          <filter string="Order State" name="group_order_state_id" context="{'group_by': 'current_order_state_id'}"/>
+          <filter string="Customer" name="group_partner_id" context="{'group_by': 'current_order_partner_id'}"/>
+          <filter string="Real Customer" name="group_real_partner_id" context="{'group_by': 'real_partner_id'}"/>
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+          <filter string="Trailer Type" name="group_trailer_type" context="{'group_by': 'trailer_type'}"/>
+          <filter string="Driver" name="group_driver_id" context="{'group_by': 'driver_id'}"/>
+          <filter string="Current Point" name="group_location" context="{'group_by': 'verbose_location_small'}"/>
+          <filter string="Shipper City" name="group_origin_place" context="{'group_by': 'origin_place'}"/>
+          <filter string="Destination" name="group_destination_place" context="{'group_by': 'destination_place'}"/>
+          <filter string="At Home" name="group_at_home" context="{'group_by': 'at_home_location'}"/>
+          <filter string="Delayed" name="group_is_delayed" context="{'group_by': 'is_delayed'}"/>
+          <separator/>
+          <filter string="Load Date" name="group_load_datetime" context="{'group_by': 'load_datetime:day'}"/>
+          <filter string="Delivery Date" name="group_destination_datetime" context="{'group_by': 'destination_datetime:day'}"/>
+          <filter string="Next Load Date" name="group_next_order_datetime" context="{'group_by': 'next_order_datetime:day'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_downtime_form_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.downtime.form</field>
+        <field name="model">ufs.fleet.downtime</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Downtime">
+                <sheet>
+                    <group>
+                        <field name="trip_id"/>
+                        <field name="downtime_reason_id"/>
+                        <field name="vehicle_id"/>
+                        <field name="trailer_id"/>
+                        <field name="driver_id"/>
+                        <field name="from_dttm"/>
+                        <field name="to_dttm"/>
+                        <field name="duration_days"/>
+                        <field name="location"/>
+                        <field name="location_id"/>
+                        <field name="accepted_days"/>
+                        <field name="is_accepted"/>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_downtime_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.downtime.list</field>
+        <field name="model">ufs.fleet.downtime</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list string="Reasons">
+                <field name="trip_id"/>
+                    <field name="downtime_reason_id"/>
+                    <field name="vehicle_id"/>
+                    <field name="trailer_id"/>
+                    <field name="driver_id"/>
+                    <field name="from_dttm"/>
+                    <field name="to_dttm"/>
+                    <field name="duration" optional="hide"/>
+                    <field name="duration_days"/>
+                    <field name="accepted_days"/>
+                    <field name="is_accepted"/>
+                    <field name="location"/>
+                    <field name="location_id"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_downtime_reason_form_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.downtime.reason.form</field>
+        <field name="model">ufs.fleet.downtime.reason</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Reason">
+                <sheet>
+                    <group>
+                    <field name="name"/>
+                    <field name="active"/>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_downtime_reason_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.downtime.reason.list</field>
+        <field name="model">ufs.fleet.downtime.reason</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list string="Reasons">
+                <field name="name"/>
+            </list>]]></field>
+    </record>
+    <record id="hr_employee_letter_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.employee.letter_wizard.view</field>
+        <field name="model">ufs.fleet.employee.letter_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Needed Data">
+
+                    <group>
+                        <field name="employee_id" invisible="0"/>
+                        <field name="letter_from" invisible="0"/>
+                        <field name="letter_to" invisible="0"/>
+                        <field name="letter_place_name" invisible="0"/>
+                        <field name="letter_sign_date" invisible="0"/>
+                        <field name="letter_driver_place_name" invisible="0"/>
+                        <field name="letter_driver_sign_date" invisible="0"/>
+                    </group>
+
+                    <footer>
+                        
+                    
+                </footer>
+                </form>]]></field>
+    </record>
+    <record id="ufs_fleet_lorry_list_disp_board" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.d_board.tree</field>
+        <field name="model">ufs.fleet.lorry</field>
+        <field name="type">list</field>
+        <field name="priority">60</field>
+        <field name="arch"><![CDATA[<list string="Lorries" editable="top" decoration-danger="is_delayed" create="0" delete="0">
+        <!--<field name="active" column_invisible="True"/>-->
+        <field name="internal_truck_name" optional="hide"/>
+        <field name="current_order_id" column_invisible="True"/>
+        <field name="next_order_id" column_invisible="True"/>
+        <field name="is_delayed" column_invisible="True"/>
+        <field name="company_prefix" string=" " optional="show" width="28px"/>
+        <field name="truck_number_em" readonly="True" string="Truck"/>
+        
+        <field name="trailer_number" readonly="True" string="Trailer" optional="show"/>
+        
+        <field name="trailer_type" readonly="True" string=" " optional="hide"/>
+        <field name="trailer_additional_tag_ids" widget="many2many_tags" string=" " optional="hide"/>
+        <!--                <field name="driver_lastname" readonly="True"/>-->
+        <field name="drivers_by_trip_ids" readonly="True" widget="many2many_tags" optional="show"/>
+        
+        <field name="state_id" readonly="0" string="Current State" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
+        <field name="at_home_location" readonly="True" string="H" optional="hide"/>
+        <field name="verbose_location_small" readonly="True" string="Current Point" optional="show"/>
+        
+        
+        <field name="tracking_uri" readonly="True" widget="url" text=" " string=" " class="fa fa-location-arrow" optional="hide"/>
+        <field name="current_order_partner_id" readonly="True" optional="show"/>
+        <field name="real_partner_id" readonly="True" optional="hide"/>
+        
+        <field name="origin_place" readonly="True" string="Orig.Point"/>
+        <field name="load_datetime" readonly="True" string="Orig.Time" optional="hide"/>
+        <field name="unload_cust_small_address" readonly="True" string="Dest.Cust" optional="show"/>
+        <field name="destination_place" readonly="True" string="Dest.Point"/>
+        <field name="destination_datetime" readonly="True" string="Dest.Time" width="150px"/>
+        <field name="next_order_place" readonly="True" string="Next.Load"/>
+        <field name="next_order_datetime" readonly="True" string="Next.Load Time" width="170px"/>
+        <field name="next_order_stop_place" readonly="True" string="Next.UnLoad" optional="show"/>
+        <field name="next_order_stop_datetime" readonly="True" string="Next.UnLoad Time" optional="show" width="170px"/>
+        
+        <!--<field name="vehicle_engine_state"/>-->
+        <field name="order_costs_text" readonly="True" optional="hide"/>
+        <field name="all_the_document_by_trip_ids" readonly="True" widget="many2many_tags" options="{'color_field': 'color'}"/>
+        <field name="cemt_numbers" readonly="True" optional="hide"/>
+        <field name="tir_numbers" readonly="True" optional="hide"/>
+        <field name="is_not_full" string="Draft" column_invisible="True" optional="hide"/>
+      </list>]]></field>
+    </record>
+    <record id="view_ufs_fleet_lorry_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.filter</field>
+        <field name="model">ufs.fleet.lorry</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <field name="create_uid" invisible="True"/>
+                <field name="write_uid" invisible="True"/>
+                <field name="create_date" invisible="True"/>
+                <field name="truck_id"/>
+                <field name="trailer_id"/>
+                <field name="driver_lastname"/>
+                <field name="company_id"/>
+                <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+                <separator/>
+                <filter name="at_home_location" string="At home location" domain="[('at_home_location', '=', True)]"/>
+<!--                <filter name="is_to_be_switched" string="To be switched" domain="[('is_to_be_switched', '=', True)]"/>-->
+                <group string="Group by...">
+                    <filter string="State" name="group_state_id" context="{'group_by': 'state_id'}"/>
+                    <!--<filter string="Responsible" name="group_employee_id" context="{'group_by': 'employee_id'}"/>-->
+                    <!--<filter string="Vehicle" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>-->
+                    <!--<filter string="Trips" name="dispatcher_id" context="{'group_by': 'trip_ids'}" />-->
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="ufs_fleet_lorry_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.form</field>
+        <field name="model">ufs.fleet.lorry</field>
+        <field name="type">form</field>
+        <field name="priority">60</field>
+        <field name="arch"><![CDATA[<form string="Lorries">
+                <header>
+                    <field name="state_id" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <h2>
+                        <field name="name" nolabel="1"/>
+                    </h2>
+                    <group>
+
+                        <group>
+
+                            <!--<field name="partner_id"/>-->
+                            <field name="truck_id" domain="[('fleet_type', 'in', ['power_unit'])]" required="1" context="{'default_fleet_type':'power_unit'}"/>
+                            <field name="truck_odometer"/>
+                            <field name="trailer_id" domain="[('fleet_type', 'in', ['trailer'])]" required="0" context="{'default_fleet_type':'trailer'}"/>
+                            <field name="trailer_odometer"/>
+                            <field name="is_refrigerator" invisible="True"/>
+                            <field name="trailer_engine_hours" invisible="not is_refrigerator"/>
+
+                            <field name="driver_state" required="0" context="{'is_driver':True}"/>
+                            <label for="driver_id"/>
+                            <div>
+                                <field name="driver_id" required="0" context="{'is_driver':True}" class="oe_inline"/>
+                                <field name="driver_state" class="oe_inline" style="float:right; color:gray;"/>
+                            </div>
+                        </group>
+
+                        <group>
+                            <!--<field name="cargo_weight"/>-->
+                            <!--<field name="cargo_weight_uom_id" readonly="True"/>-->
+                            <field name="verbose_location" readonly="True"/>
+                            <field name="all_the_document_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                            <field name="current_order_id" groups="base.group_no_one"/>
+                            <field name="driver_ids" readonly="True" context="{'is_driver':True}" domain="[('is_driver', '=', True)]">
+                                <list editable="bottom">
+                                    <field name="name" string="Driver"/>
+                                    <field name="driver_state"/>
+                                    <field name="document_ids" widget="many2many_tags" options="{'color_field':'color'}"/>
+                                </list>
+                            </field>
+                        </group>
+
+                    </group>
+                </sheet>
+                <!--<sheet name="mapbox">-->
+                    <!--<field name="longitude_latitude" widget="mapbox_widget" options="{'map_mode':'point'}" nolabel="1"/>-->
+                <!--</sheet>-->
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_lorry_list_inherit_ufs_base" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.ufs.tree</field>
+        <field name="model">ufs.fleet.lorry</field>
+        <field name="type">list</field>
+        <field name="priority">60</field>
+        <field name="arch"><![CDATA[<list string="Lorries">
+                <!--<field name="active" invisible="True"/>-->
+                <field name="truck_id"/>
+                <field name="truck_odometer"/>
+                <field name="trailer_id"/>
+                <field name="is_refrigerator" invisible="True"/>
+                <field name="trailer_engine_hours" invisible="not is_refrigerator"/>
+                <field name="driver_lastname"/>
+                <field name="state_id"/>
+                <!--<field name="verbose_location"/>-->
+                <field name="all_the_document_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_lorry_state_view_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.state.form</field>
+        <field name="model">ufs.fleet.lorry.state</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Lorry State">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="sequence"/>
+                        <field name="is_close"/>
+                        <field name="fold"/>
+                        <field name="color"/>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_lorry_state_view_list" model="ir.ui.view">
+        <field name="name">ufs.fleet.lorry.state.list</field>
+        <field name="model">ufs.fleet.lorry.state</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Lorry States">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="is_close"/>
+                <field name="fold"/>
+                <field name="color"/>
+            </list>]]></field>
+    </record>
+    <record id="view_ufs_fleet_maintenance_request_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.maintenance_request.filter</field>
+        <field name="model">ufs.fleet.maintenance_request</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="state" invisible="True"/>
+        <field name="vehicle_id"/>
+        <separator/>
+        <filter name="filter_new" string="New" domain="[('state', '=', 'new')]"/>
+        <filter name="filter_this_month" string="This Month" date="create_date" default_period="month"/>
+        <group string="Group by...">
+          <filter string="Stage" name="group_state" context="{'group_by': 'state'}"/>
+          <filter string="Creator" name="group_create_uid" context="{'group_by': 'create_uid'}"/>
+          <filter string="Responsible" name="group_employee_id" context="{'group_by': 'employee_id'}"/>
+          <filter string="Vehicle" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_maintenance_request_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.maintenance_request.form</field>
+        <field name="model">ufs.fleet.maintenance_request</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Maintenance Request">
+        <header>
+          <field name="state" widget="statusbar" options="{'clickable': '0', 'fold_field': 'fold'}"/>
+          
+          
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="vehicle_id" readonly="state != 'new'"/>
+              <field name="employee_id" required="1" readonly="state != 'new'"/>
+            </group>
+            <group>
+              <field name="maintenance_request" readonly="state != 'new'"/>
+              <field name="maintenance_resolution" readonly="True"/>
+            </group>
+          </group>
+        </sheet>
+        <chatter open_attachments="True" reload_on_attachment="True"/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_maintenance_request_tree" model="ir.ui.view">
+        <field name="name">ufs.fleet.maintenance_request.tree</field>
+        <field name="model">ufs.fleet.maintenance_request</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Maintenance Requests">
+        <!--<field name="active" invisible="True"/>-->
+        <field name="create_date"/>
+        <field name="vehicle_id"/>
+        <field name="employee_id"/>
+        <field name="maintenance_request"/>
+        <field name="maintenance_resolution"/>
+        <field name="state"/>
+      </list>]]></field>
+    </record>
+    <record id="view_ufs_fleet_order_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.order.filter</field>
+        <field name="model">ufs.fleet.order</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <!--<field name="create_uid" invisible="True"/>-->
+        <!--<field name="write_uid" invisible="True"/>-->
+        <field name="is_invoiced" invisible="True"/>
+        <field name="is_paid" invisible="True"/>
+        <field name="name"/>
+        <field name="incoming_ref"/>
+        <field name="verbose_route"/>
+        <field name="truck_id"/>
+        <field name="trailer_id"/>
+        <field name="shipper_country_id"/>
+        <field name="consignee_country_id"/>
+        <field name="invoice_ids" filter_domain="['|', ('invoice_ids.name','ilike', str(self)), ('invoice_ids.external_ref','ilike', str(self))]"/>
+        <!--<field name="driver_lastname" />-->
+        <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+        <separator/>
+        <filter name="filter_costs" string="With Costs" domain="[('fleet_cost_ids', '!=', False)]"/>
+        <separator/>
+          <filter name="is_cash_expected" string="Cash Expected" domain="[('is_cash_expected', '=', True)]" groups="ufs_base.group_ufs_use_cash"/>
+        <separator groups="ufs_base.group_ufs_use_cash"/>
+        <filter name="filter_export" string="Export" domain="[('shipper_country_id', 'in', [36, 190, 124])]"/>
+        <filter name="filter_import" string="Import" domain="[('consignee_country_id', 'in', [36, 190, 124])]"/>
+        <separator/>
+        <filter string="Followed Orders" name="my_followed_orders" domain="[('message_is_follower', '=', True)]"/>
+        <separator/>
+        <filter string="Current Orders" name="filter_current_orders" domain="[('start_datetime', '&lt;=', context_today().strftime('%Y-%m-%d')), ('stop_datetime', '&gt;=', context_today().strftime('%Y-%m-%d'))]"/>
+        <separator/>
+        <filter name="not_invoiced" string="Not Invoiced" domain="[('is_invoiced', '=', False)]"/>
+        <filter name="not_paid" string="Not Paid" domain="[('is_invoiced', '=', True), ('is_paid', '=', False)]"/>
+        <group string="Group by...">
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+          <filter string="Truck" name="group_truck_id" context="{'group_by': 'truck_id'}"/>
+          <filter string="Trailer" name="group_trailer_id" context="{'group_by': 'trailer_id'}"/>
+          <filter string="Customer" name="group_partner_id" context="{'group_by': 'partner_id'}"/>
+          <filter string="State" name="group_state_id" context="{'group_by': 'state_id'}"/>
+          <filter string="Invoice State" name="group_invoice_state" context="{'group_by': 'invoice_states_char'}"/>
+          <!--<filter string="Trips" name="dispatcher_id" context="{'group_by': 'trip_ids'}" />-->
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_order_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.order.pivot</field>
+        <field name="model">ufs.fleet.order</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Orders">
+        <field name="start_datetime" type="col" interval="month"/>
+        <field name="partner_id" type="row"/>
+        <field name="amount" type="measure" string="Amount"/>
+      </pivot>]]></field>
+    </record>
+    <record id="ufs_fleet_order_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.order.tree</field>
+        <field name="model">ufs.fleet.order</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Fleet Orders" default_order="start_datetime desc">
+        <field name="name"/>
+        <field name="internal_order_number" optional="hide"/>
+        <field name="state_id"/>
+        <field name="partner_id"/>
+        <field name="responsible_user_id" optional="show"/>
+        <field name="vehicle_responsible_id" optional="show"/>
+        <field name="incoming_ref" optional="show"/>
+        <field name="truck_id"/>
+        <field name="trailer_id" optional="show"/>
+        <field name="start_datetime"/>
+        <field name="verbose_route"/>
+        <field name="stop_datetime" optional="show"/>
+        <field name="freight_amount" optional="show"/>
+        <field name="freight_currency_id" column_invisible="True"/>
+        <field name="amount" optional="hide"/>
+        <field name="currency_id" column_invisible="True"/>
+        <field name="amount_company_currency" optional="hide"/>
+        <field name="company_currency_id" column_invisible="True"/>
+        <field name="trip_ids" widget="many2many_tags" optional="show"/>
+        <field name="message_attachment_count" optional="hide"/>
+        <field name="invoice_external_refs" optional="hide"/>
+        <field name="invoice_states_char" optional="show"/>
+        <field name="invoice_numbers_char" optional="hide"/>
+        <field name="invoice_ext_numbers_char" optional="hide"/>
+        <field name="is_cash_expected" optional="hide" groups="ufs_base.group_ufs_use_cash"/>
+        <field name="advance_invoice_requested" optional="hide"/>
+        <!--                <field name="is_invoiced" />-->
+        <!--                <field name="is_paid" />-->
+        <!--                <field name="is_not_full" string="Draft"/>-->
+        <!--                <field name="no_kozlovichi_allowed" string="No K."/>-->
+      </list>]]></field>
+    </record>
+    <record id="ufs_fleet_order_partner_info_wizard" model="ir.ui.view">
+        <field name="name">ufs.fleet.order.partner_info_wizard.view</field>
+        <field name="model">ufs.fleet.order.partner_info_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Info For Partner">
+
+                    <group>
+                        <field name="order_id"/>
+                        <!--<field name="truck_id" />-->
+                        <!--<field name="xmpp_ident" />-->
+                        <field name="message"/>
+                    </group>
+
+                    <footer>
+                        
+                                
+                                
+                                
+                        <!--/>-->
+
+                    
+                </footer>
+                </form>]]></field>
+    </record>
+    <record id="ufs_fleet_reorder_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.reorder_wizard.view</field>
+        <field name="model">ufs.fleet.reorder_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+        <group colspan="2">
+          <group name="source" string="Source">
+            <field name="source_order_id" readonly="True"/>
+            <field name="source_company_id" invisible="True"/>
+          </group>
+          <group name="target" string="Target">
+            <field name="target_company_id" readonly="0" required="1" options="{'no_create': True, 'no_edit': True}" domain="[('id', '!=', source_company_id)]"/>
+            <field name="freight_amount" readonly="0" required="1"/>
+            <field name="currency_id" required="1"/>
+            <field name="target_vehicle_id" required="0"/>
+            <field name="target_trailer_id" required="0"/>
+          </group>
+          <span>
+            If you click on Add Order button, order will be copied with new data.
+            New order customer will be Source Order company
+          </span>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="view_ufs_fleet_trip_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.filter</field>
+        <field name="model">ufs.fleet.trip</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <!--<field name="create_uid" invisible="True"/>-->
+                <!--<field name="write_uid" invisible="True"/>-->
+                <!--<field name="create_date" invisible="True"/>-->
+                <field name="name"/>
+                <field name="trip_order_name"/>
+                <field name="vehicle_id"/>
+                <field name="trailer_id"/>
+                <field name="driver_id" filter_domain="['|', ('driver_id.name', 'ilike', self), ('driver2_id.name', 'ilike', self)]"/>
+                <!--<field name="driver2_id" />-->
+                <field name="start_datetime" invisible="True"/>
+                <!--<field name="driver_lastname" />-->
+                <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+                <separator/>
+                <!--<filter name="at_home_location" string="At home location" domain="[('active', '=', False)]"/>-->
+                <filter name="filter_this_month" string="This Month" domain="[('start_datetime','&gt;', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d') )]"/>
+                <separator/>
+                <filter string="Followed Trips" name="my_followed_trips" domain="[('message_is_follower', '=', True)]"/>
+                <group name="group_by" string="Group by...">
+                    <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+                    <filter string="Truck" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+                    <filter string="Driver" name="group_driver_id" context="{'group_by': 'driver_id'}"/>
+                    <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+                    <!--<filter string="Trips" name="dispatcher_id" context="{'group_by': 'trip_ids'}" />-->
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="view_trip_report_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.report.filter</field>
+        <field name="model">ufs.fleet.trip</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="name"/>
+        <field name="vehicle_id"/>
+        <field name="trailer_id"/>
+        <field name="driver_id" filter_domain="['|', ('driver_id.name', 'ilike', self), ('driver2_id.name', 'ilike', self)]"/>
+        <field name="start_datetime" invisible="True"/>
+        <filter name="filter_finished" string="Finished" domain="[('m_order_finish_date', '!=', False)]"/>
+        <separator/>
+        <filter name="filter_this_year" string="This Year Delivered" domain="[('m_order_finish_date','&gt;=', (context_today().replace(day=1, month=1)).strftime('%Y-%m-%d') ), ('m_order_finish_date','&lt;=', (context_today().replace(day=31, month=12)).strftime('%Y-%m-%d') )]"/>
+        <group string="Group by...">
+          <filter string="Main Order" name="group_main_order_id" context="{'group_by': 'main_order_id'}"/>
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+          <filter string="Truck" name="group_vehicle_id" context="{'group_by': 'vehicle_id'}"/>
+          <filter string="Driver" name="group_driver_id" context="{'group_by': 'driver_id'}"/>
+          <filter string="Order Finish Date" name="group_finish_month" context="{'group_by': 'm_order_finish_date:month'}"/>
+          <filter string="Start Date" name="group_report_month" context="{'group_by': 'start_datetime:month'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_report_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.report.tree</field>
+        <field name="model">ufs.fleet.trip</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Trips Report" default_order="stop_datetime desc" create="false" delete="false">
+          <field name="base_currency_id" column_invisible="True"/>
+          <field name="m_o_alert" optional="hide" column_invisible="1"/>
+          <field name="name"/>
+          <field name="main_order_id" optional="hide"/>
+          <field name="m_order_finish_date" optional="hide"/>
+          <field name="vehicle_id" optional="show"/>
+          <field name="trailer_id" optional="show"/>
+          <field name="driver_id" optional="show"/>
+          <field name="start_datetime" optional="show"/>
+          <field name="stop_datetime" optional="show"/>
+          <field name="trip_route" optional="show"/>
+          <field name="trip_route_report" optional="hide"/>
+          <field name="trip_duration_days" optional="show"/>
+          <field name="total_km" optional="show"/>
+          <!--        <field name="wallet_balance_start" optional="show" />-->
+          <!--        <field name="wallet_balance_end" optional="show" />-->
+          <field name="total_truck_fuel_consumption" optional="hide"/>
+          <field name="total_truck_fuel_consumption_km" optional="hide"/>
+          <!--        <field name="truck_fuel_stop" optional="show" />-->
+          <!--        <field name="truck_fuel_stop_can" optional="show" />-->
+          <!--        <field name="truck_fuel_stop_dut" optional="show" />-->
+          <field name="orders_amount_sum" optional="show" sum="Total"/>
+          <field name="orders_full_costs_base_sum" optional="show" sum="Total"/>
+          <field name="orders_internal_margin_base" optional="hide" sum="Total"/>
+          <field name="driver_payment_sum" sum="Total" optional="hide"/>
+          <field name="trip_costs_sum" sum="Total" optional="show"/>
+          <field name="orders_t_margin_base" sum="Total" optional="show"/>
+          <field name="orders_t_margin_pro_km" avg="Avg" optional="hide"/>
+          <field name="orders_t_margin_pro_day" avg="Avg" optional="hide"/>
+        <!--<field name="trailer_id"/>-->
+        <!--<field name="driver_id"/>-->
+        <!--<field name="order_ids" widget="many2many_tags" options="{'color_field': 'invoice_color'}"/>-->
+        <field name="fuel_difference" sum="Total" optional="hide"/>
+        <field name="fuel_by_product_cost" sum="Total" optional="hide"/>
+        <!--<field name="downtime_days" sum="Total" optional="show"/>-->
+        <!--<field name="cadv_verbose_list" optional="show"/>-->
+        <!--<field name="cadv_verbose_returned_list" optional="show"/>-->
+      </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.tree</field>
+        <field name="model">ufs.fleet.trip</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Trips" default_order="start_datetime desc" decoration-info="state in ['to_pay', 'closed']">
+                <field name="trip_order_name" column_invisible="1"/>
+                <field name="name"/>
+                <!--<field name="create_date" readonly="True"  widget="date" string="Registered"/>-->
+                <!--<field name="vehicle_id" readonly="True"/>-->
+                <!--<field name="partner_id"/>-->
+                <field name="start_datetime"/>
+                <field name="stop_datetime"/>
+                <field name="vehicle_id"/>
+                <field name="trailer_id" optional="show"/>
+
+
+                <field name="driver_id"/>
+                <field name="driver2_id" optional="hide"/>
+                <field name="order_ids" widget="many2many_tags" options="{'color_field': 'invoice_color'}"/>
+                <field name="trip_route" readonly="True"/>
+                <field name="cadv_verbose_list" string="Driver CA" readonly="True"/>
+                <!--                <field name="cemt_number"/>-->
+                <!--                <field name="tir_number"/>-->
+                <field name="state" optional="show"/>
+                <field name="is_to_be_switched" optional="hide"/>
+                <field name="was_switched" optional="hide"/>
+                <field name="switch_truck" optional="hide"/>
+
+                <field name="strict_doc_line_ids" widget="many2many_tags" optional="show"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_add_order_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.add_order_wizard.view</field>
+        <field name="model">ufs.fleet.trip.add_order_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+        <group colspan="2">
+          <group name="source" string="Trip">
+            <field name="source_trip_id" readonly="True"/>
+            <field name="source_company_id" invisible="True"/>
+          </group>
+          <group name="target" string="Order">
+            <field name="target_company_id" readonly="0" required="1" options="{'no_create': True, 'no_edit': True}" domain="[('id', '!=', source_company_id)]"/>
+            <field name="target_order_id" readonly="0" required="1" options="{'no_create': True}"/>
+            <!--                            <field name="target_end_point_id" readonly="0" required="1" options="{'no_create': True}"/>-->
+            <!--                            <field name="target_start_datetime" required="1" />-->
+          </group>
+          <field name="target_order_line_ids" readonly="0" required="1" context="{'default_order_id': target_order_id}">
+            <list editable="bottom">
+              <field name="order_id" invisible="True"/>
+              <field name="partner_id" invisible="True"/>
+              <field name="line_type" required="1"/>
+              <field name="datetime" required="1"/>
+              <field name="location_id" required="1" context="{'default_partner_id':partner_id}"/>
+              
+              <field name="location_postcode" readonly="True"/>
+              <field name="free_time" widget="float_time"/>
+            </list>
+          </field>
+          <span>
+            If you click on Add Order button, order will be attached to this Trip and system will create new order for Trip Company. New
+            order customer will be Order company
+          </span>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_ufs_fleet_trip_docs_inout_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.docs_inout.tree.view</field>
+        <field name="model">ufs.fleet.trip.docs_inout</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="trip_id"/>
+                <field name="state"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_ufs_fleet_trip_docs_inout_view" model="ir.ui.view">
+        <field name="name">uufs.fleet.trip.docs_inout.view</field>
+        <field name="model">ufs.fleet.trip.docs_inout</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+                <header>
+                    
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <h3><field name="trip_id" readonly="True" force_save="1"/></h3>
+                <group>
+                    <field name="child_ids" options="{'no_open': True}" readonly="state == 'returned'">
+                        <list options="{'no_open': True}">
+                            <field name="parent_id" invisible="True"/>
+                            <field name="state" invisible="True"/>
+                            <field name="display_name"/>
+                            <field name="document_ref" context="{'show_prefix': True}"/>
+                            <field name="notes"/>
+                            <field name="is_given" widget="boolean_toggle"/>
+                            <field name="is_returned" widget="boolean_toggle"/>
+                        </list>
+                        <form>
+                            <field name="notes" placeholder="Additional Notes"/>
+                        </form>
+                    </field>
+                </group>
+
+
+                <footer>
+                    
+                    
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_docs_inout_line_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.docs_inout.line.tree.view</field>
+        <field name="model">ufs.fleet.trip.docs_inout.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="trip_id"/>
+                <field name="driver_id"/>
+                <field name="state"/>
+                <field name="display_name"/>
+                <field name="document_ref" context="{'show_prefix': True}"/>
+                <field name="notes"/>
+                <field name="is_given"/>
+                <field name="is_returned"/>
+                <field name="write_date" string="Last Mod."/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_driver_switch_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.driver_switch_wizard.view</field>
+        <field name="model">ufs.fleet.trip.driver_switch_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+        <group colspan="2">
+          <group name="source" string="Source">
+            <field name="source_trip_id" readonly="True"/>
+            <field name="source_vehicle_id" readonly="True"/>
+            <field name="source_trailer_id" readonly="True"/>
+            <field name="source_driver_id" readonly="True"/>
+            <field name="source_driver2_id" readonly="True"/>
+            <field name="switch_location_id"/>
+          </group>
+          <group name="target" string="Target">
+            <field name="target_company_id" readonly="True" force_save="1"/>
+            <field name="target_vehicle_id" readonly="0" force_save="1" domain="[('company_id', '=', target_company_id)]" options="{'no_create': True}"/>
+            <field name="target_trailer_id" readonly="True" force_save="1"/>
+            <field name="target_driver_id" required="1" options="{'no_create': True}"/>
+            <field name="target_driver2_id" options="{'no_create': True}"/>
+            <field name="target_start_datetime" required="1"/>
+          </group>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_partner_info_wizard" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.partner_info_wizard.view</field>
+        <field name="model">ufs.fleet.trip.partner_info_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Info For Partner">
+
+                    <group>
+                        <field name="trip_id"/>
+                        <!--<field name="truck_id" />-->
+                        <!--<field name="xmpp_ident" />-->
+                        <field name="message"/>
+                    </group>
+
+                    <footer>
+                        
+                                
+                                
+                                
+                        <!--/>-->
+
+                    
+                </footer>
+                </form>]]></field>
+    </record>
+    <record id="view_ufs_fleet_trip_segment_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.segment.filter</field>
+        <field name="model">ufs.fleet.trip.segment</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="trip_start_dttm"/>
+        <field name="trip_stop_dttm"/>
+        <separator/>
+        <field name="truck_id"/>
+        <field name="trailer_id"/>
+        <field name="driver_id"/>
+        <field name="trip_id"/>
+        <separator/>
+        <group string="Group by...">
+          <filter string="Truck" name="group_truck_id" context="{'group_by': 'truck_id'}"/>
+          <filter string="Trailer" name="group_truck_id" context="{'group_by': 'trailer_id'}"/>
+          <filter string="Driver" name="group_truck_id" context="{'group_by': 'driver_id'}"/>
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+          <filter string="Trip Start Date" name="group_start_date" context="{'group_by': 'trip_start_dttm:month'}"/>
+          <filter string="Trip Stop Date" name="group_stop_date" context="{'group_by': 'trip_stop_dttm:month'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_segment_form_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.segment.form</field>
+        <field name="model">ufs.fleet.trip.segment</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Segment" edit="0" create="0">
+        <header>
+
+        </header>
+        <sheet>
+          <field name="create_date" invisible="True"/>
+          <field name="trip_id" invisible="0"/>
+          <field name="use_salary_per_segment" invisible="True"/>
+          <field name="start_location_id"/>
+          <field name="start_city"/>
+          <field name="start_country_id"/>
+          <field name="stop_location_id"/>
+          <field name="stop_city"/>
+          <field name="stop_country_id"/>
+          <field name="cargo_description"/>
+          <field name="cargo_weight" string="Cargo Weight, kg"/>
+          <field name="cargo_weight_uom_id" invisible="True"/>
+          <field name="rate_pro_km" string="ProKM" widget="monetary" invisible="True"/>
+          <field name="distance" sum="Total distance"/>
+          <field name="ref_hours" sum="Total Ref Hours" widget="float_time" optional="hide"/>
+          <field name="heater_hours" sum="Total Heater Hours" widget="float_time"/>
+          <field name="cooler_hours" sum="Total Cooler Hours" widget="float_time"/>
+          <field name="ref_consumption" sum="Total Ref" string="RefCons" optional="show"/>
+          <field name="heater_consumption" sum="Total Heater" string="Heater" force_save="1"/>
+          <field name="cooler_consumption" sum="Total Cooler" string="Cooler" force_save="1"/>
+          <field name="adblue_consumption" sum="AdBlue" string="AdBlue" force_save="1"/>
+          <field name="adblue_cost_by_product" sum="Total AdBlue Cost" string="€"/>
+          <field name="fuel_consumption_computed" sum="Total Fuel" string="Fuel by Norm" force_save="1"/>
+          <field name="fuel_consumption" sum="Total Fuel" invisible="True"/>
+          <field name="fuel_cost_by_product" sum="Total Fuel Cost" string="€" help="By Normative Costs" invisible="True"/>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_segment_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.segment.pivot</field>
+        <field name="model">ufs.fleet.trip.segment</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Trip Segments">
+        <field name="trip_start_dttm" type="col" interval="month"/>
+        <field name="truck_id" type="row"/>
+        <field name="distance" type="measure" string="Distance"/>
+      </pivot>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_segment_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.segment.tree</field>
+        <field name="model">ufs.fleet.trip.segment</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list string="Trip Segments" default_order="trip_start_dttm desc" create="0" delete="0">
+        <field name="trip_start_dttm" optional="hide"/>
+        <field name="trip_stop_dttm" optional="hide"/>
+        <field name="start_dttm" optional="hide"/>
+        <field name="stop_dttm" optional="hide"/>
+        <field name="trip_id" invisible="0"/>
+        <field name="company_id" optional="hide" groups="base.group_multi_company"/>
+        <field name="use_salary_per_segment" invisible="True"/>
+        <field name="start_location_id"/>
+        <field name="start_city"/>
+        <field name="start_country_id"/>
+        <field name="stop_location_id"/>
+        <field name="stop_city"/>
+        <field name="stop_country_id"/>
+        <field name="cargo_description"/>
+        <field name="cargo_weight" string="Cargo Weight, kg"/>
+        <field name="cargo_weight_uom_id" invisible="True"/>
+        <field name="rate_pro_km" string="ProKM" widget="monetary" invisible="True"/>
+        <field name="distance" sum="Total distance"/>
+        <field name="ref_hours" sum="Total Ref Hours" widget="float_time" optional="hide"/>
+        <field name="heater_hours" sum="Total Heater Hours" widget="float_time" optional="hide"/>
+        <field name="cooler_hours" sum="Total Cooler Hours" widget="float_time" optional="hide"/>
+        <field name="ref_consumption" sum="Total Ref" string="RefCons" optional="show"/>
+        <field name="heater_consumption" sum="Total Heater" string="Heater" optional="hide"/>
+        <field name="cooler_consumption" sum="Total Cooler" string="Cooler" optional="hide"/>
+        <field name="adblue_consumption" sum="AdBlue" string="AdBlue" optional="show"/>
+        <field name="adblue_cost_by_product" sum="Total AdBlue Cost" optional="show"/>
+        <field name="fuel_consumption_computed" sum="Total Fuel" optional="show" string="Fuel by Norm"/>
+        <field name="fuel_consumption" sum="Total Fuel" invisible="True"/>
+        <!--            <field name="fuel_cost_by_product" sum="Total Fuel Cost" help="By Normative Costs" invisible="0" />-->
+      </list>]]></field>
+    </record>
+    <record id="view_ufs_fleet_trip_switch_filter" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.switch.filter</field>
+        <field name="model">ufs.fleet.trip.switch</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <field name="source_trip_id"/>
+                <field name="source_vehicle_id"/>
+                <field name="source_driver_id"/>
+                <field name="target_trip_id"/>
+                <field name="target_vehicle_id"/>
+                <field name="target_driver_id"/>
+                <separator/>
+                <!--<filter name="at_home_location" string="At home location" domain="[('active', '=', False)]"/>-->
+                <filter name="filter_this_month" string="This Month" domain="[('target_start_datetime','&gt;', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d') )]"/>
+                <group string="Group by...">
+                    <filter string="Type" name="group_cadv_type" context="{'group_by': 'switch_type'}"/>
+                    <filter string="Source Company" name="group_company_id" context="{'group_by': 'source_company_id'}"/>
+                    <filter string="Target Company" name="group_company_id" context="{'group_by': 'target_company_id'}"/>
+                    <filter string="Source Truck" name="group_company_id" context="{'group_by': 'source_vehicle_id'}"/>
+                    <filter string="Target Truck" name="group_company_id" context="{'group_by': 'target_vehicle_id'}"/>
+                    <filter string="Source Driver" name="group_company_id" context="{'group_by': 'source_driver_id'}"/>
+                    <filter string="Target Driver" name="group_company_id" context="{'group_by': 'target_driver_id'}"/>
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_switch_form_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.switch.form</field>
+        <field name="model">ufs.fleet.trip.switch</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Switch">
+                <header>
+
+                </header>
+                <sheet>
+                    <h2>
+                        <field name="switch_type" readonly="True"/>
+                    </h2>
+                    <group colspan="2">
+                        <group name="source" string="Source">
+                            <field name="source_trip_id" readonly="True"/>
+                            <field name="source_company_id" readonly="True"/>
+                            <field name="source_vehicle_id" readonly="True"/>
+                            <field name="source_trailer_id" readonly="True"/>
+                            <field name="source_driver_id" readonly="True"/>
+                            <field name="source_driver2_id" readonly="True"/>
+                            <field name="switch_location_id"/>
+                            <field name="send_switch_letter"/>
+                        </group>
+                        <group name="target" string="Target">
+                            <field name="target_company_id" required="1"/>
+                            <field name="target_vehicle_id" domain="[('company_id', '=', target_company_id), ('state_id', 'not in', [4,])]" options="{'no_create': True}" required="1"/>
+                            <field name="target_trailer_id" required="1" options="{'no_create': True}"/>
+                            <field name="target_driver_id" required="1" options="{'no_create': True}"/>
+                            <field name="target_driver2_id" options="{'no_create': True}"/>
+                            <field name="target_order_ids" widget="many2many_tags" required="1"/>
+                            <field name="target_start_datetime" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_switch_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.switch.pivot</field>
+        <field name="model">ufs.fleet.trip.switch</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Switch">
+<!--                <field name="date" type="col" interval="month"/>-->
+<!--                <field name="driver_id" type="row"/>-->
+<!--                <field name="base_amount" type="measure" string="Amount"/>-->
+            </pivot>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_switch_list_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.switch.tree</field>
+        <field name="model">ufs.fleet.trip.switch</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Switches" default_order="create_date desc">
+                <field name="name"/>
+                <field name="source_trip_id"/>
+                <field name="target_trip_id"/>
+                <field name="source_company_id"/>
+                <field name="source_vehicle_id"/>
+                <field name="source_trailer_id"/>
+                <field name="source_driver_id"/>
+                <field name="source_driver2_id"/>
+                <field name="target_company_id"/>
+                <field name="target_vehicle_id"/>
+                <field name="target_trailer_id"/>
+                <field name="target_driver_id"/>
+                <field name="target_driver2_id"/>
+                <field name="target_order_ids" widget="many2many_tags" required="1"/>
+                <field name="target_start_datetime"/>
+                <field name="switch_type"/>
+
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_switch_wizard_view" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip.switch_wizard.view</field>
+        <field name="model">ufs.fleet.trip.switch_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Data">
+        <group colspan="2">
+          <group name="source" string="Source">
+            <field name="source_trip_id" readonly="True"/>
+            <field name="source_trip_order_ids" widget="many2many_tags" invisible="True"/>
+            <field name="source_vehicle_id" readonly="True"/>
+            <field name="source_trailer_id" readonly="True"/>
+            <field name="source_driver_id" readonly="True"/>
+            <field name="source_driver2_id" readonly="True"/>
+            <field name="switch_location_id"/>
+            <field name="send_switch_letter"/>
+          </group>
+          <group name="target" string="Target">
+            <field name="target_company_id" required="1"/>
+            <field name="target_vehicle_id" domain="[('company_id', '=', target_company_id), ('state_id', 'not in', [4,])]" options="{'no_create': True}" required="1"/>
+            <field name="target_trailer_id" required="1" options="{'no_create': True}"/>
+            <field name="target_driver_id" required="1" options="{'no_create': True}"/>
+            <field name="target_driver2_id" options="{'no_create': True}"/>
+            <field name="target_order_ids" widget="many2many_tags" required="1" domain="[('id', 'in', source_trip_order_ids)]"/>
+            <field name="target_start_datetime" required="1"/>
+          </group>
+        </group>
+        <footer>
+          
+          
+        </footer>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_time_report_line_tree" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip_time_report.line.tree</field>
+        <field name="model">ufs.fleet.trip_time.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="truck_id"/>
+                <field name="duration_trips" widget="float_time"/>
+                <field name="duration_trips_days"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_fleet_trip_time_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.trip_time.wizard.form</field>
+        <field name="model">ufs.fleet.trip_time.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+                <h5>Please entry dates for reporting</h5>
+                <group>
+                    <field name="start_date" required="1"/>
+                    <field name="end_date" required="1"/>
+                </group>
+                <footer>
+                    
+
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fleet_vehicle_copy_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.vehicle_copy_wizard.form</field>
+        <field name="model">ufs.fleet.vehicle_copy_wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Copy Vehicle(s) to Another Company">
+                <field name="is_single" invisible="1"/>
+                <h2>
+                    <field name="vehicle_ids" widget="many2many_tags" readonly="1"/>
+                </h2>
+                <group>
+                    <field name="company_id"/>
+                    <field name="license_plate" invisible="not is_single"/>
+                    <field name="copy_tires"/>
+                    <field name="copy_crew"/>
+                    <field name="copy_documents"/>
+                </group>
+                <footer>
+                    
+                    
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fuel_card_form" model="ir.ui.view">
+        <field name="name">ufs.fuel.card.form</field>
+        <field name="model">ufs.fuel.card</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Fuel Card">
+                <header>
+
+                </header>
+
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="True"/>
+                            <field name="name"/>
+                            <field name="vendor_id"/>
+                            <field name="vehicle_id"/>
+                            <field name="last_operation_dttm"/>
+                        </group>
+
+                        <group>
+                            <field name="pin_code"/>
+                            <field name="cvc_code"/>
+                            <field name="validity_date"/>
+                            <field name="day_limit"/>
+                            <field name="location"/>
+                            <field name="notes"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="history_line_ids" readonly="True">
+                            <list editable="bottom">
+                                <field name="vehicle_id"/>
+                                <field name="start_dttm"/>
+                            </list>
+                        </field>
+                    </group>
+                </sheet>
+                <chatter open_attachments="True" reload_on_attachment="True"/>
+            </form>]]></field>
+    </record>
+    <record id="ufs_fuel_card_tree" model="ir.ui.view">
+        <field name="name">ufs.fuel.card.tree</field>
+        <field name="model">ufs.fuel.card</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Fuel Card">
+                <field name="active" column_invisible="True"/>
+                <field name="name"/>
+                <field name="vehicle_id"/>
+                <field name="vendor_id"/>
+                <field name="validity_date" optional="show"/>
+                <field name="day_limit" optional="show"/>
+                <field name="location" optional="show"/>
+                <field name="notes" optional="hide"/>
+            </list>]]></field>
+    </record>
+    <record id="view_ufs_trip_cadv_filter" model="ir.ui.view">
+        <field name="name">ufs.trip.cadv.filter</field>
+        <field name="model">ufs.trip.cadv</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+                <field name="date" invisible="True"/>
+                <field name="cadv_type" invisible="True"/>
+                <field name="driver_id"/>
+                <field name="create_uid" invisible="True"/>
+                <separator/>
+                <!--<filter name="at_home_location" string="At home location" domain="[('active', '=', False)]"/>-->
+                <filter name="filter_this_month" string="This Month" domain="[('date','&gt;', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d') )]"/>
+                <separator/>
+                <filter name="filter_draft" string="To Approve" domain="[('state','=', 'draft')]"/>
+                <filter name="filter_approved" string="To Pay" domain="[('state','=', 'approved')]"/>
+                <separator/>
+                <filter name="filter_given" string="Given" domain="[('cadv_type','=', 'given')]"/>
+                <filter name="filter_taken" string="Taken" domain="[('cadv_type','=', 'taken')]"/>
+                <group string="Group by...">
+                    <filter string="Status" name="group_state" context="{'group_by': 'state'}"/>
+                    <filter string="Type" name="group_cadv_type" context="{'group_by': 'cadv_type'}"/>
+                    <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+                    <filter string="Driver" name="group_driver_id" context="{'group_by': 'driver_id'}"/>
+                    <filter string="Currency" name="group_currency_id" context="{'group_by': 'currency_id'}"/>
+                    <filter string="Date" name="group_date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>]]></field>
+    </record>
+    <record id="ufs_trip_cadv_form_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cadv.form</field>
+        <field name="model">ufs.trip.cadv</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Cadv">
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': False}"/>
+                    <field name="is_approval_needed" invisible="True"/>
+
+                    
+                    
+                    
+<field name="show_paid_button" invisible="1"/>
+                                 
+
+                    
+
+                     
+
+
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" readonly="state in ['approved', 'done']"/>
+                            <field name="driver_id" readonly="state in ['approved', 'done']"/>
+                            <field name="trip_id" readonly="state in ['approved', 'done']"/>
+                            <field name="company_id" readonly="state in ['approved', 'done']" groups="base.group_multi_company"/>
+                        </group>
+                        <group>
+                            <field name="amount" readonly="state in ['approved', 'done']"/>
+                            <field name="currency_id" readonly="state in ['approved', 'done']"/>
+                            <field name="base_amount"/>
+                            <field name="base_currency_id" invisible="True"/>
+                            <field name="paid_amount" readonly="state == 'done'"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" readonly="state in ['approved', 'done']"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>]]></field>
+    </record>
+    <record id="ufs_trip_cadv_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cadv.pivot</field>
+        <field name="model">ufs.trip.cadv</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Cash Advances">
+                <field name="date" type="col" interval="month"/>
+                <field name="driver_id" type="row"/>
+                <field name="base_amount" type="measure" string="Amount"/>
+            </pivot>]]></field>
+    </record>
+    <record id="ufs_trip_cadv_list_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cadv.tree</field>
+        <field name="model">ufs.trip.cadv</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Cash Advances" default_order="date desc">
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+                <field name="is_approval_needed" column_invisible="True"/>
+                <field name="could_approve" column_invisible="True"/>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="driver_id"/>
+                <field name="trip_id"/>
+                <field name="state" widget="badge" decoration-warning="state == 'approval_requested'" decoration-info="state == 'approved'"/>
+                <field name="amount"/>
+                <field name="currency_id" column_invisible="True"/>
+                <field name="paid_amount" optional="hide"/>
+                <field name="base_amount" sum="Total"/>
+                <field name="base_currency_id" column_invisible="True"/>
+                <field name="company_id"/>
+                
+                
+                
+<field name="show_paid_button" column_invisible="1"/>
+                                 
+
+                
+            </list>]]></field>
+    </record>
+    <record id="view_ufs_trip_cost_filter" model="ir.ui.view">
+        <field name="name">ufs.trip.cost.filter</field>
+        <field name="model">ufs.trip.cost</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="date" invisible="True"/>
+        <field name="driver_id"/>
+        <field name="trip_vehicle_id"/>
+        <field name="create_uid" invisible="True"/>
+        <separator/>
+        <!--<filter name="at_home_location" string="At home location" domain="[('active', '=', False)]"/>-->
+        <filter name="filter_this_month" string="This Month" domain="[('date','&gt;', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d') )]"/>
+        <filter name="filter_approved" string="Approved" domain="[('trip_id','!=', False)]"/>
+        <group string="Group by...">
+          <filter string="Product" name="group_product_id" context="{'group_by': 'product_id'}"/>
+          <filter string="Product Category" name="group_product_group_id" context="{'group_by': 'product_categ_id'}"/>
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+          <filter string="Driver" name="group_driver_id" context="{'group_by': 'driver_id'}"/>
+          <filter string="Vehicle" name="group_trip_vehicle_id" context="{'group_by': 'trip_vehicle_id'}"/>
+          <filter string="Currency" name="group_currency_id" context="{'group_by': 'currency_id'}"/>
+          <filter string="Date" name="group_date" context="{'group_by': 'date:month'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_trip_cost_form_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cost.form</field>
+        <field name="model">ufs.trip.cost</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Cost">
+        <header>
+
+        </header>
+        <sheet>
+          <group>
+            <field name="date"/>
+            <field name="trip_id"/>
+            <field name="driver_id"/>
+            <field name="payment_method"/>
+            <field name="is_a_normalized_cost"/>
+            <field name="notes"/>
+          </group>
+          <group>
+            <field name="product_id" options="{'no_create': True}"/>
+            <field name="product_qty"/>
+            <field name="price_unit"/>
+            <field name="currency_id" invisible="True" options="{'no_create': True, 'no_open': True}"/>
+            <field name="amount"/>
+            <field name="base_currency_id" invisible="True"/>
+            <field name="base_amount" sum="Total"/>
+          </group>
+            <group>
+                <field name="attached_receipt" widget="binary" filename="attached_receipt_fname" optional="hide"/>
+                                <field name="attached_receipt_fname" invisible="1"/>
+
+            </group>
+
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_trip_cost_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cost.pivot</field>
+        <field name="model">ufs.trip.cost</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Trip Costs">
+        <field name="date" type="col" interval="month"/>
+        <field name="product_id" type="row"/>
+        <field name="base_amount" type="measure" string="Amount"/>
+      </pivot>]]></field>
+    </record>
+    <record id="ufs_trip_cost_list_view" model="ir.ui.view">
+        <field name="name">ufs.trip.cost.tree</field>
+        <field name="model">ufs.trip.cost</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list string="Trip Costs" default_order="date desc">
+        <field name="date"/>
+        <field name="trip_id"/>
+        <field name="driver_id"/>
+        <field name="trip_vehicle_id" optional="hide"/>
+        <field name="product_categ_id" optional="hide"/>
+        <field name="product_id" options="{'no_create': True}"/>
+        <field name="product_qty"/>
+        <field name="price_unit"/>
+        <field name="currency_id" invisible="True"/>
+        <field name="amount"/>
+        <field name="payment_method"/>
+        <field name="base_currency_id" invisible="True"/>
+        <field name="base_amount" sum="Total"/>
+        <field name="is_a_normalized_cost"/>
+        <field name="has_no_receipt" optional="hide"/>
+        <field name="notes"/>
+        <field name="attached_receipt" widget="binary" filename="attached_receipt_fname" optional="hide"/>
+        <field name="attached_receipt_fname" column_invisible="1"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_trip_strict_doc_line_list_view" model="ir.ui.view">
+        <field name="name">ufs.trip.strict_doc.line.tree.view</field>
+        <field name="model">ufs.trip.strict_doc.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+                <field name="doc_type"/>
+                <field name="subtype_id"/>
+                <field name="doc_id"/>
+                <field name="trip_id"/>
+                <field name="valid_date"/>
+                <field name="notes"/>
+                <field name="use_date"/>
+                <field name="cost"/>
+                <field name="company_id"/>
+                <field name="currency_id" invisible="True"/>
+                <field name="is_used_in_trip" invisible="0"/>
+                <field name="is_used" invisible="True"/>
+            </list>]]></field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,632 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_fleet_wallet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "%"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.vault.journal_id
+msgid "Account Journal"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_needaction field ufs.driver.payroll.message_needaction field ufs.driver.wallet_entry.message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_ids field ufs.driver.payroll.advance_line.activity_ids field ufs.driver.wallet_entry.activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_exception_decoration field ufs.driver.payroll.advance_line.activity_exception_decoration field ufs.driver.wallet_entry.activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_state field ufs.driver.payroll.advance_line.activity_state field ufs.driver.wallet_entry.activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_type_icon field ufs.driver.payroll.advance_line.activity_type_icon field ufs.driver.wallet_entry.activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.advance_amount field ufs.driver.wallet_entry.advance_amount
+msgid "Advance Amount"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field res.config.settings.wallet_advance_deduction_defaults view arch
+msgid "Advance Deduction Defaults"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Advance Deduction Rules"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.cadv_id field ufs.driver.wallet_entry.cadv_id
+msgid "Advance Line"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line_amount field ufs.driver.payroll.advance_line_ids
+msgid "Advances"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.amount field ufs.driver.wallet_entry.amount view arch
+msgid "Amount"
+msgstr "Сумма"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.company_amount field ufs.driver.wallet_entry.company_amount
+msgid "Amount (Co. Currency)"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch filter
+msgid "At home location"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_attachment_count field ufs.driver.payroll.message_attachment_count field ufs.driver.wallet_entry.message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.base_amount field ufs.driver.wallet_entry.base_amount
+msgid "Base Amount"
+msgstr "Базовая сумма"
+
+#. module: repka_fleet_wallet
+#: field hr.employee.base_currency_id field ufs.driver.payroll.advance_line.base_currency_id field ufs.driver.payroll.base_currency_id
+msgid "Base Currency"
+msgstr "Базовая валюта"
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Cash Register / Vault"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Cash Registers / Vaults"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Cash Registers Management"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.child_ids field ufs.driver.wallet_entry.child_ids
+msgid "Child Entries"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Collapse Trip Costs to Single Entry"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field res.config.settings.wallet_collapse_trip_costs
+msgid "Collapse Trip Costs to Single Wallet Entry"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.comments field ufs.driver.payroll.comments field ufs.driver.wallet_entry.comments
+msgid "Comments"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.company_id field ufs.driver.payroll.company_id field ufs.driver.wallet_entry.company_id
+msgid "Company"
+msgstr "Компания"
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Create Next Payout"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.create_uid field ufs.driver.payroll.create_uid field ufs.driver.wallet_entry.create_uid
+msgid "Created by"
+msgstr "Создал"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.create_date field ufs.driver.payroll.create_date field ufs.driver.wallet_entry.create_date
+msgid "Created on"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field hr.employee.company_currency_id field ufs.driver.payroll.advance_line.company_currency_id field ufs.driver.payroll.advance_line.currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.vault.current_balance_display view arch
+msgid "Current Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.date field ufs.driver.payroll.payroll_date field ufs.driver.wallet_entry.date
+msgid "Date"
+msgstr "Дата"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.advance_deduction_rule_ids field ufs.driver.wallet_entry.advance_deduction_rule_ids view arch
+msgid "Deduction Rules"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.display_name field ufs.driver.wallet_entry.display_name field ufs.wallet.advance.deduction.rule.display_name
+msgid "Display Name"
+msgstr "Отображаемое имя"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.employee_id field ufs.driver.payroll.employee_id view arch
+msgid "Driver"
+msgstr "Водитель"
+
+#. module: repka_fleet_wallet
+#: field hr.employee.wallet_entry_ids menu 311
+msgid "Driver Wallet"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field hr.employee.wallet_balance
+msgid "Driver Wallet Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field hr.employee.company_wallet_balance
+msgid "Driver Wallet Balance (Company Currency)"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.wallet_entry.employee_id
+msgid "Employee"
+msgstr "Сотрудник"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.end_balance
+msgid "End Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Entries"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.entries_balance field ufs.driver.wallet_entry.entries_balance
+msgid "Entries Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.state field ufs.driver.wallet_entry.state
+msgid "Entry State"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.entry_type field ufs.driver.wallet_entry.entry_type
+msgid "Entry Type"
+msgstr "Тип записи"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_follower_ids field ufs.driver.payroll.message_follower_ids field ufs.driver.wallet_entry.message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_partner_ids field ufs.driver.payroll.message_partner_ids field ufs.driver.wallet_entry.message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.advance.deduction.rule.min_debt
+msgid "From Amount"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "From Amount (debt &gt;=)"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.u_guid field ufs.driver.wallet_entry.u_guid
+msgid "GUID"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch group
+msgid "Group By"
+msgstr "Группировать по"
+
+#. module: repka_fleet_wallet
+#: view arch view arch group
+msgid "Group by..."
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.has_message field ufs.driver.payroll.has_message field ufs.driver.wallet_entry.has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.id field ufs.driver.payroll.id field ufs.driver.wallet_entry.id
+msgid "ID"
+msgstr "ID"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_exception_icon field ufs.driver.payroll.advance_line.activity_exception_icon field ufs.driver.wallet_entry.activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_is_follower field ufs.driver.payroll.message_is_follower field ufs.driver.wallet_entry.message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.journal_id field ufs.driver.wallet_entry.journal_id
+msgid "Journal"
+msgstr "Журнал"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.next_planned_entry_date field ufs.driver.wallet_entry.next_planned_entry_date
+msgid "Last Date"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.write_uid field ufs.driver.payroll.write_uid field ufs.driver.wallet_entry.write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.write_date field ufs.driver.payroll.write_date field ufs.driver.wallet_entry.write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Manage Cash Registers"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_has_error field ufs.driver.payroll.message_has_error field ufs.driver.wallet_entry.message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_ids field ufs.driver.payroll.message_ids field ufs.driver.wallet_entry.message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.move_id field ufs.driver.wallet_entry.move_id
+msgid "Move"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.my_activity_date_deadline field ufs.driver.payroll.my_activity_date_deadline field ufs.driver.wallet_entry.my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch filter
+msgid "My Vaults"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.name field ufs.driver.payroll.display_name field ufs.driver.wallet_entry.name
+msgid "Name"
+msgstr "Название"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_calendar_event_id field ufs.driver.payroll.advance_line.activity_calendar_event_id field ufs.driver.wallet_entry.activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_date_deadline field ufs.driver.payroll.advance_line.activity_date_deadline field ufs.driver.wallet_entry.activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_summary field ufs.driver.payroll.advance_line.activity_summary field ufs.driver.wallet_entry.activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_type_id field ufs.driver.payroll.advance_line.activity_type_id field ufs.driver.wallet_entry.activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.name
+msgid "Number"
+msgstr "Номер"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_needaction_counter field ufs.driver.payroll.message_needaction_counter field ufs.driver.wallet_entry.message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_has_error_counter field ufs.driver.payroll.message_has_error_counter field ufs.driver.wallet_entry.message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field hr.employee.advance_debt_balance
+msgid "Outstanding Advance Debt"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.parent_id field ufs.driver.wallet_entry.parent_id
+msgid "Parent Entry"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.parent_path field ufs.driver.wallet_entry.parent_path
+msgid "Parent Path"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.person_id field ufs.driver.wallet_entry.person_id field ufs.wallet.vault.owner_partner_id
+msgid "Partner"
+msgstr "Партнёр"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.payroll_id
+msgid "Payroll"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.advance.deduction.rule.percentage view arch
+msgid "Percentage %"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.period_end_date
+msgid "Period End Date"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.period_start_date
+msgid "Period Start Date"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch filter
+msgid "Person"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch group
+msgid "Plan"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.product_id field ufs.driver.wallet_entry.product_id view arch
+msgid "Product"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.rating_ids field ufs.driver.payroll.rating_ids field ufs.driver.wallet_entry.rating_ids
+msgid "Ratings"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch page
+msgid "Recent Transactions"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.activity_user_id field ufs.driver.payroll.advance_line.activity_user_id field ufs.driver.wallet_entry.activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.message_has_sms_error field ufs.driver.payroll.message_has_sms_error field ufs.driver.wallet_entry.message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.schedule_type field ufs.driver.wallet_entry.schedule_type
+msgid "Schedule Type"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Search"
+msgstr "Поиск"
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Search Cash Registers"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.show_vault_field field ufs.driver.wallet_entry.show_vault_field field ufs.trip.cadv.show_vault_field
+msgid "Show Vault Field"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field res.config.settings.wallet_show_vault_field
+msgid "Show Vault/Cash Register Field"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Show Vault/Cash Register in Advances"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.start_balance
+msgid "Start Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.statement_id field ufs.driver.wallet_entry.statement_id
+msgid "Statement"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.state
+msgid "Status"
+msgstr "Статус"
+
+#. module: repka_fleet_wallet
+#: view arch view arch filter
+msgid "This Month"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.to_be_paid_amount
+msgid "To Be Paid Amount"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.to_collect_amount
+msgid "To Collect Amount"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.vault.wallet_entry_count
+msgid "Transaction Count"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "Transactions"
+msgstr "Транзакции"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.trip_id field ufs.driver.wallet_entry.trip_id
+msgid "Trip"
+msgstr "Рейс"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.trip_ids field ufs.fleet.trip.payroll_ids
+msgid "Trips"
+msgstr "Рейсы"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.trips_amount
+msgid "Trips Amount"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.plan_type field ufs.driver.wallet_entry.plan_type
+msgid "Type"
+msgstr "Тип"
+
+#. module: repka_fleet_wallet
+#: view 1244
+msgid "UFS Employee"
+msgstr "Сотрудник UFS"
+
+#. module: repka_fleet_wallet
+#: module summary
+msgid "UFS Fleet Simple Driver Wallet."
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field hr.employee.ufs_fleet_wallet_balance
+msgid "UFS Fleet Wallet Balance"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: server_action 426
+msgid "UFS Wallet: Create planned entries"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.plan_value field ufs.driver.wallet_entry.plan_value
+msgid "Value"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.vault_id field ufs.driver.wallet_entry.vault_id field ufs.trip.cadv.vault_id
+msgid "Vault"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: menu 312
+msgid "Vaults / Cash Registers"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "View All Transactions"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch
+msgid "W.Entries"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: view arch view arch page
+msgid "Wallet"
+msgstr "Кошелёк"
+
+#. module: repka_fleet_wallet
+#: field ufs.fleet.trip.wallet_balance_end
+msgid "Wallet Balance End"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.fleet.trip.wallet_balance_start
+msgid "Wallet Balance Start"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.fleet.trip.wallet_entry_ids field ufs.trip.cadv.wallet_entry_ids field ufs.wallet.vault.wallet_entry_ids
+msgid "Wallet Entries"
+msgstr "Записи кошелька"
+
+#. module: repka_fleet_wallet
+#: field ufs.wallet.advance.deduction.rule.wallet_entry_id
+msgid "Wallet Entry"
+msgstr "Запись кошелька"
+
+#. module: repka_fleet_wallet
+#: field ufs.fleet.trip.wallet_entry_count
+msgid "Wallet Entry Count"
+msgstr ""
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.waybill_id field ufs.driver.wallet_entry.waybill_id
+msgid "Waybill"
+msgstr "Путевой лист"
+
+#. module: repka_fleet_wallet
+#: field ufs.driver.payroll.advance_line.website_message_ids field ufs.driver.payroll.website_message_ids field ufs.driver.wallet_entry.website_message_ids
+msgid "Website Messages"
+msgstr ""

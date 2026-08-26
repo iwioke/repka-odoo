@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_view_ufs_fleet_vehicle_tire" model="ir.actions.act_window">
+        <field name="name">Tires</field>
+        <field name="res_model">fleet.vehicle.tire</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_fleet_vehicle_tire_size" model="ir.actions.act_window">
+        <field name="name">Tire Sizes</field>
+        <field name="res_model">fleet.vehicle.tire.size</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_fleet_vehicle_tire_model" model="ir.actions.act_window">
+        <field name="name">Tire Models</field>
+        <field name="res_model">fleet.vehicle.tire.model</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_fleet_vehicle_tire_producer" model="ir.actions.act_window">
+        <field name="name">Tire Producers</field>
+        <field name="res_model">fleet.vehicle.tire.producer</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_swap_wizard" model="ir.actions.act_window">
+        <field name="name">Swap Tires</field>
+        <field name="res_model">tire.swap_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_vehicle_id': active_id}</field>
+    </record>
+</data>
+</odoo>

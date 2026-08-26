@@ -1,0 +1,22 @@
+{
+    "name": "РЕПКА: Автопарк",
+    "version": "18.0.1.0.0",
+    "category": "Services/Logistics",
+    "summary": "Clean-room reconstruction from audited metadata",
+    "description": "РЕПКА — clean-room reconstruction from audited metadata.",
+    "author": "РЕПКА",
+    "website": "https://github.com/iwioke/repka-odoo",
+    "license": "LGPL-3",
+    "depends": ["base", "account", "web_notify", "repka_leaflet_map_action", "repka_logistics_core", "sms"],
+    "data": [
+        "security/repka_security.xml",
+        "security/ir.model.access.csv",
+        "data/repka_data.xml",
+        "actions/repka_actions.xml",
+        "views/repka_views.xml",
+        "menus/repka_menus.xml",
+    ],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_fleet_multi_order_invoice" model="ir.actions.act_window">
+        <field name="name">Create Multi-Order Invoice</field>
+        <field name="res_model">ufs.multi.order.invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_forwarder_multi_order_invoice" model="ir.actions.act_window">
+        <field name="name">Create Multi-Order Invoice</field>
+        <field name="res_model">ufs.multi.order.invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_suborder_multi_order_bill" model="ir.actions.act_window">
+        <field name="name">Create Multi-Order Bill</field>
+        <field name="res_model">ufs.multi.order.invoice.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+</data>
+</odoo>

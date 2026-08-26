@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_view_ufs_ufs_waybill" model="ir.actions.act_window">
+        <field name="name">Waybills</field>
+        <field name="res_model">ufs.waybill</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{'search_default_filter_filter_this_month': 1}</field>
+    </record>
+</data>
+</odoo>

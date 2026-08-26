@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="group_51" model="res.groups">
+        <field name="name">Refuel Operator</field>
+    </record>
+</data>
+</odoo>

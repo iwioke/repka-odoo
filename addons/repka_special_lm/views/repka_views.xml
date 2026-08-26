@@ -1,0 +1,2314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="contract_order_customer_doc" model="ir.ui.view">
+        <field name="name">contract_order_customer_doc</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_special_lm.contract_order_customer_doc">
+        <t t-call="web.basic_layout">
+          <t t-set="lang" t-value="docs[0].partner_id.lang"/>
+          <t t-set="o" t-value="docs[0].with_context(lang=lang)"/>
+          <t t-set="translit" t-value="lang != 'ru_RU'"/>
+          <t t-set="print_stamp" t-value="o._context.get('print_stamp') or o.print_stamp"/>
+		  <t t-set="o_sudo" t-value="o.sudo()"/>
+          <div class="page">
+            <style type="text/css">
+.page {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 61px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.maintable {
+    border-collapse: collapse;
+}
+
+.maintable td {
+    border: 1px solid black;
+    padding: 4px 5px 2px 4px;
+    vertical-align: top;
+    width: 50%;
+}
+
+.maintable p {
+    margin-top: 0;
+}
+
+.maintable p:last-child {
+    margin-bottom: 0;
+}
+
+.instr {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.headtable {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.headtable img {
+    max-height: 85px;
+    max-width: 250px;
+    margin-right: 30px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footertable td {
+    vertical-align: top;
+}
+
+.headtable,
+.headtable tbody,
+.headtable tr,
+.headtable td,
+.footertable,
+.footertable tbody,
+.footertable tr,
+.footertable td {
+    border: none;
+}
+                </style>
+            <table class="headtable">
+              <tr>
+                <td width="15%">
+                  <!--<img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>-->
+                </td>
+                <td style="vertical-align: top; text-align: right;">
+                  <t t-call="ufs_special_lm.lm_company_address">
+                    <t t-set="partner" t-value="o.partner_id"/>
+                    <t t-set="translit" t-value="translit"/>
+                  </t>
+                </td>
+              </tr>
+            </table>
+            <h2 style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+              <span style="text-transform: uppercase;">Договор-заявка на транспортное средство</span><br/>
+              № <span t-field="o.name"/> от <span t-field="o.order_date" t-options="{'format':'dd.MM.yyyy'}"/>
+              <!--<t t-if="o.ufs_contract_id">
+                <br/>
+                <span style="font-size: 13px;">
+                    к договору № <span t-field="o.ufs_contract_id.number"/> от <span t-field="o.ufs_contract_id.sign_date" t-options="{'format':'dd.MM.yyyy'}"/>
+                </span>
+              </t>-->
+            </h2>
+            <p style="text-align: justify;">
+                <b><t t-if="o.partner_id.full_name"><span t-field="o.partner_id.full_name"/></t><t t-else=""><span t-field="o.partner_id.name"/></t></b>, именуемое в дальнейшем «Заказчик»,
+                <t t-if="o.partner_id.count_authority_text"><span t-field="o.partner_id.count_authority_text"/>, </t><t t-else="">в лице Директора _________, действующего на основании Устава, </t>
+                и
+                <b><t t-if="o.company_id.partner_id.full_name"><span t-field="o.company_id.partner_id.full_name"/></t><t t-else=""><span t-field="o.company_id.partner_id.name"/></t></b>,
+                именуемое в дальнейшем «Перевозчик»,
+                <t t-if="o.company_id.partner_id.count_authority_text"><span t-field="o.company_id.partner_id.count_authority_text"/>, </t><t t-else="">в лице Директора  Мацулевича Д. Н., действующего на основании Устава, </t>
+                совместно именуемые далее по тексту «Стороны», согласовали перевозку груза на следующих условиях:
+            </p>
+            <table class="maintable" cellspacing="0" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Маршрут перевозки</b>
+                  </td>
+                  <td>
+                    <span t-field="o.verbose_route"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Требуемый тип транспортного средства</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <t t-if="cargo.trailer_type"><span t-field="cargo.trailer_type"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Автомобиль, прицеп</b>
+                  </td>
+                  <td>
+                    <span t-if="o.vehicles_string" t-field="o.vehicles_string"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Информация о грузе, вес, габариты, вид тары и упаковки</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <span t-field="cargo.name"/>. Weight: <span t-field="cargo.weight"/> <span t-field="cargo.weight_uom_id"/>.
+                        <t t-if="cargo.pallet_count">
+							<br/>
+							<span t-field="cargo.pallet_count"/>
+						</t>
+						<t t-if="cargo.details">
+                          <br/>
+                          <span t-field="cargo.details"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес загрузки.<br/>Грузоотправитель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+						<t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['load']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[0]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                  <td>
+                    <b>Таможня отправления</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+							<t t-if="point.location_id.latitude">
+								<br/>
+								<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+							</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <!--<t t-elif="not o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">Документы на месте загрузки</t>-->
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                  <td>
+                    <b>Терминал</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                  <td>
+                    <b>Погранпереход</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                  <td>
+                    <b>Таможня назначения</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес выгрузки.<br/>Грузополучатель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['unload']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[-1]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                    <td><b>Нормативное время простоя под погрузкой/разгрузкой и таможенным оформлением</b></td>
+                    <td>24ч. / 48ч.</td>
+                </tr>
+                <tr>
+                    <td><b>Дополнительная информация</b></td>
+                    <td><span t-if="o.order_memo" t-field="o.order_memo"/></td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Сумма фрахта, валюта</b>
+                  </td>
+                  <td>
+                    <span t-esc="'{:,.0f}'.format(o.freight_amount).replace(',', ' ')"/>
+                    <span t-field="o.freight_currency_id"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Условия оплаты</b>
+                  </td>
+                  <td>
+                    <span t-field="o.payment_term_verbose"/>
+                  </td>
+                </tr>
+                <!--<tr>
+                    <td colspan="2">
+                        <b>ОБЯЗАТЕЛЬНО В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ ПОСЛЕ ВЫГРУЗКИ ПРЕДОСТАВИТЬ СКАН ИЛИ ФОТО CMR</b>
+                    </td>
+                </tr>-->
+              </tbody>
+            </table><br/>
+            <p style="text-align: justify;">
+                1. Настоящая Договор-Заявка является также протоколом согласования ставки фрахта. Заказчик имеет право отозвать Заявку, принятую Перевозчиком к исполнению, но не позднее
+                24 часов до запланированного времени погрузки, не неся при этом ответственности.<br/>
+                2. Прием договор-заявки подтверждается в течение одного часа с момента получения. Отсутствие письменного отказа от исполнения заявки в течение этого времени, автоматически
+                подтверждает принятие договор-заявки.<br/>
+                3. Перевозчик принимает груз в свое ведение и несет ответственность за сохранность груза с момента принятия его к перевозке. Водителю обязательно проверять целостность
+                упаковки, вес, количество и крепление груза на погрузке. В случае наличия повреждений или несоответствия сделать соответствующие отметки в CMR.<br/>
+                4. Перевозчик обязан незамедлительно информировать Заказчика обо всех проблемах, возникающих в процессе осуществления погрузки, перевозки, разгрузки, задержках транспортных
+                средств в пути и других непредвиденных обстоятельствах, препятствующих своевременной доставке груза.<br/>
+                5. Проверить наличие всех необходимых для осуществления грузоперевозки сопроводительных документов и правильность их оформления. В случае выявления отсутствия необходимых
+                для перевозки документов или неправильности их оформления сообщить о данном факте Заказчику.<br/>
+                6. За непредъявленные грузы Заказчик уплачивает Перевозчику штраф в размере 100 (Сто) евро.<br/>
+                7. За сверхнормативный простой транспортного средства, Заказчик оплачивает Перевозчику за каждые начатые сутки сверхнормативного простоя штраф в размере 100 (Сто) евро.<br/>
+                8. Любые изменения, вносимые в договор-заявку, должны быть оформлены в письменной форме и подписаны обеими сторонами. Все изменения, внесенные в договор-заявку от руки
+                и не заверенные печатями обеих сторон, не имеют юридической силы. Скан-копия (переданная по e-mail) настоящей заявки, подписанная сотрудниками и скрепленная штампами
+                и/или печатями сторон имеет полную юридическую силу.
+            </p>
+            <table class="footertable" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="width: 50%; position: relative;">
+                    <p style="margin-bottom: 7px;"><b>ЗАКАЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                    <td style="width: 50%;">
+                    <p style="margin-bottom: 7px;"><b>ПЕРЕВОЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.company_id.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.company_id.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.company_id.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+						<t t-if="o.partner_id.count_signed_by_partner_id">
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.name"/>
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.function"/>
+						</t>
+                    </td>
+                    <td style="position: relative;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+                        <img t-if="print_stamp and o.company_id.stamp_image" t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 185px; position: absolute; top: -15px; left: 74px;"/>
+                        <br/>
+                            <t t-if="translit">
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.firstname, False)"/>
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.lastname, False)"/>
+                            </t>
+                            <t t-else="">
+                                <span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.display_name"/>
+                            </t>
+                            <t t-if="o.company_id.head_employee_id">
+                                <br/><span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.job_id"/>
+                            </t>
+                      </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="contract_suborder_carrier_doc" model="ir.ui.view">
+        <field name="name">contract_suborder_carrier_doc</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_special_lm.contract_suborder_carrier_doc">
+        <t t-call="web.basic_layout">
+          <t t-set="lang" t-value="docs[0].partner_id.lang"/>
+          <t t-set="o" t-value="docs[0].with_context(lang=lang)"/>
+          <t t-set="translit" t-value="lang != 'ru_RU'"/>
+          <t t-set="print_stamp" t-value="o._context.get('print_stamp') or o.print_stamp"/>
+		  <t t-set="o_sudo" t-value="o.sudo()"/>
+          <div class="page">
+            <style type="text/css">
+.page {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 61px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.maintable {
+    border-collapse: collapse;
+}
+
+.maintable td {
+    border: 1px solid black;
+    padding: 4px 5px 2px 4px;
+    vertical-align: top;
+    width: 50%;
+}
+
+.maintable p {
+    margin-top: 0;
+}
+
+.maintable p:last-child {
+    margin-bottom: 0;
+}
+
+.instr {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.headtable {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.headtable img {
+    max-height: 85px;
+    max-width: 250px;
+    margin-right: 30px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footertable td {
+    vertical-align: top;
+}
+
+.headtable,
+.headtable tbody,
+.headtable tr,
+.headtable td,
+.footertable,
+.footertable tbody,
+.footertable tr,
+.footertable td {
+    border: none;
+}
+                </style>
+            <table class="headtable">
+              <tr>
+                <td width="15%">
+                  <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+                </td>
+                <td style="vertical-align: top; text-align: right;">
+                  <t t-call="ufs_special_lm.lm_company_address">
+                    <t t-set="partner" t-value="o.company_id.partner_id"/>
+                    <t t-set="translit" t-value="translit"/>
+                  </t>
+                </td>
+              </tr>
+            </table>
+            <h2 style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+              <span style="text-transform: uppercase;">Договор-заявка на транспортное средство</span><br/>
+              № <span t-field="o.name"/> от <span t-field="o.order_date" t-options="{'format':'dd.MM.yyyy'}"/>
+              <!--<t t-if="o.ufs_contract_id">
+                <br/>
+                <span style="font-size: 13px;">
+                    к договору № <span t-field="o.ufs_contract_id.number"/> от <span t-field="o.ufs_contract_id.sign_date" t-options="{'format':'dd.MM.yyyy'}"/>
+                </span>
+              </t>-->
+            </h2>
+            <p style="text-align: justify;">
+                <b><t t-if="o.company_id.partner_id.full_name"><span t-field="o.company_id.partner_id.full_name"/></t><t t-else=""><span t-field="o.company_id.partner_id.name"/></t></b>,
+                именуемое в дальнейшем «Экспедитор»,
+                <t t-if="o.company_id.partner_id.count_authority_text"><span t-field="o.company_id.partner_id.count_authority_text"/>, </t><t t-else="">в лице Директора  Мацулевича Д. Н., действующего на основании Устава, </t>
+                и
+                <b><t t-if="o.partner_id.full_name"><span t-field="o.partner_id.full_name"/></t><t t-else=""><span t-field="o.partner_id.name"/></t></b>, именуемое в дальнейшем «Перевозчик»,
+                <t t-if="o.partner_id.count_authority_text"><span t-field="o.partner_id.count_authority_text"/>, </t><t t-else="">в лице Директора _________, действующего на основании Устава, </t>
+                совместно именуемые далее по тексту «Стороны», согласовали перевозку груза на следующих условиях:
+            </p>
+            <table class="maintable" cellspacing="0" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Маршрут перевозки</b>
+                  </td>
+                  <td>
+                    <span t-field="o.verbose_route"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Требуемый тип транспортного средства</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <t t-if="cargo.trailer_type"><span t-field="cargo.trailer_type"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Автомобиль, прицеп</b>
+                  </td>
+                  <td>
+                    <span t-if="o.ufs_truck_id" t-field="o.ufs_truck_id.name"/>
+                    <t t-if="o.ufs_trailer_id">
+                      / <span t-field="o.ufs_trailer_id.name"/>
+                    </t>
+                    <t t-if="o.ufs_driver_id">
+                      <br/>
+                      <span t-field="o.ufs_driver_id"/>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Информация о грузе, вес, габариты, вид тары и упаковки</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <span t-field="cargo.name"/>. Weight: <span t-field="cargo.weight"/> <span t-field="cargo.weight_uom_id"/>.
+                        <t t-if="cargo.pallet_count">
+							<br/>
+							<span t-field="cargo.pallet_count"/>
+						</t>
+						<t t-if="cargo.details">
+                          <br/>
+                          <span t-field="cargo.details"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес загрузки.<br/>Грузоотправитель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+						<t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['load']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[0]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                  <td>
+                    <b>Таможня отправления</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+							<t t-if="point.location_id.latitude">
+								<br/>
+								<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+							</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <!--<t t-elif="not o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">Документы на месте загрузки</t>-->
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                  <td>
+                    <b>Терминал</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                  <td>
+                    <b>Погранпереход</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                  <td>
+                    <b>Таможня назначения</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес выгрузки.<br/>Грузополучатель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['unload']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[-1]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                    <td><b>Нормативное время простоя под погрузкой/разгрузкой и таможенным оформлением</b></td>
+                    <td>24ч. / 48ч.</td>
+                </tr>
+                <tr>
+                    <td><b>Дополнительная информация</b></td>
+                    <td><span t-if="o.order_memo" t-field="o.order_memo"/></td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Сумма фрахта, валюта</b>
+                  </td>
+                  <td>
+                    <span t-esc="'{:,.0f}'.format(o.freight_amount).replace(',', ' ')"/>
+                    <span t-field="o.freight_currency_id"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Условия оплаты</b>
+                  </td>
+                  <td>
+                    <span t-field="o.payment_term_verbose"/>
+                  </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>ОБЯЗАТЕЛЬНО В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ ПОСЛЕ ВЫГРУЗКИ ПРЕДОСТАВИТЬ СКАН ИЛИ ФОТО CMR</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>После погрузки Перевозчик должен ежедневно до 10-00 по Белорусскому времени письменно информировать ответственного работника Экспедитора
+                        о точном местонахождении транспортного средства с перевозимым грузом.<br/>
+                        Исполнитель заказа обязан регулярно каждый день письменно предоставлять эту информацию вне зависимости от того, получен ли
+                        отдельный запрос Экспедитора. Если Перевозчик заказа своевременно будет предоставлять точную информацию о точном месте
+                        перевозимого груза, то в рамках дальнейшего сотрудничества это будет учтено. За каждый случай непредставления информации или
+                        предоставленной неточной информации Экспедитор вправе требовать от Перевозчика заказа штраф в размере 50 евро.</b>
+                    </td>
+                </tr>
+              </tbody>
+            </table><br/>
+            <p style="text-align: justify;">
+                1. Настоящая Договор-Заявка является также протоколом согласования ставки фрахта. Экспедитор имеет право отозвать Заявку, принятую Перевозчиком к исполнению, но не позднее
+                24 часов до запланированного времени погрузки, не неся при этом ответственности.<br/>
+                2. Прием договор-заявки подтверждается в течение одного часа с момента получения. Отсутствие письменного отказа от исполнения заявки в течение этого времени, автоматически
+                подтверждает принятие договор-заявки.<br/>
+                3. Перевозчик принимает груз в свое ведение и несет ответственность за сохранность груза с момента принятия его к перевозке. Водителю обязательно проверять целостность
+                упаковки, вес, количество и крепление груза на погрузке. В случае наличия повреждений или несоответствия сделать соответствующие отметки в CMR. В противном случае вина за
+                нанесенный ущерб возлагается на Перевозчика. Требования о возмещении убытков, вызванных не сохранностью (утратой, недостачей, повреждением (порчей)) груза, предъявляются
+                непосредственно Перевозчику. Разгрузка, перегрузка (перевалка) с одного на другое транспортное средство и иные грузовые операции, а также замена транспортных средств,
+                согласованных в заявке на транспортное средство, допускаются исключительно с письменного разрешения Экспедитора. В противном случае Перевозчик выплачивает Экспедитору
+                штраф в размере 1000 евро. Перевозчик не имеет право привлекать третьих лиц для исполнения своих обязанностей по настоящему договору. В случае привлечения третьих лиц
+                без письменного согласия Экспедитора, Перевозчик лично возмещает убытки, причиненные действиями этих лиц;<br/>
+                4. Перевозчик обязан незамедлительно информировать Экспедитора обо всех проблемах, возникающих в процессе осуществления погрузки, перевозки, разгрузки, задержках транспортных
+                средств в пути и других непредвиденных обстоятельствах, препятствующих своевременной доставке груза.<br/>
+                5. Проверить наличие всех необходимых для осуществления грузоперевозки сопроводительных документов и правильность их оформления. В случае выявления отсутствия
+                необходимых для перевозки документов или неправильности их оформления сообщить о данном факте Экспедитору.<br/>
+                6. В случае срыва перевозки по вине Перевозчика (если Перевозчик направил подвижной состав, не соответствующий тому, который указан в заявке, либо вообще отказался
+                от исполнения своих обязательств после подтверждения и принятия заявки к исполнению), Перевозчик выплачивает Экспедитору штраф в размере 100 (Сто) евро.
+                7. За непредъявленные грузы Экспедитор уплачивает Перевозчику штраф в размере 100 (Сто) евро.<br/>
+                8. За сверхнормативный простой транспортного средства, Экспедитор оплачивает Перевозчику за каждые начатые сутки сверхнормативного простоя штраф в размере 100 (Сто) евро.<br/>
+                Экспедитор не оплачивает простой, если он письменно не был уведомлен Перевозчиком о простое автомобиля в течение 24 часов с момента его начала и Перевозчиком не предъявлены
+                документы, подтверждающие факт простоя (карта простоя, CMR). Простой в выходные и праздничные дни оплате не подлежит.<br/>
+                9. За опоздание на загрузку, просрочку доставки груза Перевозчик оплачивает Экспедитору штраф в размере 100 (Сто) евро за каждые начавшиеся сутки опоздания.<br/>
+                10. Любые изменения, вносимые в договор-заявку, должны быть оформлены в письменной форме и подписаны обеими сторонами. Все изменения, внесенные в договор-заявку от руки
+                и не заверенные печатями обеих сторон, не имеют юридической силы. Скан-копия (переданная по e-mail) настоящей заявки, подписанная сотрудниками и скрепленная штампами
+                и/или печатями сторон имеет полную юридическую силу.
+            </p>
+            <table class="footertable" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="width: 50%; position: relative;">
+                    <p style="margin-bottom: 7px;"><b>ЭКСПЕДИТОР</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.company_id.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.company_id.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.company_id.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                    <td style="width: 50%;">
+                    <p style="margin-bottom: 7px;"><b>ПЕРЕВОЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position: relative;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+                        <img t-if="print_stamp and o.company_id.stamp_image" t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 185px; position: absolute; top: -15px; left: 74px;"/>
+                        <br/>
+                            <t t-if="translit">
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.firstname, False)"/>
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.lastname, False)"/>
+                            </t>
+                            <t t-else="">
+                                <span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.display_name"/>
+                            </t>
+                            <t t-if="o.company_id.head_employee_id">
+                                <br/><span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.job_id"/>
+                            </t>
+                    </td>
+                    <td>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+						<t t-if="o.partner_id.count_signed_by_partner_id">
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.name"/>
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.function"/>
+						</t>
+                      </td>
+                </tr>
+              </tbody>
+            </table>
+            <br/>
+            <br/>
+            <br/>
+            <p style="text-align: justify;">
+                <b>ПРАВИЛА ОФОРМЛЕНИЯ ПЕРВИЧНЫХ УЧЕТНЫХ ДОКУМЕНТОВ:</b><br/>
+                1. Дата акта должна соответствовать дате выгрузке.<br/>
+                В акте обязательно должно быть указано:<br/>
+                - Номер и дата договора;<br/>
+                - Номер и дата заявки;<br/>
+                - Маршрут, с обязательным указанием стран места загрузки и выгрузки, маршрут должен полностью соответствовать
+                маршруту, указанному в СМR;<br/>
+                - Номер транспортного средства;<br/>
+                - Дата и номер CMR (ТТН).<br/>
+                2. Наименование валюты в первичных документах должно быть полным.<br/>
+                <br/>
+                <b>ДЛЯ НЕРЕЗИДЕНТОВ:</b><br/>
+                Обязательное предоставление справки о постоянном местонахождении за тот год, в котором осуществлена перевозка груза
+                (для юридических лиц), и за тот год, в котором будет осуществлена оплата (для физических лиц и индивидуальных предпринимателей). В ином случае, при оплате за услуги, будет удержан налог.
+            </p>
+          </div>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="lm_company_address" model="ir.ui.view">
+        <field name="name">lm_company_address</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_special_lm.lm_company_address">
+        <div class="mt4">
+          <b>
+            <t t-if="partner.short_name">
+                <t t-if="translit">
+                    <span t-esc="partner.translit_name or o.translit_text(partner.short_name, False)"/>
+                </t>
+                <t t-else="">
+                    <span t-field="partner.short_name"/>
+                </t>
+            </t>
+            <t t-else="">
+                <t t-if="translit">
+                    <span t-esc="partner.name_en or o.translit_text(partner.name, False)"/>
+                </t>
+                <t t-else="">
+                    <span t-field="partner.name"/>
+                </t>
+            </t>
+          </b>
+          <br/>
+          <t t-if="partner.zip">
+            <t t-if="translit">
+              <span t-esc="o.translit_text(partner.zip, False)"/>,
+            </t>
+            <t t-else="">
+              <span t-field="partner.zip"/>,
+            </t>
+          </t>
+          <t t-if="partner.country_id">
+            <t t-if="translit">
+              <span t-esc="partner.with_context(lang='en_US').country_id.name"/>,
+            </t>
+            <t t-else="">
+              <span t-field="partner.country_id.name"/>,
+            </t>
+          </t>
+          <t t-if="partner.city">
+            <t t-if="translit">
+              <span t-esc="partner.city_en or o.translit_text(partner.city, False)"/>,
+            </t>
+            <t t-else="">
+              <span t-field="partner.city"/>,
+            </t>
+          </t>
+          <t t-if="partner.street">
+            <t t-if="translit">
+              <span t-esc="partner.address_en or o.translit_text(partner.street, False)"/>
+            </t>
+            <t t-else="">
+              <span t-field="partner.street"/>
+            </t>
+          </t>
+          <br/>
+          <t t-if="partner.vat">
+            <t t-if="partner.country_id.id == 190">
+              INN:
+              <span t-field="partner.vat"/>
+            </t>
+            <t t-elif="partner.country_id.id == 36">
+              UNP:
+              <span t-field="partner.vat"/>
+            </t>
+            <t t-elif="partner.country_id.id == 124">
+              BIN:
+              <span t-field="partner.vat"/>
+            </t>
+            <t t-else="">
+              TAX ID:
+              <span t-field="partner.vat"/>
+            </t>
+          </t>
+          <br/>
+        <t t-if="partner.phone">
+            Phone: <span t-field="partner.phone"/><br/>
+        </t>
+        <t t-if="partner.email">
+            E-mail: <span t-field="partner.email"/>
+        </t>
+        </div>
+    </t>]]></field>
+    </record>
+    <record id="order_customer_doc" model="ir.ui.view">
+        <field name="name">order_customer_doc</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_special_lm.order_customer_doc">
+        <t t-call="web.basic_layout">
+          <t t-set="lang" t-value="docs[0].partner_id.lang"/>
+          <t t-set="o" t-value="docs[0].with_context(lang=lang)"/>
+          <t t-set="translit" t-value="lang != 'ru_RU'"/>
+          <t t-set="print_stamp" t-value="o._context.get('print_stamp') or o.print_stamp"/>
+		  <t t-set="o_sudo" t-value="o.sudo()"/>
+          <div class="page">
+            <style type="text/css">
+.page {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 61px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.maintable {
+    border-collapse: collapse;
+}
+
+.maintable td {
+    border: 1px solid black;
+    padding: 4px 5px 2px 4px;
+    vertical-align: top;
+    width: 50%;
+}
+
+.maintable p {
+    margin-top: 0;
+}
+
+.maintable p:last-child {
+    margin-bottom: 0;
+}
+
+.instr {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.headtable {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.headtable img {
+    max-height: 85px;
+    max-width: 250px;
+    margin-right: 30px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footertable td {
+    vertical-align: top;
+}
+
+.headtable,
+.headtable tbody,
+.headtable tr,
+.headtable td,
+.footertable,
+.footertable tbody,
+.footertable tr,
+.footertable td {
+    border: none;
+}
+                </style>
+            <table class="headtable">
+              <tr>
+                <td width="15%">
+                  <!--<img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>-->
+                </td>
+                <td style="vertical-align: top; text-align: right;">
+                  <t t-call="ufs_special_lm.lm_company_address">
+                    <t t-set="partner" t-value="o.partner_id"/>
+                    <t t-set="translit" t-value="translit"/>
+                  </t>
+                </td>
+              </tr>
+            </table>
+            <h2 style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+              <span style="text-transform: uppercase;">Заявка на транспортное средство</span><br/>
+              № <span t-field="o.name"/> от <span t-field="o.order_date" t-options="{'format':'dd.MM.yyyy'}"/>
+              <t t-if="o.ufs_contract_id">
+                <br/>
+                <span style="font-size: 13px;">
+                    к договору № <span t-field="o.ufs_contract_id.number"/> от <span t-field="o.ufs_contract_id.sign_date" t-options="{'format':'dd.MM.yyyy'}"/>
+                </span>
+              </t>
+            </h2>
+            <table class="maintable" cellspacing="0" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Маршрут перевозки</b>
+                  </td>
+                  <td>
+                    <span t-field="o.verbose_route"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Требуемый тип транспортного средства</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <t t-if="cargo.trailer_type"><span t-field="cargo.trailer_type"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Автомобиль, прицеп</b>
+                  </td>
+                  <td>
+                    <span t-if="o.vehicles_string" t-field="o.vehicles_string"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Информация о грузе, вес, габариты, вид тары и упаковки</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <span t-field="cargo.name"/>. Weight: <span t-field="cargo.weight"/> <span t-field="cargo.weight_uom_id"/>.
+                        <t t-if="cargo.pallet_count">
+							<br/>
+							<span t-field="cargo.pallet_count"/>
+						</t>
+						<t t-if="cargo.details">
+                          <br/>
+                          <span t-field="cargo.details"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес загрузки.<br/>Грузоотправитель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+						<t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['load']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[0]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                  <td>
+                    <b>Таможня отправления</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+							<t t-if="point.location_id.latitude">
+								<br/>
+								<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+							</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <!--<t t-elif="not o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">Документы на месте загрузки</t>-->
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                  <td>
+                    <b>Терминал</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                  <td>
+                    <b>Погранпереход</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                  <td>
+                    <b>Таможня назначения</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес выгрузки.<br/>Грузополучатель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['unload']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[-1]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                    <td><b>Нормативное время простоя под погрузкой/разгрузкой и таможенным оформлением</b></td>
+                    <td>24ч. / 48ч.</td>
+                </tr>
+                <tr>
+                    <td><b>Дополнительная информация</b></td>
+                    <td><span t-if="o.order_memo" t-field="o.order_memo"/></td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Сумма фрахта, валюта</b>
+                  </td>
+                  <td>
+                    <span t-esc="'{:,.0f}'.format(o.freight_amount).replace(',', ' ')"/>
+                    <span t-field="o.freight_currency_id"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Условия оплаты</b>
+                  </td>
+                  <td>
+                    <span t-field="o.payment_term_verbose"/>
+                  </td>
+                </tr>
+                <!--<tr>
+                    <td colspan="2">
+                        <b>ОБЯЗАТЕЛЬНО В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ ПОСЛЕ ВЫГРУЗКИ ПРЕДОСТАВИТЬ СКАН ИЛИ ФОТО CMR</b>
+                    </td>
+                </tr>-->
+              </tbody>
+            </table>
+            <br/>
+            <table class="footertable" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="width: 50%; position: relative;">
+                    <p style="margin-bottom: 7px;"><b>ЗАКАЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                    <td style="width: 50%;">
+                    <p style="margin-bottom: 7px;"><b>ПЕРЕВОЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.company_id.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.company_id.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.company_id.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+						<t t-if="o.partner_id.count_signed_by_partner_id">
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.name"/>
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.function"/>
+						</t>
+                    </td>
+                    <td style="position: relative;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+                        <img t-if="print_stamp and o.company_id.stamp_image" t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 185px; position: absolute; top: -15px; left: 74px;"/>
+                        <br/>
+                            <t t-if="translit">
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.firstname, False)"/>
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.lastname, False)"/>
+                            </t>
+                            <t t-else="">
+                                <span style="font-size: 10px;" t-esc="o_sudo.company_id.head_employee_id.display_name"/>
+                            </t>
+                            <t t-if="o.company_id.head_employee_id">
+                                <br/><span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.job_id"/>
+                            </t>
+                      </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="suborder_carrier_order_doc" model="ir.ui.view">
+        <field name="name">suborder_carrier_order_doc</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_special_lm.suborder_carrier_order_doc">
+        <t t-call="web.basic_layout">
+          <t t-set="lang" t-value="docs[0].partner_id.lang"/>
+          <t t-set="o" t-value="docs[0].with_context(lang=lang)"/>
+          <t t-set="translit" t-value="lang != 'ru_RU'"/>
+          <t t-set="print_stamp" t-value="o._context.get('print_stamp') or o.print_stamp"/>
+		  <t t-set="o_sudo" t-value="o.sudo()"/>
+          <div class="page">
+            <style type="text/css">
+.page {
+    font-family: Arial;
+    font-size: 12px;
+}
+
+h2 {
+    font-size: 61px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.maintable {
+    border-collapse: collapse;
+}
+
+.maintable td {
+    border: 1px solid black;
+    padding: 4px 5px 2px 4px;
+    vertical-align: top;
+    width: 50%;
+}
+
+.maintable p {
+    margin-top: 0;
+}
+
+.maintable p:last-child {
+    margin-bottom: 0;
+}
+
+.instr {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+.headtable {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.headtable img {
+    max-height: 85px;
+    max-width: 250px;
+    margin-right: 30px;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.footertable td {
+    vertical-align: top;
+}
+
+.headtable,
+.headtable tbody,
+.headtable tr,
+.headtable td,
+.footertable,
+.footertable tbody,
+.footertable tr,
+.footertable td {
+    border: none;
+}
+                </style>
+            <table class="headtable">
+              <tr>
+                <td width="15%">
+                  <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" alt="Logo"/>
+                </td>
+                <td style="vertical-align: top; text-align: right;">
+                  <t t-call="ufs_special_lm.lm_company_address">
+                    <t t-set="partner" t-value="o.company_id.partner_id"/>
+                    <t t-set="translit" t-value="translit"/>
+                  </t>
+                </td>
+              </tr>
+            </table>
+            <h2 style="font-size: 16px; text-align: center; margin-bottom: 15px;">
+              <span style="text-transform: uppercase;">Заявка на транспортное средство</span><br/>
+              № <span t-field="o.name"/> от <span t-field="o.order_date" t-options="{'format':'dd.MM.yyyy'}"/>
+              <t t-if="o.ufs_contract_id">
+                <br/>
+                <span style="font-size: 13px;">
+                    к договору № <span t-field="o.ufs_contract_id.number"/> от <span t-field="o.ufs_contract_id.sign_date" t-options="{'format':'dd.MM.yyyy'}"/>
+                </span>
+              </t>
+            </h2>
+            <table class="maintable" cellspacing="0" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td>
+                    <b>Маршрут перевозки</b>
+                  </td>
+                  <td>
+                    <span t-field="o.verbose_route"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Требуемый тип транспортного средства</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <t t-if="cargo.trailer_type"><span t-field="cargo.trailer_type"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Автомобиль, прицеп</b>
+                  </td>
+                  <td>
+                    <span t-if="o.ufs_truck_id" t-field="o.ufs_truck_id.name"/>
+                    <t t-if="o.ufs_trailer_id">
+                      / <span t-field="o.ufs_trailer_id.name"/>
+                    </t>
+                    <t t-if="o.ufs_driver_id">
+                      <br/>
+                      <span t-field="o.ufs_driver_id"/>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Информация о грузе, вес, габариты, вид тары и упаковки</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.cargo_line_ids" t-as="cargo">
+                      <p>
+                        <span t-field="cargo.name"/>. Weight: <span t-field="cargo.weight"/> <span t-field="cargo.weight_uom_id"/>.
+                        <t t-if="cargo.pallet_count">
+							<br/>
+							<span t-field="cargo.pallet_count"/>
+						</t>
+						<t t-if="cargo.details">
+                          <br/>
+                          <span t-field="cargo.details"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес загрузки.<br/>Грузоотправитель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['load'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+						<t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['load']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[0]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                  <td>
+                    <b>Таможня отправления</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+							<t t-if="point.location_id.latitude">
+								<br/>
+								<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+							</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <!--<t t-elif="not o.route_ids.filtered(lambda x: x.line_type in ['o_customs'])">Документы на месте загрузки</t>-->
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                  <td>
+                    <b>Терминал</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['terminal'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                  <td>
+                    <b>Погранпереход</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['border_cross'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+						<t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                  <td>
+                    <b>Таможня назначения</b>
+                  </td>
+                  <td>
+                    <t t-if="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])">
+                      <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['d_customs'])" t-as="point">
+                        <p>
+                          <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                          <t t-if="point.location_id">
+                            <br/>
+                            <span t-field="point.location_id.name"/>
+                          </t>
+                          <br/>
+                          <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                          <t t-if="point.location_id.contact_person">
+                            <br/>
+                            <span t-field="point.location_id.contact_person"/>
+                          </t>
+                          <t t-if="point.notes">
+                            <br/>
+                            <span t-field="point.notes"/>
+                          </t>
+                        </p>
+                      </t>
+                    </t>
+                    <t t-else=""/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Дата, время, адрес выгрузки.<br/>Грузополучатель, контактная информация</b>
+                  </td>
+                  <td>
+                    <t t-foreach="o.route_ids.filtered(lambda x: x.line_type in ['unload'])" t-as="point">
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                    <t t-if="not o.route_ids.filtered(lambda x: x.line_type in ['unload']) and o.route_ids">
+                      <t t-set="point" t-value="o.route_ids[-1]"/>
+                      <p>
+                        <span t-field="point.datetime" t-options="{'format':'dd.MM.yyyy HH:mm'}"/>
+                        <t t-if="point.location_id">
+                          <br/>
+                          <span t-field="point.location_id.name"/>
+                        </t>
+                        <br/>
+                        <span t-field="point.location_id.country_id.name"/>, <span t-field="point.location_id.city"/><t t-if="point.location_id.address">, <span t-field="point.location_id.address"/></t>
+                        <t t-if="point.location_id.latitude">
+							<br/>
+							<span t-esc="str(point.location_id.latitude).replace(',', '.')"/>, <span t-esc="str(point.location_id.longitude).replace(',', '.')"/>
+						</t>
+                        <t t-if="point.location_id.contact_person">
+                          <br/>
+                          <span t-field="point.location_id.contact_person"/>
+                        </t>
+                        <t t-if="point.notes">
+                          <br/>
+                          <span t-field="point.notes"/>
+                        </t>
+                      </p>
+                    </t>
+                  </td>
+                </tr>
+                <tr>
+                    <td><b>Нормативное время простоя под погрузкой/разгрузкой и таможенным оформлением</b></td>
+                    <td>24ч. / 48ч.</td>
+                </tr>
+                <tr>
+                    <td><b>Дополнительная информация</b></td>
+                    <td><span t-if="o.order_memo" t-field="o.order_memo"/></td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Сумма фрахта, валюта</b>
+                  </td>
+                  <td>
+                    <span t-esc="'{:,.0f}'.format(o.freight_amount).replace(',', ' ')"/>
+                    <span t-field="o.freight_currency_id"/>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <b>Условия оплаты</b>
+                  </td>
+                  <td>
+                    <span t-field="o.payment_term_verbose"/>
+                  </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>ОБЯЗАТЕЛЬНО В ТЕЧЕНИЕ 1 РАБОЧЕГО ДНЯ ПОСЛЕ ВЫГРУЗКИ ПРЕДОСТАВИТЬ СКАН ИЛИ ФОТО CMR</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>После погрузки Перевозчик должен ежедневно до 10-00 по Белорусскому времени письменно информировать ответственного работника Экспедитора
+                        о точном местонахождении транспортного средства с перевозимым грузом.<br/>
+                        Исполнитель заказа обязан регулярно каждый день письменно предоставлять эту информацию вне зависимости от того, получен ли
+                        отдельный запрос Экспедитора. Если Перевозчик заказа своевременно будет предоставлять точную информацию о точном месте
+                        перевозимого груза, то в рамках дальнейшего сотрудничества это будет учтено. За каждый случай непредставления информации или
+                        предоставленной неточной информации Экспедитор вправе требовать от Перевозчика заказа штраф в размере 50 евро.</b>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+            <br/>
+            <table class="footertable" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td style="width: 50%; position: relative;">
+                    <p style="margin-bottom: 7px;"><b>ЭКСПЕДИТОР</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.company_id.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.company_id.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.company_id.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.company_id.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                    <td style="width: 50%;">
+                    <p style="margin-bottom: 7px;"><b>ПЕРЕВОЗЧИК</b></p>
+                    <t t-call="ufs_special_lm.lm_company_address">
+                        <t t-set="partner" t-value="o.partner_id"/>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    <t t-if="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])">
+                        <t t-foreach="o.partner_id.child_ids.filtered(lambda x: x.other_subtype in ['post'])" t-as="post">
+                            Почтовый адрес:<br/>
+                            <t t-if="post.zip"><span t-field="post.zip"/>, </t><t t-else=""/>
+                            <t t-if="post.country_id"><span t-field="post.country_id.name"/>, </t><t t-else=""/>
+                            <t t-if="post.city"><span t-field="post.city"/>, </t><t t-else=""/>
+                            <t t-if="post.street"><span t-field="post.street"/></t><t t-else=""/>
+                            <br/>
+                        </t>
+                    </t>
+                    <t t-call="ufs_invoices_base_reports.base_bank_multi">
+                        <t t-if="o.partner_id.bank_ids">
+                            <t t-set="accounts" t-value="o.partner_id.bank_ids"/>
+                        </t>
+                        <t t-else="">
+                        </t>
+                        <t t-set="translit" t-value="translit"/>
+                    </t>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="position: relative;">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+                        <img t-if="print_stamp and o.company_id.stamp_image" t-att-src="image_data_uri(o.company_id.stamp_image)" style="max-height: 185px; position: absolute; top: -15px; left: 74px;"/>
+                        <br/>
+                            <t t-if="translit">
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.firstname, False)"/>
+                                <span style="font-size: 10px;" t-esc="o.translit_text(o_sudo.company_id.head_employee_id.lastname, False)"/>
+                            </t>
+                            <t t-else="">
+                                <span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.display_name"/>
+                            </t>
+                            <t t-if="o.company_id.head_employee_id">
+                                <br/><span style="font-size: 10px;" t-field="o_sudo.company_id.head_employee_id.job_id"/>
+                            </t>
+                    </td>
+                    <td>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        _______________________________________
+						<t t-if="o.partner_id.count_signed_by_partner_id">
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.name"/>
+							<br/><span style="font-size: 10px;" t-field="o.partner_id.count_signed_by_partner_id.function"/>
+						</t>
+                      </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </t>
+    </t>]]></field>
+    </record>
+    <record id="fea_forwarding_order_list" model="ir.ui.view">
+        <field name="name">ufs.forwarder.order.fea.list</field>
+        <field name="model">ufs.forwarder.order</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Goods Movement" default_order="start_datetime desc" create="1" edit="1" delete="0" multi_edit="1">
+                <field name="name" optional="show" readonly="1"/>
+                <field name="partner_id" optional="show" readonly="1"/>
+                <field name="head_partner_id" optional="hide" readonly="1"/>
+                <field name="incoming_ref" optional="show" readonly="1"/>
+                <field name="freight_amount" optional="show" readonly="1"/>
+                <field name="freight_currency_id" column_invisible="True" readonly="1"/>
+                <field name="start_datetime" optional="show"/>
+                <field name="cargo_details" optional="show" readonly="1"/>
+                <field name="carrier_freight_amount" optional="show" readonly="1"/>
+                <field name="carrier_partner_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                <field name="ufs_truck_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                <field name="ufs_trailer_ids" widget="many2many_tags" optional="show" readonly="1"/>
+                <field name="order_start_date" optional="show" string="Order Start Date" readonly="1"/>
+                <field name="responsible_user_id" optional="show" readonly="1"/>
+                <field name="origin_id" optional="show" string="Origin" readonly="1"/>
+                <field name="origin_city" optional="show" string="Origin City" readonly="1"/>
+                <field name="shipper_country_id" optional="show" string="Shipper Country" readonly="1"/>
+                <field name="order_finish_date" optional="show" string="Order Finish Date"/>
+                <field name="destination_id" optional="show" string="Destination" readonly="1"/>
+                <field name="destination_city" optional="show" string="Destination City" readonly="1"/>
+                <field name="marking_codes_date" optional="show"/>
+                <field name="marking_approval_date" optional="show"/>
+                <field name="marking_planned_date" optional="show"/>
+                <field name="marking_finish_date" optional="show"/>
+                <field name="customs_clearance_date" optional="show"/>
+                <field name="shipment_rb_to_rf_date" optional="show"/>
+            </list>]]></field>
+    </record>
+</data>
+</odoo>

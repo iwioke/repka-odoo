@@ -16,7 +16,7 @@ class UfsCargoLine(models.Model):
     base_weight_total = fields.Float(string="Base Weight")
     cargo_id = fields.Many2one(string="Cargo", comodel_name="ufs.cargo")
     cargo_packing = fields.Char(string="Cargo Packing")
-    cargo_value = fields.Monetary(string="Cargo Commercial Value")
+    cargo_value = fields.Monetary(string="Cargo Commercial Value", currency_field="currency_id")
     cargo_volume = fields.Float(string="Volume in m3")
     code = fields.Char(string="Code")
     currency_id = fields.Many2one(string="Currency", comodel_name="res.currency")

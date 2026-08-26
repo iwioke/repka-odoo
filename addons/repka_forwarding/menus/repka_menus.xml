@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_293"
+        name="Forwarding"
+        sequence="5"
+/>
+    <menuitem id="menu_294"
+        name="Forwarding Orders"
+        sequence="5"
+        parent="menu_293"
+        action="action_view_forwarder_order"
+/>
+    <menuitem id="menu_295"
+        name="Forwarder Sub Orders"
+        sequence="40"
+        parent="menu_293"
+        action="action_view_forwarder_suborder"
+/>
+    <menuitem id="menu_296"
+        name="Counterparts"
+        sequence="50"
+        parent="menu_293"
+/>
+    <menuitem id="menu_297"
+        name="Configuration"
+        sequence="100"
+        parent="menu_293"
+/>
+    <menuitem id="menu_298"
+        name="Customers"
+        sequence="10"
+        parent="menu_296"
+/>
+    <menuitem id="menu_299"
+        name="Invoices"
+        sequence="20"
+        parent="menu_296"
+/>
+    <menuitem id="menu_300"
+        name="Suppliers"
+        sequence="40"
+        parent="menu_296"
+/>
+    <menuitem id="menu_301"
+        name="Bills"
+        sequence="50"
+        parent="menu_296"
+/>
+    <menuitem id="menu_302"
+        name="Contracts"
+        sequence="70"
+        parent="menu_293"
+/>
+    <menuitem id="menu_303"
+        name="Drivers and Vehicles"
+        sequence="60"
+        parent="menu_293"
+/>
+    <menuitem id="menu_304"
+        name="Reports"
+        sequence="80"
+        parent="menu_293"
+/>
+    <menuitem id="menu_305"
+        name="Drivers"
+        sequence="32"
+        parent="menu_303"
+/>
+    <menuitem id="menu_306"
+        name="Vehicles"
+        sequence="32"
+        parent="menu_303"
+/>
+    <menuitem id="menu_307"
+        name="Forwarder Sub Order Types"
+        sequence="30"
+        parent="menu_297"
+        action="action_view_forwarder_suborder_type"
+/>
+    <menuitem id="menu_308"
+        name="Order Profitability"
+        sequence="10"
+        parent="menu_304"
+        action="action_view_forwarder_order_report"
+/>
+    <menuitem id="menu_313"
+        name="Transport Documents"
+        sequence="10"
+        parent="menu_304"
+/>
+</data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_fea_forwarding_orders" model="ir.actions.act_window">
+        <field name="name">Goods Movement</field>
+        <field name="res_model">ufs.forwarder.order</field>
+        <field name="view_mode">list</field>
+        <field name="context">{}</field>
+    </record>
+</data>
+</odoo>

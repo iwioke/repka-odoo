@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_ufs_base_order_filter" model="ir.ui.view">
+        <field name="name">ufs.base.order.filter</field>
+        <field name="model">ufs.base.order</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="name"/>
+        <field name="partner_id"/>
+          <field name="parent_partner_id"/>
+          <field name="deal_order_id"/>
+          <separator/>
+<!--        <filter name="filter_last_month_used" string="Last Month Used" date="use_date" default_period="month-1" />-->
+
+
+
+
+<!--                />-->
+<!--        <filter name="not_used" string="Not Used" domain="[('use_date', '=', False)]" />-->
+        <group string="Group by...">
+          <filter string="Deal" name="group_deal_order_id" context="{'group_by': 'deal_order_id'}"/>
+          <filter string="Partner" name="group_partner_id" context="{'group_by': 'partner_id'}"/>
+          <filter string="Parent Partner" name="group_parent_partner_id" context="{'group_by': 'parent_partner_id'}"/>
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_base_order_view_tree" model="ir.ui.view">
+        <field name="name">ufs.base.order.tree</field>
+        <field name="model">ufs.base.order</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Orders" expand="1">
+        <field name="order_reference" optional="hide"/>
+        <field name="name" optional="show"/>
+        <field name="deal_order_id" optional="hide"/>
+        <field name="deal_order_order_start_date" optional="hide"/>
+        <field name="parent_partner_id" optional="hide"/>
+        <field name="partner_id" optional="show"/>
+        <field name="incoming_ref" optional="show"/>
+        <field name="external_nr" optional="show"/>
+        <field name="responsible_user_id" optional="show"/>
+        <field name="company_id" optional="show"/>
+        <field name="state_id" optional="show"/>
+        <field name="vehicles_string" optional="show"/>
+        <field name="start_datetime" string="Plan Loading" optional="show"/>
+        <field name="order_start_date" string="Fact Loading" optional="show"/>
+        <field name="order_finish_date" string="Fact Unloading" optional="show"/>
+        <field name="verbose_route" optional="show"/>
+        <field name="shipper_country_id" optional="show"/>
+        <field name="origin_city" optional="show"/>
+        <field name="shipper_small_address" optional="hide"/>
+        <field name="shipper_contact_person" optional="hide"/>
+        <field name="load_cust_small_address" optional="hide"/>
+        <field name="consignee_country_id" optional="show"/>
+        <field name="destination_city" optional="show"/>
+        <field name="consignee_small_address" optional="hide"/>
+        <field name="consignee_contact_person" optional="hide"/>
+        <field name="unload_cust_small_address" optional="hide"/>
+        <field name="origin_id" optional="show"/>
+        <field name="shipper_id" optional="hide"/>
+        <field name="destination_id" optional="show"/>
+        <field name="consignee_id" optional="hide"/>
+        <field name="verbose_cargoes_no_weight" optional="show"/>
+        <field name="verbose_cargoes" optional="hide"/>
+        <field name="is_adr" optional="hide"/>
+        <field name="trailer_types" optional="hide"/>
+        <field name="cargo_weight" optional="hide"/>
+        <field name="cargo_volume" optional="hide"/>
+        <field name="cargo_weight_uom_id" optional="hide"/>
+        <field name="sl_freight_amount" optional="show"/>
+        <field name="sl_idle_amount" optional="show"/>
+        <field name="sl_reload_amount" optional="show"/>
+        <field name="sl_edi_amount" optional="show"/>
+        <field name="sl_other_amount" optional="show"/>
+        <field name="freight_currency_id" column_invisible="1"/>
+        <field name="currency_id" column_invisible="1"/>
+          <field name="company_currency_id" column_invisible="1"/>
+          <field name="freight_amount" string="Overall amount" optional="show"/>
+          <field name="amount" string="Overall amount (B.C)" optional="show"/>
+          <field name="amount_company_currency" string="Overall amount (C.C)" optional="show"/>
+        <field name="invoice_numbers_char" optional="show"/>
+        <field name="invoice_ext_numbers_char" optional="show"/>
+        <field name="invoice_states_char" optional="show"/>
+        <field name="inv_payment_term_verbose" optional="show"/>
+        <field name="invoice_date_due" optional="show"/>
+        <field name="paid_at_date" optional="show"/>
+      </list>]]></field>
+    </record>
+</data>
+</odoo>

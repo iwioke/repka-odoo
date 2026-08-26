@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="group_52" model="res.groups">
+        <field name="name">Service Manager</field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_487"
+        name="Goods Movement"
+        sequence="7"
+/>
+    <menuitem id="menu_486"
+        name="Orders"
+        sequence="10"
+        parent="menu_487"
+        action="action_fea_forwarding_orders"
+/>
+</data>
+</odoo>

@@ -1,0 +1,172 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#   * repka_special_lm
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-01 00:00+0000\n"
+"PO-Revision-Date: 2026-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.cargo_details
+msgid "Cargo Details"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Carrier"
+msgstr "Перевозчик"
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.carrier_freight_amount
+msgid "Carrier Rate"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.customs_clearance_date
+msgid "Customs Clearance Date"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Destination"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Destination City"
+msgstr ""
+
+#. module: repka_special_lm
+#: menu 487 view arch
+msgid "Goods Movement"
+msgstr "Движение товаров"
+
+#. module: repka_special_lm
+#: field ufs.forwarder.suborder.head_partner_id
+msgid "Head Partner"
+msgstr ""
+
+#. module: repka_special_lm
+#: server_action 729
+msgid "LM: Recompute Order/Suborder Amounts"
+msgstr "LM: Пересчёт сумм заказов/подзаказов"
+
+#. module: repka_special_lm
+#: view arch
+msgid "Margin"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.marking_approval_date
+msgid "Marking Approved"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.marking_codes_date
+msgid "Marking Codes Received"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.marking_finish_date
+msgid "Marking Finished"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.marking_planned_date
+msgid "Marking Planned"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Order Finish Date"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.order_start_date
+msgid "Order Start"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Order Start Date"
+msgstr ""
+
+#. module: repka_special_lm
+#: menu 486
+msgid "Orders"
+msgstr "Заказы"
+
+#. module: repka_special_lm
+#: view arch
+msgid "Origin"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Origin City"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Print SOA"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.shipment_rb_to_rf_date
+msgid "Shipment BY to RU Date"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch
+msgid "Shipper Country"
+msgstr ""
+
+#. module: repka_special_lm
+#: module summary
+msgid "Special document templates and customizations for LM client"
+msgstr ""
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.state_id field ufs.forwarder.suborder.state_id
+msgid "Stage"
+msgstr ""
+
+#. module: repka_special_lm
+#: view arch view arch group
+msgid "Suborders"
+msgstr "Подзаказы"
+
+#. module: repka_special_lm
+#: field ufs.forwarder.order.head_partner_id
+msgid "Головной партнёр"
+msgstr ""
+
+#. module: repka_special_lm
+#: report 725
+msgid "Договор-заявка клиенту"
+msgstr ""
+
+#. module: repka_special_lm
+#: report 726
+msgid "Договор-заявка перевозчику"
+msgstr ""
+
+#. module: repka_special_lm
+#: report 724
+msgid "Заявка клиенту"
+msgstr ""
+
+#. module: repka_special_lm
+#: report 723
+msgid "Заявка перевозчику"
+msgstr ""

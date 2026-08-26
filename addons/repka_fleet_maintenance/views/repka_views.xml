@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="ufs_fleet_maintenance_search_view" model="ir.ui.view">
+        <field name="name">ufs_fleet_maintenance.search</field>
+        <field name="model">ufs.fleet.maintenance</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Maintenance">
+        <field name="vehicle_id"/>
+        
+        <!--<field name="active"/>  &lt;!&ndash;Active&ndash;&gt;-->
+        <!--<filter domain="[('active','=',True)]" string="Active" name="is_active"/>-->
+        <!--<filter domain="[('active','=',False)]" string="Not Active" name="is_not_active"/>-->
+        <filter string="Truck" name="filter_is_truck" domain="[('vehicle_id.fleet_type', '=', 'power_unit')]"/>
+        <filter string="Trailer" name="filter_is_trailer" domain="[('vehicle_id.fleet_type', '=', 'trailer')]"/>
+        <separator/>
+        <filter context="{'group_by' : 'operation_type_id'}" string="Type" name="group_by_operation_type_id"/>
+        <filter context="{'group_by' : 'employee_id'}" string="Responsible" name="group_by_employee_id"/>
+        <filter context="{'group_by' : 'vehicle_id'}" string="Asset" name="group_by_vehicle_id"/>
+        <!--<filter context="{'group_by' : 'active'}" string="Active" name="group_by_active"/>-->
+      </search>]]></field>
+    </record>
+    <record id="ufs_fleet_maintenance_form_view" model="ir.ui.view">
+        <field name="name">ufs_fleet_maintenance_form_view</field>
+        <field name="model">ufs.fleet.maintenance</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Maintenance Plan">
+        <header>
+          
+        </header>
+        <group>
+          <group>
+            <field name="vehicle_id"/>
+            <field name="operation_type_id"/>
+            <field name="period_type" invisible="True"/>
+            <field name="employee_id"/>
+            <field name="period"/>
+            <field name="alert_range"/>
+          </group>
+          <group>
+            <field name="last_check"/>
+            <field name="last_value" invisible="period_type == 'day'" force_save="1"/>
+            <field name="units_to_check" invisible="period_type == 'day'"/>
+            <field name="units_to_check_to_days" invisible="period_type != 'day'"/>
+            <field name="bounded_maintenance_log_id" readonly="True"/>
+          </group>
+        </group>
+      </form>]]></field>
+    </record>
+    <record id="ufs_fleet_maintenance_list_view" model="ir.ui.view">
+        <field name="name">ufs_fleet_maintenance_list_view</field>
+        <field name="model">ufs.fleet.maintenance</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Maintenance Plan" decoration-warning="units_to_check &lt; alert_range" decoration-danger="units_to_check &lt; 0">
+        <field name="vehicle_id"/>
+        <field name="operation_type_id"/>
+        <field name="employee_id" optional="hide"/>
+        <field name="period" column_invisible="True"/>
+        <field name="alert_range" column_invisible="True"/>
+        <field name="last_check"/>
+        <field name="last_value" invisible="period_type == 'day'"/>
+        <field name="units_to_check_tr"/>
+        <field name="period_type"/>
+        <field name="bounded_maintenance_log_id"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_fleet_maintenance_request_wizard_view" model="ir.ui.view">
+        <field name="name">ufs_fleet.maintenance_request.wizard.view</field>
+        <field name="model">ufs_fleet.maintenance_request.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Enter Your Resolution">
+
+                    <group>
+                        <field name="maintenance_resolution" required="1"/>
+                        <field name="request_id" invisible="True"/>
+                        <field name="company_id" invisible="True"/>
+                        <field name="vehicle_id" invisible="True"/>
+                    </group>
+
+                    <footer>
+                        
+                        
+                    
+                </footer>
+                </form>]]></field>
+    </record>
+</data>
+</odoo>

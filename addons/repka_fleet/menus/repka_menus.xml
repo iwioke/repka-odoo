@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_256"
+        name="Transport"
+        sequence="5"
+/>
+    <menuitem id="menu_257"
+        name="Reports"
+        sequence="70"
+        parent="menu_256"
+/>
+    <menuitem id="menu_258"
+        name="Configuration"
+        sequence="99"
+        parent="menu_256"
+/>
+    <menuitem id="menu_259"
+        name="Tracking Systems"
+        sequence="32"
+/>
+    <menuitem id="menu_260"
+        name="Fleet orders"
+        sequence="10"
+        parent="menu_256"
+        action="action_view_fleet_order"
+/>
+    <menuitem id="menu_261"
+        name="Trips"
+        sequence="20"
+        parent="menu_256"
+        action="action_view_ufs_fleet_trip"
+/>
+    <menuitem id="menu_262"
+        name="Employees"
+        sequence="50"
+        parent="menu_256"
+/>
+    <menuitem id="menu_263"
+        name="Lorries"
+        sequence="30"
+        parent="menu_256"
+        action="action_view_ufs_lorries"
+/>
+    <menuitem id="menu_264"
+        name="Lorries"
+        sequence="30"
+        action="action_view_ufs_lorries"
+/>
+    <menuitem id="menu_265"
+        name="Dispatchers Board"
+        sequence="30"
+        parent="menu_256"
+        action="action_view_ufs_disp_board"
+/>
+    <menuitem id="menu_266"
+        name="Maintenance Requests"
+        sequence="40"
+        action="action_view_ufs_fleet_maintenance_request"
+/>
+    <menuitem id="menu_267"
+        name="Employee Documents"
+        sequence="50"
+        action="action_view_ufs_employee_docs"
+/>
+    <menuitem id="menu_268"
+        name="Vehicle Documents"
+        sequence="60"
+        action="action_view_ufs_fleet_vehicle_docs"
+/>
+    <menuitem id="menu_269"
+        name="Cash Advances"
+        sequence="10"
+        parent="menu_257"
+        action="action_view_ufs_trip_cadv"
+/>
+    <menuitem id="menu_270"
+        name="Trip Costs"
+        sequence="10"
+        parent="menu_257"
+        action="action_view_ufs_trip_cost"
+/>
+    <menuitem id="menu_271"
+        name="Switches"
+        sequence="10"
+        parent="menu_257"
+        action="action_view_ufs_fleet_trip_switch"
+/>
+    <menuitem id="menu_272"
+        name="Default Trip Expenses"
+        sequence="22"
+        action="action_view_ufs_fleet_default_trip_exp_line"
+/>
+    <menuitem id="menu_273"
+        name="Inout Lines"
+        sequence="10"
+        parent="menu_257"
+        action="action_trip_docs_inout"
+/>
+    <menuitem id="menu_274"
+        name="Fuel Cards"
+        sequence="30"
+        parent="fleet.fleet_vehicle_menu"
+        action="action_view_ufs_fuel_card"
+/>
+    <menuitem id="menu_275"
+        name="Trips Report"
+        sequence="20"
+        parent="menu_257"
+        action="action_view_ufs_trips_report"
+/>
+    <menuitem id="menu_276"
+        name="Trip Segments"
+        sequence="20"
+        parent="menu_257"
+        action="action_view_ufs_fleet_trip_segment"
+/>
+    <menuitem id="menu_277"
+        name="Downtime Reasons"
+        sequence="70"
+        action="action_view_ufs_downtime_reason"
+/>
+    <menuitem id="menu_278"
+        name="Downtimes"
+        sequence="70"
+        parent="menu_257"
+        action="action_view_ufs_downtime"
+/>
+    <menuitem id="menu_279"
+        name="Trip Time Utility Report"
+        sequence="80"
+        parent="menu_257"
+        action="action_ufs_fleet_trip_time_wizard"
+/>
+    <menuitem id="menu_310"
+        name="Transport Documents"
+        sequence="10"
+        parent="menu_257"
+/>
+    <menuitem id="menu_488"
+        name="Lorry States"
+        sequence="30"
+        parent="menu_258"
+        action="action_ufs_fleet_lorry_state"
+/>
+    <menuitem id="menu_489"
+        name="Dispatchers Board 2"
+        sequence="31"
+        parent="menu_256"
+        action="action_view_ufs_disp_board_sql"
+/>
+</data>
+</odoo>

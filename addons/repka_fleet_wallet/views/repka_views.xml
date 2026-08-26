@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_ufs_driver_wallet_entry_filter" model="ir.ui.view">
+        <field name="name">ufs.driver.wallet_entry.filter</field>
+        <field name="model">ufs.driver.wallet_entry</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="date" invisible="True"/>
+        <field name="employee_id"/>
+        <separator/>
+        <!--<filter name="at_home_location" string="At home location" domain="[('active', '=', False)]"/>-->
+        <filter name="filter_this_month" string="This Month" domain="[('date','&gt;', (context_today() - datetime.timedelta(days=30)).strftime('%Y-%m-%d') )]"/>
+        <group string="Group by...">
+          <filter string="Company" name="group_company_id" context="{'group_by': 'company_id'}"/>
+<!--          <filter string="Vault" name="group_vault_id" context="{'group_by': 'vault_id'}" />-->
+          <filter string="Driver" name="group_driver_id" context="{'group_by': 'employee_id'}"/>
+          <filter string="Person" name="group_person_id" context="{'group_by': 'person_id'}"/>
+          <filter string="Product" name="group_product_id" context="{'group_by': 'product_id'}"/>
+          <filter string="Currency" name="group_currency_id" context="{'group_by': 'currency_id'}"/>
+          <filter string="Date" name="group_date" context="{'group_by': 'date:month'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_driver_wallet_entry_form_view" model="ir.ui.view">
+        <field name="name">ufs.driver.wallet_entry.form</field>
+        <field name="model">ufs.driver.wallet_entry</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form>
+        <header>
+
+        </header>
+        <sheet>
+          <group>
+            <field name="date"/>
+            <field name="employee_id"/>
+            <field name="company_id" groups="base.group_multi_company"/>
+            <field name="show_vault_field" invisible="1"/>
+            <field name="vault_id" groups="ufs_fleet.group_ufs_cashier" invisible="not show_vault_field"/>
+          </group>
+          <group>
+            <field name="product_id" groups="ufs_fleet.group_ufs_fleet_economics"/>
+            <field name="entry_type" groups="base.group_no_one"/>
+            <field name="advance_amount" invisible="entry_type != 'advance'"/>
+            <field name="amount" readonly="entry_type == 'advance'"/>
+            <field name="currency_id" invisible="0"/>
+            <field name="base_amount"/>
+            <field name="base_currency_id" invisible="True"/>
+            <field name="company_amount"/>
+            <field name="company_currency_id" invisible="True"/>
+          </group>
+          <group>
+            <field name="comments"/>
+            <field name="trip_id" readonly="True" force_save="1"/>
+            <field name="waybill_id" force_save="1" options="{'no_create': True, 'no_create_edit': True}" domain="['|', ('driver_id', '=', employee_id), ('driver2_id', '=', employee_id)]"/>
+            <field name="entries_balance" groups="base.group_no_one"/>
+            <field name="plan_type" invisible="entry_type != 'advance'"/>
+            <field name="plan_value" invisible="entry_type != 'advance' or plan_type == 'percentage'"/>
+            <field name="schedule_type" invisible="entry_type != 'advance'"/>
+            <field name="next_planned_entry_date" invisible="entry_type != 'advance'"/>
+          </group>
+            <group name="deduction_rules" string="Deduction Rules" invisible="entry_type != 'advance'">
+                <field name="advance_deduction_rule_ids" nolabel="1">
+                    <list editable="bottom">
+                        <field name="min_debt" string="From Amount (debt &gt;=)"/>
+                        <field name="percentage" string="%"/>
+                    </list>
+                </field>
+            </group>
+            <group name="child_entries" string="Plan" invisible="entry_type != 'advance'">
+                
+                <field name="child_ids" options="{'no_create_edit': 1, 'no_open': 1}">
+                    <list create="0" edit="0">
+                        <field name="date"/>
+                        <field name="amount"/>
+                        <field name="currency_id"/>
+                        <field name="state"/>
+                        <field name="base_amount" optional="hide"/>
+                        <field name="base_currency_id" column_invisible="True"/>
+                    </list>
+                </field>
+            </group>
+        </sheet>
+        <chatter open_attachments="True" reload_on_attachment="True"/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_driver_wallet_entry_pivot_view" model="ir.ui.view">
+        <field name="name">ufs.driver.wallet_entry.pivot</field>
+        <field name="model">ufs.driver.wallet_entry</field>
+        <field name="type">pivot</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<pivot string="Wallet Entries">
+        <field name="date" type="col" interval="month"/>
+        <field name="employee_id" type="row"/>
+        <field name="base_amount" type="measure" string="Amount"/>
+      </pivot>]]></field>
+    </record>
+    <record id="ufs_driver_wallet_entry_list_view" model="ir.ui.view">
+        <field name="name">ufs.driver.wallet_entry.tree</field>
+        <field name="model">ufs.driver.wallet_entry</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Entries" default_order="date desc">
+        <field name="date"/>
+        <field name="show_vault_field" column_invisible="1"/>
+        <field name="vault_id" optional="hide" invisible="not show_vault_field"/>
+        <field name="product_id" optional="show"/>
+        <field name="entry_type" column_invisible="1"/>
+        <field name="employee_id"/>
+        <field name="advance_amount" optional="hide" invisible="entry_type != 'advance'"/>
+        <field name="amount"/>
+        <field name="currency_id" column_invisible="True"/>
+        <field name="base_amount" sum="Total" optional="show"/>
+        <field name="base_currency_id" column_invisible="True"/>
+        <field name="company_amount" sum="Total" optional="show"/>
+        <field name="company_currency_id" column_invisible="True"/>
+        <field name="company_id"/>
+        <field name="waybill_id" optional="hide"/>
+
+        <field name="comments" optional="show"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_driver_wallet_entry_list_view_vault" model="ir.ui.view">
+        <field name="name">ufs.driver.wallet_entry.tree.vault</field>
+        <field name="model">ufs.driver.wallet_entry</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="inherit_id" ref="repka_fleet_wallet.ufs_driver_wallet_entry_list_view"/>
+        <field name="mode">extension</field>
+        <field name="arch"><![CDATA[<xpath expr="//field[@name='vault_id']" position="attributes">
+        <attribute name="optional">show</attribute>
+      </xpath>]]></field>
+    </record>
+    <record id="ufs_wallet_advance_rule_list_view" model="ir.ui.view">
+        <field name="name">ufs.wallet.advance.deduction.rule.list</field>
+        <field name="model">ufs.wallet.advance.deduction.rule</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Advance Deduction Rules" editable="bottom">
+                <field name="min_debt" string="From Amount (debt &gt;=)"/>
+                <field name="percentage" string="Percentage %"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_wallet_vault_kanban_view" model="ir.ui.view">
+        <field name="name">ufs.wallet.vault.kanban</field>
+        <field name="model">ufs.wallet.vault</field>
+        <field name="type">kanban</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="responsible_user_id"/>
+                <field name="current_balance_display"/>
+                <field name="wallet_entry_count"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
+                                    <div class="o_kanban_record_subtitle">
+                                        <field name="responsible_user_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <span class="badge rounded-pill text-bg-success">
+                                            <i class="fa fa-money"/><span> </span>
+                                            <field name="current_balance_display"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span class="text-muted">
+                                        <i class="fa fa-list-alt"/> <span> </span>
+                                        <field name="wallet_entry_count"/> transactions
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>]]></field>
+    </record>
+    <record id="ufs_wallet_vault_list_view" model="ir.ui.view">
+        <field name="name">ufs.wallet.vault.list</field>
+        <field name="model">ufs.wallet.vault</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Cash Registers / Vaults">
+                <field name="name"/>
+                <field name="responsible_user_id"/>
+                <field name="owner_partner_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="current_balance_display" string="Current Balance"/>
+                <field name="wallet_entry_count" string="Transactions"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_wallet_vault_search_view" model="ir.ui.view">
+        <field name="name">ufs.wallet.vault.search</field>
+        <field name="model">ufs.wallet.vault</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search Cash Registers">
+                <field name="name"/>
+                <field name="responsible_user_id"/>
+                <field name="owner_partner_id"/>
+                <filter string="My Vaults" name="my_vaults" domain="[('responsible_user_id', '=', uid)]"/>
+                <group string="Group By">
+                    <filter string="Responsible User" name="group_responsible" context="{'group_by': 'responsible_user_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                </group>
+            </search>]]></field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="module_category_108" model="ir.module.category">
+        <field name="name">UFS Forwarding</field>
+        <field name="sequence">3</field>
+    </record>
+    <record id="group_56" model="res.groups">
+        <field name="name">Forwarding Access</field>
+        <field name="category_id" ref="module_category_108"/>
+    </record>
+    <record id="group_57" model="res.groups">
+        <field name="name">Forwarding Manager Access</field>
+        <field name="category_id" ref="module_category_108"/>
+    </record>
+    <record id="rule_166" model="ir.rule">
+        <field name="name">Forwarder Order: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_167" model="ir.rule">
+        <field name="name">Forwarder Sub Order: multi-company rule</field>
+        <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="domain_force">
+        ['|',
+                ('company_id', '=', False),
+                ('company_id', 'in', company_ids),
+                ]
+      </field>
+    </record>
+    <record id="rule_168" model="ir.rule">
+        <field name="name">UFS Forwarding Order: create/write own only</field>
+        <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="domain_force">['|', ('create_uid', '=', user.id), ('message_partner_ids', '=', user.partner_id.id)]</field>
+    </record>
+    <record id="rule_169" model="ir.rule">
+        <field name="name">UFS Forwarding Suborder: create/write own</field>
+        <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="domain_force">['|', ('create_uid', '=', user.id), ('message_partner_ids', '=', user.partner_id.id)]</field>
+    </record>
+    <record id="rule_170" model="ir.rule">
+        <field name="name">UFS Forwarding Order: create/write all</field>
+        <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="rule_171" model="ir.rule">
+        <field name="name">UFS Forwarding Suborder: create/write all</field>
+        <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="rule_172" model="ir.rule">
+        <field name="name">UFS Forwarding Admin: create/write/unlink all</field>
+        <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="rule_173" model="ir.rule">
+        <field name="name">UFS Forwarding Admin: create/write/unlink all</field>
+        <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    <record id="rule_174" model="ir.rule">
+        <field name="name">UFS Forwarding Move: Forwarder Access</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="domain_force">[('move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('create_uid', '=', user.id), ('message_partner_ids', 'in', [user.partner_id.id])]</field>
+    </record>
+    <record id="rule_175" model="ir.rule">
+        <field name="name">UFS Forwarding Move: Forw Manager access</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="domain_force">['|', ('ufs_forwarder_order_id', '!=', False), ('ufs_forwarder_sub_order_id', '!=', False)]</field>
+    </record>
+    <record id="rule_176" model="ir.rule">
+        <field name="name">UFS Forwarding Move: Forwarder Access</field>
+        <field name="model_id" ref="model_account_move_line"/>
+        <field name="domain_force">[('move_id.move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('move_id.create_uid', '=', user.id), ('move_id.message_partner_ids', 'in', [user.partner_id.id])]</field>
+    </record>
+    <record id="rule_177" model="ir.rule">
+        <field name="name">UFS Forwarding Move: Forw Manager access</field>
+        <field name="model_id" ref="model_account_move_line"/>
+        <field name="domain_force">['|', ('move_id.ufs_forwarder_order_id', '!=', False), ('move_id.ufs_forwarder_sub_order_id', '!=', False)]</field>
+    </record>
+</data>
+</odoo>
