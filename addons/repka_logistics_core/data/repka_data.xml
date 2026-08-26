@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+    <record id="docs_job_ir_actions_server" model="ir.cron">
+        <field name="name">UFS. Compute Docs Expirations</field>
+        <field name="model_id" ref="model_ufs_doc"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+    <record id="locations_check_partner_status_ir_actions_server" model="ir.cron">
+        <field name="name">UFS. Check and Update Partner Status</field>
+        <field name="model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+    <record id="mail_template_10" model="mail.template">
+        <field name="name">Act: Sending</field>
+    </record>
+    <record id="mail_template_26" model="mail.template">
+        <field name="name">Order: Request Advance Invoice</field>
+    </record>
+    <record id="paperformat_9" model="report.paperformat">
+        <field name="name">A4 Landscape</field>
+    </record>
+</data>
+</odoo>

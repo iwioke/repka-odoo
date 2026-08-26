@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="ufs_internal_layout" model="ir.ui.view">
+        <field name="name">ufs_internal_layout</field>
+        <field name="type">qweb</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<t t-name="ufs_base.ufs_internal_layout">
+    <t t-if="not o" t-set="o" t-value="doc"/>
+    <t t-if="not company">
+      
+      <t t-if="company_id">
+        <t t-set="company" t-value="company_id"/>
+      </t>
+      <t t-elif="o and 'company_id' in o">
+        <t t-set="company" t-value="o.company_id.sudo()"/>
+      </t>
+      <t t-else="else">
+        <t t-set="company" t-value="res_company"/>
+      </t>
+    </t>
+    <div class="header" style="height: 0px">
+
+    </div>
+    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+      <t t-raw="0"/>
+    </div>
+  </t>]]></field>
+    </record>
+    <record id="view_account_move_act_form" model="ir.ui.view">
+        <field name="name">account.move.act.form</field>
+        <field name="model">account.move.act</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Act">
+                <header>
+                    
+                    
+                    
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group><field name="name"/>
+                            <field name="act_date" readonly="state == 'confirmed'"/>
+                            <field name="partner_id" readonly="state == 'confirmed'"/>
+                            <field name="company_id" readonly="state == 'confirmed'"/>
+                            <field name="partner_bank_id" readonly="state == 'confirmed'"/>
+                            <field name="amount_total"/>
+                            <field name="currency_id"/></group>
+                        <group>
+                            <field name="ufs_contract_id" domain="[('partner_id', '=', partner_id)]" readonly="state == 'confirmed'"/>
+                            <field name="is_n_term" invisible="True" options="{'always_reload': True}"/>
+                            <label for="ufs_payment_term_id"/>
+                            <div class="o_row" name="payment_term_id">
+                                <field name="ufs_payment_term_id" readonly="state == 'confirmed'"/>
+                                <span>N =</span>
+                                <field name="n_days_count" invisible="not is_n_term" options="{'always_reload': True}" readonly="state == 'confirmed'"/>
+                            </div>
+                            <field name="external_ref" readonly="state == 'confirmed'"/>
+                            <field name="has_stamp_image" invisible="1"/>
+                            <field name="print_stamp" widget="boolean_toggle" invisible="not has_stamp_image"/>
+                            <field name="needs_currency_recalc" invisible="1"/>
+                            <field name="currency_compute_rule" invisible="1"/>
+                            <field name="company_currency_id" invisible="1"/>
+                            <field name="act_currency_rate" digits="[16,6]" readonly="1"/>
+                            <field name="amount_total_company" readonly="1"/>
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="Invoice Lines">
+                            <field name="move_ids" widget="many2many_tags" domain="[('state', '=', 'posted')]"/>
+                            <field name="invoice_line_ids" options="{'no_open': 1, 'no_create_edit': 1}" widget="product_label_section_and_note_field_o2m" nolabel="1">
+                                <list edit="0" create="0" delete="0">
+                                    <field name="product_id" optional="hide"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="move_id" readonly="True"/>
+                                </list>
+                            </field>
+                            <group col="12" class="oe_invoice_lines_tab overflow-hidden">
+                                <group colspan="8">
+                                    <field name="narration" placeholder="Terms and Conditions" nolabel="1"/>
+                                </group>
+                                
+                                <group colspan="4">
+                                    <group class="oe_subtotal_footer">
+                                        <field name="amount_untaxed"/>
+                                        <field name="amount_tax"/>
+                                        <field name="amount_total"/>
+                                    </group>
+
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="o_attachment_preview"/>
+                <chatter/>
+            </form>]]></field>
+    </record>
+    <record id="view_account_move_act_tree" model="ir.ui.view">
+        <field name="name">account.move.act.tree</field>
+        <field name="model">account.move.act</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Acts">
+                <field name="name"/>
+                <field name="external_ref" optional="hide"/>
+                <field name="act_date"/>
+                <field name="partner_id"/>
+                <field name="partner_bank_id"/>
+                <field name="amount_total"/>
+                <field name="currency_id"/>
+                <field name="move_ids"/>
+            </list>]]></field>
+    </record>
+    <record id="view_res_partner_doc_pref_list" model="ir.ui.view">
+        <field name="name">res.partner.doc.preference.list</field>
+        <field name="model">res.partner.doc.preference</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list editable="bottom">
+        <field name="doc_type_id"/>
+        <field name="by_post"/>
+        <field name="by_email"/>
+        <field name="by_edi"/>
+        <field name="docs_email" optional="show"/>
+        <field name="postal_contact_name" optional="show"/>
+        <field name="postal_contact_phone" optional="show"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_base_equipment_form_view" model="ir.ui.view">
+        <field name="name">ufs.base.equipment.form</field>
+        <field name="model">ufs.base.equipment</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Equipment">
+        <header>
+          
+        </header>
+        <sheet string="Base Info">
+          <group string="Base Info">
+            <group>
+              <field name="name"/>
+              <field name="product_id" domain="[('type', '=', 'consu')]" context="{'default_type':'consu'}"/>
+              <field name="serial_number"/>
+              <field name="product_qty"/>
+              <field name="expiry_date"/>
+            </group>
+            <group>
+              <field name="employee_id" readonly="True"/>
+              
+              <field name="vehicle_id" readonly="True"/>
+              
+              <field name="company_id"/>
+              
+              <field name="price_unit"/>
+              <field name="amount"/>
+              <field name="currency_id" invisible="True"/>
+              <field name="active"/>
+              
+            </group>
+          </group>
+          <group>
+            <field name="use_log_ids">
+              
+              <list editable="bottom">
+                <!--                            <field name="equipment_id" invisible="True"/>-->
+                <field name="can_not_edit_start_date" column_invisible="True"/>
+                <field name="vehicle_id"/>
+                <field name="employee_id"/>
+                <field name="date_start" readonly="can_not_edit_start_date"/>
+                <field name="date_end"/>
+              </list>
+            </field>
+          </group>
+        </sheet>
+        <chatter open_attachments="True" reload_on_attachment="True"/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_base_equipment_list_view" model="ir.ui.view">
+        <field name="name">ufs.base.equipment.list</field>
+        <field name="model">ufs.base.equipment</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="display_name"/>
+        <field name="product_id"/>
+        
+        <field name="employee_id"/>
+        
+        <field name="vehicle_id"/>
+        
+        <field name="expiry_date" optional="show"/>
+        <field name="company_id"/>
+        
+        <field name="active"/>
+        
+      </list>]]></field>
+    </record>
+    <record id="ufs_base_equipment_search_view" model="ir.ui.view">
+        <field name="name">ufs.base.equipment.search</field>
+        <field name="model">ufs.base.equipment</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Equipment">
+        <field name="name"/>
+        <field name="company_id"/>
+        
+        <field name="employee_id"/>
+        
+        <field name="vehicle_id"/>
+        
+        <field name="active"/>
+        
+        <filter domain="[('vehicle_id','=',False), ('employee_id', '=', False)]" string="Not Used" name="is_not_used"/>
+        <filter domain="[('active','=',True)]" string="Active" name="is_active"/>
+        <filter domain="[('active','=',False)]" string="Not Active" name="is_not_active"/>
+        <filter context="{'group_by' : 'product_id'}" string="Product" name="group_by_product_id"/>
+        <filter context="{'group_by' : 'company_id'}" string="Company" name="group_by_company_id"/>
+        <filter context="{'group_by' : 'employee_id'}" string="Driver" name="group_by_employee_id"/>
+        <filter context="{'group_by' : 'vehicle_id'}" string="Truck" name="group_by_vehicle_id"/>
+        <filter context="{'group_by' : 'active'}" string="Active" name="group_by_active"/>
+      </search>]]></field>
+    </record>
+    <record id="ufs_base_equipment_log_form_view" model="ir.ui.view">
+        <field name="name">ufs.base.equipment.log.form</field>
+        <field name="model">ufs.base.equipment.log</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Equipment Log">
+        <group>
+          <group string="To be attached">
+            <field name="equipment_id"/>
+            <field name="product_qty"/>
+          </group>
+          <group string="Attach To">
+            <field name="date_start"/>
+            <field name="employee_id"/>
+            <field name="vehicle_id"/>
+          </group>
+        </group>
+      </form>]]></field>
+    </record>
+    <record id="ufs_order_form_view" model="ir.ui.view">
+        <field name="name">ufs.base.order.form</field>
+        <field name="model">ufs.base.order</field>
+        <field name="type">form</field>
+        <field name="priority">2</field>
+        <field name="arch"><![CDATA[<form string="Orders">
+        <header>
+          
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="partner_id"/>
+              <field name="start_datetime"/>
+              <field name="stop_datetime"/>
+            </group>
+            <group name="technical" string="Technical" groups="ufs_base.group_ufs_guid">
+              <field name="u_guid" groups="ufs_base.group_ufs_guid" readonly="u_guid"/>
+            </group>
+            <group/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_order_list_view" model="ir.ui.view">
+        <field name="name">ufs.base.order.list</field>
+        <field name="model">ufs.base.order</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <!--<field name="vehicle_id" readonly="True"/>-->
+        <field name="partner_id"/>
+        <field name="start_datetime"/>
+        <field name="stop_datetime"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_cargo_line_form_view" model="ir.ui.view">
+        <field name="name">ufs.cargo_line.form</field>
+        <field name="model">ufs.cargo_line</field>
+        <field name="type">form</field>
+        <field name="priority">2</field>
+        <field name="arch"><![CDATA[<form string="Cargo">
+        <sheet>
+          <group>
+            <group>
+              <field name="cargo_id" required="1" class="oe_edit_only"/>
+              <field name="name"/>
+              <field name="code"/>
+              <field name="weight"/>
+              <field name="weight_uom_id"/>
+              <field name="units_count"/>
+              <field name="units_uom_id" readonly="True" force_save="1"/>
+              <field name="base_weight_total" invisible="True"/>
+              <field name="cargo_value" widget="monetary"/>
+                <field name="currency_id"/>
+                <field name="cargo_packing"/>
+                <field name="is_adr" optional="hide"/>
+                <field name="adr_class"/>
+                <field name="loading_type"/>
+                <field name="cargo_volume"/>
+              <field name="trailer_type" options="{'no_create_edit': True}"/>
+                <field name="temp_value"/>
+                <field name="temp_mode"/>
+              <field name="details"/>
+              <!--<field name="partner_id"/>-->
+            </group>
+            <group/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_cargo_line_list_view" model="ir.ui.view">
+        <field name="name">ufs.cargo_line.list</field>
+        <field name="model">ufs.cargo_line</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list create="0" delete="0">
+        <field name="name"/>
+        <field name="cargo_id" invisible="True"/>
+        <field name="weight"/>
+        <field name="weight_uom_id"/>
+        <field name="units_count" sum="Total Quantity"/>
+        <field name="base_weight_total" sum="Total Weight"/>
+        <field name="cargo_volume" optional="show"/>
+        <field name="cargo_packing" optional="show"/>
+
+        <field name="cargo_value"/>
+        <field name="currency_id" column_invisible="True"/>
+        <field name="is_adr" optional="hide"/>
+        <field name="adr_class" optional="hide"/>
+        <field name="loading_type" optional="hide"/>
+        <field name="trailer_type" optional="hide"/>
+          <field name="temp_value" optional="hide"/>
+          <field name="temp_mode" optional="hide"/>
+        <field name="details"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_contract_form_view" model="ir.ui.view">
+        <field name="name">ufs.contract.form</field>
+        <field name="model">ufs.contract</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+        <header/>
+        <sheet>
+          <h2>
+            <field name="display_name" invisible="not id"/>
+          </h2>
+          <group name="main">
+            <group>
+              <field name="number" placeholder="...entry contract number..."/>
+                <field name="use_contract_checks" invisible="True"/>
+                <field name="is_order_agreement"/>
+              <field name="contract_type" required="use_contract_checks"/>
+              <field name="sign_date" placeholder="...entry contract sign date..."/>
+              <field name="expiration_date" placeholder="...entry contract expiration date..."/>
+              <field name="required_doc_type_ids" widget="many2many_tags" invisible="0"/>
+              <field name="no_request_required"/>
+            </group>
+            <group/>
+          </group>
+          <group name="first">
+            <group name="left" string="Counterpart">
+              <field name="partner_id"/>
+              <field name="count_signed_by_partner_id" invisible="0" domain="[('parent_id', '=', company_id)]"/>
+              <field name="count_authority_text" invisible="0"/>
+              <field name="is_n_term" invisible="True" options="{'always_reload': True}"/>
+              <label for="ufs_payment_term_id"/>
+              <div class="o_row" name="payment_term_id">
+                <field name="ufs_payment_term_id"/>
+                <span>N =</span>
+                <field name="n_days_count" options="{'always_reload': True}"/>
+              </div>
+            </group>
+            <group name="right" string="Our Company">
+              <field name="company_id"/>
+                <field name="u_guid" groups="ufs_base.group_ufs_guid" readonly="u_guid"/>
+              <field name="company_partner_id" invisible="True"/>
+              <field name="our_signed_by_partner_id" domain="[('parent_id', '=', company_partner_id)]" invisible="0"/>
+              <field name="our_authority_text" invisible="0"/>
+              <field name="currency_id"/>
+              <field name="invoicing_currency_id"/>
+              <field name="payment_currency_id"/>
+              <field name="payment_currency_compute_rule" invisible="not payment_currency_id or payment_currency_id == currency_id"/>
+              <field name="is_cash_expected" groups="ufs_base.group_ufs_use_cash"/>
+            </group>
+          </group>
+            <group name="special_terms" string="Special Terms">
+                <field name="tilt_penalty"/>
+                <field name="ref_penalty"/>
+                <field name="oversized_penalty"/>
+                <field name="load_fail_penalty_terms"/>
+                <field name="notes"/>
+            </group>
+            <group name="doc_params" string="Invoice Line Name Parameters">
+                <field name="use_doc_params"/>
+                <field name="service_name_vehicle" invisible="not use_doc_params"/>
+                <field name="service_name_incoming_ref" invisible="not use_doc_params"/>
+                <field name="service_name_contract" invisible="not use_doc_params"/>
+                <field name="service_name_loading_date" invisible="not use_doc_params"/>
+                <field name="service_name_unloading_date" invisible="not use_doc_params"/>
+                <field name="service_name_documents" invisible="not use_doc_params"/>
+                <field name="service_name_driver" invisible="not use_doc_params"/>
+            </group>
+            <notebook>
+              <page string="Document Preferences" name="doc_preferences">
+                <field name="doc_preference_ids" nolabel="1"/>
+              </page>
+            </notebook>
+        </sheet>
+        <!--                <sheet invisible="True">-->
+        <!--                    <group name="Contract">-->
+        <!--                        <field name="contract_html"/>-->
+        <!--                    </group>-->
+        <!--                </sheet>-->
+
+        <chatter open_attachments="True" reload_on_attachment="True"/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_contract_list_view" model="ir.ui.view">
+        <field name="name">ufs.contract.list</field>
+        <field name="model">ufs.contract</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="company_id"/>
+        <field name="sign_date"/>
+        <field name="expiration_date"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_contract_search_view" model="ir.ui.view">
+        <field name="name">ufs.contract.search</field>
+        <field name="model">ufs.contract</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Equipment">
+        <field name="name"/>
+        <field name="company_id"/>
+        
+        <field name="partner_id"/>
+        
+        <filter context="{'group_by' : 'partner_id'}" string="Partner" name="group_by_partner_id"/>
+        <filter context="{'group_by' : 'company_id'}" string="Company" name="group_by_company_id"/>
+        <filter context="{'group_by' : 'expiration_date:month'}" string="Expiration Date" name="group_by_expiration_date"/>
+      </search>]]></field>
+    </record>
+    <record id="view_ufs_contract_doc_pref_list" model="ir.ui.view">
+        <field name="name">ufs.contract.doc.preference.list</field>
+        <field name="model">ufs.contract.doc.preference</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list editable="bottom">
+        <field name="doc_type_id"/>
+        <field name="by_post"/>
+        <field name="by_email"/>
+        <field name="by_edi"/>
+        <field name="docs_email" optional="show"/>
+        <field name="postal_contact_name" optional="show"/>
+        <field name="postal_contact_phone" optional="show"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_base_doc_type_form_view" model="ir.ui.view">
+        <field name="name">ufs.doc.type.form</field>
+        <field name="model">ufs.doc.type</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Doc Types">
+                <sheet>
+                    <group>
+                    <field name="name"/>
+                    <field name="models_selection"/>
+                    <field name="days_to_renew" help="If filled, to renew status will be checked by this amount of days"/>
+                    <field name="active"/>
+                    </group>
+                </sheet>
+            </form>]]></field>
+    </record>
+    <record id="ufs_base_doc_type_list_view" model="ir.ui.view">
+        <field name="name">ufs.doc.type.list</field>
+        <field name="model">ufs.doc.type</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list string="Doc Types">
+                <field name="name"/>
+                <field name="models_selection"/>
+                <field name="days_to_renew"/>
+                <field name="active" optional="show"/>
+            </list>]]></field>
+    </record>
+    <record id="ufs_driver_form_view" model="ir.ui.view">
+        <field name="name">ufs.driver.form</field>
+        <field name="model">ufs.driver</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="drivers">
+        <sheet>
+          <group name="main">
+            <group name="main_left">
+              <field name="name"/>
+              <field name="short_name"/>
+            </group>
+            <group name="main_right">
+              <field name="ufs_object_id"/>
+              <field name="partner_id"/>
+            </group>
+          </group>
+          <group name="bottom_group"/>
+        </sheet>
+          <chatter/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_driver_list_view" model="ir.ui.view">
+        <field name="name">ufs.driver.list</field>
+        <field name="model">ufs.driver</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="ufs_object_id"/>
+        <field name="partner_id"/>
+      </list>]]></field>
+    </record>
+    <record id="view_wizard_grant_company_access_form" model="ir.ui.view">
+        <field name="name">ufs.grant.company.access.form</field>
+        <field name="model">ufs.grant.company.access</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Grant Access to a company">
+        <sheet>
+          <group>
+            <field name="company_id" invisible="1"/>
+            <field name="user_ids" widget="many2many_avatar_user"/>
+          </group>
+          <footer>
+            
+            <button string="Cancel" class="btn-secondary" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_location_form_view" model="ir.ui.view">
+        <field name="name">ufs.location.form</field>
+        <field name="model">ufs.location</field>
+        <field name="type">form</field>
+        <field name="priority">2</field>
+        <field name="arch"><![CDATA[<form string="Locations">
+        <sheet>
+          <group>
+            <group>
+              <field name="complete_name" readonly="True"/>
+              <field name="name" on_change="1" required="True"/>
+              <field name="address" readonly="state in ['locked']"/>
+              <!--<field name="slistt" modifiers="{'readonly':[['state','in',['locked']]]}"/>-->
+              <!--<field name="slistt2" modifiers="{'readonly':[['state','in',['locked']]]}"/>-->
+              <field name="city" readonly="state in ['locked']"/>
+              <field name="postcode" on_change="1"/>
+              <field name="country_id" options="{'no_create_edit': True, 'no_open': True}" readonly="state in ['locked']" required="True"/>
+              <!--<field name="state_id" can_create="true" can_write="true" modifiers="{'readonly':[['state','in',['locked']]]}"/>-->
+              <separator/>
+            </group>
+            <group>
+              <field name="contact_person"/>
+              <field name="owner_partner_id" can_create="true" can_write="true" readonly="True"/>
+              <field name="partner_id" can_create="true" can_write="true"/>
+              <field name="state"/>
+              <field name="latitude" readonly="state in ['locked']"/>
+              <field name="longitude" readonly="state in ['locked']"/>
+            </group>
+          </group>
+          <group>
+            <field name="address_found"/>
+            
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_location_list_view" model="ir.ui.view">
+        <field name="name">ufs.location.list</field>
+        <field name="model">ufs.location</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="complete_name"/>
+        <field name="city"/>
+        <field name="postcode"/>
+        <field name="country_id"/>
+        <field name="partner_id" optional="hide"/>
+        <field name="state" groups="base.group_no_one"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_location_search_view" model="ir.ui.view">
+        <field name="name">ufs.location.search</field>
+        <field name="model">ufs.location</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="name"/>
+        <field name="city"/>
+        <field name="postcode"/>
+        <separator/>
+        <group string="Group by...">
+          <filter string="Country" name="group_country_id" context="{'group_by': 'country_id'}"/>
+          <filter string="City" name="group_city" context="{'group_by': 'city'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="view_ufs_order_category_form" model="ir.ui.view">
+        <field name="name">ufs.order.category.form</field>
+        <field name="model">ufs.order.category</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Order Category">
+        <sheet>
+          <group>
+            <field name="name" required="1"/>
+            <field name="code" required="1"/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="view_ufs_order_category_list" model="ir.ui.view">
+        <field name="name">ufs.order.category.list</field>
+        <field name="model">ufs.order.category</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list string="Order Categories">
+        <field name="name"/>
+        <field name="code"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_view_partner_doc_list" model="ir.ui.view">
+        <field name="name">hr.partner.doc.list.ufs</field>
+        <field name="model">ufs.partner.doc.line</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="doc_type"/>
+        <field name="partner_id"/>
+        <field name="expiration_date"/>
+        <field name="responsible_ids" widget="many2many_tags_avatar"/>
+        <!--<field name="work_email"/>-->
+        <field name="attached_scan" widget="binary" filename="attached_scan_fname"/>
+        <field name="attached_scan_fname" column_invisible="True"/>
+        <field name="color" invisible="True"/>
+        <field name="state"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_partner_doc_line_filter" model="ir.ui.view">
+        <field name="name">ufs.partner.doc.line.filter</field>
+        <field name="model">ufs.partner.doc.line</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="create_uid" invisible="True"/>
+        <field name="write_uid" invisible="True"/>
+        <field name="create_date" invisible="True"/>
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="doc_type"/>
+        <!--<field name="name" string="Name" filter_domain="[('name', 'ilike', self)]"/>-->
+        <separator/>
+        <filter name="current" string="Actual" domain="[('state', '=', 'current')]"/>
+        <filter name="to_renew" string="To Renew" domain="[('state', '=', 'to_renew')]"/>
+        <filter name="to_renew_urgent" string="To Renew(2 weeks)" domain="[('state', '=', 'to_renew_urgent')]"/>
+        <filter name="expired" string="Expired" domain="[('state', '=', 'expired')]"/>
+        <group string="Group by...">
+          <filter string="Partner" name="group_partner_id" context="{'group_by': 'partner_id'}"/>
+          <filter string="State" name="group_state" context="{'group_by': 'state'}"/>
+          <filter string="Doc Type" name="group_doc_type" context="{'group_by': 'doc_type'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_partner_doc_line_form" model="ir.ui.view">
+        <field name="name">ufs.partner.doc.line.form</field>
+        <field name="model">ufs.partner.doc.line</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form string="Partner Document">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="doc_type"/>
+            <field name="partner_id"/>
+            <field name="expiration_date"/>
+            <field name="responsible_ids" widget="many2many_tags_avatar"/>
+            <field name="attached_scan" widget="binary" filename="attached_scan_fname"/>
+            <field name="attached_scan_fname" invisible="True"/>
+            <field name="state"/>
+            <field name="color" invisible="True"/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="view_ufs_strict_doc_filter" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.filter</field>
+        <field name="model">ufs.strict_doc</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="name"/>
+        <field name="doc_type"/>
+        <separator/>
+        <filter name="filter_last_month_used" string="Last Month Used" date="use_date" default_period="month-1"/>
+        <filter name="not_returned" string="Not Returned to Vendor" domain="[('returned_to_vendor_date', '=', False)]"/>
+        <filter name="not_used" string="Not Used" domain="[('use_date', '=', False)]"/>
+        <group string="Group by...">
+          <filter string="Type" name="group_doc_type" context="{'group_by': 'doc_type'}"/>
+          <filter string="Vendor" name="group_partner_id" context="{'group_by': 'partner_id'}"/>
+          <filter string="Valid Until" name="group_valid_date" context="{'group_by': 'valid_date:month'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_strict_doc_form_view" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.form</field>
+        <field name="model">ufs.strict_doc</field>
+        <field name="type">form</field>
+        <field name="priority">3</field>
+        <field name="arch"><![CDATA[<form string="Strict Docs">
+        <header/>
+        <sheet name="main_sheet">
+          <group>
+            <group>
+              <field name="name" required="1"/>
+              <field name="doc_type" required="1"/>
+              <field name="subtype_id" required="1" context="{'default_doc_type': doc_type}"/>
+              <field name="country_id" invisible="doc_type != 'permission'"/>
+              <field name="use_type" required="1"/>
+              <field name="issue_date" required="1"/>
+              <field name="valid_date" required="doc_type in ['permission', 'cemt', 'poa']"/>
+            </group>
+            <group>
+              <field name="company_id" groups="base.group_multi_company"/>
+              <field name="partner_id"/>
+              <field name="cost" required="doc_type in ['permission', 'cemt', 'tir']"/>
+              <field name="currency_id" class="oe_edit_only" required="doc_type in ['permission', 'cemt', 'tir']"/>
+              <field name="use_date"/>
+              <field name="returned_to_vendor_date"/>
+            </group>
+          </group>
+          <group>
+            <!--                        <field name="scan_ids" required="1" widget="many2many_binary_preview"/>-->
+          </group>
+        </sheet>
+<chatter open_attachments="True" reload_on_attachment="True"/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_strict_doc_list_view" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.list</field>
+        <field name="model">ufs.strict_doc</field>
+        <field name="type">list</field>
+        <field name="priority">3</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="doc_type"/>
+        <field name="subtype_id"/>
+        <field name="name"/>
+        <field name="issue_date"/>
+        <field name="valid_date"/>
+        <field name="cost"/>
+        <field name="currency_id" invisible="True"/>
+        <field name="returned_to_vendor_date"/>
+      </list>]]></field>
+    </record>
+    <record id="view_ufs_strict_doc_subtype_filter" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.subtype.filter</field>
+        <field name="model">ufs.strict_doc.subtype</field>
+        <field name="type">search</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<search string="Search">
+        <field name="name"/>
+        <field name="doc_type"/>
+        <group string="Group by...">
+          <filter string="Type" name="group_doc_type" context="{'group_by': 'doc_type'}"/>
+        </group>
+      </search>]]></field>
+    </record>
+    <record id="ufs_strict_doc_subtype_form_view" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.subtype.form</field>
+        <field name="model">ufs.strict_doc.subtype</field>
+        <field name="type">form</field>
+        <field name="priority">3</field>
+        <field name="arch"><![CDATA[<form string="Strict Docs">
+        <sheet>
+          <group>
+            <group>
+              <field name="doc_type"/>
+              <field name="name"/>
+              <field name="use_type"/>
+            </group>
+            <group>
+              <field name="note"/>
+            </group>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_strict_doc_subtype_list_view" model="ir.ui.view">
+        <field name="name">ufs.strict_doc.subtype.list</field>
+        <field name="model">ufs.strict_doc.subtype</field>
+        <field name="type">list</field>
+        <field name="priority">3</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="doc_type"/>
+        <field name="name"/>
+        <field name="use_type"/>
+        <field name="note"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_tracking_provider_form_view" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.form</field>
+        <field name="model">ufs.tracking.system</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Tracking System">
+        <header>
+          
+          
+          
+          
+          
+        </header>
+        <sheet>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="endpoint_uri"/>
+              <field name="credentials"/>
+              <field name="force_verify_false" groups="base.group_no_one"/>
+            </group>
+            <group>
+              <field name="active"/>
+              <field name="company_id"/>
+              <field name="parse_schema"/>
+              <field name="parse_schema_comment"/>
+            </group>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_tracking_provider_list_view" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.list</field>
+        <field name="model">ufs.tracking.system</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="parse_schema"/>
+      </list>]]></field>
+    </record>
+    <record id="tracking_locations_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.locations.wizard.form</field>
+        <field name="model">ufs.tracking.system.locations.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+                <group>
+                    <group>
+                        <field name="tracking_system_id" invisible="1"/>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_tracking_refill_form_view" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.refill.form</field>
+        <field name="model">ufs.tracking.system.refill</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Tracking System Refill">
+        <header>
+
+        </header>
+        <sheet>
+            <group>
+                <group>
+                    <field name="name"/>
+                    <field name="vehicle_id"/>
+                    <field name="operation_dttm"/>
+                    <field name="driver_id"/>
+                    <field name="amount"/>
+                    <field name="tracking_system_id"/>
+                </group>
+                <group string="Location">
+                    <field name="address"/>
+                    <field name="latitude"/>
+                    <field name="longitude"/>
+                </group>
+            </group>
+            <field name="raw_data" groups="base.group_no_one"/>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_tracking_refill_list_view" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.refill.list</field>
+        <field name="model">ufs.tracking.system.refill</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="operation_dttm"/>
+        <field name="vehicle_id"/>
+        <field name="driver_id"/>
+        <field name="amount"/>
+        <field name="address"/>
+      </list>]]></field>
+    </record>
+    <record id="tracking_refill_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.tracking.system.refill.wizard.form</field>
+        <field name="model">ufs.tracking.system.refill.wizard</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+                <group>
+                    <group>
+                        <field name="tracking_system_id" invisible="1"/>
+                        <field name="date_from"/>
+                    </group>
+                    <group>
+                        <field name="date_to"/>
+                    </group>
+                </group>
+                <footer>
+                    
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>]]></field>
+    </record>
+    <record id="ufs_transport_document_form_view" model="ir.ui.view">
+        <field name="name">ufs.transport.document.form</field>
+        <field name="model">ufs.transport.document</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="Strict Docs">
+        <sheet>
+          <group>
+            <field name="type_id"/>
+            <field name="name"/>
+            <field name="date"/>
+            <field name="receive_date"/>
+            <field name="original_receive_date"/>
+            <field name="attached_scan" filename="attached_scan_fname" widget="binary"/>
+            <field name="attached_scan_fname" invisible="True"/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_transport_document_list_view" model="ir.ui.view">
+        <field name="name">ufs.transport.document.list</field>
+        <field name="model">ufs.transport.document</field>
+        <field name="type">list</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<list create="0" edit="0" delete="0">
+        <field name="name"/>
+        <field name="type_id"/>
+        <field name="date"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_transport_document_type_form" model="ir.ui.view">
+        <field name="name">ufs.transport.document.type.form</field>
+        <field name="model">ufs.transport.document.type</field>
+        <field name="type">form</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="to_move"/>
+            <field name="show_in_partner_form"/>
+            <field name="active"/>
+          </group>
+        </sheet>
+      </form>]]></field>
+    </record>
+    <record id="ufs_transport_document_type_list" model="ir.ui.view">
+        <field name="name">ufs.transport.document.type.list</field>
+        <field name="model">ufs.transport.document.type</field>
+        <field name="type">list</field>
+        <field name="priority">16</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="to_move"/>
+        <field name="show_in_partner_form"/>
+        <field name="active"/>
+      </list>]]></field>
+    </record>
+    <record id="ufs_vehicle_form_view" model="ir.ui.view">
+        <field name="name">ufs.vehicle.form</field>
+        <field name="model">ufs.vehicle</field>
+        <field name="type">form</field>
+        <field name="priority">32</field>
+        <field name="arch"><![CDATA[<form string="vehicles">
+        <sheet>
+          <group name="main">
+            <group name="main_left">
+              <field name="name"/>
+              <field name="fleet_type"/>
+              <field name="power_type" invisible="fleet_type != 'power_unit'"/>
+              <field name="trailer_type" invisible="fleet_type != 'trailer'"/>
+            </group>
+            <group name="main_right">
+              <field name="partner_id"/>
+            </group>
+          </group>
+          <group name="bottom_group"/>
+        </sheet>
+          <chatter/>
+      </form>]]></field>
+    </record>
+    <record id="ufs_vehicle_list_view" model="ir.ui.view">
+        <field name="name">ufs.vehicle.list</field>
+        <field name="model">ufs.vehicle</field>
+        <field name="type">list</field>
+        <field name="priority">1</field>
+        <field name="arch"><![CDATA[<list>
+        <field name="name"/>
+        <field name="fleet_type"/>
+        <field name="partner_id"/>
+      </list>]]></field>
+    </record>
+</data>
+</odoo>

@@ -1,0 +1,86 @@
+from odoo import fields, models
+
+class AccountMove(models.Model):
+    _inherit = "account.move"
+    account_move_act_id = fields.Many2one(string="Act", comodel_name="account.move.act")
+    account_move_act_ids = fields.Many2many(string="Acts", comodel_name="account.move.act")
+    act_ids = fields.Many2many(string="Acts", comodel_name="account.move.act", relation="account_move_act_ids_rel")
+    amount_paid_base = fields.Monetary(string="Paid Amount in Base Currency", readonly=True)
+    amount_residual_base = fields.Monetary(string="Residual Amount in Base Currency", readonly=True)
+    amount_total_base = fields.Monetary(string="Amount in Base Currency", readonly=True)
+    base_currency_id = fields.Many2one(string="Base Currency", readonly=True, store=False, comodel_name="res.currency", related="company_id.base_currency_id")
+    currency_compute_rule = fields.Selection(string="Currency Compute Rule", selection=[("placeholder", "Placeholder")])
+    customer_receive_date = fields.Date(string="Customer Receive Date")
+    deal_currency_amount = fields.Monetary(string="Amount in Deal Currency", readonly=True, help="Invoice total converted to the original deal currency at invoice date")
+    deal_currency_id = fields.Many2one(string="Deal Currency", help="Original freight currency from the source order", comodel_name="res.currency")
+    external_ref = fields.Char(string="External System Nr.")
+    has_act = fields.Boolean(string="Has Act", readonly=True)
+    has_multiple_orders = fields.Boolean(string="Has Multiple Orders", readonly=True, store=False, help="True if invoice has service lines from multiple orders")
+    has_stamp_image = fields.Boolean(string="Has Stamp Image", readonly=True, store=False)
+    invoice_base_date = fields.Date(string="Invoice Base Date", help="Customer Receive, Load, Unload etc. Date")
+    invoice_partner_bank_ids = fields.Many2many(string="Bank Accounts for Report", help="If is set, these accounts will be printed out for some reports", comodel_name="res.partner.bank")
+    is_business_day_term = fields.Boolean(string="Is Business day N term", readonly=True)
+    is_cash_expected = fields.Boolean(string="Cash Expected")
+    is_n_term = fields.Boolean(string="Is N term", readonly=True)
+    last_payment_date = fields.Date(string="Last Payment Date", readonly=True, help="The most recent date when this invoice had a payment applied (from account.payment, reconciled journal items or statement lines).")
+    n_days_count = fields.Integer(string="N", readonly=True)
+    needs_currency_recalc = fields.Boolean(string="Needs Currency Recalc")
+    order_incoming_ref = fields.Char(string="Incoming Ref")
+    payment_term_id = fields.Many2one(string="Payment Terms", readonly=True, comodel_name="account.payment.term")
+    print_stamp = fields.Boolean(string="Print Stamp In Report")
+    ufs_attached_document_ids = fields.Many2many(string="Attached Documents", readonly=True, comodel_name="ufs.transport.document")
+    ufs_attached_document_verbose = fields.Char(string="Documents Attached", readonly=True, store=False)
+    ufs_contract_id = fields.Many2one(string="Contract", comodel_name="ufs.contract")
+    ufs_order_count = fields.Integer(string="Order Count", readonly=True)
+    ufs_order_ids = fields.Many2many(string="Connected Orders", readonly=True, help="All orders connected via invoice line service connections", comodel_name="ufs.base.order")
+    ufs_payment_term_id = fields.Many2one(string="Payment Terms", readonly=True, comodel_name="ufs.payment.term")
+    ufs_state = fields.Selection(string="Ufs State", readonly=True, store=False, translate=True, selection=[("placeholder", "Placeholder")])
+    ufs_state_localized = fields.Char(string="Inv.state", readonly=True, store=False)
+
+class AccountMoveAct(models.Model):
+    _name = "account.move.act"
+    _description = "Account Move Act"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+    act_currency_rate = fields.Float(string="Currency Rate", readonly=True, store=False, help="Currency rate from company currency to document currency.")
+    act_date = fields.Date(string="Act Date")
+    amount_tax = fields.Monetary(string="Tax", readonly=True, store=False)
+    amount_total = fields.Monetary(string="Amount Total", readonly=True, store=False)
+    amount_total_company = fields.Monetary(string="Amount Total Company", readonly=True, store=False)
+    amount_untaxed = fields.Monetary(string="Untaxed", readonly=True, store=False)
+    base_order_ids = fields.Many2many(string="Connected Orders", readonly=True, help="All orders connected via invoice line service connections", comodel_name="ufs.base.order", related="move_ids.ufs_order_ids")
+    company_currency_id = fields.Many2one(string="Company Currency", readonly=True, store=False, comodel_name="res.currency", related="company_id.currency_id")
+    company_id = fields.Many2one(string="Company", readonly=True, comodel_name="res.company")
+    currency_compute_rule = fields.Selection(string="Currency Compute Rule", selection=[("placeholder", "Placeholder")])
+    currency_id = fields.Many2one(string="Currency", readonly=True, comodel_name="res.currency")
+    external_ref = fields.Char(string="External System Nr.")
+    has_message = fields.Boolean(string="Has Message", readonly=True, store=False)
+    has_stamp_image = fields.Boolean(string="Has Stamp Image", readonly=True, store=False)
+    invoice_date = fields.Date(string="Invoice Date", readonly=True)
+    invoice_line_ids = fields.Many2many(string="Invoice Line", readonly=True, comodel_name="account.move.line")
+    is_business_day_term = fields.Boolean(string="Is Business day N term")
+    is_n_term = fields.Boolean(string="Is N term")
+    main_move_id = fields.Many2one(string="Move", readonly=True, comodel_name="account.move")
+    move_ids = fields.Many2many(string="Moves", comodel_name="account.move")
+    n_days_count = fields.Integer(string="N")
+    name = fields.Char(string="Name", readonly=True)
+    narration = fields.Text(string="Narration")
+    needs_currency_recalc = fields.Boolean(string="Needs Currency Recalc")
+    partner_bank_id = fields.Many2one(string="Partner Bank", readonly=True, comodel_name="res.partner.bank")
+    partner_id = fields.Many2one(string="Partner", readonly=True, comodel_name="res.partner")
+    payment_term_id = fields.Many2one(string="Payment Terms", comodel_name="account.payment.term")
+    print_stamp = fields.Boolean(string="Print Stamp", help="Print stamp while PDF creaton")
+    state = fields.Selection(string="Status", selection=[("placeholder", "Placeholder")])
+    ufs_contract_id = fields.Many2one(string="Contract", comodel_name="ufs.contract")
+    ufs_payment_term_id = fields.Many2one(string="Payment Terms", readonly=True, store=False, comodel_name="ufs.payment.term")
+
+class AccountMoveLine(models.Model):
+    _inherit = "account.move.line"
+    name_partner = fields.Text(string="Name (Partner Language)", help="Invoice line name in partner's language.")
+    service_line_id = fields.Many2one(string="UFS Service", comodel_name="ufs.order.service")
+    ufs_attached_document_ids = fields.Many2many(string="Attached Documents", comodel_name="ufs.transport.document")
+    ufs_attached_document_verbose = fields.Char(string="Documents Attached", readonly=True, store=False)
+    ufs_order_id = fields.Many2one(string="UFS Order", readonly=True, store=False, help="Order connected via service line", comodel_name="ufs.base.order", related="service_line_id.order_id")
+
+class AccountMoveSend(models.AbstractModel):
+    _inherit = "account.move.send"
+    # No ufs_base-owned fields captured for this extension

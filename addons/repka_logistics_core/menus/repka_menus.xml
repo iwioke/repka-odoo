@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_240"
+        name="UFS"
+        sequence="20"
+/>
+    <menuitem id="menu_241"
+        name="Configuration"
+        sequence="99"
+        parent="menu_240"
+/>
+    <menuitem id="menu_242"
+        name="Reports"
+        sequence="70"
+        parent="menu_240"
+/>
+    <menuitem id="menu_243"
+        name="Order Categories"
+        sequence="80"
+        parent="menu_241"
+        action="action_ufs_order_category"
+/>
+    <menuitem id="menu_244"
+        name="Base Orders"
+        sequence="10"
+        parent="menu_241"
+        action="action_view_ufs_order"
+/>
+    <menuitem id="menu_245"
+        name="Cargoes"
+        sequence="20"
+        parent="menu_241"
+        action="action_view_ufs_cargo_lines"
+/>
+    <menuitem id="menu_246"
+        name="Doc Types"
+        sequence="70"
+        parent="menu_241"
+        action="action_view_ufs_base_doc_type"
+/>
+    <menuitem id="menu_247"
+        name="Partner Documents"
+        sequence="30"
+        parent="contacts.menu_contacts"
+        action="action_view_ufs_partner_docs"
+/>
+    <menuitem id="menu_248"
+        name="Strict Docs Types"
+        sequence="30"
+        parent="menu_241"
+        action="action_view_ufs_strict_doc_subtype"
+/>
+    <menuitem id="menu_249"
+        name="Equipments"
+        sequence="30"
+        parent="fleet.fleet_vehicle_menu"
+        action="action_view_ufs_base_equipment"
+/>
+    <menuitem id="menu_250"
+        name="Contracts"
+        sequence="30"
+        parent="contacts.menu_contacts"
+        action="action_view_ufs_contract"
+/>
+    <menuitem id="menu_251"
+        name="Acts"
+        sequence="10"
+        parent="account.menu_finance_receivables"
+        action="action_account_move_act"
+/>
+    <menuitem id="menu_252"
+        name="UFS Vehicles"
+        sequence="32"
+        parent="menu_241"
+        action="action_view_ufs_vehicles"
+/>
+    <menuitem id="menu_253"
+        name="UFS drivers"
+        sequence="32"
+        parent="menu_241"
+        action="action_view_ufs_drivers"
+/>
+    <menuitem id="menu_255"
+        name="Tracking Refuels"
+        sequence="32"
+        parent="menu_241"
+        action="action_view_ufs_tracking_refills"
+/>
+    <menuitem id="menu_309"
+        name="Transport Document Types"
+        sequence="10"
+        parent="menu_241"
+        action="action_ufs_transport_document_types"
+/>
+</data>
+</odoo>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="action_ufs_order_category" model="ir.actions.act_window">
+        <field name="name">Order Categories</field>
+        <field name="res_model">ufs.order.category</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_config" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'module' : 'ufs_base', 'bin_size': False}</field>
+    </record>
+    <record id="action_view_ufs_order" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="res_model">ufs.base.order</field>
+        <field name="view_mode">kanban,list,pivot,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_cargo_lines" model="ir.actions.act_window">
+        <field name="name">Cargoes</field>
+        <field name="res_model">ufs.cargo_line</field>
+        <field name="view_mode">list,pivot,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_location" model="ir.actions.act_window">
+        <field name="name">Locations</field>
+        <field name="res_model">ufs.location</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_base_doc_type" model="ir.actions.act_window">
+        <field name="name">Doc Types</field>
+        <field name="res_model">ufs.doc.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_partner_docs" model="ir.actions.act_window">
+        <field name="name">Partner Documents</field>
+        <field name="res_model">ufs.partner.doc.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_strict_doc" model="ir.actions.act_window">
+        <field name="name">Strict Docs</field>
+        <field name="res_model">ufs.strict_doc</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_strict_doc_subtype" model="ir.actions.act_window">
+        <field name="name">Strict Docs Types</field>
+        <field name="res_model">ufs.strict_doc.subtype</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_base_equipment" model="ir.actions.act_window">
+        <field name="name">Equipment</field>
+        <field name="res_model">ufs.base.equipment</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_contract" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">ufs.contract</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_account_move_act" model="ir.actions.act_window">
+        <field name="name">Acts</field>
+        <field name="res_model">account.move.act</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_vehicles" model="ir.actions.act_window">
+        <field name="name">UFS Vehicles</field>
+        <field name="res_model">ufs.vehicle</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_drivers" model="ir.actions.act_window">
+        <field name="name">UFS drivers</field>
+        <field name="res_model">ufs.driver</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_tracking_systems" model="ir.actions.act_window">
+        <field name="name">Tracking Systems</field>
+        <field name="res_model">ufs.tracking.system</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_view_ufs_tracking_refills" model="ir.actions.act_window">
+        <field name="name">Refills by Tracking Systems</field>
+        <field name="res_model">ufs.tracking.system.refill</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_wizard_grant_company_access" model="ir.actions.act_window">
+        <field name="name">Grant Access to a company</field>
+        <field name="res_model">ufs.grant.company.access</field>
+        <field name="view_mode">form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_transport_documents" model="ir.actions.act_window">
+        <field name="name">Transport Documents</field>
+        <field name="res_model">ufs.transport.document</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_ufs_transport_document_types" model="ir.actions.act_window">
+        <field name="name">Transport Document Types</field>
+        <field name="res_model">ufs.transport.document.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{}</field>
+    </record>
+    <record id="action_account_move_create_act" model="ir.actions.server">
+        <field name="name">Create Act</field>
+        <field name="model_id" ref="model_account_move"/>
+        <field name="state">code</field>
+    </record>
+</data>
+</odoo>

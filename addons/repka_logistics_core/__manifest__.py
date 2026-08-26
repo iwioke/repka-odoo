@@ -1,0 +1,22 @@
+{
+    "name": "РЕПКА: Логистическое ядро",
+    "version": "18.0.1.0.0",
+    "category": "Services/Logistics",
+    "summary": "Clean-room reconstruction of the logistics foundation",
+    "description": "РЕПКА logistics core — clean-room reconstruction from audited metadata.",
+    "author": "РЕПКА",
+    "website": "https://github.com/iwioke/repka-odoo",
+    "license": "LGPL-3",
+    "depends": ["base", "web_responsive", "hr", "contacts", "web_notify", "base_view_inheritance_extension", "base_fontawesome", "uom", "fleet", "web_chatter_position", "account", "repka_web_boolean_button", "repka_binary_preview_icon", "repka_base", "repka_oca"],
+    "data": [
+        "security/repka_security.xml",
+        "security/ir.model.access.csv",
+        "data/repka_data.xml",
+        "actions/repka_actions.xml",
+        "views/repka_views.xml",
+        "menus/repka_menus.xml",
+    ],
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}
