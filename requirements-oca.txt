@@ -1,0 +1,9 @@
+astor==0.8.1 --hash=sha256:070a54e890cefb5b3739d19f30f5a5ec840ffc9c50ffa7d23cc9fc1a38ebbfc5
+odoo-addon-base-fontawesome==18.0.1.0.0.2 --hash=sha256:c08e7ee071103c480bb06b55f93e89ae9788a32c9fc199d2fdc69cf99516aba4
+odoo-addon-base-view-inheritance-extension==18.0.1.0.1 --hash=sha256:d8285938a1ed399f73b00b5a58e542bede761912f3f94a20cbbed8b0e408c335
+odoo-addon-currency-rate-update==18.0.1.0.1.13 --hash=sha256:0d0ce0c6025c14dbddbeab8733e0f4a3de025099c65d4fe4880a147a732a8f12
+odoo-addon-jsonifier==18.0.1.1.0 --hash=sha256:60704ab6c34113bfe4cbb337a34c87f167a326c85a7fda83ffbbebd0fc2658ea
+odoo-addon-web-chatter-position==18.0.1.0.0.2 --hash=sha256:8cab94cbe4715272b5fbee3627292c3861e90744006fbd17c47c5b71abfa1cba
+odoo-addon-web-notify==18.0.1.1.0 --hash=sha256:1c76f75464021afefb1a5d53b35f801d6e4a0bd9a430d050efe7966834b149a2
+odoo-addon-web-responsive==18.0.1.0.0.2 --hash=sha256:394289b7564c8ad9a3085e99b4cdaa6f5d848cc6c2da448259afdd5dd2e10d06
+odoo-addon-web-timeline==18.0.1.0.3 --hash=sha256:be4304e3d6cf143ed557cdd97c102791cfc005681c61b21d49b5e88481336489

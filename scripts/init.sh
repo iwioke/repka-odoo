@@ -40,6 +40,7 @@ chmod 600 "$SECRETS_DIR"/*.txt
 
 compose=(docker compose --project-directory "$ROOT_DIR" -f "$ROOT_DIR/compose.yaml" -f "$ROOT_DIR/compose.dev.yaml")
 
+"${compose[@]}" build odoo
 "${compose[@]}" up -d --wait db
 
 database_exists="$("${compose[@]}" exec -T db psql -U odoo -d postgres -tAc "SELECT 1 FROM pg_database WHERE datname = '$ODOO_DB_NAME'" | tr -d '[:space:]')"
