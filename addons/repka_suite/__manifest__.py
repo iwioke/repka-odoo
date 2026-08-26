@@ -1,11 +1,12 @@
 {
     "name": "РЕПКА",
     "summary": "Полный набор модулей проекта РЕПКА",
-    "version": "18.0.1.1.0",
+    "version": "18.0.1.2.0",
     "category": "Administration",
     "license": "LGPL-3",
     "depends": [
         "repka_base",
+        "repka_currency_numeric_codes",
         "repka_oca",
         "repka_standard",
         "repka_fleet_battery",

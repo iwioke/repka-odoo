@@ -6,6 +6,10 @@ from pathlib import Path
 
 
 ODOO_AUTHORS = {"Odoo", "Odoo SA", "Odoo S.A."}
+REPLACEMENTS = {
+    "currency_numeric_codes": "repka_currency_numeric_codes",
+    "ufs_fleet_simple_battery": "repka_fleet_battery",
+}
 
 
 def query_local_modules(project_dir, condition):
@@ -40,6 +44,11 @@ def parse_args():
 def main():
     args = parse_args()
     summary = json.loads(args.summary.read_text(encoding="utf-8"))
+    source_all = {
+        module
+        for author in summary["authors"]
+        for module in author["modules"]
+    }
     source_odoo = {
         module
         for author in summary["authors"]
@@ -48,13 +57,24 @@ def main():
     }
     available = query_local_modules(args.project_dir, "TRUE")
     installed = query_local_modules(args.project_dir, "state = 'installed'")
+    replacement_coverage = {
+        source: replacement
+        for source, replacement in REPLACEMENTS.items()
+        if source in source_all and replacement in installed
+    }
+    covered = (source_all & installed) | set(replacement_coverage)
 
     result = {
+        "source_total": len(source_all),
+        "source_modules_covered": len(covered),
+        "source_modules_installed_by_name": len(source_all & installed),
+        "source_modules_replaced_clean_room": replacement_coverage,
+        "source_modules_missing": sorted(source_all - covered),
+        "project_modules": sorted(name for name in installed if name.startswith("repka_")),
         "source_odoo_count": len(source_odoo),
-        "available_count": len(source_odoo & available),
-        "missing_from_image": sorted(source_odoo - available),
-        "already_installed": sorted(source_odoo & installed),
-        "available_not_installed": sorted(source_odoo & available - installed),
+        "source_odoo_available": len(source_odoo & available),
+        "source_odoo_missing_from_image": sorted(source_odoo - available),
+        "source_odoo_not_installed": sorted(source_odoo & available - installed),
     }
     print(json.dumps(result, ensure_ascii=False, indent=2))
 

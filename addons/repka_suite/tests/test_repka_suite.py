@@ -6,6 +6,7 @@ class TestRepkaSuite(TransactionCase):
     def test_suite_modules_are_installed(self):
         expected = {
             "repka_base",
+            "repka_currency_numeric_codes",
             "repka_oca",
             "repka_standard",
             "repka_fleet_battery",

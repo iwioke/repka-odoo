@@ -1,0 +1,16 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repka_currency_numeric_codes
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20251222\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: repka_currency_numeric_codes
+#: model:ir.model.fields,field_description:repka_currency_numeric_codes.field_res_currency__numeric_code
+msgid "ISO 4217 Code"
+msgstr "Код ISO 4217"
