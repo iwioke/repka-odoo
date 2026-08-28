@@ -43,9 +43,11 @@
     ],
     "data": [
         "data/order_stages.xml",
+        "data/user_preferences.xml",
         "views/repka_document_forms.xml",
         "views/repka_app_menus.xml",
     ],
+    "post_init_hook": "post_init_hook",
     "installable": True,
     "application": True,
 }

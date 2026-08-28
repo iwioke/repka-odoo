@@ -140,6 +140,12 @@ class UfsWaybill(models.Model):
         }
 
 
+class ResUsers(models.Model):
+    _inherit = "res.users"
+
+    is_redirect_home = fields.Boolean(default=True)
+
+
 class FleetVehicle(models.Model):
     _inherit = "fleet.vehicle"
 
