@@ -42,6 +42,7 @@
         "stock",
     ],
     "data": [
+        "security/ir.model.access.csv",
         "data/order_stages.xml",
         "data/legacy_order_structure.xml",
         "data/user_preferences.xml",

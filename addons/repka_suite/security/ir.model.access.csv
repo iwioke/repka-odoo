@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_repka_admin_forwarder_order,repka.admin.forwarder.order,repka_forwarding.model_ufs_forwarder_order,base.group_system,1,1,1,1
+access_repka_admin_forwarder_suborder,repka.admin.forwarder.suborder,repka_forwarding.model_ufs_forwarder_suborder,base.group_system,1,1,1,1
+access_repka_admin_waybill,repka.admin.waybill,repka_fleet_waybill.model_ufs_waybill,base.group_system,1,1,1,1
+access_repka_admin_wallet_entry,repka.admin.wallet.entry,repka_fleet_wallet.model_ufs_driver_wallet_entry,base.group_system,1,1,1,1
+access_repka_admin_wallet_vault,repka.admin.wallet.vault,repka_fleet_wallet.model_ufs_wallet_vault,base.group_system,1,1,1,1
