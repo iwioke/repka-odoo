@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="fleet_order_reference_form" model="ir.ui.view">
+        <field name="name">ufs.fleet.order.form.repka</field>
+        <field name="model">ufs.fleet.order</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Транспортные заказы">
+                <header>
+                    <field name="state_id" widget="statusbar" options="{'clickable': true, 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <field name="base_order_id" invisible="1"/>
+                    <field name="company_currency_id" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(account.action_move_out_invoice_type)d" type="action" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <field name="invoice_count" widget="statinfo" string="Счета"/>
+                        </button>
+                        <button name="%(repka_fleet.action_view_ufs_fleet_trip)d" type="action" class="oe_stat_button" icon="fa-truck">
+                            <field name="trips_count" widget="statinfo" string="Рейсы"/>
+                        </button>
+                        <button name="%(account.action_account_payments)d" type="action" class="oe_stat_button" icon="fa-money" string="Банковская оплата"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Транспортные заказы"/>
+                        <h1><field name="name" placeholder="Новый"/></h1>
+                    </div>
+                    <div class="d-flex gap-2 mb-3">
+                        <button name="action_set_customer_order" type="object" string="Для клиента" class="btn-secondary"/>
+                        <button name="action_set_internal_order" type="object" string="Внутренний заказ" class="btn-secondary"/>
+                        <button name="action_request_advance_invoice" type="object" string="Запросить авансовый счёт" class="btn-secondary" invisible="advance_invoice_requested"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="sequence_name" string="Номер заказа"/>
+                            <field name="next_by_start_date" string="Нумерация по дате начала"/>
+                            <field name="company_id" string="Компания"/>
+                            <field name="responsible_user_id" string="Ответственный"/>
+                            <field name="order_date" string="Дата заказа"/>
+                            <field name="partner_id" string="Партнёр"/>
+                            <field name="contact_person_id" string="Контактное лицо"/>
+                            <field name="incoming_ref" string="Входящая заявка"/>
+                            <field name="external_nr" string="Номер 1С"/>
+                            <field name="ufs_contract_id" string="Договор"/>
+                            <field name="ufs_payment_term_id" string="Условия оплаты"/>
+                            <field name="n_days_count" string="N"/>
+                            <field name="print_stamp" string="Факсимиле печати"/>
+                        </group>
+                        <group>
+                            <field name="truck_id" string="Тягач"/>
+                            <field name="trailer_id" string="П.прицеп"/>
+                            <field name="trailer_type" string="Тип (п-)прицепа" readonly="1"/>
+                            <field name="vehicle_responsible_id" string="Диспетчер"/>
+                            <field name="driver_id" string="Водитель"/>
+                            <field name="invoice_ids" string="Счета" widget="many2many_tags" readonly="1"/>
+                            <field name="freight_amount" string="Фрахт"/>
+                            <field name="freight_currency_id" string="Валюта"/>
+                            <field name="invoice_notes" string="Примечания для счёта"/>
+                            <field name="trip_ids" string="Рейсы" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </group>
+                    <separator string="ТОЧКИ МАРШРУТА"/>
+                    <field name="route_ids" nolabel="1">
+                        <list editable="bottom">
+                            <field name="line_type" string="Тип"/>
+                            <field name="datetime" string="Дата и время"/>
+                            <field name="fact_arrival_dttm" string="Факт прибытия" optional="show"/>
+                            <field name="partner_id" string="Место"/>
+                            <field name="location_id" string="Адрес"/>
+                            <field name="location_postcode" string="Индекс" readonly="1"/>
+                            <field name="notes" string="Заметки"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter open_attachments="True" reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="forwarder_order_reference_form" model="ir.ui.view">
+        <field name="name">ufs.forwarder.order.form.repka</field>
+        <field name="model">ufs.forwarder.order</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Экспедиционные заказы">
+                <header>
+                    <field name="state_id" widget="statusbar" options="{'clickable': true, 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <field name="base_order_id" invisible="1"/>
+                    <field name="company_currency_id" invisible="1"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(account.action_move_out_invoice_type)d" type="action" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <field name="invoice_count" widget="statinfo" string="Счета клиенту"/>
+                        </button>
+                        <button name="%(account.action_account_payments)d" type="action" class="oe_stat_button" icon="fa-money" string="Банковская оплата"/>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Экспедиционные заказы"/>
+                        <h1><field name="name" placeholder="Новый"/></h1>
+                    </div>
+                    <div class="d-flex gap-2 mb-3">
+                        <button name="action_request_advance_invoice" type="object" string="Запросить авансовый счёт" class="btn-secondary" invisible="advance_invoice_requested"/>
+                        <button name="%(repka_forwarding.action_create_suborder)d" type="action" string="Новый подзаказ" class="btn-secondary"/>
+                        <button name="%(account.action_move_out_invoice_type)d" type="action" string="Выставить счёт" class="btn-secondary"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name" string="Номер заказа"/>
+                            <field name="partner_id" string="Заказчик"/>
+                            <field name="parent_partner_id" string="Головной партнёр" readonly="1"/>
+                            <field name="incoming_ref" string="Входящая заявка"/>
+                            <field name="external_nr" string="Внешний номер"/>
+                            <field name="order_date" string="Дата заказа"/>
+                            <field name="ufs_contract_id" string="Договор"/>
+                            <field name="ufs_payment_term_id" string="Условия оплаты"/>
+                            <field name="n_days_count" string="N"/>
+                            <field name="order_finish_date" string="Дата выгрузки (акта)"/>
+                            <field name="print_stamp" string="Факсимиле печати"/>
+                        </group>
+                        <group>
+                            <field name="company_id" string="Компания"/>
+                            <field name="order_type" string="Тип заказа"/>
+                            <field name="responsible_user_id" string="Ответственный"/>
+                            <field name="freight_amount" string="Фрахт"/>
+                            <field name="freight_currency_id" string="Валюта"/>
+                            <field name="services_included_line_ids" string="Включённые услуги" nolabel="1">
+                                <list editable="bottom">
+                                    <field name="product_id" string="Услуга"/>
+                                    <field name="qty" string="Кол-во"/>
+                                    <field name="price" string="Цена"/>
+                                    <field name="currency_id" string="Валюта"/>
+                                    <field name="amount" string="Всего" readonly="1"/>
+                                </list>
+                            </field>
+                            <field name="amount" string="Сумма (баз. валюта)" readonly="1"/>
+                            <field name="amount_company_currency" string="Сумма (вал. компании)" readonly="1"/>
+                            <field name="profitability_by_sub" string="Маржа по подзаказам" readonly="1"/>
+                            <field name="full_profitability" string="Полная маржа" readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter open_attachments="True" reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="waybill_reference_form" model="ir.ui.view">
+        <field name="name">ufs.waybill.form.repka</field>
+        <field name="model">ufs.waybill</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <form string="Путевые листы">
+                <header>
+                    <button name="action_mark_returned" type="object" string="Сдан" class="btn-primary" invisible="state in ('returned', 'closed')"/>
+                    <button name="action_duplicate_without_number" type="object" string="Дублировать без номера" class="btn-secondary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,issued,returned,closed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name" placeholder="Новый"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="truck_id" string="Тягач"/>
+                            <field name="trailer_id" string="Прицеп"/>
+                            <field name="departure_dttm" string="Дата и время выезда"/>
+                            <field name="medic_control_dep_dttm" string="Дата и время врача — выезд"/>
+                            <field name="odometer_dep" string="Одометр — выезд"/>
+                        </group>
+                        <group>
+                            <field name="driver_id" string="Водитель"/>
+                            <field name="driver2_id" string="Водитель 2"/>
+                            <field name="return_dttm" string="Дата и время прибытия"/>
+                            <field name="medic_control_ret_dttm" string="Дата и время врача — прибытие"/>
+                            <field name="odometer_ret" string="Одометр — прибытие"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes" string="Примечания"/>
+                        <field name="issue_date" string="Дата выдачи"/>
+                        <field name="mileage" string="Пробег" readonly="1"/>
+                    </group>
+                    <field name="reverse_trip_ids" nolabel="1" readonly="1">
+                        <list create="0" delete="0" edit="0">
+                            <field name="name" string="Рейс №"/>
+                            <field name="start_datetime" string="Начало"/>
+                            <field name="stop_datetime" string="Окончание"/>
+                            <field name="vehicle_id" string="Тягач"/>
+                            <field name="trailer_id" string="Прицеп"/>
+                            <field name="driver_id" string="Водитель"/>
+                            <field name="trip_route" string="Маршрут"/>
+                            <field name="state" string="Статус"/>
+                        </list>
+                    </field>
+                </sheet>
+                <chatter open_attachments="True" reload_on_attachment="True"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="fleet_vehicle_reference_form" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.repka.blocks</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="priority">90</field>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="before">
+                <header>
+                    <field name="repka_operational_state" widget="statusbar" statusbar_visible="ready,repair"/>
+                </header>
+            </xpath>
+            <xpath expr="//notebook" position="inside">
+                <page string="Характеристики" name="repka_characteristics">
+                    <group>
+                        <group>
+                            <field name="manufacture_year" string="Год производства"/>
+                            <field name="color" string="Цвет"/>
+                            <field name="unit_weight" string="Собственный вес, кг"/>
+                            <field name="engine_nr" string="Номер двигателя"/>
+                            <field name="registration_doc_nr" string="Номер техпаспорта"/>
+                        </group>
+                        <group>
+                            <field name="axes_formula" string="Колёсная формула"/>
+                            <field name="axes_distances" string="Расстояние между осями"/>
+                            <field name="max_load_weight" string="Максимальная загрузка"/>
+                            <field name="tank_volume" string="Объём бака, л"/>
+                        </group>
+                    </group>
+                </page>
+                <page string="Нормы" name="repka_norms">
+                    <group>
+                        <field name="fuel_ratio_norm" string="Норма расхода"/>
+                        <field name="fuel_ratio_norm_winter" string="Зимняя норма расхода"/>
+                        <field name="fuel_ratio_coef" string="Коэффициент расхода"/>
+                        <field name="fuel_norm_ids" nolabel="1"/>
+                    </group>
+                </page>
+                <page string="GPS" name="repka_gps">
+                    <group>
+                        <field name="tracking_provider_id" string="Система слежения"/>
+                        <field name="tracking_system_uid" string="Идентификатор GPS"/>
+                        <field name="longitude_latitude" string="Координаты"/>
+                        <field name="verbose_tracking_location" string="Местоположение"/>
+                        <field name="last_loc_datetime" string="Последнее обновление"/>
+                    </group>
+                </page>
+                <page string="Экипаж" name="repka_crew">
+                    <field name="driver_ids" widget="many2many_tags" string="Экипаж"/>
+                    <field name="current_driver_ids" widget="many2many_tags" string="Водители в рейсе" readonly="1"/>
+                </page>
+                <page string="Документы" name="repka_documents">
+                    <field name="document_ids" nolabel="1"/>
+                </page>
+                <page string="Аккумуляторы" name="repka_batteries">
+                    <field name="battery_ids" nolabel="1"/>
+                </page>
+                <page string="Планы ТО" name="repka_maintenance">
+                    <field name="maintenance_ids" nolabel="1"/>
+                </page>
+                <page string="Топливные карты" name="repka_fuel_cards">
+                    <field name="fuel_card_ids" nolabel="1"/>
+                </page>
+                <page string="Оборудование" name="repka_equipment">
+                    <field name="equipment_ids" nolabel="1"/>
+                </page>
+                <page string="Модель" name="repka_model">
+                    <group>
+                        <field name="model_id"/>
+                        <field name="power_type" string="Тип силовой установки"/>
+                        <field name="trailer_type" string="Тип прицепа"/>
+                        <field name="cargo_bay_length" string="Длина грузового отсека"/>
+                        <field name="cargo_bay_width" string="Ширина грузового отсека"/>
+                        <field name="cargo_bay_height" string="Высота грузового отсека"/>
+                    </group>
+                </page>
+                <page string="Примечания" name="repka_notes">
+                    <field name="notes" nolabel="1" placeholder="Добавьте примечания"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

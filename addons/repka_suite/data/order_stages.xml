@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+    <record id="order_stage_new" model="ufs.order.state">
+        <field name="name">Новый</field>
+        <field name="code">new</field>
+        <field name="sequence">10</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_confirmed" model="ufs.order.state">
+        <field name="name">Подтверждён</field>
+        <field name="code">confirmed</field>
+        <field name="sequence">20</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_loaded" model="ufs.order.state">
+        <field name="name">Загружен</field>
+        <field name="code">loaded</field>
+        <field name="sequence">30</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_in_progress" model="ufs.order.state">
+        <field name="name">Выполняется</field>
+        <field name="code">in_progress</field>
+        <field name="sequence">40</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_marking" model="ufs.order.state">
+        <field name="name">На маркировке</field>
+        <field name="code">marking</field>
+        <field name="sequence">50</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_customs" model="ufs.order.state">
+        <field name="name">Таможня</field>
+        <field name="code">customs</field>
+        <field name="sequence">60</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_unloaded" model="ufs.order.state">
+        <field name="name">Выгружен</field>
+        <field name="code">unloaded</field>
+        <field name="sequence">70</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_invoice" model="ufs.order.state">
+        <field name="name">К выставлению</field>
+        <field name="code">to_invoice</field>
+        <field name="sequence">80</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>

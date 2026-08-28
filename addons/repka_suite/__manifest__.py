@@ -42,6 +42,8 @@
         "stock",
     ],
     "data": [
+        "data/order_stages.xml",
+        "views/repka_document_forms.xml",
         "views/repka_app_menus.xml",
     ],
     "installable": True,
