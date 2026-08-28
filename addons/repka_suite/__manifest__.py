@@ -43,8 +43,10 @@
     ],
     "data": [
         "data/order_stages.xml",
+        "data/legacy_order_structure.xml",
         "data/user_preferences.xml",
         "views/repka_document_forms.xml",
+        "views/repka_action_names.xml",
         "views/repka_app_menus.xml",
     ],
     "post_init_hook": "post_init_hook",

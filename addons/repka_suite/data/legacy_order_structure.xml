@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="order_stage_enroute" model="ufs.order.state">
+        <field name="name">В пути</field>
+        <field name="code">enroute</field>
+        <field name="sequence">45</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_delivered" model="ufs.order.state">
+        <field name="name">Доставлен</field>
+        <field name="code">delivered</field>
+        <field name="sequence">75</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+    </record>
+    <record id="order_stage_finished" model="ufs.order.state">
+        <field name="name">Завершён</field>
+        <field name="code">finished</field>
+        <field name="sequence">90</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+        <field name="is_close" eval="True"/>
+    </record>
+    <record id="order_stage_canceled" model="ufs.order.state">
+        <field name="name">Отменён</field>
+        <field name="code">canceled</field>
+        <field name="sequence">100</field>
+        <field name="type">placeholder</field>
+        <field name="legend_normal">В работе</field>
+        <field name="legend_blocked">Заблокирован</field>
+        <field name="legend_done">Готово</field>
+        <field name="active" eval="True"/>
+        <field name="is_close" eval="True"/>
+        <field name="fold" eval="True"/>
+    </record>
+    <record id="suborder_type_auto_transport" model="ufs.forwarder.suborder.type">
+        <field name="name">Автоперевозка</field>
+        <field name="service_type">placeholder</field>
+        <field name="active" eval="True"/>
+    </record>
+</odoo>
