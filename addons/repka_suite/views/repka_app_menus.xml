@@ -102,24 +102,31 @@
     </record>
 
     <record id="repka_fleet.menu_259" model="ir.ui.menu">
+        <field name="name">Системы слежения</field>
         <field name="parent_id" ref="fleet.fleet_config_settings_menu"/>
     </record>
     <record id="repka_fleet.menu_264" model="ir.ui.menu">
+        <field name="name">Сцепки</field>
         <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
     </record>
     <record id="repka_fleet.menu_266" model="ir.ui.menu">
+        <field name="name">Заявки на ремонт</field>
         <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
     </record>
     <record id="repka_fleet.menu_267" model="ir.ui.menu">
+        <field name="name">Документы сотрудников</field>
         <field name="parent_id" ref="hr.menu_hr_root"/>
     </record>
     <record id="repka_fleet.menu_268" model="ir.ui.menu">
+        <field name="name">Документы на ТС</field>
         <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
     </record>
     <record id="repka_fleet.menu_272" model="ir.ui.menu">
+        <field name="name">Типовые расходы рейса</field>
         <field name="parent_id" ref="repka_logistics_core.menu_241"/>
     </record>
     <record id="repka_fleet.menu_277" model="ir.ui.menu">
+        <field name="name">Причины простоя</field>
         <field name="parent_id" ref="repka_logistics_core.menu_241"/>
     </record>
     <record id="repka_fleet_fuel_import.menu_281" model="ir.ui.menu">
@@ -135,7 +142,114 @@
         <field name="parent_id" ref="fleet.fleet_configuration"/>
     </record>
     <record id="repka_complex_reporting.menu_481" model="ir.ui.menu">
+        <field name="name">Комплексный отчёт по заказам</field>
         <field name="parent_id" ref="repka_logistics_core.menu_242"/>
+    </record>
+
+    <record id="repka_fleet.menu_489" model="ir.ui.menu">
+        <field name="name">Сводная таблица 2</field>
+    </record>
+    <record id="repka_fleet.menu_269" model="ir.ui.menu">
+        <field name="name">Авансы</field>
+    </record>
+    <record id="repka_fleet.menu_270" model="ir.ui.menu">
+        <field name="name">Расходы рейсов</field>
+    </record>
+    <record id="repka_fleet.menu_271" model="ir.ui.menu">
+        <field name="name">Переключения</field>
+    </record>
+    <record id="repka_fleet.menu_273" model="ir.ui.menu">
+        <field name="name">Входящие и исходящие документы</field>
+    </record>
+    <record id="repka_fleet.menu_275" model="ir.ui.menu">
+        <field name="name">Отчёт по рейсам</field>
+    </record>
+    <record id="repka_fleet.menu_276" model="ir.ui.menu">
+        <field name="name">Сегменты рейсов</field>
+    </record>
+    <record id="repka_fleet.menu_278" model="ir.ui.menu">
+        <field name="name">Простои</field>
+    </record>
+    <record id="repka_fleet.menu_279" model="ir.ui.menu">
+        <field name="name">Отчёт по времени рейса</field>
+    </record>
+    <record id="repka_fleet.menu_310" model="ir.ui.menu">
+        <field name="name">Транспортные документы</field>
+    </record>
+    <record id="repka_fleet.menu_488" model="ir.ui.menu">
+        <field name="name">Состояния грузовиков</field>
+    </record>
+
+    <record id="repka_forwarding.menu_298" model="ir.ui.menu">
+        <field name="name">Заказчики</field>
+    </record>
+    <record id="repka_forwarding.menu_299" model="ir.ui.menu">
+        <field name="name">Счета клиентам</field>
+    </record>
+    <record id="repka_forwarding.menu_300" model="ir.ui.menu">
+        <field name="name">Поставщики</field>
+    </record>
+    <record id="repka_forwarding.menu_301" model="ir.ui.menu">
+        <field name="name">Счета поставщиков</field>
+    </record>
+    <record id="repka_forwarding.menu_305" model="ir.ui.menu">
+        <field name="name">Водители UFS</field>
+    </record>
+    <record id="repka_forwarding.menu_306" model="ir.ui.menu">
+        <field name="name">Транспортные средства</field>
+    </record>
+    <record id="repka_forwarding.menu_307" model="ir.ui.menu">
+        <field name="name">Типы подзаказов</field>
+    </record>
+    <record id="repka_forwarding.menu_308" model="ir.ui.menu">
+        <field name="name">Рентабельность заказов</field>
+    </record>
+    <record id="repka_forwarding.menu_313" model="ir.ui.menu">
+        <field name="name">Транспортные документы</field>
+    </record>
+
+    <record id="repka_logistics_core.menu_247" model="ir.ui.menu">
+        <field name="name">Документы партнёров</field>
+    </record>
+    <record id="repka_logistics_core.menu_249" model="ir.ui.menu">
+        <field name="name">Оборудование</field>
+    </record>
+    <record id="repka_logistics_core.menu_250" model="ir.ui.menu">
+        <field name="name">Договоры</field>
+    </record>
+    <record id="repka_logistics_core.menu_251" model="ir.ui.menu">
+        <field name="name">Акты</field>
+    </record>
+    <record id="repka_fleet.menu_274" model="ir.ui.menu">
+        <field name="name">Топливные карты</field>
+    </record>
+
+    <record id="repka_logistics_core.menu_243" model="ir.ui.menu">
+        <field name="name">Категории заказов</field>
+    </record>
+    <record id="repka_logistics_core.menu_244" model="ir.ui.menu">
+        <field name="name">Базовые заказы</field>
+    </record>
+    <record id="repka_logistics_core.menu_245" model="ir.ui.menu">
+        <field name="name">Грузы</field>
+    </record>
+    <record id="repka_logistics_core.menu_246" model="ir.ui.menu">
+        <field name="name">Типы документов</field>
+    </record>
+    <record id="repka_logistics_core.menu_248" model="ir.ui.menu">
+        <field name="name">Типы строгих документов</field>
+    </record>
+    <record id="repka_logistics_core.menu_252" model="ir.ui.menu">
+        <field name="name">Транспортные средства UFS</field>
+    </record>
+    <record id="repka_logistics_core.menu_253" model="ir.ui.menu">
+        <field name="name">Водители UFS</field>
+    </record>
+    <record id="repka_logistics_core.menu_255" model="ir.ui.menu">
+        <field name="name">Заправки по трекингу</field>
+    </record>
+    <record id="repka_logistics_core.menu_309" model="ir.ui.menu">
+        <field name="name">Типы транспортных документов</field>
     </record>
 
     <record id="utm.menu_link_tracker_root" model="ir.ui.menu">
