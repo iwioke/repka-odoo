@@ -36,51 +36,65 @@
     <record id="rule_168" model="ir.rule">
         <field name="name">UFS Forwarding Order: create/write own only</field>
         <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="groups" eval="[(4, ref('group_56'))]"/>
         <field name="domain_force">['|', ('create_uid', '=', user.id), ('message_partner_ids', '=', user.partner_id.id)]</field>
+        <field name="perm_unlink" eval="False"/>
     </record>
     <record id="rule_169" model="ir.rule">
         <field name="name">UFS Forwarding Suborder: create/write own</field>
         <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="groups" eval="[(4, ref('group_56'))]"/>
         <field name="domain_force">['|', ('create_uid', '=', user.id), ('message_partner_ids', '=', user.partner_id.id)]</field>
+        <field name="perm_unlink" eval="False"/>
     </record>
     <record id="rule_170" model="ir.rule">
         <field name="name">UFS Forwarding Order: create/write all</field>
         <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="groups" eval="[(4, ref('group_57'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_unlink" eval="False"/>
     </record>
     <record id="rule_171" model="ir.rule">
         <field name="name">UFS Forwarding Suborder: create/write all</field>
         <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="groups" eval="[(4, ref('group_57'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="perm_unlink" eval="False"/>
     </record>
     <record id="rule_172" model="ir.rule">
         <field name="name">UFS Forwarding Admin: create/write/unlink all</field>
         <field name="model_id" ref="model_ufs_forwarder_order"/>
+        <field name="groups" eval="[(4, ref('repka_logistics_core.group_42'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
     </record>
     <record id="rule_173" model="ir.rule">
         <field name="name">UFS Forwarding Admin: create/write/unlink all</field>
         <field name="model_id" ref="model_ufs_forwarder_suborder"/>
+        <field name="groups" eval="[(4, ref('repka_logistics_core.group_42'))]"/>
         <field name="domain_force">[(1, '=', 1)]</field>
     </record>
     <record id="rule_174" model="ir.rule">
         <field name="name">UFS Forwarding Move: Forwarder Access</field>
         <field name="model_id" ref="model_account_move"/>
+        <field name="groups" eval="[(4, ref('group_56'))]"/>
         <field name="domain_force">[('move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('create_uid', '=', user.id), ('message_partner_ids', 'in', [user.partner_id.id])]</field>
     </record>
     <record id="rule_175" model="ir.rule">
         <field name="name">UFS Forwarding Move: Forw Manager access</field>
         <field name="model_id" ref="model_account_move"/>
+        <field name="groups" eval="[(4, ref('group_57'))]"/>
         <field name="domain_force">['|', ('ufs_forwarder_order_id', '!=', False), ('ufs_forwarder_sub_order_id', '!=', False)]</field>
     </record>
     <record id="rule_176" model="ir.rule">
         <field name="name">UFS Forwarding Move: Forwarder Access</field>
         <field name="model_id" ref="model_account_move_line"/>
+        <field name="groups" eval="[(4, ref('group_56'))]"/>
         <field name="domain_force">[('move_id.move_type', 'in', ('out_invoice', 'out_refund', 'in_invoice', 'in_refund')), '|', ('move_id.create_uid', '=', user.id), ('move_id.message_partner_ids', 'in', [user.partner_id.id])]</field>
     </record>
     <record id="rule_177" model="ir.rule">
         <field name="name">UFS Forwarding Move: Forw Manager access</field>
         <field name="model_id" ref="model_account_move_line"/>
+        <field name="groups" eval="[(4, ref('group_57'))]"/>
         <field name="domain_force">['|', ('move_id.ufs_forwarder_order_id', '!=', False), ('move_id.ufs_forwarder_sub_order_id', '!=', False)]</field>
     </record>
 </data>
