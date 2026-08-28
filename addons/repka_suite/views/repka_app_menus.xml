@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="repka_fleet.menu_256" model="ir.ui.menu">
+        <field name="name">Транспорт</field>
+        <field name="sequence">5</field>
+        <field name="web_icon">repka_suite,static/description/transport.svg</field>
+    </record>
+    <record id="repka_fleet.menu_260" model="ir.ui.menu">
+        <field name="name">Транспортные заказы</field>
+        <field name="sequence">10</field>
+    </record>
+    <record id="repka_fleet.menu_261" model="ir.ui.menu">
+        <field name="name">Рейсы</field>
+        <field name="sequence">20</field>
+    </record>
+    <record id="repka_fleet.menu_263" model="ir.ui.menu">
+        <field name="name">Сцепки</field>
+        <field name="sequence">30</field>
+    </record>
+    <record id="repka_fleet.menu_265" model="ir.ui.menu">
+        <field name="name">Сводная таблица</field>
+        <field name="sequence">40</field>
+    </record>
+    <record id="repka_fleet.menu_262" model="ir.ui.menu">
+        <field name="name">Сотрудники</field>
+        <field name="sequence">50</field>
+    </record>
+    <record id="repka_fleet.menu_257" model="ir.ui.menu">
+        <field name="name">Отчёты</field>
+    </record>
+    <record id="repka_fleet.menu_258" model="ir.ui.menu">
+        <field name="name">Конфигурация</field>
+    </record>
+
+    <record id="repka_forwarding.menu_293" model="ir.ui.menu">
+        <field name="name">Экспедиция</field>
+        <field name="sequence">6</field>
+        <field name="web_icon">repka_suite,static/description/forwarding.svg</field>
+    </record>
+    <record id="repka_forwarding.menu_294" model="ir.ui.menu">
+        <field name="name">Заказы</field>
+    </record>
+    <record id="repka_forwarding.menu_295" model="ir.ui.menu">
+        <field name="name">Подзаказы</field>
+    </record>
+    <record id="repka_forwarding.menu_296" model="ir.ui.menu">
+        <field name="name">Контрагенты</field>
+    </record>
+    <record id="repka_forwarding.menu_303" model="ir.ui.menu">
+        <field name="name">Водители и ТС</field>
+    </record>
+    <record id="repka_forwarding.menu_302" model="ir.ui.menu">
+        <field name="name">Договоры</field>
+    </record>
+    <record id="repka_forwarding.menu_304" model="ir.ui.menu">
+        <field name="name">Отчёты</field>
+    </record>
+    <record id="repka_forwarding.menu_297" model="ir.ui.menu">
+        <field name="name">Настройка</field>
+    </record>
+
+    <record id="repka_special_lm.menu_487" model="ir.ui.menu">
+        <field name="name">Движение товаров</field>
+        <field name="sequence">7</field>
+        <field name="web_icon">repka_suite,static/description/goods.svg</field>
+    </record>
+    <record id="repka_special_lm.menu_486" model="ir.ui.menu">
+        <field name="name">Заказы</field>
+    </record>
+
+    <record id="repka_fleet_waybill.menu_291" model="ir.ui.menu">
+        <field name="name">Путевые листы</field>
+        <field name="sequence">8</field>
+        <field name="web_icon">repka_suite,static/description/waybill.svg</field>
+    </record>
+    <record id="repka_fleet_waybill.menu_292" model="ir.ui.menu">
+        <field name="name">Путевые листы</field>
+    </record>
+
+    <record id="repka_fleet_wallet.menu_311" model="ir.ui.menu">
+        <field name="name">Кошелёк водителя</field>
+        <field name="sequence">9</field>
+        <field name="web_icon">repka_suite,static/description/wallet.svg</field>
+    </record>
+    <record id="repka_fleet_wallet.menu_290" model="ir.ui.menu">
+        <field name="name">Кошелёк водителя</field>
+    </record>
+    <record id="repka_fleet_wallet.menu_312" model="ir.ui.menu">
+        <field name="name">Кассы</field>
+    </record>
+
+    <record id="repka_logistics_core.menu_240" model="ir.ui.menu">
+        <field name="name">UFS</field>
+        <field name="sequence">20</field>
+        <field name="web_icon">repka_suite,static/description/ufs.svg</field>
+    </record>
+    <record id="repka_logistics_core.menu_242" model="ir.ui.menu">
+        <field name="name">Отчёты</field>
+    </record>
+    <record id="repka_logistics_core.menu_241" model="ir.ui.menu">
+        <field name="name">Настройка</field>
+    </record>
+
+    <record id="repka_fleet.menu_259" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_config_settings_menu"/>
+    </record>
+    <record id="repka_fleet.menu_264" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
+    </record>
+    <record id="repka_fleet.menu_266" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
+    </record>
+    <record id="repka_fleet.menu_267" model="ir.ui.menu">
+        <field name="parent_id" ref="hr.menu_hr_root"/>
+    </record>
+    <record id="repka_fleet.menu_268" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_vehicle_menu"/>
+    </record>
+    <record id="repka_fleet.menu_272" model="ir.ui.menu">
+        <field name="parent_id" ref="repka_logistics_core.menu_241"/>
+    </record>
+    <record id="repka_fleet.menu_277" model="ir.ui.menu">
+        <field name="parent_id" ref="repka_logistics_core.menu_241"/>
+    </record>
+    <record id="repka_fleet_fuel_import.menu_281" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_config_settings_menu"/>
+    </record>
+    <record id="repka_fleet_tires.menu_287" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_configuration"/>
+    </record>
+    <record id="repka_fleet_tires.menu_288" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_configuration"/>
+    </record>
+    <record id="repka_fleet_tires.menu_289" model="ir.ui.menu">
+        <field name="parent_id" ref="fleet.fleet_configuration"/>
+    </record>
+    <record id="repka_complex_reporting.menu_481" model="ir.ui.menu">
+        <field name="parent_id" ref="repka_logistics_core.menu_242"/>
+    </record>
+
+    <record id="utm.menu_link_tracker_root" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+    <record id="base.menu_tests" model="ir.ui.menu">
+        <field name="active" eval="False"/>
+    </record>
+</odoo>
