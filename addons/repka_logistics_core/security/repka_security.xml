@@ -24,10 +24,12 @@
     <record id="group_41" model="res.groups">
         <field name="name">Manager</field>
         <field name="category_id" ref="module_category_106"/>
+        <field name="implied_ids" eval="[(4, ref('group_40'))]"/>
     </record>
     <record id="group_42" model="res.groups">
         <field name="name">Administrator</field>
         <field name="category_id" ref="module_category_106"/>
+        <field name="implied_ids" eval="[(4, ref('group_39')), (4, ref('group_41')), (4, ref('group_38'))]"/>
     </record>
     <record id="group_43" model="res.groups">
         <field name="name">Show GUID Fields</field>
