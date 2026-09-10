@@ -146,7 +146,9 @@ class TestRepkaSuite(TransactionCase):
         view = self.env.ref("repka_suite.forwarder_order_reference_form")
         arch = view.arch_db
         root = ElementTree.fromstring(arch)
-        summary = root.find(".//group[@class='o_forwarder_financial_summary']")
+        top_group = root.find("./sheet/group")
+        left_group, right_group = top_group.findall("./group")
+        summary = right_group.find("./group[@class='o_forwarder_financial_summary']")
         expected_columns = [
             [
                 "amount",
@@ -169,6 +171,8 @@ class TestRepkaSuite(TransactionCase):
             ],
         ]
 
+        self.assertEqual(left_group.findall("./field")[-1].attrib["name"], "print_stamp")
+        self.assertEqual(right_group.findall("./field")[-1].attrib["name"], "services_included_line_ids")
         self.assertIsNotNone(summary)
         columns = summary.findall("./group")
         self.assertEqual(len(columns), 3)
