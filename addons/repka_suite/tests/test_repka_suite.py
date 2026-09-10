@@ -160,4 +160,7 @@ class TestRepkaSuite(TransactionCase):
         positions = [arch.index(field) for field in fields_in_order]
 
         self.assertEqual(positions, sorted(positions))
+        for field in fields_in_order[2:]:
+            name = field.removeprefix('name="').removesuffix('"')
+            self.assertIn(f'<label for="{name}"', arch)
         self.assertNotIn('name="forwarder_services"', arch)
