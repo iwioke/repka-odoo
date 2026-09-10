@@ -147,6 +147,34 @@ class UfsFleetOrder(models.Model):
 class UfsForwarderOrder(models.Model):
     _inherit = "ufs.forwarder.order"
 
+    name = fields.Char(related="base_order_id.name", readonly=False)
+    partner_id = fields.Many2one(related="base_order_id.partner_id", readonly=False)
+    incoming_ref = fields.Char(related="base_order_id.incoming_ref", readonly=False)
+    external_nr = fields.Char(related="base_order_id.external_nr", readonly=False)
+    order_date = fields.Date(related="base_order_id.order_date", readonly=False)
+    ufs_contract_id = fields.Many2one(related="base_order_id.ufs_contract_id", readonly=False)
+    ufs_payment_term_id = fields.Many2one(
+        related="base_order_id.ufs_payment_term_id",
+        readonly=False,
+    )
+    n_days_count = fields.Integer(related="base_order_id.n_days_count", readonly=False)
+    order_finish_date = fields.Date(related="base_order_id.order_finish_date", readonly=False)
+    print_stamp = fields.Boolean(related="base_order_id.print_stamp", readonly=False)
+    company_id = fields.Many2one(related="base_order_id.company_id", readonly=False)
+    order_type = fields.Selection(related="base_order_id.order_type", readonly=False)
+    responsible_user_id = fields.Many2one(
+        related="base_order_id.responsible_user_id",
+        readonly=False,
+    )
+    freight_amount = fields.Monetary(
+        related="base_order_id.freight_amount",
+        readonly=False,
+        currency_field="company_currency_id",
+    )
+    freight_currency_id = fields.Many2one(
+        related="base_order_id.freight_currency_id",
+        readonly=False,
+    )
     services_included_line_ids = fields.One2many(
         related="base_order_id.services_included_line_ids",
         readonly=False,
