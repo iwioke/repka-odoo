@@ -50,6 +50,11 @@
         "views/repka_action_names.xml",
         "views/repka_app_menus.xml",
     ],
+    "assets": {
+        "web.assets_backend": [
+            "repka_suite/static/src/xml/form_status_indicator.xml",
+        ],
+    },
     "post_init_hook": "post_init_hook",
     "installable": True,
     "application": True,

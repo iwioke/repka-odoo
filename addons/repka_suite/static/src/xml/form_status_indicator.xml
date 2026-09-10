@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="repka_suite.FormStatusIndicator" t-inherit="web.FormStatusIndicator" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_form_status_indicator_buttons')]" position="attributes">
+            <attribute name="t-att-class">{ invisible: props.model.root.resModel !== 'ufs.forwarder.order' &amp;&amp; !(props.model.root.isNew || displayButtons) }</attribute>
+        </xpath>
+    </t>
+    <t t-name="repka_suite.FormViewButtons" t-inherit="web.FormView.Buttons" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_form_buttons_edit')]" position="attributes">
+            <attribute name="t-if">model.root.isInEdition || model.root.resModel === 'ufs.forwarder.order'</attribute>
+        </xpath>
+    </t>
+</templates>
