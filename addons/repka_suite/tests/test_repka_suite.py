@@ -164,4 +164,6 @@ class TestRepkaSuite(TransactionCase):
         for field in fields_in_order[2:]:
             name = field.removeprefix('name="').removesuffix('"')
             self.assertIn(f'<label for="{name}"', arch)
+        after_ved_responsible = arch.split('name="sl_ved_responsible_id"', 1)[1]
+        self.assertNotIn("<field", after_ved_responsible.split("</group>", 1)[0])
         self.assertNotIn('name="forwarder_services"', arch)

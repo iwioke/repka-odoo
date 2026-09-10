@@ -235,14 +235,6 @@
                             <field name="sl_mark_responsible_id" nolabel="1"/>
                             <label for="sl_ved_responsible_id" string="Ответственный за ВЭД"/>
                             <field name="sl_ved_responsible_id" nolabel="1"/>
-                            <label for="full_profitability" string="Полная маржа"/>
-                            <field name="full_profitability" nolabel="1" readonly="1"/>
-                            <label for="carrier_id" string="Перевозчик"/>
-                            <field name="carrier_id" nolabel="1"/>
-                            <label for="carrier_rate" string="Ставка перевозчика"/>
-                            <field name="carrier_rate" nolabel="1"/>
-                            <label for="margin" string="Маржа"/>
-                            <field name="margin" nolabel="1" readonly="1"/>
                         </group>
                     </group>
                     <notebook>
