@@ -198,13 +198,32 @@
                             <field name="responsible_user_id" string="Ответственный"/>
                             <field name="freight_amount" string="Фрахт"/>
                             <field name="freight_currency_id" string="Валюта"/>
-                            <field name="carrier_id" string="Перевозчик"/>
-                            <field name="carrier_rate" string="Ставка перевозчика"/>
-                            <field name="margin" string="Маржа" readonly="1"/>
+                            <group string="Включённые услуги" colspan="2">
+                                <field name="services_included_line_ids" nolabel="1" colspan="2" context="{'default_currency_id': freight_currency_id, 'default_qty': 1.0}">
+                                    <list editable="bottom">
+                                        <field name="product_id" string="Услуга" required="1" context="{'default_type': 'service'}" domain="[('type', '=', 'service')]"/>
+                                        <field name="qty" string="Кол-во"/>
+                                        <field name="price" string="Цена"/>
+                                        <field name="currency_id" string="Валюта" required="1"/>
+                                    </list>
+                                </field>
+                            </group>
                             <field name="amount" string="Сумма (баз. валюта)" readonly="1"/>
                             <field name="amount_company_currency" string="Сумма (вал. компании)" readonly="1"/>
                             <field name="profitability_by_sub" string="Маржа по подзаказам" readonly="1"/>
+                            <field name="sl_freight_amount" string="Фрахт (услуги)" readonly="1"/>
+                            <field name="sl_mark_amount" string="Маркировка (услуги)" readonly="1"/>
+                            <field name="sl_ved_amount" string="ВЭД (услуги)" readonly="1"/>
+                            <field name="sl_freight_margin" string="Маржа по фрахту (услуги)" readonly="1"/>
+                            <field name="sl_mark_margin" string="Маржа по маркировке (услуги)" readonly="1"/>
+                            <field name="sl_ved_margin" string="Маржа по ВЭД (услуги)" readonly="1"/>
+                            <field name="sl_freight_responsible_id" string="Ответственный за фрахт"/>
+                            <field name="sl_mark_responsible_id" string="Ответственный за маркировку"/>
+                            <field name="sl_ved_responsible_id" string="Ответственный за ВЭД"/>
                             <field name="full_profitability" string="Полная маржа" readonly="1"/>
+                            <field name="carrier_id" string="Перевозчик"/>
+                            <field name="carrier_rate" string="Ставка перевозчика"/>
+                            <field name="margin" string="Маржа" readonly="1"/>
                         </group>
                     </group>
                     <notebook>
@@ -247,18 +266,6 @@
                                     <field name="carrier_rate" string="Ставка"/>
                                     <field name="margin" string="Маржа"/>
                                     <field name="verbose_route" string="Маршрут"/>
-                                </list>
-                            </field>
-                        </page>
-                        <page string="Услуги" name="forwarder_services">
-                            <field name="services_included_line_ids" nolabel="1">
-                                <list editable="bottom">
-                                    <field name="product_id" string="Услуга"/>
-                                    <field name="description" string="Описание"/>
-                                    <field name="price" string="Цена"/>
-                                    <field name="qty" string="Кол-во"/>
-                                    <field name="currency_id" string="Валюта"/>
-                                    <field name="amount" string="Сумма" readonly="1"/>
                                 </list>
                             </field>
                         </page>

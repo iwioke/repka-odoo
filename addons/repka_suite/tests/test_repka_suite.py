@@ -62,6 +62,9 @@ class TestRepkaSuite(TransactionCase):
             "freight_currency_id",
             "carrier_id",
             "carrier_rate",
+            "sl_freight_responsible_id",
+            "sl_mark_responsible_id",
+            "sl_ved_responsible_id",
         }
         calculated = {
             "parent_partner_id",
@@ -70,6 +73,12 @@ class TestRepkaSuite(TransactionCase):
             "amount_company_currency",
             "profitability_by_sub",
             "full_profitability",
+            "sl_freight_amount",
+            "sl_mark_amount",
+            "sl_ved_amount",
+            "sl_freight_margin",
+            "sl_mark_margin",
+            "sl_ved_margin",
         }
         order_fields = self.env["ufs.forwarder.order"]._fields
 
@@ -78,6 +87,11 @@ class TestRepkaSuite(TransactionCase):
 
     def test_forwarder_order_inputs_are_saved_to_base_order(self):
         partner = self.env["res.partner"].create({"name": "Test Customer"})
+        product = self.env["product.product"].create({
+            "name": "Test Freight Service",
+            "type": "service",
+        })
+        currency = self.env.company.currency_id
         order = self.env["ufs.forwarder.order"].create({
             "name": "TEST/INPUT",
             "partner_id": partner.id,
@@ -89,9 +103,18 @@ class TestRepkaSuite(TransactionCase):
             "print_stamp": True,
             "order_type": "customer",
             "freight_amount": 1250.0,
-            "freight_currency_id": self.env.company.currency_id.id,
+            "freight_currency_id": currency.id,
             "carrier_id": partner.id,
             "carrier_rate": 900.0,
+            "sl_freight_responsible_id": self.env.user.id,
+            "sl_mark_responsible_id": self.env.user.id,
+            "sl_ved_responsible_id": self.env.user.id,
+            "services_included_line_ids": [(0, 0, {
+                "product_id": product.id,
+                "qty": 1.0,
+                "price": 1250.0,
+                "currency_id": currency.id,
+            })],
         })
         base_order = order.base_order_id
 
@@ -105,3 +128,36 @@ class TestRepkaSuite(TransactionCase):
         self.assertEqual(base_order.freight_amount, 1250.0)
         self.assertEqual(base_order.carrier_id, partner)
         self.assertEqual(base_order.carrier_rate, 900.0)
+        self.assertEqual(order.sl_freight_responsible_id, self.env.user)
+        self.assertEqual(order.sl_mark_responsible_id, self.env.user)
+        self.assertEqual(order.sl_ved_responsible_id, self.env.user)
+        self.assertEqual(len(base_order.services_included_line_ids), 1)
+        service = base_order.services_included_line_ids
+        self.assertEqual(service.product_id, product)
+        self.assertEqual(service.qty, 1.0)
+        self.assertEqual(service.price, 1250.0)
+        self.assertEqual(service.currency_id, currency)
+
+    def test_forwarder_services_and_financial_summary_order(self):
+        view = self.env.ref("repka_suite.forwarder_order_reference_form")
+        arch = view.arch_db
+        fields_in_order = [
+            'name="freight_amount"',
+            'name="services_included_line_ids"',
+            'name="amount"',
+            'name="amount_company_currency"',
+            'name="profitability_by_sub"',
+            'name="sl_freight_amount"',
+            'name="sl_mark_amount"',
+            'name="sl_ved_amount"',
+            'name="sl_freight_margin"',
+            'name="sl_mark_margin"',
+            'name="sl_ved_margin"',
+            'name="sl_freight_responsible_id"',
+            'name="sl_mark_responsible_id"',
+            'name="sl_ved_responsible_id"',
+        ]
+        positions = [arch.index(field) for field in fields_in_order]
+
+        self.assertEqual(positions, sorted(positions))
+        self.assertNotIn('name="forwarder_services"', arch)
