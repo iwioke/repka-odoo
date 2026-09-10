@@ -52,6 +52,7 @@
     ],
     "assets": {
         "web.assets_backend": [
+            "repka_suite/static/src/js/forwarding_save_notifications.js",
             "repka_suite/static/src/xml/form_status_indicator.xml",
         ],
     },
