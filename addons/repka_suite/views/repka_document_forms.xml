@@ -211,7 +211,7 @@
                                     <field name="amount" string="Всего" readonly="1" sum="Всего"/>
                                 </list>
                             </field>
-                            <group col="6" class="o_forwarder_financial_summary">
+                            <group col="6" colspan="2" class="o_forwarder_financial_summary">
                                 <group colspan="2">
                                     <label for="amount" string="Сумма (баз. валюта)"/>
                                     <field name="amount" nolabel="1" readonly="1"/>

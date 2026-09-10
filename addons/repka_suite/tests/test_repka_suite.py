@@ -174,6 +174,7 @@ class TestRepkaSuite(TransactionCase):
         self.assertEqual(left_group.findall("./field")[-1].attrib["name"], "print_stamp")
         self.assertEqual(right_group.findall("./field")[-1].attrib["name"], "services_included_line_ids")
         self.assertIsNotNone(summary)
+        self.assertEqual(summary.attrib["colspan"], "2")
         columns = summary.findall("./group")
         self.assertEqual(len(columns), 3)
         for column, expected in zip(columns, expected_columns):
