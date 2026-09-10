@@ -67,6 +67,21 @@ class UfsBaseOrder(models.Model):
             order.margin = order.freight_amount - order.carrier_rate
 
 
+class UfsOrderService(models.Model):
+    _inherit = "ufs.order.service"
+
+    amount = fields.Monetary(
+        compute="_compute_repka_amount",
+        store=True,
+        currency_field="currency_id",
+    )
+
+    @api.depends("qty", "price")
+    def _compute_repka_amount(self):
+        for service in self:
+            service.amount = service.qty * service.price
+
+
 class UfsFleetOrder(models.Model):
     _inherit = "ufs.fleet.order"
 

@@ -136,6 +136,7 @@ class TestRepkaSuite(TransactionCase):
         self.assertEqual(service.product_id, product)
         self.assertEqual(service.qty, 1.0)
         self.assertEqual(service.price, 1250.0)
+        self.assertEqual(service.amount, 1250.0)
         self.assertEqual(service.currency_id, currency)
 
     def test_forwarder_services_and_financial_summary_order(self):
