@@ -18,3 +18,20 @@ class TestRepkaSuite(TransactionCase):
         ])
 
         self.assertEqual(set(modules.mapped("name")), expected)
+
+    def test_custom_app_menu_icons(self):
+        expected = {
+            "repka_fleet.menu_256": "transport.svg",
+            "repka_forwarding.menu_293": "forwarding.svg",
+            "repka_special_lm.menu_487": "goods.svg",
+            "repka_fleet_waybill.menu_291": "waybill.svg",
+            "repka_fleet_wallet.menu_311": "wallet.svg",
+            "repka_logistics_core.menu_240": "ufs.svg",
+        }
+
+        for xml_id, filename in expected.items():
+            menu = self.env.ref(xml_id)
+            self.assertEqual(
+                menu.web_icon,
+                f"repka_suite,static/description/{filename}",
+            )

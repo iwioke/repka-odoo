@@ -35,7 +35,7 @@
     <record id="repka_forwarding.menu_293" model="ir.ui.menu">
         <field name="name">Экспедиция</field>
         <field name="sequence">30</field>
-        <field name="web_icon">crm,static/description/icon.png</field>
+        <field name="web_icon">repka_suite,static/description/forwarding.svg</field>
     </record>
     <record id="repka_forwarding.menu_294" model="ir.ui.menu">
         <field name="name">Заказы</field>
