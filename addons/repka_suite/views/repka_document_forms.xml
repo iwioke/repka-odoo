@@ -211,28 +211,38 @@
                                     <field name="amount" string="Всего" readonly="1" sum="Всего"/>
                                 </list>
                             </field>
+                        </group>
+                    </group>
+                    <group col="6" class="o_forwarder_financial_summary">
+                        <group colspan="2">
                             <label for="amount" string="Сумма (баз. валюта)"/>
                             <field name="amount" nolabel="1" readonly="1"/>
-                            <label for="amount_company_currency" string="Сумма (вал. компании)"/>
-                            <field name="amount_company_currency" nolabel="1" readonly="1"/>
-                            <label for="profitability_by_sub" string="Маржа по подзаказам"/>
-                            <field name="profitability_by_sub" nolabel="1" readonly="1"/>
                             <label for="sl_freight_amount" string="Фрахт (услуги)"/>
                             <field name="sl_freight_amount" nolabel="1" readonly="1"/>
-                            <label for="sl_mark_amount" string="Маркировка (услуги)"/>
-                            <field name="sl_mark_amount" nolabel="1" readonly="1"/>
-                            <label for="sl_ved_amount" string="ВЭД (услуги)"/>
-                            <field name="sl_ved_amount" nolabel="1" readonly="1"/>
                             <label for="sl_freight_margin" string="Маржа по фрахту (услуги)"/>
                             <field name="sl_freight_margin" nolabel="1" readonly="1"/>
-                            <label for="sl_mark_margin" string="Маржа по маркировке (услуги)"/>
-                            <field name="sl_mark_margin" nolabel="1" readonly="1"/>
-                            <label for="sl_ved_margin" string="Маржа по ВЭД (услуги)"/>
-                            <field name="sl_ved_margin" nolabel="1" readonly="1"/>
                             <label for="sl_freight_responsible_id" string="Ответственный за фрахт"/>
                             <field name="sl_freight_responsible_id" nolabel="1"/>
+                            <label for="invoice_states_char" string="Статус счёта"/>
+                            <field name="invoice_states_char" nolabel="1" readonly="1"/>
+                        </group>
+                        <group colspan="2">
+                            <label for="profitability_by_sub" string="Маржа по подзаказам"/>
+                            <field name="profitability_by_sub" nolabel="1" readonly="1"/>
+                            <label for="sl_mark_amount" string="Маркировка (услуги)"/>
+                            <field name="sl_mark_amount" nolabel="1" readonly="1"/>
+                            <label for="sl_mark_margin" string="Маржа по маркировке (услуги)"/>
+                            <field name="sl_mark_margin" nolabel="1" readonly="1"/>
                             <label for="sl_mark_responsible_id" string="Ответственный за маркировку"/>
                             <field name="sl_mark_responsible_id" nolabel="1"/>
+                        </group>
+                        <group colspan="2">
+                            <label for="amount_company_currency" string="Сумма (вал. компании)"/>
+                            <field name="amount_company_currency" nolabel="1" readonly="1"/>
+                            <label for="sl_ved_amount" string="ВЭД (услуги)"/>
+                            <field name="sl_ved_amount" nolabel="1" readonly="1"/>
+                            <label for="sl_ved_margin" string="Маржа по ВЭД (услуги)"/>
+                            <field name="sl_ved_margin" nolabel="1" readonly="1"/>
                             <label for="sl_ved_responsible_id" string="Ответственный за ВЭД"/>
                             <field name="sl_ved_responsible_id" nolabel="1"/>
                         </group>

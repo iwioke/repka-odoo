@@ -1,3 +1,5 @@
+from xml.etree import ElementTree
+
 from odoo.tests import TransactionCase, tagged
 
 
@@ -79,6 +81,7 @@ class TestRepkaSuite(TransactionCase):
             "sl_freight_margin",
             "sl_mark_margin",
             "sl_ved_margin",
+            "invoice_states_char",
         }
         order_fields = self.env["ufs.forwarder.order"]._fields
 
@@ -142,28 +145,36 @@ class TestRepkaSuite(TransactionCase):
     def test_forwarder_services_and_financial_summary_order(self):
         view = self.env.ref("repka_suite.forwarder_order_reference_form")
         arch = view.arch_db
-        fields_in_order = [
-            'name="freight_amount"',
-            'name="services_included_line_ids"',
-            'name="amount"',
-            'name="amount_company_currency"',
-            'name="profitability_by_sub"',
-            'name="sl_freight_amount"',
-            'name="sl_mark_amount"',
-            'name="sl_ved_amount"',
-            'name="sl_freight_margin"',
-            'name="sl_mark_margin"',
-            'name="sl_ved_margin"',
-            'name="sl_freight_responsible_id"',
-            'name="sl_mark_responsible_id"',
-            'name="sl_ved_responsible_id"',
+        root = ElementTree.fromstring(arch)
+        summary = root.find(".//group[@class='o_forwarder_financial_summary']")
+        expected_columns = [
+            [
+                "amount",
+                "sl_freight_amount",
+                "sl_freight_margin",
+                "sl_freight_responsible_id",
+                "invoice_states_char",
+            ],
+            [
+                "profitability_by_sub",
+                "sl_mark_amount",
+                "sl_mark_margin",
+                "sl_mark_responsible_id",
+            ],
+            [
+                "amount_company_currency",
+                "sl_ved_amount",
+                "sl_ved_margin",
+                "sl_ved_responsible_id",
+            ],
         ]
-        positions = [arch.index(field) for field in fields_in_order]
 
-        self.assertEqual(positions, sorted(positions))
-        for field in fields_in_order[2:]:
-            name = field.removeprefix('name="').removesuffix('"')
-            self.assertIn(f'<label for="{name}"', arch)
-        after_ved_responsible = arch.split('name="sl_ved_responsible_id"', 1)[1]
-        self.assertNotIn("<field", after_ved_responsible.split("</group>", 1)[0])
+        self.assertIsNotNone(summary)
+        columns = summary.findall("./group")
+        self.assertEqual(len(columns), 3)
+        for column, expected in zip(columns, expected_columns):
+            self.assertEqual([field.attrib["name"] for field in column.findall("./field")], expected)
+            self.assertEqual([label.attrib["for"] for label in column.findall("./label")], expected)
+        self.assertLess(arch.index('name="freight_amount"'), arch.index('name="services_included_line_ids"'))
+        self.assertLess(arch.index('name="services_included_line_ids"'), arch.index('class="o_forwarder_financial_summary"'))
         self.assertNotIn('name="forwarder_services"', arch)
