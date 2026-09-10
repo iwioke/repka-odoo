@@ -35,3 +35,10 @@ class TestRepkaSuite(TransactionCase):
                 menu.web_icon,
                 f"repka_suite,static/description/{filename}",
             )
+
+    def test_admin_has_forwarding_access(self):
+        admin = self.env.ref("base.user_admin")
+
+        self.assertTrue(admin.has_group("repka_forwarding.group_56"))
+        self.assertTrue(admin.has_group("repka_forwarding.group_57"))
+        self.env["ufs.forwarder.order.line"].with_user(admin).check_access("read")

@@ -12,6 +12,10 @@
     <record id="group_57" model="res.groups">
         <field name="name">Forwarding Manager Access</field>
         <field name="category_id" ref="module_category_108"/>
+        <field name="implied_ids" eval="[(4, ref('group_56'))]"/>
+    </record>
+    <record id="repka_logistics_core.group_42" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('group_57'))]"/>
     </record>
     <record id="rule_166" model="ir.rule">
         <field name="name">Forwarder Order: multi-company rule</field>
