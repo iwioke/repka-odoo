@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <record id="view_ufs_transport_document_form_ai_checks" model="ir.ui.view">
+        <field name="name">ufs.transport.document.form.ai.checks</field>
+        <field name="model">ufs.transport.document</field>
+        <field name="inherit_id" ref="repka_logistics_core.ufs_transport_document_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="inside">
+                <group string="AI Document Checks">
+                    <field name="ai_check_ids" nolabel="1">
+                        <list create="0" delete="0">
+                            <field name="name"/>
+                            <field name="state" widget="badge" decoration-danger="state == 'blocked' or state == 'failed'" decoration-warning="state == 'attention'" decoration-success="state == 'completed'"/>
+                            <field name="document_type"/>
+                            <field name="checked_at"/>
+                        </list>
+                    </field>
+                </group>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_ufs_ai_document_check_list" model="ir.ui.view">
+        <field name="name">ufs.ai.document.check.list</field>
+        <field name="model">ufs.ai.document.check</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="state" widget="badge" decoration-danger="state == 'blocked' or state == 'failed'" decoration-warning="state == 'attention'" decoration-success="state == 'completed'"/>
+                <field name="document_type"/>
+                <field name="source_document_id"/>
+                <field name="forwarder_order_id"/>
+                <field name="checked_at"/>
+                <field name="approved_by_id"/>
+            </list>
+        </field>
+    </record>
+    <record id="view_ufs_ai_document_check_search" model="ir.ui.view">
+        <field name="name">ufs.ai.document.check.search</field>
+        <field name="model">ufs.ai.document.check</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="document_type"/>
+                <field name="forwarder_order_id"/>
+                <filter name="filter_blocked" string="Blocked" domain="[('state', '=', 'blocked')]"/>
+                <filter name="filter_attention" string="Attention" domain="[('state', '=', 'attention')]"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_state" string="State" context="{'group_by': 'state'}"/>
+                    <filter name="group_document_type" string="Document Type" context="{'group_by': 'document_type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="view_ufs_ai_document_check_form" model="ir.ui.view">
+        <field name="name">ufs.ai.document.check.form</field>
+        <field name="model">ufs.ai.document.check</field>
+        <field name="arch" type="xml">
+            <form string="AI-проверка документа">
+                <header>
+                    <button name="action_submit" type="object" string="Проверить" class="btn-primary" invisible="state not in ('queued', 'failed')"/>
+                    <button name="action_retry" type="object" string="Поставить в очередь" invisible="state not in ('attention', 'blocked', 'failed')"/>
+                    <button name="action_approve" type="object" string="Подтвердить черновик" invisible="state not in ('completed', 'attention', 'blocked') or approved_by_id"/>
+                    <button name="action_allow_closure" type="object" string="Разрешить закрытие" class="btn-secondary" groups="repka_forwarding.group_57" invisible="state != 'blocked' or closure_override"/>
+                    <field name="state" widget="statusbar" statusbar_visible="queued,processing,completed,attention,blocked,failed"/>
+                </header>
+                <sheet>
+                    <div class="oe_title"><h1><field name="name"/></h1></div>
+                    <group>
+                        <group>
+                            <field name="source_document_id"/>
+                            <field name="forwarder_order_id"/>
+                            <field name="base_order_id"/>
+                            <field name="document_type"/>
+                            <field name="document_type_confidence" widget="percentage"/>
+                        </group>
+                        <group>
+                            <field name="checked_at"/>
+                            <field name="approved_by_id"/>
+                            <field name="approved_at"/>
+                            <field name="closure_override"/>
+                            <field name="is_demo"/>
+                        </group>
+                    </group>
+                    <field name="summary" nolabel="1" readonly="1"/>
+                    <notebook>
+                        <page string="Проверки">
+                            <field name="check_line_ids" nolabel="1">
+                                <list create="0" delete="0" edit="0" decoration-danger="severity == 'critical'" decoration-warning="severity == 'warning'">
+                                    <field name="severity" widget="badge"/>
+                                    <field name="code"/>
+                                    <field name="document_value"/>
+                                    <field name="crm_value"/>
+                                    <field name="message"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Распознанные поля">
+                            <field name="extracted_field_ids" nolabel="1">
+                                <list create="0" delete="0" edit="0">
+                                    <field name="name"/>
+                                    <field name="document_value"/>
+                                    <field name="confidence" widget="percentage"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Решение" invisible="state != 'blocked'">
+                            <field name="closure_override_reason" placeholder="Причина обязательна для разрешения закрытия"/>
+                        </page>
+                        <page string="Технические данные" groups="repka_forwarding.group_57">
+                            <field name="source_checksum"/>
+                            <field name="payload_json" nolabel="1"/>
+                            <field name="result_json" nolabel="1"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+    <record id="view_ufs_ai_document_check_demo_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.ai.document.check.demo.wizard.form</field>
+        <field name="model">ufs.ai.document.check.demo.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Создать демо AI-проверки">
+                <group>
+                    <field name="name"/>
+                </group>
+                <footer>
+                    <button name="action_create_demo" type="object" string="Создать демо" class="btn-primary"/>
+                    <button string="Отмена" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</data>
+</odoo>

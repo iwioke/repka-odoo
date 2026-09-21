@@ -1,7 +1,7 @@
 {
     "name": "РЕПКА",
     "summary": "Полный набор модулей проекта РЕПКА",
-    "version": "18.0.2.0.0",
+    "version": "18.0.3.0.0",
     "category": "Administration",
     "license": "LGPL-3",
     "depends": [
@@ -27,6 +27,7 @@
         "repka_fleet_wallet",
         "repka_fleet_waybill",
         "repka_forwarding",
+        "repka_ai_document_check",
         "repka_invoices",
         "repka_invoices_base_reports",
         "repka_invoices_forwarding",

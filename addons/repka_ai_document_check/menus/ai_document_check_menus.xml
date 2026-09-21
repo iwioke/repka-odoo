@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+    <menuitem id="menu_ai_document_checks"
+        name="AI-проверки документов"
+        sequence="90"
+        parent="repka_forwarding.menu_293"
+        action="action_ufs_ai_document_check"/>
+    <menuitem id="menu_ai_document_check_demo"
+        name="Создать демо"
+        sequence="10"
+        parent="menu_ai_document_checks"
+        action="action_ufs_ai_document_check_demo_wizard"
+        groups="repka_forwarding.group_57"/>
+</data>
+</odoo>

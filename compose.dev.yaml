@@ -1,5 +1,30 @@
 services:
+  ai-document-check-mock:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: repka-odoo:${REPKA_IMAGE_TAG:-18.0-20251222}
+    command: ["python3", "-B", "/opt/repka/ai-document-check-mock/server.py"]
+    volumes:
+      - ./services/ai_document_check_mock:/opt/repka/ai-document-check-mock:ro
+    expose:
+      - "8080"
+    networks:
+      - backend
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    security_opt:
+      - no-new-privileges:true
+
   odoo:
+    environment:
+      AI_DOCUMENT_CHECK_URL: http://ai-document-check-mock:8080/check
+    depends_on:
+      ai-document-check-mock:
+        condition: service_healthy
     ports:
       - "127.0.0.1:${ODOO_HTTP_PORT:-8069}:8069"
     command:
