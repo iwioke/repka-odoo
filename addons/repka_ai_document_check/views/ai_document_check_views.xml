@@ -119,6 +119,63 @@
             </form>
         </field>
     </record>
+    <record id="view_ufs_ai_logist_wizard_form" model="ir.ui.view">
+        <field name="name">ufs.ai.logist.wizard.form</field>
+        <field name="model">ufs.ai.logist.wizard</field>
+        <field name="arch" type="xml">
+            <form string="AI Logist" create="0" edit="0" delete="0">
+                <sheet>
+                    <div class="oe_title">
+                        <h2><field name="headline" nolabel="1" readonly="1"/></h2>
+                    </div>
+                    <field name="forwarder_order_id" invisible="1"/>
+                    <field name="overall_state" widget="badge" nolabel="1" decoration-danger="overall_state == 'blocked'" decoration-warning="overall_state == 'attention'" decoration-success="overall_state == 'completed'"/>
+                    <div class="alert alert-danger" invisible="overall_state != 'blocked'">
+                        <strong>Закрытие заказа заблокировано.</strong>
+                        Проверьте критичные замечания и запросите корректный документ у перевозчика.
+                    </div>
+                    <div class="alert alert-warning" invisible="overall_state != 'attention'">
+                        <strong>Требуется внимание логиста.</strong>
+                        В одном или нескольких документах есть замечания или незавершённая проверка.
+                    </div>
+                    <div class="alert alert-success" invisible="overall_state != 'completed'">
+                        <strong>Критичных замечаний нет.</strong>
+                        Проверьте комплектность документов перед закрытием заказа.
+                    </div>
+                    <group>
+                        <group string="Заказ">
+                            <field name="forwarder_order_id" readonly="1"/>
+                            <field name="checks_count"/>
+                        </group>
+                        <group string="Результат проверки">
+                            <field name="completed_count"/>
+                            <field name="attention_count"/>
+                            <field name="blocked_count"/>
+                        </group>
+                    </group>
+                    <group string="Что сделать">
+                        <field name="recommendation" nolabel="1" readonly="1"/>
+                    </group>
+                    <group string="Заключение AI">
+                        <field name="summary" nolabel="1" readonly="1"/>
+                    </group>
+                    <field name="check_ids" nolabel="1" readonly="1">
+                        <list create="0" delete="0" edit="0" decoration-danger="state == 'blocked' or state == 'failed'" decoration-warning="state == 'attention'" decoration-success="state == 'completed'">
+                            <field name="name" string="Документ"/>
+                            <field name="state" string="Статус" widget="badge"/>
+                            <field name="document_type" string="Тип"/>
+                            <field name="summary" string="Результат"/>
+                            <field name="checked_at" string="Проверен"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button name="action_open_checks" type="object" string="Открыть подробности" class="btn-primary"/>
+                    <button string="Закрыть" special="cancel" class="btn-secondary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
     <record id="view_ufs_ai_document_check_demo_wizard_form" model="ir.ui.view">
         <field name="name">ufs.ai.document.check.demo.wizard.form</field>
         <field name="model">ufs.ai.document.check.demo.wizard</field>

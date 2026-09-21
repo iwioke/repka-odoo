@@ -76,6 +76,23 @@ class TestAiDocumentCheck(TransactionCase):
         self.assertEqual(payload["order"]["cargo"]["weight_kg"], 8500)
         self.assertEqual(payload["order"]["cargo"]["packages"], 18)
 
+    def test_ai_logist_wizard_summarizes_blocked_check(self):
+        check = self.env["ufs.ai.document.check"].create({
+            "name": "AI: CMR-AI-CHECK-001",
+            "source_document_id": self.document.id,
+            "forwarder_order_id": self.forwarder_order.id,
+            "base_order_id": self.base_order.id,
+            "source_checksum": "demo-ai-logist",
+        })
+        check._apply_result(self._blocked_result())
+        wizard = self.env["ufs.ai.logist.wizard"].with_context(
+            default_forwarder_order_id=self.forwarder_order.id,
+        ).create({})
+        self.assertEqual(wizard.overall_state, "blocked")
+        self.assertEqual(wizard.blocked_count, 1)
+        self.assertEqual(wizard.check_ids, check)
+        self.assertIn("CMR", wizard.recommendation)
+
     def test_blocked_check_prevents_order_closure(self):
         check = self.env["ufs.ai.document.check"].create({
             "name": "AI: CMR-AI-CHECK-001",
