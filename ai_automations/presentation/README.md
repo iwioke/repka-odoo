@@ -6,7 +6,7 @@
 
 ```sh
 python3 -m pip install 'python-pptx==1.0.2'
-python3 ai_automations/presentation/build.py
+python3 ai_automations/.internal/build_presentation.py
 ```
 
 Проверена целостность PPTX-архива, наличие 14 слайдов, границы всех объектов и Quick Look thumbnail титульного слайда. Полную визуальную проверку остальных слайдов в PowerPoint/Keynote стоит сделать перед внешним показом; PDF не создан (в среде нет LibreOffice/PDF-конвертера).

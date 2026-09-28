@@ -13,7 +13,7 @@
 ## Результат
 JSON с `kpis`, `actions` и предупреждением о синтетическом срезе.
 ## Как запустить
-`python3 ai_automations/executive_brief/run.py` (Python 3.9+, без pip); свой синтетический ввод — `--input /path/to/file.json`. `--mode live` отклоняется. Тесты: `python3 -m unittest discover -s ai_automations/tests`.
+`python3 ai_automations/scenarios/executive_brief/run.py` (Python 3.9+, без pip); свой синтетический ввод — `--input /path/to/file.json`. `--mode live` отклоняется. Тесты: `python3 -m unittest discover -s ai_automations/.internal/tests`.
 ## Пример
 Вход: один давний заказчик, один убыточный заказ, одна заблокированная CMR; выход: три счётчика по 1 и три задачи для проверки (`example_output.json`).
 ## Плюсы
@@ -25,6 +25,6 @@ JSON с `kpis`, `actions` и предупреждением о синтетич�
 ## Human-in-the-loop
 Руководитель проверяет исходные выборки и принимает решения самостоятельно.
 ## Техническая архитектура
-Локальный `run.py` → `../engine.py` (три общие функции) → JSON stdout, без сети.
+Локальный `run.py` → `../../.internal/engine.py` (три общие функции) → JSON stdout, без сети.
 ## Ограничения
 Только DEMO MODE; LIVE MODE требует согласованных ACL, источников и периода среза.

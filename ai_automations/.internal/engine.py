@@ -152,7 +152,7 @@ FUNCTIONS = {"customer_360": customer_360, "margin_watch": margin_watch,
 def run(scenario):
     parser = argparse.ArgumentParser(description=SCENARIOS[scenario] + " (DEMO)")
     parser.add_argument("--mode", choices=("demo", "live"), default="demo")
-    parser.add_argument("--input", type=Path, default=Path(__file__).parent / scenario / "example_input.json")
+    parser.add_argument("--input", type=Path, default=Path(__file__).resolve().parent.parent / "scenarios" / scenario / "example_input.json")
     args = parser.parse_args()
     if args.mode == "live":
         parser.error("LIVE MODE не настроен: нужен согласованный API, права и проверка данных. Демо не запускается вместо live.")

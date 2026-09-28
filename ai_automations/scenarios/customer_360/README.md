@@ -13,7 +13,7 @@ AI-модель не используется: детерминированна�
 ## Результат
 JSON со статусом `DEMO`, причиной рекомендации и числом клиентов для ручной проверки.
 ## Как запустить
-Из корня репозитория: `python3 ai_automations/customer_360/run.py`. Требуется Python 3.9+, внешних зависимостей нет. Можно передать `--input /path/to/synthetic.json`; `--mode live` честно отклоняется. Для проверки: `python3 -m unittest discover -s ai_automations/tests`.
+Из корня репозитория: `python3 ai_automations/scenarios/customer_360/run.py`. Требуется Python 3.9+, внешних зависимостей нет. Можно передать `--input /path/to/synthetic.json`; `--mode live` честно отклоняется. Для проверки: `python3 -m unittest discover -s ai_automations/.internal/tests`.
 ## Пример
 Вход: у «Демо Север» последний заказ 2026-05-02; срез 2026-09-28. Обработка: 149 дней >= 90. Выход: `attention=review_reactivation`, `reason=Последний заказ 149 дней назад` (смотрите полный `example_output.json`).
 ## Плюсы
@@ -25,6 +25,6 @@ JSON со статусом `DEMO`, причиной рекомендации и 
 ## Human-in-the-loop
 Менеджер проверяет заказчика и контактные предпочтения перед любым звонком/письмом.
 ## Техническая архитектура
-Локальный `run.py` → `../engine.py` → JSON stdout; read-only, без сети.
+Локальный `run.py` → `../../.internal/engine.py` → JSON stdout; read-only, без сети.
 ## Ограничения
 DEMO MODE работает; LIVE MODE не реализован без согласования API, прав, качества данных и согласий. Нет CRM-скоринга/LLM и измеренной экономии.

@@ -13,7 +13,7 @@
 ## Результат
 JSON с `review_count`, разницей, долей и причиной для каждого заказа.
 ## Как запустить
-`python3 ai_automations/margin_watch/run.py` (Python 3.9+, только stdlib); альтернативный синтетический файл — `--input /path/to/file.json`; `--mode live` не поддерживается. Тесты: `python3 -m unittest discover -s ai_automations/tests`.
+`python3 ai_automations/scenarios/margin_watch/run.py` (Python 3.9+, только stdlib); альтернативный синтетический файл — `--input /path/to/file.json`; `--mode live` не поддерживается. Тесты: `python3 -m unittest discover -s ai_automations/.internal/tests`.
 ## Пример
 Вход DEMO-101: 5000 BYN выручки, 5600 BYN прямых затрат. Обработка: 5000 - 5600 = -600. Выход: `attention=review`, `result=-600.00` (полный `example_output.json`).
 ## Плюсы
@@ -25,6 +25,6 @@ JSON с `review_count`, разницей, долей и причиной для 
 ## Human-in-the-loop
 Финансист подтверждает состав затрат и только затем предпринимает действия.
 ## Техническая архитектура
-Локальный `run.py` → `../engine.py` с Decimal → JSON stdout; без записи в ERP.
+Локальный `run.py` → `../../.internal/engine.py` с Decimal → JSON stdout; без записи в ERP.
 ## Ограничения
 DEMO MODE — исполняемая эвристика; LIVE MODE заблокирован до утверждения источника себестоимости, Odoo ACL и валютной политики.

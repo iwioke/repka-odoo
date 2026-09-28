@@ -2,6 +2,13 @@
 
 **Важно:** 4 запускаемых сценария применяют детерминированные правила к синтетическим данным. Это не обученные AI-модели, не OCR, не автономные действия в Odoo и не подтверждённые бизнес-результаты. LIVE MODE не настроен и при вызове явно выдаёт ошибку. Существующий в Odoo `repka_ai_document_check` — отдельный детерминированный mock; его код не менялся.
 
+## Что где лежит
+
+- `scenarios/` — четыре запускаемых демонстрации; в каждой свои инструкция и примеры.
+- `catalog/` — полный список идей и раздел `future/` с условиями для следующих этапов.
+- `presentation/` — готовая презентация для показа.
+- `run_all.py` — единая точка запуска; технические файлы и тесты спрятаны в `.internal/`.
+
 ## Быстрый старт
 
 Нужен только Python 3.9+; `pip install` не требуется. Из корня репозитория:
@@ -14,22 +21,22 @@ python3 ai_automations/run_all.py document_readiness
 python3 ai_automations/run_all.py executive_brief
 ```
 
-Без аргументов в интерактивном терминале предлагается выбор номера; в неинтерактивной среде выводится список. Каждый сценарий отдельно: `python3 ai_automations/customer_360/run.py` (аналогично для других). `--input /path/to/synthetic.json` заменяет пример; файл должен соответствовать JSON-схеме из примера и не превышать 1 МБ. CLI ничего не записывает; JSON выводится в stdout. `--mode live` отклоняется (не заменяется на demo).
+Без аргументов в интерактивном терминале предлагается выбор номера; в неинтерактивной среде выводится список. Каждый сценарий отдельно: `python3 ai_automations/scenarios/customer_360/run.py` (аналогично для других). `--input /path/to/synthetic.json` заменяет пример; файл должен соответствовать JSON-схеме из примера и не превышать 1 МБ. CLI ничего не записывает; JSON выводится в stdout. `--mode live` отклоняется (не заменяется на demo).
 
 | Название | Точка запуска | Суть | Режим |
 |---|---|---|---|
-| Customer 360 | `customer_360/run.py` | давность заказа и неоплаченные заказы | DEMO |
-| Freight Margin Watch | `margin_watch/run.py` | прямая разница выручки и затрат | DEMO |
-| Document Readiness | `document_readiness/run.py` | недостающие и проблемные статусы | DEMO |
-| Executive Brief | `executive_brief/run.py` | три счётчика для проверки | DEMO |
+| Customer 360 | `scenarios/customer_360/run.py` | давность заказа и неоплаченные заказы | DEMO |
+| Freight Margin Watch | `scenarios/margin_watch/run.py` | прямая разница выручки и затрат | DEMO |
+| Document Readiness | `scenarios/document_readiness/run.py` | недостающие и проблемные статусы | DEMO |
+| Executive Brief | `scenarios/executive_brief/run.py` | три счётчика для проверки | DEMO |
 
 ## Проверка
 
 ```sh
-python3 -m unittest discover -s ai_automations/tests -v
+python3 -m unittest discover -s ai_automations/.internal/tests -v
 ```
 
-Тесты сверяют сохранённые результаты каждого примера, повторяемость, ошибки ввода, закрытый LIVE MODE и launcher. Документы discovery: `docs/ai-automations/PRD.md`, `docs/ai-automations/ARCHITECTURE.md`. Полная оценка идей: `AI_AUTOMATIONS_CATALOG.md`; блокеры: `future/README.md`. Для business demo презентация лежит в `presentation/`.
+Тесты сверяют сохранённые результаты каждого примера, повторяемость, ошибки ввода, закрытый LIVE MODE и launcher. Документы discovery: `docs/ai-automations/PRD.md`, `docs/ai-automations/ARCHITECTURE.md`. Полная оценка идей: `catalog/AI_AUTOMATIONS_CATALOG.md`; блокеры: `catalog/future/README.md`. Для business demo презентация лежит в `presentation/`.
 
 ## Итог аудита
 

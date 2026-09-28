@@ -161,6 +161,6 @@ shape(s, 0.83, 2.72, 11.64, 2.9, SURFACE, True)
 text(s, "Уже можно показать:\n4 воспроизводимых сценария на синтетических данных", 1.24, 3.05, 10.62, 1.3, 27, WHITE, True)
 text(s, "Дальше: подтвердить данные → измерить пользу → согласовать защищённый live-пилот", 1.24, 4.75, 10.7, 0.52, 18, CYAN)
 
-output = Path(__file__).with_name("Repka_AI_Automation.pptx")
+output = Path(__file__).resolve().parent.parent / "presentation" / "Repka_AI_Automation.pptx"
 prs.save(output)
 print(f"{output}: {len(prs.slides)} slides")

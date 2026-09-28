@@ -13,7 +13,7 @@
 ## Результат
 JSON с `missing`, `needs_review`, статусом и причиной.
 ## Как запустить
-`python3 ai_automations/document_readiness/run.py` (Python 3.9+, без дополнительных библиотек), свой синтетический файл — `--input /path/to/file.json`; `--mode live` отклоняется. Тесты: `python3 -m unittest discover -s ai_automations/tests`.
+`python3 ai_automations/scenarios/document_readiness/run.py` (Python 3.9+, без дополнительных библиотек), свой синтетический файл — `--input /path/to/file.json`; `--mode live` отклоняется. Тесты: `python3 -m unittest discover -s ai_automations/.internal/tests`.
 ## Пример
 Вход: заказ 101 с CMR в статусе `blocked` и без акта; выход: `needs_review=["cmr"]`, `missing=["act"]`, `status=review` (полный `example_output.json`).
 ## Плюсы
@@ -25,6 +25,6 @@ JSON с `missing`, `needs_review`, статусом и причиной.
 ## Human-in-the-loop
 Логист проверяет оригинал каждого документа; закрытие заказа через этот CLI невозможно.
 ## Техническая архитектура
-Локальный `run.py` → `../engine.py` → JSON stdout; никаких HTTP/Odoo-операций.
+Локальный `run.py` → `../../.internal/engine.py` → JSON stdout; никаких HTTP/Odoo-операций.
 ## Ограничения
 DEMO MODE работает на синтетических статусах. LIVE MODE требует проверки связи заказа с документами, ACL и политики обязательности.

@@ -6,14 +6,14 @@ import unittest
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / ".internal"))
 from engine import FUNCTIONS, SCENARIOS
 
 
 class ScenarioTests(unittest.TestCase):
     def call(self, slug, *args):
-        return subprocess.run([sys.executable, str(ROOT / slug / "run.py"), *args],
+        return subprocess.run([sys.executable, str(ROOT / "scenarios" / slug / "run.py"), *args],
                               capture_output=True, text=True, timeout=10)
 
     def test_each_scenario_launch_repeat_and_result(self):
@@ -27,7 +27,7 @@ class ScenarioTests(unittest.TestCase):
                 self.assertEqual(payload["mode"], "DEMO")
                 self.assertEqual(payload["scenario"], slug)
                 self.assertTrue(payload["result"])
-                expected = json.loads((ROOT / slug / "example_output.json").read_text(encoding="utf-8"))
+                expected = json.loads((ROOT / "scenarios" / slug / "example_output.json").read_text(encoding="utf-8"))
                 self.assertEqual(payload, expected)
 
     def test_live_fails_closed(self):
@@ -52,7 +52,7 @@ class ScenarioTests(unittest.TestCase):
                 self.assertNotEqual(self.call(slug, "--input", str(path)).returncode, 0)
 
     def test_expected_findings(self):
-        results = {slug: FUNCTIONS[slug](json.loads((ROOT / slug / "example_input.json").read_text(encoding="utf-8")))
+        results = {slug: FUNCTIONS[slug](json.loads((ROOT / "scenarios" / slug / "example_input.json").read_text(encoding="utf-8")))
                    for slug in SCENARIOS}
         self.assertEqual(results["customer_360"]["review_reactivation"], 1)
         self.assertEqual(results["margin_watch"]["orders"][0]["result"], "-600.00")
