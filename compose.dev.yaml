@@ -22,6 +22,8 @@ services:
   odoo:
     environment:
       AI_DOCUMENT_CHECK_URL: http://ai-document-check-mock:8080/check
+    volumes:
+      - ./ai_automations:/opt/repka/ai-automations:ro
     depends_on:
       ai-document-check-mock:
         condition: service_healthy
