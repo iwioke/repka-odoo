@@ -1,0 +1,1 @@
+{"as_of":"2026-09-28","partners":[{"id":1,"name":"ООО Демо Север"},{"id":2,"name":"ООО Демо Юг"}],"orders":[{"id":101,"partner_id":1,"order_date":"2026-04-10","is_paid":true},{"id":102,"partner_id":1,"order_date":"2026-05-02","is_paid":false},{"id":103,"partner_id":2,"order_date":"2026-09-15","is_paid":true}]}
