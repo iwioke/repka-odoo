@@ -1,46 +1,46 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Repka AI Automation</title>
+  <title>Репка — ИИ-автоматизация</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
 <body>
   <div class="shell">
     <aside class="sidebar">
-      <div class="brand"><span class="brand-mark">R<span class="brand-dot">.</span></span><span>Repka <strong>AI</strong><small>AUTOMATION</small></span></div>
-      <div class="side-label">WORKSPACE</div>
-      <nav aria-label="Main navigation">
-        <button class="nav-item active" id="nav-automations" type="button"><span class="nav-icon">▦</span> Automations</button>
-        <button class="nav-item" id="nav-history" type="button"><span class="nav-icon">◷</span> Run history</button>
+      <div class="brand"><span class="brand-mark">Р<span class="brand-dot">.</span></span><span>Репка <strong>ИИ</strong><small>АВТОМАТИЗАЦИЯ</small></span></div>
+      <div class="side-label">РАБОЧАЯ ОБЛАСТЬ</div>
+      <nav aria-label="Основная навигация">
+        <button class="nav-item active" id="nav-automations" type="button"><span class="nav-icon">▦</span> Автоматизации</button>
+        <button class="nav-item" id="nav-history" type="button"><span class="nav-icon">◷</span> История запусков</button>
       </nav>
-      <div class="side-bottom"><span class="online-dot"></span> Local demo workspace <span class="version">v1.0</span></div>
+      <div class="side-bottom"><span class="online-dot"></span> Локальная демонстрация <span class="version">v1.0</span></div>
     </aside>
     <main class="main">
-      <div class="topline"><span>WORKSPACE <span class="slash">/</span> <span id="crumb">AUTOMATIONS</span></span><span class="environment"><span class="online-dot"></span> DEMO ENVIRONMENT</span></div>
+      <div class="topline"><span>РАБОЧАЯ ОБЛАСТЬ <span class="slash">/</span> <span id="crumb">АВТОМАТИЗАЦИИ</span></span><span class="environment"><span class="online-dot"></span> ДЕМО-РЕЖИМ</span></div>
       <section id="automations-view">
         <header class="hero">
-          <div class="eyebrow"><span class="eyebrow-line"></span> THE AUTOMATION HUB</div>
-          <h1>Repka AI <span>Automation</span></h1>
-          <p class="subtitle">AI-powered business automation for Repka / Odoo</p>
-          <p class="intro">Explore, test and run AI-powered automations connected to Repka / Odoo. Current demos use synthetic data and deterministic rules; no live Odoo connection.</p>
+          <div class="eyebrow"><span class="eyebrow-line"></span> ЦЕНТР АВТОМАТИЗАЦИИ</div>
+          <h1>Репка — <span>ИИ-автоматизация</span></h1>
+          <p class="subtitle">Автоматизация бизнес-процессов для Репки / Odoo</p>
+          <p class="intro">Изучайте и запускайте сценарии для Репки / Odoo. Доступные демонстрации работают на синтетических данных по понятным правилам, без подключения к Odoo.</p>
         </header>
-        <div id="stats" class="stats" aria-label="Catalogue statistics"></div>
-        <section class="activity" id="activity" aria-label="Recent activity"></section>
-        <section class="directory" aria-label="Automation catalogue">
-          <div class="section-header"><div><div class="eyebrow">EXPLORE</div><h2>Automation library</h2><p>Find the right workflow for your team.</p></div><span id="result-count" class="result-count"></span></div>
-          <div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Search automations..." aria-label="Search automations"></label><div id="filters" class="filters" aria-label="Filter by category"></div></div>
+        <div id="stats" class="stats" aria-label="Статистика каталога"></div>
+        <section class="activity" id="activity" aria-label="Последние действия"></section>
+        <section class="directory" aria-label="Каталог автоматизаций">
+          <div class="section-header"><div><div class="eyebrow">КАТАЛОГ</div><h2>Сценарии автоматизации</h2><p>Найдите подходящий сценарий для своей команды.</p></div><span id="result-count" class="result-count"></span></div>
+          <div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Поиск сценариев..." aria-label="Поиск сценариев"></label><div id="filters" class="filters" aria-label="Фильтр по категориям"></div></div>
           <div id="cards" class="cards"></div>
         </section>
       </section>
       <section id="history-view" class="history-view" hidden>
-        <div class="eyebrow"><span class="eyebrow-line"></span> ACTIVITY LOG</div><h1>Run <span>history</span></h1><p class="intro">Runs in this local server session. Inputs and results are not stored.</p>
+        <div class="eyebrow"><span class="eyebrow-line"></span> ЖУРНАЛ ДЕЙСТВИЙ</div><h1>История <span>запусков</span></h1><p class="intro">Запуски в текущей сессии локального сервера. Входные данные и результаты не сохраняются.</p>
         <div id="history-content"></div>
       </section>
-      <footer>REPKA / ODOO <span>·</span> LOCAL DEMO ONLY <span>·</span> NO LIVE DATA</footer>
+      <footer>РЕПКА / ODOO <span>·</span> ТОЛЬКО ЛОКАЛЬНАЯ ДЕМОНСТРАЦИЯ <span>·</span> БЕЗ РЕАЛЬНЫХ ДАННЫХ</footer>
     </main>
   </div>
   <div id="modal-root"></div>

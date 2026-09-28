@@ -104,32 +104,36 @@ class BrowserFlowTests(unittest.TestCase):
                             if client.evaluate("document.querySelectorAll('.card').length") == 23:
                                 break
                             time.sleep(.1)
+                        self.assertEqual(client.evaluate("document.documentElement.lang"), "ru")
                         self.assertEqual(client.evaluate("document.querySelectorAll('.card').length"), 23)
                         self.assertEqual(client.evaluate("document.querySelectorAll('.card .run-button:disabled').length"), 19)
-                        client.evaluate("document.querySelector('#search').value='margin'; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
+                        self.assertTrue(client.evaluate("[...document.querySelectorAll('.card h3')].every(x=>/[А-Яа-яЁё]/.test(x.textContent) && !/[A-Za-z]/.test(x.textContent))"))
+                        self.assertTrue(client.evaluate("[...document.querySelectorAll('.filter')].every(x=>!/[A-Za-z]/.test(x.textContent))"))
+                        self.assertIn('Сценарии автоматизации', client.evaluate("document.querySelector('.directory h2').textContent"))
+                        client.evaluate("document.querySelector('#search').value='экономика'; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
                         self.assertEqual(client.evaluate("document.querySelectorAll('.card').length"), 1)
                         client.evaluate("document.querySelector('.card .link-button').click()")
-                        self.assertIn('Freight Margin Watch', client.evaluate("document.querySelector('.modal h2').textContent"))
+                        self.assertIn('Экономика перевозок', client.evaluate("document.querySelector('.modal h2').textContent"))
                         client.evaluate("document.querySelector('.modal .primary').click()")
-                        self.assertIn('DEMO MODE', client.evaluate("document.querySelector('.modal .notice').textContent"))
+                        self.assertIn('ДЕМО-РЕЖИМ', client.evaluate("document.querySelector('.modal .notice').textContent"))
                         client.evaluate("document.querySelector('.modal .primary').click()")
                         for _ in range(100):
                             if client.evaluate("document.querySelector('.modal pre')?.textContent || ''"):
                                 break
                             time.sleep(.1)
                         result = json.loads(client.evaluate("document.querySelector('.modal pre')?.textContent || '{}'"))
-                        self.assertEqual(result["scenario"], "margin_watch")
-                        self.assertEqual(result["result"]["review_count"], 1)
+                        self.assertEqual(result['Количество замечаний'], 1)
+                        self.assertEqual(result['Заказы'][0]['Разница выручки и затрат'], '-600.00')
                         client.evaluate("document.querySelector('.modal .secondary').click(); document.querySelector('#nav-history').click()")
-                        self.assertIn('Freight Margin Watch', client.evaluate("document.querySelector('#history-content').textContent"))
+                        self.assertIn('Экономика перевозок', client.evaluate("document.querySelector('#history-content').textContent"))
                         client.evaluate("document.querySelector('#nav-automations').click(); document.querySelector('#search').value=''; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
                         client.evaluate("document.querySelector('.card .run-button').click(); document.querySelector('.modal .primary').click()")
                         for _ in range(100):
                             if client.evaluate("document.querySelector('.modal pre')?.textContent || ''"):
                                 break
                             time.sleep(.1)
-                        self.assertEqual(json.loads(client.evaluate("document.querySelector('.modal pre').textContent"))["scenario"], "customer_360")
-                        for slug, title in (("document_readiness", "Document Readiness"), ("executive_brief", "Executive Brief")):
+                        self.assertEqual(json.loads(client.evaluate("document.querySelector('.modal pre').textContent"))['Клиентов для проверки'], 1)
+                        for key, title in (('Количество замечаний', 'Готовность документов'), ('Показатели', 'Сводка руководителю')):
                             client.evaluate("document.querySelector('.modal .secondary').click()")
                             client.evaluate(f"[...document.querySelectorAll('.card')].find(card=>card.querySelector('h3').textContent==={json.dumps(title)}).querySelector('.run-button').click()")
                             client.evaluate("document.querySelector('.modal .primary').click()")
@@ -137,13 +141,13 @@ class BrowserFlowTests(unittest.TestCase):
                                 if client.evaluate("document.querySelector('.modal pre')?.textContent || ''"):
                                     break
                                 time.sleep(.1)
-                            self.assertEqual(json.loads(client.evaluate("document.querySelector('.modal pre').textContent"))["scenario"], slug)
+                            self.assertIn(key, json.loads(client.evaluate("document.querySelector('.modal pre').textContent")))
                         client.evaluate("document.querySelector('.modal .secondary').click()")
-                        client.evaluate("document.querySelector('#search').value='lead'; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
+                        client.evaluate("document.querySelector('#search').value='отбор заявок'; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
                         self.assertEqual(client.evaluate("document.querySelectorAll('.card').length"), 1)
                         self.assertTrue(client.evaluate("document.querySelector('.card .run-button').disabled"))
                         client.evaluate("document.querySelector('#search').value=''; document.querySelector('#search').dispatchEvent(new Event('input',{bubbles:true}))")
-                        client.evaluate("[...document.querySelectorAll('.filter')].find(x=>x.textContent==='Documents / Logistics').click()")
+                        client.evaluate("[...document.querySelectorAll('.filter')].find(x=>x.textContent==='Документы и логистика').click()")
                         self.assertEqual(client.evaluate("document.querySelectorAll('.card').length"), 1)
                         client.evaluate("document.querySelector('.card .run-button').click()")
                         client.evaluate("document.querySelector('.input-label input').click(); document.querySelector('textarea').value='{}'; document.querySelector('.modal .primary').click()")
@@ -151,11 +155,11 @@ class BrowserFlowTests(unittest.TestCase):
                             if client.evaluate("document.querySelector('.modal .notice.error')?.textContent || ''"):
                                 break
                             time.sleep(.1)
-                        self.assertIn('Automation failed', client.evaluate("document.querySelector('.modal .notice.error').textContent"))
+                        self.assertIn('Не удалось выполнить сценарий', client.evaluate("document.querySelector('.modal .notice.error').textContent"))
                         client.evaluate("document.querySelector('.modal .primary').click()")
                         self.assertEqual(client.evaluate("document.querySelector('textarea').value"), '{}')
                         client.evaluate("document.querySelector('.modal .secondary').click(); document.querySelector('#nav-history').click()")
-                        self.assertIn('Failed', client.evaluate("document.querySelector('#history-content').textContent"))
+                        self.assertIn('Ошибка', client.evaluate("document.querySelector('#history-content').textContent"))
                     finally:
                         client.close()
                 finally:

@@ -1,28 +1,30 @@
-# Repka AI Automation
+# Репка — ИИ-автоматизация
 
-Local catalogue and launcher for the existing `ai_automations/` scenarios. The dashboard shows all catalogue entries and runs only registered DEMO scenarios against synthetic JSON. No ML/LLM, OCR, live Odoo connection or production actions are provided.
+Локальный каталог и интерфейс запуска сценариев из `ai_automations/`. Сайт полностью на русском языке: названия, категории, статусы, результаты и история запусков. Из 23 позиций доступны четыре демонстрационных сценария на синтетических данных. Обученных ИИ-моделей, распознавания сканов, подключения к рабочей базе Odoo и действий в ней нет.
 
-## Requirements and start
+## Требования и запуск
 
-Python 3.9+; no pip, Node or Docker required. From the repository root:
+Нужен Python 3.9+. Устанавливать дополнительные пакеты, Node или Docker не требуется. Из корня репозитория:
 
 ```sh
 python3 ai_automations/app/server.py
 ```
 
-Open `http://127.0.0.1:8765/` on the same machine. Optional port: `python3 ai_automations/app/server.py --port 8766`. The server binds only to 127.0.0.1 and has no authentication: do not expose it through a proxy or public network. Stop with Ctrl+C.
+Откройте `http://127.0.0.1:8765/` на том же компьютере. Другой порт: `python3 ai_automations/app/server.py --port 8766`. Сервер слушает только 127.0.0.1 и не имеет авторизации: не публикуйте его в сети. Остановить сервер можно сочетанием Ctrl+C.
 
-## Architecture and integration
+## Архитектура и связь со сценариями
 
-`server.py` reads `catalog/AI_AUTOMATIONS_CATALOG.md` and `catalog/future/README.md`; runnable scenario details are read from each scenario's `README.md`. It discovers folders under `scenarios/`, but only folders present in `.internal/engine.py`'s `FUNCTIONS` registry with `run.py` and `example_input.json` can run. The dashboard uses `/api/automations`, `/api/run`, `/api/history`. The backend passes fixed arguments to the registered `run.py` without a shell; default input is the checked-in synthetic example. An optional custom JSON object is written to a temporary file and deleted immediately after execution. Input is limited to 64 KB, runtime to 12 seconds and output to 1 MB. Inputs and results are not kept in history; only the last 100 run metadata records are held in server memory and disappear on restart. No credentials are sent to the browser.
+`server.py` читает `catalog/AI_AUTOMATIONS_CATALOG.md` и `catalog/future/README.md`, а описание запускаемых сценариев — из их `README.md`. Папки обнаруживаются в `scenarios/`, но запуск разрешён только для сценариев из реестра `FUNCTIONS` в `.internal/engine.py`, у которых есть `run.py` и `example_input.json`. Веб-интерфейс обращается к `/api/automations`, `/api/run` и `/api/history`. Сервер вызывает зарегистрированный `run.py` с фиксированными аргументами без оболочки командной строки. По умолчанию используется синтетический пример; пользовательский JSON записывается во временный файл, который удаляется сразу после запуска. Ограничения: вход до 64 КБ, выполнение до 12 секунд, выход до 1 МБ. В памяти сервера хранится только история последних 100 запусков без входных данных и результатов; при перезапуске она пропадает. Учётные данные в браузер не отправляются.
 
-## Adding an automation
+Русские подписи к названиям, категориям и полям результата задаются в `app.js`. Исходные идентификаторы JSON и ответы API остаются прежними, чтобы не нарушить работу сценариев. При добавлении новой идеи на другом языке добавьте её русское название в словарь `NAMES`.
 
-Add a folder in `ai_automations/scenarios/` with `README.md` using the same `##` section headings as existing demos, `run.py`, `example_input.json` and tests. Register its slug in `.internal/engine.py`'s `FUNCTIONS` (and CLI dispatcher), and add a `DEMO` row to the catalogue with a name matching the README heading (before the optional ` / ` suffix). The app discovers it on the next request without frontend edits. Future ideas require a `BLOCKED` catalogue row and a matching row in `catalog/future/README.md`; they are shown but cannot be launched. Only add real modes and describe real outputs.
+## Добавление сценария
 
-## DEMO / LIVE and troubleshooting
+Создайте папку в `ai_automations/scenarios/` с `README.md` по образцу существующих демонстраций, `run.py`, `example_input.json` и тестами. Зарегистрируйте идентификатор в `FUNCTIONS` файла `.internal/engine.py` и добавьте строку со статусом `DEMO` в каталог. Имя в каталоге должно совпадать с заголовком `README.md` до необязательного суффикса ` / `. После этого сценарий появится в приложении без изменения логики отображения. Для будущих идей нужны строка со статусом `BLOCKED` в каталоге и соответствующая строка в `catalog/future/README.md`; запустить их нельзя. Не указывайте несуществующие режимы или результаты.
 
-DEMO uses deterministic rules and synthetic input. LIVE is not implemented and the API rejects it; there is no Odoo write path. Custom JSON must match the shape of the scenario's displayed example. For input errors compare fields with `example_input.json`; the UI deliberately does not show raw stderr or secrets. If the catalogue is unavailable, check README/catalogue rows and the Python server console. If a port is in use, choose another `--port`. To verify the API, UI assets and all four runners:
+## Демонстрация, рабочий режим и устранение ошибок
+
+Демо-режим использует синтетические данные и проверяемые правила. Рабочий режим не реализован: API отклоняет его, а запись в Odoo отсутствует. Пользовательский JSON должен повторять структуру примера и сохранять технические названия полей. При ошибках ввода сравните данные с `example_input.json`; интерфейс намеренно скрывает технический вывод ошибок и секреты. Если каталог недоступен, проверьте строки в `README.md` и каталоге, а также вывод сервера. Если порт занят, задайте другой через `--port`. Проверить приложение и исходные сценарии можно так:
 
 ```sh
 python3 -m unittest discover -s ai_automations/app/tests -v
