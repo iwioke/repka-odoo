@@ -4,4 +4,6 @@ USER root
 COPY requirements-oca.txt /tmp/requirements-oca.txt
 RUN python3 -m pip install --break-system-packages --no-cache-dir --no-deps --require-hashes -r /tmp/requirements-oca.txt \
     && rm /tmp/requirements-oca.txt
-USER odoo
+COPY scripts/container/entrypoint.sh /usr/local/bin/repka-entrypoint
+RUN chmod 0755 /usr/local/bin/repka-entrypoint
+ENTRYPOINT ["/usr/local/bin/repka-entrypoint"]

@@ -1,6 +1,7 @@
+import os
 from pathlib import Path
 
-password = Path("/run/secrets/odoo_admin_password").read_text(encoding="utf-8").strip()
+password = Path(os.environ.get("ODOO_ADMIN_PASSWORD_FILE", "/run/secrets/odoo_admin_password")).read_text(encoding="utf-8").strip()
 if not password:
     raise RuntimeError("The Odoo administrator password is empty")
 
