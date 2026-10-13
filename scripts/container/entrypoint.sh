@@ -20,7 +20,7 @@ if [ "$command" = "odoo" ] || [ "$command" = "--" ] || [ "${command#-}" != "$com
     if [ "$command" = "odoo" ] || [ "$command" = "--" ]; then
         shift
     fi
-    exec setpriv --reuid=odoo --regid=odoo --init-groups odoo -c "$config_file" "$@"
+    exec setpriv --reuid=odoo --regid=odoo --init-groups -- odoo "$@" -c "$config_file"
 fi
 
-exec setpriv --reuid=odoo --regid=odoo --init-groups /entrypoint.sh "$@"
+exec setpriv --reuid=odoo --regid=odoo --init-groups -- /entrypoint.sh "$@"
