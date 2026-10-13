@@ -62,16 +62,13 @@ These controls do not provide PWA authentication, RAG ACL, mTLS, audit schema, i
 
 ## 6. Identified security gaps and hardening requirements
 
-1. `repka_ai_document_check` can get an endpoint from configuration/environment and transmits document data; a production endpoint needs TLS, authentication, bounded payloads and a host/scheme allowlist to prevent SSRF.
-2. Its `payload_json` and `result_json` can store document-derived data in Odoo. Retention, access group scope and need for full base64 persistence require review before production use.
-3. Current AI mock uses HTTP only inside the development Docker network; it is not a production AI service.
-4. `ai_automations/app` intentionally has no authentication and must remain loopback-only.
-5. Odoo configuration has `list_db=False`, but public deployment must additionally verify master-password handling and ensure no default/shared administrative credentials remain.
-6. Reported Windows Server and prospective application backups currently rely on local copies only; schedule, retention, RPO/RTO, protected/off-site storage and a restore drill are still unconfirmed. This blocks a document-bearing pilot.
-7. No CI, automated dependency/security scanning, central audit log or monitoring is present in the repository.
-8. The file-connector service account is permitted in principle, but a manual account lifecycle without a named owner, rotation and immediate-revocation process is not sufficient for deployment.
-9. A stakeholder selected local-only AI. External model providers remain prohibited for corporate document content, prompts and embeddings until an explicit policy change is approved.
-10. Local inspection found that the Mac mini intended for the worker is not enrolled in MDM, has FileVault off, built-in firewall and stealth mode disabled, and no listed system extensions. Automatic update checking is enabled. Before installing Ollama or a persistent worker, approve a hardening plan or risk acceptance covering device owner, EDR, FileVault, firewall, non-admin runtime account, egress policy, patching and physical-access controls; this audit made no configuration changes.
+1. The new React PWA is test-only and has no authentication, backend, document ingestion or model provider. It must remain synthetic/local until an approved server-side identity and RBAC design is implemented.
+2. Odoo configuration has `list_db=False`, but public deployment must additionally verify master-password handling and ensure no default/shared administrative credentials remain.
+3. Reported Windows Server and prospective application backups currently rely on local copies only; schedule, retention, RPO/RTO, protected/off-site storage and a restore drill are still unconfirmed. This blocks a document-bearing pilot.
+4. No CI, automated dependency/security scanning, central audit log or monitoring is present in the repository.
+5. The file-connector service account is permitted in principle, but a manual account lifecycle without a named owner, rotation and immediate-revocation process is not sufficient for deployment.
+6. A stakeholder selected local-only AI. External model providers remain prohibited for corporate document content, prompts and embeddings until an explicit policy change is approved.
+7. Local inspection found that the Mac mini intended for the worker is not enrolled in MDM, has FileVault off, built-in firewall and stealth mode disabled, and no listed system extensions. Automatic update checking is enabled. Before installing Ollama or a persistent worker, approve a hardening plan or risk acceptance covering device owner, EDR, FileVault, firewall, non-admin runtime account, egress policy, patching and physical-access controls; this audit made no configuration changes.
 
 ## 7. Identity and authorisation baseline
 

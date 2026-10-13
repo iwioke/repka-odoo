@@ -35,18 +35,15 @@ Do not infer the Odoo.sh target from this Docker repository or its README. No Od
 | Logistics | `repka_logistics_core`, `repka_forwarding`, `repka_invoices*`, `repka_complex_reporting`, `repka_special_lm`, `repka_excel_report` and supporting modules |
 | Fleet | `repka_fleet*` family |
 | Web UX | `repka_*` widgets, map, attachment and tree-view helpers |
-| AI demo/queue | `repka_ai_document_check`, `repka_ai_demo_showcase` |
+| Legacy reference | Scenario list in `docs/legacy-scenarios/`; no executable AI/automation addon or mock remains |
 
 `repka_suite` aggregates Odoo core apps such as CRM, sales, purchase, stock, calendar and project alongside project-specific modules. This signals a broad Odoo dependency surface: any new module must list only necessary dependencies and be tested against the actual target.
 
-## 4. Existing AI-related compatibility notes
+## 4. Separate PWA compatibility boundary
 
-- `repka_ai_document_check` depends on `base`, `mail` and `repka_forwarding`; it submits an HTTP payload to a configurable endpoint, then records a result in Odoo.
-- The bundled `ai_document_check_mock` is a deterministic development service. It is not an OCR/LLM integration and must not be represented as one.
-- `repka_ai_demo_showcase` is for the `repka_test` database and its logout behaviour is explicitly conditional on that test database. It must remain excluded from production workflows.
-- `ai_automations/` is external to the Odoo addon runtime and uses synthetic data; it is not an Odoo.sh deployment artefact.
+The new LM GROUP React PWA is intentionally outside the Odoo addon runtime for the test-only stage. It has no Odoo dependency, API call, production credential, document source or model provider.
 
-A future AI gateway integration must remain version-compatible with the verified target Odoo and have an approved security/authentication contract. Direct arbitrary HTTP endpoints and production document transfer are not acceptable.
+Any future AI gateway or Odoo integration must remain version-compatible with the verified target Odoo and have an approved server-side authentication and ACL contract. Direct arbitrary HTTP endpoints and production document transfer are not acceptable.
 
 ## 5. Identity and MFA compatibility
 

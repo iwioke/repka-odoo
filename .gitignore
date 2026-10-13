@@ -17,3 +17,5 @@ htmlcov/
 .DS_Store
 .idea/
 .vscode/
+apps/lm-group-pwa/node_modules/
+apps/lm-group-pwa/dist/

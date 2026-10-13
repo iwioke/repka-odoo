@@ -27,7 +27,6 @@
         "repka_fleet_wallet",
         "repka_fleet_waybill",
         "repka_forwarding",
-        "repka_ai_document_check",
         "repka_invoices",
         "repka_invoices_base_reports",
         "repka_invoices_forwarding",

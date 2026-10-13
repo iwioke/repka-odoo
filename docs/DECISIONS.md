@@ -16,12 +16,12 @@
 - **Decision:** Browser access goes to a corporate HTTPS domain. Mac mini and file connector establish outbound authenticated TLS connections to a public broker/backend. Use mTLS or equivalent device identity plus short-lived/rotatable credentials.
 - **Consequences:** No WireGuard/Tailscale/ZeroTier tunnel is introduced as an architecture dependency. No public Ollama, SMB, RDP, PostgreSQL, Redis, SSH or internal API endpoint is required.
 
-## ADR-003 — Keep current AI features labelled as deterministic demo/mock
+## ADR-003 — Remove the legacy AI/automation demo stack
 
-- **Status:** Accepted.
-- **Context:** The repo already contains `ai_automations`, `repka_ai_document_check` and a mock service.
-- **Decision:** Retain them as synthetic, deterministic demo components and as design references for bounded execution. Do not market or expose them as production RAG/LLM/OCR.
-- **Consequences:** They can inform async state handling and task registry design but do not satisfy new requirements for document ACL, RAG, model evaluation or worker security.
+- **Status:** Accepted and executed for the test branch.
+- **Context:** The repository contained deterministic scenarios, a Python demo UI, a document-check mock and related Odoo addons that do not match the new independent application direction.
+- **Decision:** Remove their executable code, Odoo integration, Compose wiring, tests and feature documentation. Preserve only the scenario catalog as reference-only Markdown and move generic Odoo automation audit tools into `tools/legacy_automation_audit/`.
+- **Consequences:** `repka_suite` no longer depends on the removed addons. The new PWA does not reuse the old runtime or connect to Odoo until a later approved integration design exists.
 
 ## ADR-004 — Local Ollama is the primary candidate, but model choice is evidence-based
 

@@ -174,7 +174,6 @@
                     </div>
                     <div class="d-flex gap-2 mb-3">
                         <button name="action_request_advance_invoice" type="object" string="Запросить авансовый счёт" class="btn-secondary" invisible="advance_invoice_requested"/>
-                        <button name="%(repka_ai_document_check.action_ufs_ai_logist_wizard)d" type="action" string="AI Logist" class="btn-primary"/>
                         <button name="%(repka_forwarding.action_create_suborder)d" type="action" string="Новый подзаказ" class="btn-secondary"/>
                         <button name="action_auto_suborder" type="object" string="Авто Подзаказ" class="btn-secondary"/>
                         <button name="%(account.action_move_out_invoice_type)d" type="action" string="Выставить счёт" class="btn-secondary"/>

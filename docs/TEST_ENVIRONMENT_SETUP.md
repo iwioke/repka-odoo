@@ -97,7 +97,13 @@ After the domain is purchased manually, create one DNS `A` record from `test.<ne
 
 ## 5. Local test database setup on Mac mini
 
-The current Mac mini has no Docker-compatible runtime installed. Do not install Docker Desktop until the Mac hardening decision is approved. When Docker Desktop is approved and running, use only the following test procedure from the repository root:
+The current Mac mini uses a user-level Colima Docker runtime with 4 vCPU, 6 GiB RAM and 60 GiB disk. Docker Desktop is not required for this local test setup. Colima exposes a local Unix socket only; do not add router port forwarding, tunnels or public listeners.
+
+Start the local runtime before using the following test procedure from the repository root:
+
+```bash
+colima start --cpu 4 --memory 6 --disk 60 --vm-type vz --mount-type virtiofs
+```
 
 ```bash
 cp .env.example .env
@@ -124,8 +130,8 @@ Validate and test it:
 
 ```bash
 docker compose -f compose.yaml -f compose.dev.yaml config --quiet
-python3 -m unittest discover -s ai_automations/.internal/tests -v
-python3 -m unittest discover -s ai_automations/app/tests -v
+npm --prefix apps/lm-group-pwa run lint
+npm --prefix apps/lm-group-pwa run build
 docker compose -f compose.yaml run --rm --no-deps odoo odoo \
   -d repka_test -i repka_suite --without-demo=all \
   --test-enable --test-tags=/repka_suite --stop-after-init

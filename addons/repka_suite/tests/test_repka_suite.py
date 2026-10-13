@@ -12,7 +12,6 @@ class TestRepkaSuite(TransactionCase):
             "repka_oca",
             "repka_standard",
             "repka_fleet_battery",
-            "repka_ai_document_check",
             "repka_suite",
         }
         modules = self.env["ir.module.module"].search([

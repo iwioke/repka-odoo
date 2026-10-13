@@ -11,7 +11,7 @@
 | Existing stack | Odoo CE `18.0-20251222`, PostgreSQL 16 and Caddy are modelled in Docker Compose. | `Dockerfile`, Compose files, `AGENTS.md`. |
 | Public proxy pattern | Existing production Compose publishes Caddy ports 80/443; Odoo and DB remain in Docker networks. | `compose.prod.yaml`, `compose.yaml`. |
 | Development exposure | Odoo development port binds `127.0.0.1`. | `compose.dev.yaml`. |
-| AI demos | Existing AI work is deterministic/synthetic and local/mock only. | `ai_automations/README.md`, mock service. |
+| Legacy scenarios | Executable automation demos, mock service and related Odoo addons were removed from the test branch; only a reference catalog remains. | `docs/legacy-scenarios/AI_AUTOMATIONS_CATALOG.md`. |
 | Office equipment | A Windows Server with public IP is used as file server; a 16 GB M4 Mac mini is considered for local AI. | Supplied project brief. |
 | Required connectivity | Employee access must be ordinary HTTPS from Belarus offices, with no VPN requirement. | Supplied project brief. |
 | Office node rule | Do not rely on inbound internet access to Mac mini or the file server. | Supplied project brief. |

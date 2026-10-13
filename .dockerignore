@@ -9,3 +9,5 @@ secrets/
 **/__pycache__/
 **/*.py[cod]
 **/*.log
+apps/lm-group-pwa/node_modules/
+apps/lm-group-pwa/dist/

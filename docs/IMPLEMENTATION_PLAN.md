@@ -43,7 +43,7 @@
 
 ### Test-only scope decision
 
-До решения по public pilot разрешён только `repka_test` с синтетическими данными. Windows file connector, RAG по корпоративным документам, Ollama, Mac mini worker и production/Odoo.sh deployment не входят в этот этап. Отдельный public test host допускается только после ручной покупки отдельного VPS/домена и выполнения инструкции `docs/TEST_ENVIRONMENT_SETUP.md`.
+До решения по public pilot разрешён только `repka_test` с синтетическими данными и отдельный browser-only PWA shell в `apps/lm-group-pwa/`. Windows file connector, RAG по корпоративным документам, Ollama, Mac mini worker и production/Odoo.sh deployment не входят в этот этап. Отдельный public test host допускается только после ручной покупки отдельного VPS/домена и выполнения инструкции `docs/TEST_ENVIRONMENT_SETUP.md`.
 
 ### Scope
 
@@ -193,9 +193,9 @@ The repository specifies these checks for a later Docker-capable development env
  docker compose -f compose.yaml -f compose.dev.yaml config --quiet
  ODOO_DOMAIN=erp.example.com docker compose -f compose.yaml -f compose.prod.yaml config --quiet
 
-# Synthetic automation tests
- python3 -m unittest discover -s ai_automations/.internal/tests -v
- python3 -m unittest discover -s ai_automations/app/tests -v
+# New PWA checks (after the shell is added)
+ npm run lint
+ npm run build
 
 # Isolated Odoo module test
  docker compose -f compose.yaml run --rm --no-deps odoo odoo \

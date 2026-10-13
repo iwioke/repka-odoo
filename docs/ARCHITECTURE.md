@@ -31,18 +31,18 @@
 
 Источник: `Dockerfile`, `compose.yaml`, `compose.dev.yaml`, `compose.prod.yaml`, `Caddyfile`, `scripts/init.sh`, `scripts/backup.sh`.
 
-### 2.2 Модули и уже существующая AI-функциональность
+### 2.2 Удалённый legacy automation stack и текущая граница
 
-В `addons/` находится набор пользовательских Odoo 18 модулей для логистики, экспедирования, транспорта, счетов и отчётности. `repka_suite` является агрегирующим модулем, который включает базовые, логистические, fleet-, invoicing- и AI-модули.
+В `addons/` остаётся набор пользовательских Odoo 18 модулей для логистики, экспедирования, транспорта, счетов и отчётности. `repka_suite` больше не зависит от AI demo/automation addons.
 
-Уже реализовано:
+По подтверждённому решению удалены детерминированные сценарии, их Python demo UI, document-check mock и связанные Odoo addons. Они не являются частью нового приложения и не должны быть восстановлены через Compose, manifests или Odoo external IDs.
 
-- `repka_ai_document_check` — очередь проверок документов со статусами, cron-обработкой, HTTP-вызовом endpoint, результатами и ручным override для назначенной группы;
-- `services/ai_document_check_mock` — детерминированный development mock, который определяет результат по имени файла, а не анализирует документ;
-- `ai_automations/` — четыре детерминированных сценария на синтетических данных (`customer_360`, `margin_watch`, `document_readiness`, `executive_brief`), для которых LIVE mode намеренно отклоняется;
-- `ai_automations/app/` — локальное loopback-only веб-демо без аутентификации, запускающее только зарегистрированные demo-сценарии с ограничением времени, размера входа/выхода и без shell.
+Сохранены только reference-only материалы:
 
-Это не RAG, не Ollama и не production AI-сервис. Существующие компоненты следует сохранить как изолированные демо и как примеры безопасных ограничений, а не публиковать как корпоративный assistant.
+- список legacy сценариев в `docs/legacy-scenarios/AI_AUTOMATIONS_CATALOG.md`;
+- generic Odoo audit tools в `tools/legacy_automation_audit/`.
+
+Новый интерфейс создаётся как отдельный test-only React PWA shell. До отдельного утверждения он не связан с Odoo, корпоративными документами, file connector, Ollama или внешними model providers.
 
 ### 2.3 UI/UX reference: iwiqoVPN
 
@@ -54,6 +54,12 @@
 - явный статус недоступного локального AI worker.
 
 Не допускается перенос `VPNManager`, WireGuard, `wg-quick`, sudoers-правил, Telegram-конфигурации, VPN-моделей, entitlements или иной сетевой механики.
+
+### 2.4 Новый test-only PWA shell
+
+`apps/lm-group-pwa/` — отдельный React + TypeScript + Vite PWA. Он реализует адаптивную информационную архитектуру первого экрана: Assistant, Knowledge, Drafts, Odoo agent, History, Profile и Administration. Chat использует browser-only mock responses; service worker и manifest обеспечивают PWA shell.
+
+На этом этапе PWA не имеет backend, authentication, persistence, Odoo API, document ingestion, local model, external provider или real user data. Любой ответ, status и source chip в нём является демонстрационным и не должен интерпретироваться как корпоративный факт.
 
 ## 3. Целевая архитектура-кандидат
 
